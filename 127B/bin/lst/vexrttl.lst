@@ -1,0 +1,2607 @@
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"vexrttl.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.vexAudioPlayRtttl,"ax",%progbits
+  19              		.align	2
+  20              		.p2align 4,,15
+  21              		.global	vexAudioPlayRtttl
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	vexAudioPlayRtttl, %function
+  25              	vexAudioPlayRtttl:
+  26              	.LFB64:
+  27              		.file 1 "../convex/cortex/fw/vexrttl.c"
+  28              		.loc 1 113 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 8
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              	.LVL0:
+  33 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, sl, fp, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 36
+  36              		.cfi_offset 4, -36
+  37              		.cfi_offset 5, -32
+  38              		.cfi_offset 6, -28
+  39              		.cfi_offset 7, -24
+  40              		.cfi_offset 8, -20
+  41              		.cfi_offset 9, -16
+  42              		.cfi_offset 10, -12
+  43              		.cfi_offset 11, -8
+  44              		.cfi_offset 14, -4
+  45              		.loc 1 123 0
+  46 0004 0378     		ldrb	r3, [r0, #0]	@ zero_extendqisi2
+  47              		.loc 1 113 0
+  48 0006 83B0     		sub	sp, sp, #12
+  49              	.LCFI1:
+  50              		.cfi_def_cfa_offset 48
+  51              		.loc 1 123 0
+  52 0008 3A2B     		cmp	r3, #58
+  53 000a 18BF     		it	ne
+  54 000c 002B     		cmpne	r3, #0
+  55              		.loc 1 113 0
+  56 000e 0F46     		mov	r7, r1
+  57 0010 0192     		str	r2, [sp, #4]
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 2
+
+
+  58              		.loc 1 123 0
+  59 0012 00F0B381 		beq	.L52
+  60              		.loc 1 112 0
+  61 0016 984A     		ldr	r2, .L111
+  62              	.LVL1:
+  63 0018 411C     		adds	r1, r0, #1
+  64              	.LVL2:
+  65              	.L3:
+  66              		.loc 1 125 0
+  67 001a 02F8013C 		strb	r3, [r2, #-1]
+  68              	.LVL3:
+  69 001e 8946     		mov	r9, r1
+  70              	.LVL4:
+  71              		.loc 1 123 0
+  72 0020 11F8013B 		ldrb	r3, [r1], #1	@ zero_extendqisi2
+  73              	.LVL5:
+  74              		.loc 1 112 0
+  75 0024 1446     		mov	r4, r2
+  76 0026 0132     		adds	r2, r2, #1
+  77              	.LVL6:
+  78              		.loc 1 123 0
+  79 0028 3A2B     		cmp	r3, #58
+  80 002a 18BF     		it	ne
+  81 002c 002B     		cmpne	r3, #0
+  82 002e F4D1     		bne	.L3
+  83              	.LVL7:
+  84              	.L2:
+  85              		.loc 1 127 0
+  86 0030 0023     		movs	r3, #0
+  87 0032 2370     		strb	r3, [r4, #0]
+  88              		.loc 1 129 0
+  89 0034 99F80030 		ldrb	r3, [r9, #0]	@ zero_extendqisi2
+  90 0038 002B     		cmp	r3, #0
+  91 003a 00F01581 		beq	.L56
+  92              		.loc 1 130 0
+  93 003e 09F10109 		add	r9, r9, #1
+  94              	.LVL8:
+  95              		.loc 1 133 0
+  96 0042 99F80040 		ldrb	r4, [r9, #0]	@ zero_extendqisi2
+  97              		.loc 1 118 0
+  98 0046 4FF03F08 		mov	r8, #63
+  99              	.LVL9:
+ 100              		.loc 1 117 0
+ 101 004a 0626     		movs	r6, #6
+ 102              		.loc 1 116 0
+ 103 004c 0425     		movs	r5, #4
+ 104              	.LBB7:
+ 105              		.loc 1 151 0
+ 106 004e 4FF0200C 		mov	ip, #32
+ 107              	.LBE7:
+ 108              		.loc 1 133 0
+ 109 0052 002C     		cmp	r4, #0
+ 110 0054 49D0     		beq	.L9
+ 111              	.LVL10:
+ 112              	.L109:
+ 113              	.LBB8:
+ 114              		.loc 1 138 0 discriminator 1
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 3
+
+
+ 115 0056 202C     		cmp	r4, #32
+ 116 0058 0AD1     		bne	.L20
+ 117              		.loc 1 112 0
+ 118 005a 09F10103 		add	r3, r9, #1
+ 119              	.L7:
+ 120              		.loc 1 138 0 discriminator 2
+ 121 005e 1C78     		ldrb	r4, [r3, #0]	@ zero_extendqisi2
+ 122 0060 9946     		mov	r9, r3
+ 123              	.LVL11:
+ 124 0062 202C     		cmp	r4, #32
+ 125 0064 03F10103 		add	r3, r3, #1
+ 126              	.LVL12:
+ 127 0068 F9D0     		beq	.L7
+ 128              		.loc 1 139 0
+ 129 006a 002C     		cmp	r4, #0
+ 130 006c 00F0FC80 		beq	.L56
+ 131              	.L20:
+ 132              		.loc 1 140 0
+ 133 0070 3A2C     		cmp	r4, #58
+ 134 0072 3AD0     		beq	.L9
+ 135              	.LVL13:
+ 136              		.loc 1 143 0
+ 137 0074 99F80130 		ldrb	r3, [r9, #1]	@ zero_extendqisi2
+ 138 0078 3D2B     		cmp	r3, #61
+ 139 007a 40F0F580 		bne	.L56
+ 140              		.loc 1 147 0
+ 141 007e 99F80230 		ldrb	r3, [r9, #2]	@ zero_extendqisi2
+ 142              		.loc 1 145 0
+ 143 0082 09F10200 		add	r0, r9, #2
+ 144              	.LVL14:
+ 145              		.loc 1 147 0
+ 146 0086 A3F13002 		sub	r2, r3, #48
+ 147 008a D1B2     		uxtb	r1, r2
+ 148 008c 0929     		cmp	r1, #9
+ 149 008e 00F2EF80 		bhi	.L53
+ 150              		.loc 1 112 0
+ 151 0092 09F10300 		add	r0, r9, #3
+ 152              	.LVL15:
+ 153              		.loc 1 146 0
+ 154 0096 0021     		movs	r1, #0
+ 155              	.LVL16:
+ 156              	.L11:
+ 157              		.loc 1 147 0 discriminator 2
+ 158 0098 8146     		mov	r9, r0
+ 159 009a 10F8013B 		ldrb	r3, [r0], #1	@ zero_extendqisi2
+ 160 009e 01EB8101 		add	r1, r1, r1, lsl #2
+ 161 00a2 02EB4101 		add	r1, r2, r1, lsl #1
+ 162              	.LVL17:
+ 163 00a6 A3F13002 		sub	r2, r3, #48
+ 164 00aa 5FFA82FA 		uxtb	sl, r2
+ 165 00ae BAF1090F 		cmp	sl, #9
+ 166 00b2 F1D9     		bls	.L11
+ 167              	.LVL18:
+ 168              	.L10:
+ 169              		.loc 1 149 0
+ 170 00b4 642C     		cmp	r4, #100
+ 171 00b6 00F0D480 		beq	.L14
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 4
+
+
+ 172 00ba 6F2C     		cmp	r4, #111
+ 173 00bc 08BF     		it	eq
+ 174 00be 0E46     		moveq	r6, r1
+ 175 00c0 02D0     		beq	.L15
+ 176              		.loc 1 153 0
+ 177 00c2 622C     		cmp	r4, #98
+ 178 00c4 08BF     		it	eq
+ 179 00c6 8846     		moveq	r8, r1
+ 180              	.LVL19:
+ 181              	.L15:
+ 182              		.loc 1 156 0 discriminator 1
+ 183 00c8 202B     		cmp	r3, #32
+ 184 00ca 06D1     		bne	.L17
+ 185              		.loc 1 112 0
+ 186 00cc 09F10102 		add	r2, r9, #1
+ 187              	.LVL20:
+ 188              	.L18:
+ 189              		.loc 1 156 0 discriminator 2
+ 190 00d0 9146     		mov	r9, r2
+ 191              	.LVL21:
+ 192 00d2 12F8013B 		ldrb	r3, [r2], #1	@ zero_extendqisi2
+ 193              	.LVL22:
+ 194 00d6 202B     		cmp	r3, #32
+ 195 00d8 FAD0     		beq	.L18
+ 196              	.L17:
+ 197              		.loc 1 157 0
+ 198 00da 2C2B     		cmp	r3, #44
+ 199 00dc 08BF     		it	eq
+ 200 00de 09F10109 		addeq	r9, r9, #1
+ 201              	.LVL23:
+ 202              	.LBE8:
+ 203              		.loc 1 133 0
+ 204 00e2 99F80040 		ldrb	r4, [r9, #0]	@ zero_extendqisi2
+ 205              	.LVL24:
+ 206 00e6 002C     		cmp	r4, #0
+ 207 00e8 B5D1     		bne	.L109
+ 208              	.L9:
+ 209              		.loc 1 163 0
+ 210 00ea 99F80120 		ldrb	r2, [r9, #1]	@ zero_extendqisi2
+ 211              		.loc 1 159 0
+ 212 00ee 09F10104 		add	r4, r9, #1
+ 213              	.LVL25:
+ 214              		.loc 1 163 0
+ 215 00f2 002A     		cmp	r2, #0
+ 216 00f4 00F01E81 		beq	.L21
+ 217 00f8 2146     		mov	r1, r4
+ 218 00fa 1346     		mov	r3, r2
+ 219 00fc 0120     		movs	r0, #1
+ 220              	.LVL26:
+ 221              	.L23:
+ 222              		.loc 1 165 0
+ 223 00fe 2C2B     		cmp	r3, #44
+ 224              		.loc 1 163 0
+ 225 0100 11F8013F 		ldrb	r3, [r1, #1]!	@ zero_extendqisi2
+ 226              		.loc 1 166 0
+ 227 0104 08BF     		it	eq
+ 228 0106 0130     		addeq	r0, r0, #1
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 5
+
+
+ 229              	.LVL27:
+ 230              		.loc 1 163 0
+ 231 0108 002B     		cmp	r3, #0
+ 232 010a F8D1     		bne	.L23
+ 233              		.loc 1 169 0
+ 234 010c 0128     		cmp	r0, #1
+ 235 010e 07D0     		beq	.L24
+ 236              		.loc 1 170 0
+ 237 0110 0130     		adds	r0, r0, #1
+ 238              	.LVL28:
+ 239 0112 FFF7FEFF 		bl	vexAudioInitChipToneSong
+ 240              	.LVL29:
+ 241 0116 99F80120 		ldrb	r2, [r9, #1]	@ zero_extendqisi2
+ 242              		.loc 1 173 0
+ 243 011a 002A     		cmp	r2, #0
+ 244 011c 00F00A81 		beq	.L21
+ 245              	.L24:
+ 246              	.LBB9:
+ 247              	.LBB10:
+ 248              	.LBB11:
+ 249              		.loc 1 100 0
+ 250 0120 4AF6AB29 		movw	r9, #43691
+ 251 0124 DFF858A1 		ldr	sl, .L111+8
+ 252              	.LBE11:
+ 253              	.LBE10:
+ 254              		.loc 1 242 0
+ 255 0128 4FEAC808 		lsl	r8, r8, #3
+ 256              	.LVL30:
+ 257              	.LBB14:
+ 258              		.loc 1 191 0
+ 259 012c 4FF0200B 		mov	fp, #32
+ 260              	.LBE14:
+ 261              	.LBB15:
+ 262              	.LBB12:
+ 263              		.loc 1 100 0
+ 264 0130 C2F6AA29 		movt	r9, 10922
+ 265              	.L25:
+ 266              	.LBE12:
+ 267              	.LBE15:
+ 268              		.loc 1 182 0 discriminator 1
+ 269 0134 202A     		cmp	r2, #32
+ 270 0136 05D1     		bne	.L51
+ 271              		.loc 1 112 0
+ 272 0138 631C     		adds	r3, r4, #1
+ 273              	.L26:
+ 274              		.loc 1 182 0 discriminator 2
+ 275 013a 1C46     		mov	r4, r3
+ 276              	.LVL31:
+ 277 013c 13F8012B 		ldrb	r2, [r3], #1	@ zero_extendqisi2
+ 278              	.LVL32:
+ 279 0140 202A     		cmp	r2, #32
+ 280 0142 FAD0     		beq	.L26
+ 281              	.L51:
+ 282              		.loc 1 183 0
+ 283 0144 002A     		cmp	r2, #0
+ 284 0146 00F08F80 		beq	.L56
+ 285              		.loc 1 186 0
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 6
+
+
+ 286 014a 303A     		subs	r2, r2, #48
+ 287 014c 092A     		cmp	r2, #9
+ 288              	.LBB16:
+ 289              		.loc 1 189 0
+ 290 014e 2078     		ldrb	r0, [r4, #0]	@ zero_extendqisi2
+ 291              	.LBE16:
+ 292              		.loc 1 186 0
+ 293 0150 88BF     		it	hi
+ 294 0152 2946     		movhi	r1, r5
+ 295 0154 17D8     		bhi	.L28
+ 296              	.LVL33:
+ 297              	.LBB17:
+ 298              		.loc 1 189 0 discriminator 1
+ 299 0156 A0F13002 		sub	r2, r0, #48
+ 300 015a D3B2     		uxtb	r3, r2
+ 301 015c 092B     		cmp	r3, #9
+ 302 015e 00F21081 		bhi	.L55
+ 303              		.loc 1 112 0
+ 304 0162 611C     		adds	r1, r4, #1
+ 305              	.LBE17:
+ 306              	.LBE9:
+ 307 0164 0023     		movs	r3, #0
+ 308              	.LVL34:
+ 309              	.L30:
+ 310              	.LBB21:
+ 311              	.LBB18:
+ 312              		.loc 1 189 0 discriminator 2
+ 313 0166 0C46     		mov	r4, r1
+ 314 0168 11F8010B 		ldrb	r0, [r1], #1	@ zero_extendqisi2
+ 315 016c 03EB8303 		add	r3, r3, r3, lsl #2
+ 316 0170 02EB4303 		add	r3, r2, r3, lsl #1
+ 317              	.LVL35:
+ 318 0174 A0F13002 		sub	r2, r0, #48
+ 319 0178 5FFA82FC 		uxtb	ip, r2
+ 320 017c BCF1090F 		cmp	ip, #9
+ 321 0180 F1D9     		bls	.L30
+ 322              	.LVL36:
+ 323              	.L29:
+ 324              		.loc 1 191 0
+ 325 0182 9BFBF3F1 		sdiv	r1, fp, r3
+ 326              	.LVL37:
+ 327              	.L28:
+ 328              	.LBE18:
+ 329              		.loc 1 195 0
+ 330 0186 6828     		cmp	r0, #104
+ 331 0188 00F2F580 		bhi	.L31
+ 332 018c DFE810F0 		tbh	[pc, r0, lsl #1]
+ 333              	.L40:
+ 334 0190 6C00     		.2byte	(.L56-.L40)/2
+ 335 0192 F300     		.2byte	(.L31-.L40)/2
+ 336 0194 F300     		.2byte	(.L31-.L40)/2
+ 337 0196 F300     		.2byte	(.L31-.L40)/2
+ 338 0198 F300     		.2byte	(.L31-.L40)/2
+ 339 019a F300     		.2byte	(.L31-.L40)/2
+ 340 019c F300     		.2byte	(.L31-.L40)/2
+ 341 019e F300     		.2byte	(.L31-.L40)/2
+ 342 01a0 F300     		.2byte	(.L31-.L40)/2
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 7
+
+
+ 343 01a2 F300     		.2byte	(.L31-.L40)/2
+ 344 01a4 F300     		.2byte	(.L31-.L40)/2
+ 345 01a6 F300     		.2byte	(.L31-.L40)/2
+ 346 01a8 F300     		.2byte	(.L31-.L40)/2
+ 347 01aa F300     		.2byte	(.L31-.L40)/2
+ 348 01ac F300     		.2byte	(.L31-.L40)/2
+ 349 01ae F300     		.2byte	(.L31-.L40)/2
+ 350 01b0 F300     		.2byte	(.L31-.L40)/2
+ 351 01b2 F300     		.2byte	(.L31-.L40)/2
+ 352 01b4 F300     		.2byte	(.L31-.L40)/2
+ 353 01b6 F300     		.2byte	(.L31-.L40)/2
+ 354 01b8 F300     		.2byte	(.L31-.L40)/2
+ 355 01ba F300     		.2byte	(.L31-.L40)/2
+ 356 01bc F300     		.2byte	(.L31-.L40)/2
+ 357 01be F300     		.2byte	(.L31-.L40)/2
+ 358 01c0 F300     		.2byte	(.L31-.L40)/2
+ 359 01c2 F300     		.2byte	(.L31-.L40)/2
+ 360 01c4 F300     		.2byte	(.L31-.L40)/2
+ 361 01c6 F300     		.2byte	(.L31-.L40)/2
+ 362 01c8 F300     		.2byte	(.L31-.L40)/2
+ 363 01ca F300     		.2byte	(.L31-.L40)/2
+ 364 01cc F300     		.2byte	(.L31-.L40)/2
+ 365 01ce F300     		.2byte	(.L31-.L40)/2
+ 366 01d0 F300     		.2byte	(.L31-.L40)/2
+ 367 01d2 F300     		.2byte	(.L31-.L40)/2
+ 368 01d4 F300     		.2byte	(.L31-.L40)/2
+ 369 01d6 F300     		.2byte	(.L31-.L40)/2
+ 370 01d8 F300     		.2byte	(.L31-.L40)/2
+ 371 01da F300     		.2byte	(.L31-.L40)/2
+ 372 01dc F300     		.2byte	(.L31-.L40)/2
+ 373 01de F300     		.2byte	(.L31-.L40)/2
+ 374 01e0 F300     		.2byte	(.L31-.L40)/2
+ 375 01e2 F300     		.2byte	(.L31-.L40)/2
+ 376 01e4 F300     		.2byte	(.L31-.L40)/2
+ 377 01e6 F300     		.2byte	(.L31-.L40)/2
+ 378 01e8 F300     		.2byte	(.L31-.L40)/2
+ 379 01ea F300     		.2byte	(.L31-.L40)/2
+ 380 01ec F300     		.2byte	(.L31-.L40)/2
+ 381 01ee F300     		.2byte	(.L31-.L40)/2
+ 382 01f0 F300     		.2byte	(.L31-.L40)/2
+ 383 01f2 F300     		.2byte	(.L31-.L40)/2
+ 384 01f4 F300     		.2byte	(.L31-.L40)/2
+ 385 01f6 F300     		.2byte	(.L31-.L40)/2
+ 386 01f8 F300     		.2byte	(.L31-.L40)/2
+ 387 01fa F300     		.2byte	(.L31-.L40)/2
+ 388 01fc F300     		.2byte	(.L31-.L40)/2
+ 389 01fe F300     		.2byte	(.L31-.L40)/2
+ 390 0200 F300     		.2byte	(.L31-.L40)/2
+ 391 0202 F300     		.2byte	(.L31-.L40)/2
+ 392 0204 F300     		.2byte	(.L31-.L40)/2
+ 393 0206 F300     		.2byte	(.L31-.L40)/2
+ 394 0208 F300     		.2byte	(.L31-.L40)/2
+ 395 020a F300     		.2byte	(.L31-.L40)/2
+ 396 020c F300     		.2byte	(.L31-.L40)/2
+ 397 020e F300     		.2byte	(.L31-.L40)/2
+ 398 0210 F300     		.2byte	(.L31-.L40)/2
+ 399 0212 F100     		.2byte	(.L32-.L40)/2
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 8
+
+
+ 400 0214 7A00     		.2byte	(.L33-.L40)/2
+ 401 0216 EF00     		.2byte	(.L57-.L40)/2
+ 402 0218 ED00     		.2byte	(.L35-.L40)/2
+ 403 021a EB00     		.2byte	(.L36-.L40)/2
+ 404 021c E900     		.2byte	(.L37-.L40)/2
+ 405 021e E700     		.2byte	(.L38-.L40)/2
+ 406 0220 7A00     		.2byte	(.L33-.L40)/2
+ 407 0222 F300     		.2byte	(.L31-.L40)/2
+ 408 0224 F300     		.2byte	(.L31-.L40)/2
+ 409 0226 F300     		.2byte	(.L31-.L40)/2
+ 410 0228 F300     		.2byte	(.L31-.L40)/2
+ 411 022a F300     		.2byte	(.L31-.L40)/2
+ 412 022c F300     		.2byte	(.L31-.L40)/2
+ 413 022e F300     		.2byte	(.L31-.L40)/2
+ 414 0230 F300     		.2byte	(.L31-.L40)/2
+ 415 0232 F300     		.2byte	(.L31-.L40)/2
+ 416 0234 F300     		.2byte	(.L31-.L40)/2
+ 417 0236 F300     		.2byte	(.L31-.L40)/2
+ 418 0238 F300     		.2byte	(.L31-.L40)/2
+ 419 023a F300     		.2byte	(.L31-.L40)/2
+ 420 023c F300     		.2byte	(.L31-.L40)/2
+ 421 023e F300     		.2byte	(.L31-.L40)/2
+ 422 0240 F300     		.2byte	(.L31-.L40)/2
+ 423 0242 F300     		.2byte	(.L31-.L40)/2
+ 424 0244 F300     		.2byte	(.L31-.L40)/2
+ 425 0246 F300     		.2byte	(.L31-.L40)/2
+ 426 0248 F300     		.2byte	(.L31-.L40)/2
+ 427 024a F300     		.2byte	(.L31-.L40)/2
+ 428 024c F300     		.2byte	(.L31-.L40)/2
+ 429 024e F300     		.2byte	(.L31-.L40)/2
+ 430 0250 F300     		.2byte	(.L31-.L40)/2
+ 431 0252 F100     		.2byte	(.L32-.L40)/2
+ 432 0254 7A00     		.2byte	(.L33-.L40)/2
+ 433 0256 EF00     		.2byte	(.L57-.L40)/2
+ 434 0258 ED00     		.2byte	(.L35-.L40)/2
+ 435 025a EB00     		.2byte	(.L36-.L40)/2
+ 436 025c E900     		.2byte	(.L37-.L40)/2
+ 437 025e E700     		.2byte	(.L38-.L40)/2
+ 438 0260 7A00     		.2byte	(.L33-.L40)/2
+ 439              	.LVL38:
+ 440              	.L14:
+ 441              	.LBE21:
+ 442              	.LBB22:
+ 443              		.loc 1 151 0
+ 444 0262 9CFBF1F5 		sdiv	r5, ip, r1
+ 445 0266 2FE7     		b	.L15
+ 446              	.LVL39:
+ 447              	.L56:
+ 448              	.LBE22:
+ 449              	.LBB23:
+ 450              		.loc 1 197 0
+ 451 0268 0448     		ldr	r0, .L111+4
+ 452              	.L5:
+ 453              	.LBE23:
+ 454              		.loc 1 258 0
+ 455 026a 03B0     		add	sp, sp, #12
+ 456 026c BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 9
+
+
+ 457              	.LVL40:
+ 458              	.L53:
+ 459              	.LBB24:
+ 460              		.loc 1 145 0
+ 461 0270 8146     		mov	r9, r0
+ 462              		.loc 1 146 0
+ 463 0272 0021     		movs	r1, #0
+ 464 0274 1EE7     		b	.L10
+ 465              	.L112:
+ 466 0276 00BF     		.align	2
+ 467              	.L111:
+ 468 0278 01000000 		.word	.LANCHOR0+1
+ 469 027c 00000000 		.word	.LC0
+ 470 0280 00000000 		.word	.LANCHOR1
+ 471              	.LVL41:
+ 472              	.L33:
+ 473              	.LBE24:
+ 474              	.LBB25:
+ 475              		.loc 1 205 0
+ 476 0284 0B20     		movs	r0, #11
+ 477              	.LVL42:
+ 478              	.L34:
+ 479              		.loc 1 209 0
+ 480 0286 6278     		ldrb	r2, [r4, #1]	@ zero_extendqisi2
+ 481 0288 232A     		cmp	r2, #35
+ 482 028a 64D0     		beq	.L41
+ 483              		.loc 1 208 0
+ 484 028c 0134     		adds	r4, r4, #1
+ 485              	.LVL43:
+ 486              	.L42:
+ 487              		.loc 1 214 0
+ 488 028e 622A     		cmp	r2, #98
+ 489 0290 5BD0     		beq	.L110
+ 490              	.L43:
+ 491              		.loc 1 221 0
+ 492 0292 2E2A     		cmp	r2, #46
+ 493 0294 02BF     		ittt	eq
+ 494 0296 6278     		ldrbeq	r2, [r4, #1]	@ zero_extendqisi2
+ 495              		.loc 1 223 0
+ 496 0298 01EBD173 		addeq	r3, r1, r1, lsr #31
+ 497 029c 01EB6301 		addeq	r1, r1, r3, asr #1
+ 498              	.LVL44:
+ 499              		.loc 1 228 0
+ 500 02a0 A2F13003 		sub	r3, r2, #48
+ 501 02a4 5FFA83FE 		uxtb	lr, r3
+ 502              		.loc 1 224 0
+ 503 02a8 08BF     		it	eq
+ 504 02aa 0134     		addeq	r4, r4, #1
+ 505              	.LVL45:
+ 506              		.loc 1 228 0
+ 507 02ac BEF1090F 		cmp	lr, #9
+ 508 02b0 9BBF     		ittet	ls
+ 509 02b2 6278     		ldrbls	r2, [r4, #1]	@ zero_extendqisi2
+ 510 02b4 9E46     		movls	lr, r3
+ 511 02b6 B646     		movhi	lr, r6
+ 512              	.LVL46:
+ 513 02b8 0134     		addls	r4, r4, #1
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 10
+
+
+ 514              	.LVL47:
+ 515              		.loc 1 231 0
+ 516 02ba 2E2A     		cmp	r2, #46
+ 517 02bc 01BF     		itttt	eq
+ 518 02be 6278     		ldrbeq	r2, [r4, #1]	@ zero_extendqisi2
+ 519              		.loc 1 233 0
+ 520 02c0 01EBD173 		addeq	r3, r1, r1, lsr #31
+ 521 02c4 01EB6301 		addeq	r1, r1, r3, asr #1
+ 522              	.LVL48:
+ 523              		.loc 1 234 0
+ 524 02c8 0134     		addeq	r4, r4, #1
+ 525              	.LVL49:
+ 526              		.loc 1 238 0
+ 527 02ca 202A     		cmp	r2, #32
+ 528 02cc 05D1     		bne	.L47
+ 529              		.loc 1 112 0
+ 530 02ce 631C     		adds	r3, r4, #1
+ 531              	.LVL50:
+ 532              	.L48:
+ 533              		.loc 1 238 0 discriminator 2
+ 534 02d0 1C46     		mov	r4, r3
+ 535              	.LVL51:
+ 536 02d2 13F8012B 		ldrb	r2, [r3], #1	@ zero_extendqisi2
+ 537              	.LVL52:
+ 538 02d6 202A     		cmp	r2, #32
+ 539 02d8 FAD0     		beq	.L48
+ 540              	.L47:
+ 541              		.loc 1 239 0
+ 542 02da 2C2A     		cmp	r2, #44
+ 543              		.loc 1 242 0
+ 544 02dc 4EF66022 		movw	r2, #60000
+ 545 02e0 02FB01F2 		mul	r2, r2, r1
+ 546              		.loc 1 239 0
+ 547 02e4 08BF     		it	eq
+ 548 02e6 0134     		addeq	r4, r4, #1
+ 549              	.LVL53:
+ 550              		.loc 1 243 0
+ 551 02e8 431C     		adds	r3, r0, #1
+ 552              		.loc 1 242 0
+ 553 02ea 92FBF8F2 		sdiv	r2, r2, r8
+ 554              	.LVL54:
+ 555              		.loc 1 243 0
+ 556 02ee 30D0     		beq	.L60
+ 557              		.loc 1 246 0
+ 558 02f0 0EF1010E 		add	lr, lr, #1
+ 559              	.LVL55:
+ 560 02f4 0EEB4E0E 		add	lr, lr, lr, lsl #1
+ 561              	.LVL56:
+ 562 02f8 00EB8E00 		add	r0, r0, lr, lsl #2
+ 563              	.LVL57:
+ 564              	.LBB19:
+ 565              	.LBB13:
+ 566              		.loc 1 100 0
+ 567 02fc 89FB0013 		smull	r1, r3, r9, r0
+ 568              	.LVL58:
+ 569 0300 C117     		asrs	r1, r0, #31
+ 570 0302 5B10     		asrs	r3, r3, #1
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 11
+
+
+ 571 0304 C3EB010E 		rsb	lr, r3, r1
+ 572 0308 0EF1090E 		add	lr, lr, #9
+ 573 030c 4FF0010C 		mov	ip, #1
+ 574 0310 0CFA0EFE 		lsl	lr, ip, lr
+ 575 0314 5B1A     		subs	r3, r3, r1
+ 576 0316 03EB4303 		add	r3, r3, r3, lsl #1
+ 577 031a A0EB8300 		sub	r0, r0, r3, lsl #2
+ 578              	.LVL59:
+ 579 031e 5AF82000 		ldr	r0, [sl, r0, lsl #2]
+ 580 0322 90FBFEF0 		sdiv	r0, r0, lr
+ 581              	.L50:
+ 582              	.LVL60:
+ 583              	.LBE13:
+ 584              	.LBE19:
+ 585              		.loc 1 248 0
+ 586 0326 3946     		mov	r1, r7
+ 587 0328 FFF7FEFF 		bl	vexAudioSetNextChipTone
+ 588              	.LVL61:
+ 589              	.LBE25:
+ 590              		.loc 1 173 0
+ 591 032c 2278     		ldrb	r2, [r4, #0]	@ zero_extendqisi2
+ 592 032e 002A     		cmp	r2, #0
+ 593 0330 7FF400AF 		bne	.L25
+ 594              	.L21:
+ 595              		.loc 1 252 0
+ 596 0334 0020     		movs	r0, #0
+ 597 0336 0146     		mov	r1, r0
+ 598 0338 4FF4FA72 		mov	r2, #500
+ 599 033c FFF7FEFF 		bl	vexAudioSetNextChipTone
+ 600              	.LVL62:
+ 601              		.loc 1 255 0
+ 602 0340 0198     		ldr	r0, [sp, #4]
+ 603 0342 FFF7FEFF 		bl	vexAudioStartChipToneSong
+ 604              	.LVL63:
+ 605              		.loc 1 257 0
+ 606 0346 1048     		ldr	r0, .L113
+ 607 0348 8FE7     		b	.L5
+ 608              	.LVL64:
+ 609              	.L110:
+ 610 034a 6278     		ldrb	r2, [r4, #1]	@ zero_extendqisi2
+ 611              	.LBB26:
+ 612              		.loc 1 216 0
+ 613 034c 0138     		subs	r0, r0, #1
+ 614              	.LVL65:
+ 615              		.loc 1 217 0
+ 616 034e 0134     		adds	r4, r4, #1
+ 617              	.LVL66:
+ 618 0350 9FE7     		b	.L43
+ 619              	.LVL67:
+ 620              	.L60:
+ 621              		.loc 1 244 0
+ 622 0352 0020     		movs	r0, #0
+ 623              	.LVL68:
+ 624 0354 E7E7     		b	.L50
+ 625              	.LVL69:
+ 626              	.L41:
+ 627 0356 A278     		ldrb	r2, [r4, #2]	@ zero_extendqisi2
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 12
+
+
+ 628              		.loc 1 211 0
+ 629 0358 0130     		adds	r0, r0, #1
+ 630              	.LVL70:
+ 631              		.loc 1 212 0
+ 632 035a 0234     		adds	r4, r4, #2
+ 633              	.LVL71:
+ 634 035c 97E7     		b	.L42
+ 635              	.LVL72:
+ 636              	.L38:
+ 637              		.loc 1 202 0
+ 638 035e 0720     		movs	r0, #7
+ 639 0360 91E7     		b	.L34
+ 640              	.LVL73:
+ 641              	.L37:
+ 642              		.loc 1 201 0
+ 643 0362 0520     		movs	r0, #5
+ 644 0364 8FE7     		b	.L34
+ 645              	.LVL74:
+ 646              	.L36:
+ 647              		.loc 1 200 0
+ 648 0366 0420     		movs	r0, #4
+ 649 0368 8DE7     		b	.L34
+ 650              	.LVL75:
+ 651              	.L35:
+ 652              		.loc 1 199 0
+ 653 036a 0220     		movs	r0, #2
+ 654 036c 8BE7     		b	.L34
+ 655              	.LVL76:
+ 656              	.L57:
+ 657              		.loc 1 198 0
+ 658 036e 0020     		movs	r0, #0
+ 659 0370 89E7     		b	.L34
+ 660              	.L32:
+ 661              	.LVL77:
+ 662              		.loc 1 203 0
+ 663 0372 0920     		movs	r0, #9
+ 664 0374 87E7     		b	.L34
+ 665              	.LVL78:
+ 666              	.L31:
+ 667              		.loc 1 175 0
+ 668 0376 4FF0FF30 		mov	r0, #-1
+ 669 037a 84E7     		b	.L34
+ 670              	.LVL79:
+ 671              	.L52:
+ 672              	.LBE26:
+ 673              		.loc 1 122 0
+ 674 037c 024C     		ldr	r4, .L113
+ 675              		.loc 1 123 0
+ 676 037e 8146     		mov	r9, r0
+ 677 0380 56E6     		b	.L2
+ 678              	.LVL80:
+ 679              	.L55:
+ 680              	.LBB27:
+ 681              	.LBB20:
+ 682              		.loc 1 189 0
+ 683 0382 0023     		movs	r3, #0
+ 684 0384 FDE6     		b	.L29
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 13
+
+
+ 685              	.L114:
+ 686 0386 00BF     		.align	2
+ 687              	.L113:
+ 688 0388 00000000 		.word	.LANCHOR0
+ 689              	.LBE20:
+ 690              	.LBE27:
+ 691              		.cfi_endproc
+ 692              	.LFE64:
+ 693              		.size	vexAudioPlayRtttl, .-vexAudioPlayRtttl
+ 694 038c AFF30080 		.section	.rodata.notefreq,"a",%progbits
+ 695              		.align	2
+ 696              		.set	.LANCHOR1,. + 0
+ 697              		.type	notefreq, %object
+ 698              		.size	notefreq, 48
+ 699              	notefreq:
+ 700 0000 5A100000 		.word	4186
+ 701 0004 52110000 		.word	4434
+ 702 0008 5A120000 		.word	4698
+ 703 000c 72130000 		.word	4978
+ 704 0010 9A140000 		.word	5274
+ 705 0014 D3150000 		.word	5587
+ 706 0018 1F170000 		.word	5919
+ 707 001c 7F180000 		.word	6271
+ 708 0020 F4190000 		.word	6644
+ 709 0024 801B0000 		.word	7040
+ 710 0028 221D0000 		.word	7458
+ 711 002c DE1E0000 		.word	7902
+ 712              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 713              		.align	2
+ 714              	.LC0:
+ 715 0000 00       		.ascii	"\000"
+ 716 0001 000000   		.section	.bss.name,"aw",%nobits
+ 717              		.align	2
+ 718              		.set	.LANCHOR0,. + 0
+ 719              		.type	name, %object
+ 720              		.size	name, 48
+ 721              	name:
+ 722 0000 00000000 		.space	48
+ 722      00000000 
+ 722      00000000 
+ 722      00000000 
+ 722      00000000 
+ 723              		.text
+ 724              	.Letext0:
+ 725              		.file 2 "../convex/cortex/fw/vexdigital.h"
+ 726              		.file 3 "../convex/cortex/fw/vexime.h"
+ 727              		.file 4 "c:/program files (x86)/pros/toolchain/lib/gcc/../../arm-none-eabi/include/stdint.h"
+ 728              		.file 5 "../ChibiOS_2.6.2/os/ports/common/ARMCMx/CMSIS/include/core_cm3.h"
+ 729              		.file 6 "../convex/cortex/fw/vexaudio.h"
+ 730              		.section	.debug_info,"",%progbits
+ 731              	.Ldebug_info0:
+ 732 0000 A4030000 		.4byte	0x3a4
+ 733 0004 0200     		.2byte	0x2
+ 734 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 735 000a 04       		.byte	0x4
+ 736 000b 01       		.uleb128 0x1
+ 737 000c C8010000 		.4byte	.LASF51
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 14
+
+
+ 738 0010 01       		.byte	0x1
+ 739 0011 B4020000 		.4byte	.LASF52
+ 740 0015 5E010000 		.4byte	.LASF53
+ 741 0019 B0000000 		.4byte	.Ldebug_ranges0+0xb0
+ 742 001d 00000000 		.4byte	0
+ 743 0021 00000000 		.4byte	0
+ 744 0025 00000000 		.4byte	.Ldebug_line0
+ 745 0029 02       		.uleb128 0x2
+ 746 002a 04       		.byte	0x4
+ 747 002b 05       		.byte	0x5
+ 748 002c 696E7400 		.ascii	"int\000"
+ 749 0030 03       		.uleb128 0x3
+ 750 0031 04       		.byte	0x4
+ 751 0032 07       		.byte	0x7
+ 752 0033 12030000 		.4byte	.LASF0
+ 753 0037 03       		.uleb128 0x3
+ 754 0038 01       		.byte	0x1
+ 755 0039 06       		.byte	0x6
+ 756 003a 87010000 		.4byte	.LASF1
+ 757 003e 03       		.uleb128 0x3
+ 758 003f 01       		.byte	0x1
+ 759 0040 08       		.byte	0x8
+ 760 0041 79010000 		.4byte	.LASF2
+ 761 0045 03       		.uleb128 0x3
+ 762 0046 02       		.byte	0x2
+ 763 0047 05       		.byte	0x5
+ 764 0048 83000000 		.4byte	.LASF3
+ 765 004c 03       		.uleb128 0x3
+ 766 004d 02       		.byte	0x2
+ 767 004e 07       		.byte	0x7
+ 768 004f FA010000 		.4byte	.LASF4
+ 769 0053 04       		.uleb128 0x4
+ 770 0054 2E020000 		.4byte	.LASF54
+ 771 0058 04       		.byte	0x4
+ 772 0059 4F       		.byte	0x4f
+ 773 005a 5E000000 		.4byte	0x5e
+ 774 005e 03       		.uleb128 0x3
+ 775 005f 04       		.byte	0x4
+ 776 0060 05       		.byte	0x5
+ 777 0061 2C010000 		.4byte	.LASF5
+ 778 0065 03       		.uleb128 0x3
+ 779 0066 04       		.byte	0x4
+ 780 0067 07       		.byte	0x7
+ 781 0068 A2020000 		.4byte	.LASF6
+ 782 006c 03       		.uleb128 0x3
+ 783 006d 08       		.byte	0x8
+ 784 006e 05       		.byte	0x5
+ 785 006f 1E010000 		.4byte	.LASF7
+ 786 0073 03       		.uleb128 0x3
+ 787 0074 08       		.byte	0x8
+ 788 0075 07       		.byte	0x7
+ 789 0076 9D010000 		.4byte	.LASF8
+ 790 007a 03       		.uleb128 0x3
+ 791 007b 01       		.byte	0x1
+ 792 007c 02       		.byte	0x2
+ 793 007d 8A020000 		.4byte	.LASF9
+ 794 0081 03       		.uleb128 0x3
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 15
+
+
+ 795 0082 04       		.byte	0x4
+ 796 0083 07       		.byte	0x7
+ 797 0084 8D000000 		.4byte	.LASF10
+ 798 0088 03       		.uleb128 0x3
+ 799 0089 01       		.byte	0x1
+ 800 008a 08       		.byte	0x8
+ 801 008b 0D020000 		.4byte	.LASF11
+ 802 008f 05       		.uleb128 0x5
+ 803 0090 53000000 		.4byte	0x53
+ 804 0094 06       		.uleb128 0x6
+ 805 0095 01       		.byte	0x1
+ 806 0096 02       		.byte	0x2
+ 807 0097 8D       		.byte	0x8d
+ 808 0098 F1000000 		.4byte	0xf1
+ 809 009c 07       		.uleb128 0x7
+ 810 009d 00000000 		.4byte	.LASF12
+ 811 00a1 7F       		.sleb128 -1
+ 812 00a2 07       		.uleb128 0x7
+ 813 00a3 12020000 		.4byte	.LASF13
+ 814 00a7 00       		.sleb128 0
+ 815 00a8 07       		.uleb128 0x7
+ 816 00a9 20020000 		.4byte	.LASF14
+ 817 00ad 01       		.sleb128 1
+ 818 00ae 07       		.uleb128 0x7
+ 819 00af BA010000 		.4byte	.LASF15
+ 820 00b3 02       		.sleb128 2
+ 821 00b4 07       		.uleb128 0x7
+ 822 00b5 36020000 		.4byte	.LASF16
+ 823 00b9 03       		.sleb128 3
+ 824 00ba 07       		.uleb128 0x7
+ 825 00bb 44020000 		.4byte	.LASF17
+ 826 00bf 04       		.sleb128 4
+ 827 00c0 07       		.uleb128 0x7
+ 828 00c1 52020000 		.4byte	.LASF18
+ 829 00c5 05       		.sleb128 5
+ 830 00c6 07       		.uleb128 0x7
+ 831 00c7 60020000 		.4byte	.LASF19
+ 832 00cb 06       		.sleb128 6
+ 833 00cc 07       		.uleb128 0x7
+ 834 00cd 6E020000 		.4byte	.LASF20
+ 835 00d1 07       		.sleb128 7
+ 836 00d2 07       		.uleb128 0x7
+ 837 00d3 7C020000 		.4byte	.LASF21
+ 838 00d7 08       		.sleb128 8
+ 839 00d8 07       		.uleb128 0x7
+ 840 00d9 EC000000 		.4byte	.LASF22
+ 841 00dd 09       		.sleb128 9
+ 842 00de 07       		.uleb128 0x7
+ 843 00df FB000000 		.4byte	.LASF23
+ 844 00e3 0A       		.sleb128 10
+ 845 00e4 07       		.uleb128 0x7
+ 846 00e5 0A010000 		.4byte	.LASF24
+ 847 00e9 0B       		.sleb128 11
+ 848 00ea 07       		.uleb128 0x7
+ 849 00eb F0020000 		.4byte	.LASF25
+ 850 00ef 0C       		.sleb128 12
+ 851 00f0 00       		.byte	0
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 16
+
+
+ 852 00f1 06       		.uleb128 0x6
+ 853 00f2 01       		.byte	0x1
+ 854 00f3 02       		.byte	0x2
+ 855 00f4 A2       		.byte	0xa2
+ 856 00f5 06010000 		.4byte	0x106
+ 857 00f9 07       		.uleb128 0x7
+ 858 00fa 3A010000 		.4byte	.LASF26
+ 859 00fe 00       		.sleb128 0
+ 860 00ff 07       		.uleb128 0x7
+ 861 0100 D4000000 		.4byte	.LASF27
+ 862 0104 01       		.sleb128 1
+ 863 0105 00       		.byte	0
+ 864 0106 06       		.uleb128 0x6
+ 865 0107 01       		.byte	0x1
+ 866 0108 03       		.byte	0x3
+ 867 0109 46       		.byte	0x46
+ 868 010a 4C010000 		.4byte	0x14c
+ 869 010e 07       		.uleb128 0x7
+ 870 010f 50010000 		.4byte	.LASF28
+ 871 0113 00       		.sleb128 0
+ 872 0114 07       		.uleb128 0x7
+ 873 0115 21000000 		.4byte	.LASF29
+ 874 0119 01       		.sleb128 1
+ 875 011a 07       		.uleb128 0x7
+ 876 011b 2F000000 		.4byte	.LASF30
+ 877 011f 02       		.sleb128 2
+ 878 0120 07       		.uleb128 0x7
+ 879 0121 3D000000 		.4byte	.LASF31
+ 880 0125 03       		.sleb128 3
+ 881 0126 07       		.uleb128 0x7
+ 882 0127 4B000000 		.4byte	.LASF32
+ 883 012b 04       		.sleb128 4
+ 884 012c 07       		.uleb128 0x7
+ 885 012d 59000000 		.4byte	.LASF33
+ 886 0131 05       		.sleb128 5
+ 887 0132 07       		.uleb128 0x7
+ 888 0133 67000000 		.4byte	.LASF34
+ 889 0137 06       		.sleb128 6
+ 890 0138 07       		.uleb128 0x7
+ 891 0139 75000000 		.4byte	.LASF35
+ 892 013d 07       		.sleb128 7
+ 893 013e 07       		.uleb128 0x7
+ 894 013f 96000000 		.4byte	.LASF36
+ 895 0143 08       		.sleb128 8
+ 896 0144 07       		.uleb128 0x7
+ 897 0145 11000000 		.4byte	.LASF37
+ 898 0149 E300     		.sleb128 99
+ 899 014b 00       		.byte	0
+ 900 014c 08       		.uleb128 0x8
+ 901 014d 04       		.byte	0x4
+ 902 014e 88000000 		.4byte	0x88
+ 903 0152 09       		.uleb128 0x9
+ 904 0153 A9000000 		.4byte	.LASF55
+ 905 0157 01       		.byte	0x1
+ 906 0158 62       		.byte	0x62
+ 907 0159 01       		.byte	0x1
+ 908 015a 29000000 		.4byte	0x29
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 17
+
+
+ 909 015e 01       		.byte	0x1
+ 910 015f 6F010000 		.4byte	0x16f
+ 911 0163 0A       		.uleb128 0xa
+ 912 0164 35010000 		.4byte	.LASF46
+ 913 0168 01       		.byte	0x1
+ 914 0169 62       		.byte	0x62
+ 915 016a 29000000 		.4byte	0x29
+ 916 016e 00       		.byte	0
+ 917 016f 0B       		.uleb128 0xb
+ 918 0170 01       		.byte	0x1
+ 919 0171 90020000 		.4byte	.LASF56
+ 920 0175 01       		.byte	0x1
+ 921 0176 70       		.byte	0x70
+ 922 0177 01       		.byte	0x1
+ 923 0178 4C010000 		.4byte	0x14c
+ 924 017c 00000000 		.4byte	.LFB64
+ 925 0180 8C030000 		.4byte	.LFE64
+ 926 0184 00000000 		.4byte	.LLST0
+ 927 0188 01       		.byte	0x1
+ 928 0189 0C030000 		.4byte	0x30c
+ 929 018d 0C       		.uleb128 0xc
+ 930 018e 00030000 		.4byte	.LASF38
+ 931 0192 01       		.byte	0x1
+ 932 0193 70       		.byte	0x70
+ 933 0194 4C010000 		.4byte	0x14c
+ 934 0198 2C000000 		.4byte	.LLST1
+ 935 019c 0C       		.uleb128 0xc
+ 936 019d 93010000 		.4byte	.LASF39
+ 937 01a1 01       		.byte	0x1
+ 938 01a2 70       		.byte	0x70
+ 939 01a3 29000000 		.4byte	0x29
+ 940 01a7 66000000 		.4byte	.LLST2
+ 941 01ab 0C       		.uleb128 0xc
+ 942 01ac B3000000 		.4byte	.LASF40
+ 943 01b0 01       		.byte	0x1
+ 944 01b1 70       		.byte	0x70
+ 945 01b2 29000000 		.4byte	0x29
+ 946 01b6 9A000000 		.4byte	.LLST3
+ 947 01ba 0D       		.uleb128 0xd
+ 948 01bb 7000     		.ascii	"p\000"
+ 949 01bd 01       		.byte	0x1
+ 950 01be 72       		.byte	0x72
+ 951 01bf 4C010000 		.4byte	0x14c
+ 952 01c3 D0000000 		.4byte	.LLST4
+ 953 01c7 0D       		.uleb128 0xd
+ 954 01c8 7100     		.ascii	"q\000"
+ 955 01ca 01       		.byte	0x1
+ 956 01cb 73       		.byte	0x73
+ 957 01cc 4C010000 		.4byte	0x14c
+ 958 01d0 53020000 		.4byte	.LLST5
+ 959 01d4 0E       		.uleb128 0xe
+ 960 01d5 F3010000 		.4byte	.LASF41
+ 961 01d9 01       		.byte	0x1
+ 962 01da 74       		.byte	0x74
+ 963 01db 29000000 		.4byte	0x29
+ 964 01df 9C020000 		.4byte	.LLST6
+ 965 01e3 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 18
+
+
+ 966 01e4 A0000000 		.4byte	.LASF42
+ 967 01e8 01       		.byte	0x1
+ 968 01e9 75       		.byte	0x75
+ 969 01ea 29000000 		.4byte	0x29
+ 970 01ee BC020000 		.4byte	.LLST7
+ 971 01f2 0D       		.uleb128 0xd
+ 972 01f3 62706D00 		.ascii	"bpm\000"
+ 973 01f7 01       		.byte	0x1
+ 974 01f8 76       		.byte	0x76
+ 975 01f9 29000000 		.4byte	0x29
+ 976 01fd DC020000 		.4byte	.LLST8
+ 977 0201 0E       		.uleb128 0xe
+ 978 0202 EA020000 		.4byte	.LASF43
+ 979 0206 01       		.byte	0x1
+ 980 0207 77       		.byte	0x77
+ 981 0208 29000000 		.4byte	0x29
+ 982 020c 2A030000 		.4byte	.LLST9
+ 983 0210 0F       		.uleb128 0xf
+ 984 0211 00000000 		.4byte	.Ldebug_ranges0+0
+ 985 0215 38020000 		.4byte	0x238
+ 986 0219 0E       		.uleb128 0xe
+ 987 021a ED010000 		.4byte	.LASF44
+ 988 021e 01       		.byte	0x1
+ 989 021f 87       		.byte	0x87
+ 990 0220 88000000 		.4byte	0x88
+ 991 0224 86030000 		.4byte	.LLST10
+ 992 0228 0E       		.uleb128 0xe
+ 993 0229 E6000000 		.4byte	.LASF45
+ 994 022d 01       		.byte	0x1
+ 995 022e 88       		.byte	0x88
+ 996 022f 29000000 		.4byte	0x29
+ 997 0233 AF030000 		.4byte	.LLST11
+ 998 0237 00       		.byte	0
+ 999 0238 0F       		.uleb128 0xf
+ 1000 0239 28000000 		.4byte	.Ldebug_ranges0+0x28
+ 1001 023d D2020000 		.4byte	0x2d2
+ 1002 0241 0E       		.uleb128 0xe
+ 1003 0242 35010000 		.4byte	.LASF46
+ 1004 0246 01       		.byte	0x1
+ 1005 0247 AF       		.byte	0xaf
+ 1006 0248 29000000 		.4byte	0x29
+ 1007 024c DA030000 		.4byte	.LLST12
+ 1008 0250 0E       		.uleb128 0xe
+ 1009 0251 B4010000 		.4byte	.LASF47
+ 1010 0255 01       		.byte	0x1
+ 1011 0256 B0       		.byte	0xb0
+ 1012 0257 29000000 		.4byte	0x29
+ 1013 025b 65040000 		.4byte	.LLST13
+ 1014 025f 0D       		.uleb128 0xd
+ 1015 0260 64757200 		.ascii	"dur\000"
+ 1016 0264 01       		.byte	0x1
+ 1017 0265 B1       		.byte	0xb1
+ 1018 0266 29000000 		.4byte	0x29
+ 1019 026a 90040000 		.4byte	.LLST14
+ 1020 026e 0D       		.uleb128 0xd
+ 1021 026f 6D7300   		.ascii	"ms\000"
+ 1022 0272 01       		.byte	0x1
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 19
+
+
+ 1023 0273 B2       		.byte	0xb2
+ 1024 0274 29000000 		.4byte	0x29
+ 1025 0278 C4040000 		.4byte	.LLST15
+ 1026 027c 0E       		.uleb128 0xe
+ 1027 027d 19010000 		.4byte	.LASF48
+ 1028 0281 01       		.byte	0x1
+ 1029 0282 B3       		.byte	0xb3
+ 1030 0283 29000000 		.4byte	0x29
+ 1031 0287 E2040000 		.4byte	.LLST16
+ 1032 028b 10       		.uleb128 0x10
+ 1033 028c 52010000 		.4byte	0x152
+ 1034 0290 20010000 		.4byte	.LBB10
+ 1035 0294 60000000 		.4byte	.Ldebug_ranges0+0x60
+ 1036 0298 01       		.byte	0x1
+ 1037 0299 F6       		.byte	0xf6
+ 1038 029a A8020000 		.4byte	0x2a8
+ 1039 029e 11       		.uleb128 0x11
+ 1040 029f 63010000 		.4byte	0x163
+ 1041 02a3 F5040000 		.4byte	.LLST17
+ 1042 02a7 00       		.byte	0
+ 1043 02a8 0F       		.uleb128 0xf
+ 1044 02a9 80000000 		.4byte	.Ldebug_ranges0+0x80
+ 1045 02ad C1020000 		.4byte	0x2c1
+ 1046 02b1 0E       		.uleb128 0xe
+ 1047 02b2 E6000000 		.4byte	.LASF45
+ 1048 02b6 01       		.byte	0x1
+ 1049 02b7 BC       		.byte	0xbc
+ 1050 02b8 29000000 		.4byte	0x29
+ 1051 02bc 08050000 		.4byte	.LLST18
+ 1052 02c0 00       		.byte	0
+ 1053 02c1 12       		.uleb128 0x12
+ 1054 02c2 2C030000 		.4byte	.LVL61
+ 1055 02c6 61030000 		.4byte	0x361
+ 1056 02ca 13       		.uleb128 0x13
+ 1057 02cb 01       		.byte	0x1
+ 1058 02cc 51       		.byte	0x51
+ 1059 02cd 02       		.byte	0x2
+ 1060 02ce 77       		.byte	0x77
+ 1061 02cf 00       		.sleb128 0
+ 1062 02d0 00       		.byte	0
+ 1063 02d1 00       		.byte	0
+ 1064 02d2 14       		.uleb128 0x14
+ 1065 02d3 16010000 		.4byte	.LVL29
+ 1066 02d7 7F030000 		.4byte	0x37f
+ 1067 02db 15       		.uleb128 0x15
+ 1068 02dc 40030000 		.4byte	.LVL62
+ 1069 02e0 61030000 		.4byte	0x361
+ 1070 02e4 FA020000 		.4byte	0x2fa
+ 1071 02e8 13       		.uleb128 0x13
+ 1072 02e9 01       		.byte	0x1
+ 1073 02ea 52       		.byte	0x52
+ 1074 02eb 03       		.byte	0x3
+ 1075 02ec 0A       		.byte	0xa
+ 1076 02ed F401     		.2byte	0x1f4
+ 1077 02ef 13       		.uleb128 0x13
+ 1078 02f0 01       		.byte	0x1
+ 1079 02f1 51       		.byte	0x51
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 20
+
+
+ 1080 02f2 01       		.byte	0x1
+ 1081 02f3 30       		.byte	0x30
+ 1082 02f4 13       		.uleb128 0x13
+ 1083 02f5 01       		.byte	0x1
+ 1084 02f6 50       		.byte	0x50
+ 1085 02f7 01       		.byte	0x1
+ 1086 02f8 30       		.byte	0x30
+ 1087 02f9 00       		.byte	0
+ 1088 02fa 12       		.uleb128 0x12
+ 1089 02fb 46030000 		.4byte	.LVL63
+ 1090 02ff 97030000 		.4byte	0x397
+ 1091 0303 13       		.uleb128 0x13
+ 1092 0304 01       		.byte	0x1
+ 1093 0305 50       		.byte	0x50
+ 1094 0306 03       		.byte	0x3
+ 1095 0307 91       		.byte	0x91
+ 1096 0308 54       		.sleb128 -44
+ 1097 0309 06       		.byte	0x6
+ 1098 030a 00       		.byte	0
+ 1099 030b 00       		.byte	0
+ 1100 030c 16       		.uleb128 0x16
+ 1101 030d 29000000 		.4byte	0x29
+ 1102 0311 1C030000 		.4byte	0x31c
+ 1103 0315 17       		.uleb128 0x17
+ 1104 0316 81000000 		.4byte	0x81
+ 1105 031a 0B       		.byte	0xb
+ 1106 031b 00       		.byte	0
+ 1107 031c 18       		.uleb128 0x18
+ 1108 031d 1F030000 		.4byte	.LASF49
+ 1109 0321 01       		.byte	0x1
+ 1110 0322 5C       		.byte	0x5c
+ 1111 0323 2D030000 		.4byte	0x32d
+ 1112 0327 05       		.byte	0x5
+ 1113 0328 03       		.byte	0x3
+ 1114 0329 00000000 		.4byte	notefreq
+ 1115 032d 19       		.uleb128 0x19
+ 1116 032e 0C030000 		.4byte	0x30c
+ 1117 0332 16       		.uleb128 0x16
+ 1118 0333 88000000 		.4byte	0x88
+ 1119 0337 42030000 		.4byte	0x342
+ 1120 033b 17       		.uleb128 0x17
+ 1121 033c 81000000 		.4byte	0x81
+ 1122 0340 2F       		.byte	0x2f
+ 1123 0341 00       		.byte	0
+ 1124 0342 18       		.uleb128 0x18
+ 1125 0343 4B010000 		.4byte	.LASF50
+ 1126 0347 01       		.byte	0x1
+ 1127 0348 5F       		.byte	0x5f
+ 1128 0349 32030000 		.4byte	0x332
+ 1129 034d 05       		.byte	0x5
+ 1130 034e 03       		.byte	0x3
+ 1131 034f 00000000 		.4byte	name
+ 1132 0353 1A       		.uleb128 0x1a
+ 1133 0354 05030000 		.4byte	.LASF57
+ 1134 0358 05       		.byte	0x5
+ 1135 0359 0706     		.2byte	0x607
+ 1136 035b 8F000000 		.4byte	0x8f
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 21
+
+
+ 1137 035f 01       		.byte	0x1
+ 1138 0360 01       		.byte	0x1
+ 1139 0361 1B       		.uleb128 0x1b
+ 1140 0362 01       		.byte	0x1
+ 1141 0363 D2020000 		.4byte	.LASF58
+ 1142 0367 06       		.byte	0x6
+ 1143 0368 4C       		.byte	0x4c
+ 1144 0369 01       		.byte	0x1
+ 1145 036a 01       		.byte	0x1
+ 1146 036b 7F030000 		.4byte	0x37f
+ 1147 036f 1C       		.uleb128 0x1c
+ 1148 0370 29000000 		.4byte	0x29
+ 1149 0374 1C       		.uleb128 0x1c
+ 1150 0375 29000000 		.4byte	0x29
+ 1151 0379 1C       		.uleb128 0x1c
+ 1152 037a 29000000 		.4byte	0x29
+ 1153 037e 00       		.byte	0
+ 1154 037f 1D       		.uleb128 0x1d
+ 1155 0380 01       		.byte	0x1
+ 1156 0381 D4010000 		.4byte	.LASF59
+ 1157 0385 06       		.byte	0x6
+ 1158 0386 48       		.byte	0x48
+ 1159 0387 01       		.byte	0x1
+ 1160 0388 29000000 		.4byte	0x29
+ 1161 038c 01       		.byte	0x1
+ 1162 038d 97030000 		.4byte	0x397
+ 1163 0391 1C       		.uleb128 0x1c
+ 1164 0392 29000000 		.4byte	0x29
+ 1165 0396 00       		.byte	0
+ 1166 0397 1E       		.uleb128 0x1e
+ 1167 0398 01       		.byte	0x1
+ 1168 0399 BA000000 		.4byte	.LASF60
+ 1169 039d 06       		.byte	0x6
+ 1170 039e 4A       		.byte	0x4a
+ 1171 039f 01       		.byte	0x1
+ 1172 03a0 01       		.byte	0x1
+ 1173 03a1 1C       		.uleb128 0x1c
+ 1174 03a2 29000000 		.4byte	0x29
+ 1175 03a6 00       		.byte	0
+ 1176 03a7 00       		.byte	0
+ 1177              		.section	.debug_abbrev,"",%progbits
+ 1178              	.Ldebug_abbrev0:
+ 1179 0000 01       		.uleb128 0x1
+ 1180 0001 11       		.uleb128 0x11
+ 1181 0002 01       		.byte	0x1
+ 1182 0003 25       		.uleb128 0x25
+ 1183 0004 0E       		.uleb128 0xe
+ 1184 0005 13       		.uleb128 0x13
+ 1185 0006 0B       		.uleb128 0xb
+ 1186 0007 03       		.uleb128 0x3
+ 1187 0008 0E       		.uleb128 0xe
+ 1188 0009 1B       		.uleb128 0x1b
+ 1189 000a 0E       		.uleb128 0xe
+ 1190 000b 55       		.uleb128 0x55
+ 1191 000c 06       		.uleb128 0x6
+ 1192 000d 11       		.uleb128 0x11
+ 1193 000e 01       		.uleb128 0x1
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 22
+
+
+ 1194 000f 52       		.uleb128 0x52
+ 1195 0010 01       		.uleb128 0x1
+ 1196 0011 10       		.uleb128 0x10
+ 1197 0012 06       		.uleb128 0x6
+ 1198 0013 00       		.byte	0
+ 1199 0014 00       		.byte	0
+ 1200 0015 02       		.uleb128 0x2
+ 1201 0016 24       		.uleb128 0x24
+ 1202 0017 00       		.byte	0
+ 1203 0018 0B       		.uleb128 0xb
+ 1204 0019 0B       		.uleb128 0xb
+ 1205 001a 3E       		.uleb128 0x3e
+ 1206 001b 0B       		.uleb128 0xb
+ 1207 001c 03       		.uleb128 0x3
+ 1208 001d 08       		.uleb128 0x8
+ 1209 001e 00       		.byte	0
+ 1210 001f 00       		.byte	0
+ 1211 0020 03       		.uleb128 0x3
+ 1212 0021 24       		.uleb128 0x24
+ 1213 0022 00       		.byte	0
+ 1214 0023 0B       		.uleb128 0xb
+ 1215 0024 0B       		.uleb128 0xb
+ 1216 0025 3E       		.uleb128 0x3e
+ 1217 0026 0B       		.uleb128 0xb
+ 1218 0027 03       		.uleb128 0x3
+ 1219 0028 0E       		.uleb128 0xe
+ 1220 0029 00       		.byte	0
+ 1221 002a 00       		.byte	0
+ 1222 002b 04       		.uleb128 0x4
+ 1223 002c 16       		.uleb128 0x16
+ 1224 002d 00       		.byte	0
+ 1225 002e 03       		.uleb128 0x3
+ 1226 002f 0E       		.uleb128 0xe
+ 1227 0030 3A       		.uleb128 0x3a
+ 1228 0031 0B       		.uleb128 0xb
+ 1229 0032 3B       		.uleb128 0x3b
+ 1230 0033 0B       		.uleb128 0xb
+ 1231 0034 49       		.uleb128 0x49
+ 1232 0035 13       		.uleb128 0x13
+ 1233 0036 00       		.byte	0
+ 1234 0037 00       		.byte	0
+ 1235 0038 05       		.uleb128 0x5
+ 1236 0039 35       		.uleb128 0x35
+ 1237 003a 00       		.byte	0
+ 1238 003b 49       		.uleb128 0x49
+ 1239 003c 13       		.uleb128 0x13
+ 1240 003d 00       		.byte	0
+ 1241 003e 00       		.byte	0
+ 1242 003f 06       		.uleb128 0x6
+ 1243 0040 04       		.uleb128 0x4
+ 1244 0041 01       		.byte	0x1
+ 1245 0042 0B       		.uleb128 0xb
+ 1246 0043 0B       		.uleb128 0xb
+ 1247 0044 3A       		.uleb128 0x3a
+ 1248 0045 0B       		.uleb128 0xb
+ 1249 0046 3B       		.uleb128 0x3b
+ 1250 0047 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 23
+
+
+ 1251 0048 01       		.uleb128 0x1
+ 1252 0049 13       		.uleb128 0x13
+ 1253 004a 00       		.byte	0
+ 1254 004b 00       		.byte	0
+ 1255 004c 07       		.uleb128 0x7
+ 1256 004d 28       		.uleb128 0x28
+ 1257 004e 00       		.byte	0
+ 1258 004f 03       		.uleb128 0x3
+ 1259 0050 0E       		.uleb128 0xe
+ 1260 0051 1C       		.uleb128 0x1c
+ 1261 0052 0D       		.uleb128 0xd
+ 1262 0053 00       		.byte	0
+ 1263 0054 00       		.byte	0
+ 1264 0055 08       		.uleb128 0x8
+ 1265 0056 0F       		.uleb128 0xf
+ 1266 0057 00       		.byte	0
+ 1267 0058 0B       		.uleb128 0xb
+ 1268 0059 0B       		.uleb128 0xb
+ 1269 005a 49       		.uleb128 0x49
+ 1270 005b 13       		.uleb128 0x13
+ 1271 005c 00       		.byte	0
+ 1272 005d 00       		.byte	0
+ 1273 005e 09       		.uleb128 0x9
+ 1274 005f 2E       		.uleb128 0x2e
+ 1275 0060 01       		.byte	0x1
+ 1276 0061 03       		.uleb128 0x3
+ 1277 0062 0E       		.uleb128 0xe
+ 1278 0063 3A       		.uleb128 0x3a
+ 1279 0064 0B       		.uleb128 0xb
+ 1280 0065 3B       		.uleb128 0x3b
+ 1281 0066 0B       		.uleb128 0xb
+ 1282 0067 27       		.uleb128 0x27
+ 1283 0068 0C       		.uleb128 0xc
+ 1284 0069 49       		.uleb128 0x49
+ 1285 006a 13       		.uleb128 0x13
+ 1286 006b 20       		.uleb128 0x20
+ 1287 006c 0B       		.uleb128 0xb
+ 1288 006d 01       		.uleb128 0x1
+ 1289 006e 13       		.uleb128 0x13
+ 1290 006f 00       		.byte	0
+ 1291 0070 00       		.byte	0
+ 1292 0071 0A       		.uleb128 0xa
+ 1293 0072 05       		.uleb128 0x5
+ 1294 0073 00       		.byte	0
+ 1295 0074 03       		.uleb128 0x3
+ 1296 0075 0E       		.uleb128 0xe
+ 1297 0076 3A       		.uleb128 0x3a
+ 1298 0077 0B       		.uleb128 0xb
+ 1299 0078 3B       		.uleb128 0x3b
+ 1300 0079 0B       		.uleb128 0xb
+ 1301 007a 49       		.uleb128 0x49
+ 1302 007b 13       		.uleb128 0x13
+ 1303 007c 00       		.byte	0
+ 1304 007d 00       		.byte	0
+ 1305 007e 0B       		.uleb128 0xb
+ 1306 007f 2E       		.uleb128 0x2e
+ 1307 0080 01       		.byte	0x1
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 24
+
+
+ 1308 0081 3F       		.uleb128 0x3f
+ 1309 0082 0C       		.uleb128 0xc
+ 1310 0083 03       		.uleb128 0x3
+ 1311 0084 0E       		.uleb128 0xe
+ 1312 0085 3A       		.uleb128 0x3a
+ 1313 0086 0B       		.uleb128 0xb
+ 1314 0087 3B       		.uleb128 0x3b
+ 1315 0088 0B       		.uleb128 0xb
+ 1316 0089 27       		.uleb128 0x27
+ 1317 008a 0C       		.uleb128 0xc
+ 1318 008b 49       		.uleb128 0x49
+ 1319 008c 13       		.uleb128 0x13
+ 1320 008d 11       		.uleb128 0x11
+ 1321 008e 01       		.uleb128 0x1
+ 1322 008f 12       		.uleb128 0x12
+ 1323 0090 01       		.uleb128 0x1
+ 1324 0091 40       		.uleb128 0x40
+ 1325 0092 06       		.uleb128 0x6
+ 1326 0093 9742     		.uleb128 0x2117
+ 1327 0095 0C       		.uleb128 0xc
+ 1328 0096 01       		.uleb128 0x1
+ 1329 0097 13       		.uleb128 0x13
+ 1330 0098 00       		.byte	0
+ 1331 0099 00       		.byte	0
+ 1332 009a 0C       		.uleb128 0xc
+ 1333 009b 05       		.uleb128 0x5
+ 1334 009c 00       		.byte	0
+ 1335 009d 03       		.uleb128 0x3
+ 1336 009e 0E       		.uleb128 0xe
+ 1337 009f 3A       		.uleb128 0x3a
+ 1338 00a0 0B       		.uleb128 0xb
+ 1339 00a1 3B       		.uleb128 0x3b
+ 1340 00a2 0B       		.uleb128 0xb
+ 1341 00a3 49       		.uleb128 0x49
+ 1342 00a4 13       		.uleb128 0x13
+ 1343 00a5 02       		.uleb128 0x2
+ 1344 00a6 06       		.uleb128 0x6
+ 1345 00a7 00       		.byte	0
+ 1346 00a8 00       		.byte	0
+ 1347 00a9 0D       		.uleb128 0xd
+ 1348 00aa 34       		.uleb128 0x34
+ 1349 00ab 00       		.byte	0
+ 1350 00ac 03       		.uleb128 0x3
+ 1351 00ad 08       		.uleb128 0x8
+ 1352 00ae 3A       		.uleb128 0x3a
+ 1353 00af 0B       		.uleb128 0xb
+ 1354 00b0 3B       		.uleb128 0x3b
+ 1355 00b1 0B       		.uleb128 0xb
+ 1356 00b2 49       		.uleb128 0x49
+ 1357 00b3 13       		.uleb128 0x13
+ 1358 00b4 02       		.uleb128 0x2
+ 1359 00b5 06       		.uleb128 0x6
+ 1360 00b6 00       		.byte	0
+ 1361 00b7 00       		.byte	0
+ 1362 00b8 0E       		.uleb128 0xe
+ 1363 00b9 34       		.uleb128 0x34
+ 1364 00ba 00       		.byte	0
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 25
+
+
+ 1365 00bb 03       		.uleb128 0x3
+ 1366 00bc 0E       		.uleb128 0xe
+ 1367 00bd 3A       		.uleb128 0x3a
+ 1368 00be 0B       		.uleb128 0xb
+ 1369 00bf 3B       		.uleb128 0x3b
+ 1370 00c0 0B       		.uleb128 0xb
+ 1371 00c1 49       		.uleb128 0x49
+ 1372 00c2 13       		.uleb128 0x13
+ 1373 00c3 02       		.uleb128 0x2
+ 1374 00c4 06       		.uleb128 0x6
+ 1375 00c5 00       		.byte	0
+ 1376 00c6 00       		.byte	0
+ 1377 00c7 0F       		.uleb128 0xf
+ 1378 00c8 0B       		.uleb128 0xb
+ 1379 00c9 01       		.byte	0x1
+ 1380 00ca 55       		.uleb128 0x55
+ 1381 00cb 06       		.uleb128 0x6
+ 1382 00cc 01       		.uleb128 0x1
+ 1383 00cd 13       		.uleb128 0x13
+ 1384 00ce 00       		.byte	0
+ 1385 00cf 00       		.byte	0
+ 1386 00d0 10       		.uleb128 0x10
+ 1387 00d1 1D       		.uleb128 0x1d
+ 1388 00d2 01       		.byte	0x1
+ 1389 00d3 31       		.uleb128 0x31
+ 1390 00d4 13       		.uleb128 0x13
+ 1391 00d5 52       		.uleb128 0x52
+ 1392 00d6 01       		.uleb128 0x1
+ 1393 00d7 55       		.uleb128 0x55
+ 1394 00d8 06       		.uleb128 0x6
+ 1395 00d9 58       		.uleb128 0x58
+ 1396 00da 0B       		.uleb128 0xb
+ 1397 00db 59       		.uleb128 0x59
+ 1398 00dc 0B       		.uleb128 0xb
+ 1399 00dd 01       		.uleb128 0x1
+ 1400 00de 13       		.uleb128 0x13
+ 1401 00df 00       		.byte	0
+ 1402 00e0 00       		.byte	0
+ 1403 00e1 11       		.uleb128 0x11
+ 1404 00e2 05       		.uleb128 0x5
+ 1405 00e3 00       		.byte	0
+ 1406 00e4 31       		.uleb128 0x31
+ 1407 00e5 13       		.uleb128 0x13
+ 1408 00e6 02       		.uleb128 0x2
+ 1409 00e7 06       		.uleb128 0x6
+ 1410 00e8 00       		.byte	0
+ 1411 00e9 00       		.byte	0
+ 1412 00ea 12       		.uleb128 0x12
+ 1413 00eb 898201   		.uleb128 0x4109
+ 1414 00ee 01       		.byte	0x1
+ 1415 00ef 11       		.uleb128 0x11
+ 1416 00f0 01       		.uleb128 0x1
+ 1417 00f1 31       		.uleb128 0x31
+ 1418 00f2 13       		.uleb128 0x13
+ 1419 00f3 00       		.byte	0
+ 1420 00f4 00       		.byte	0
+ 1421 00f5 13       		.uleb128 0x13
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 26
+
+
+ 1422 00f6 8A8201   		.uleb128 0x410a
+ 1423 00f9 00       		.byte	0
+ 1424 00fa 02       		.uleb128 0x2
+ 1425 00fb 0A       		.uleb128 0xa
+ 1426 00fc 9142     		.uleb128 0x2111
+ 1427 00fe 0A       		.uleb128 0xa
+ 1428 00ff 00       		.byte	0
+ 1429 0100 00       		.byte	0
+ 1430 0101 14       		.uleb128 0x14
+ 1431 0102 898201   		.uleb128 0x4109
+ 1432 0105 00       		.byte	0
+ 1433 0106 11       		.uleb128 0x11
+ 1434 0107 01       		.uleb128 0x1
+ 1435 0108 31       		.uleb128 0x31
+ 1436 0109 13       		.uleb128 0x13
+ 1437 010a 00       		.byte	0
+ 1438 010b 00       		.byte	0
+ 1439 010c 15       		.uleb128 0x15
+ 1440 010d 898201   		.uleb128 0x4109
+ 1441 0110 01       		.byte	0x1
+ 1442 0111 11       		.uleb128 0x11
+ 1443 0112 01       		.uleb128 0x1
+ 1444 0113 31       		.uleb128 0x31
+ 1445 0114 13       		.uleb128 0x13
+ 1446 0115 01       		.uleb128 0x1
+ 1447 0116 13       		.uleb128 0x13
+ 1448 0117 00       		.byte	0
+ 1449 0118 00       		.byte	0
+ 1450 0119 16       		.uleb128 0x16
+ 1451 011a 01       		.uleb128 0x1
+ 1452 011b 01       		.byte	0x1
+ 1453 011c 49       		.uleb128 0x49
+ 1454 011d 13       		.uleb128 0x13
+ 1455 011e 01       		.uleb128 0x1
+ 1456 011f 13       		.uleb128 0x13
+ 1457 0120 00       		.byte	0
+ 1458 0121 00       		.byte	0
+ 1459 0122 17       		.uleb128 0x17
+ 1460 0123 21       		.uleb128 0x21
+ 1461 0124 00       		.byte	0
+ 1462 0125 49       		.uleb128 0x49
+ 1463 0126 13       		.uleb128 0x13
+ 1464 0127 2F       		.uleb128 0x2f
+ 1465 0128 0B       		.uleb128 0xb
+ 1466 0129 00       		.byte	0
+ 1467 012a 00       		.byte	0
+ 1468 012b 18       		.uleb128 0x18
+ 1469 012c 34       		.uleb128 0x34
+ 1470 012d 00       		.byte	0
+ 1471 012e 03       		.uleb128 0x3
+ 1472 012f 0E       		.uleb128 0xe
+ 1473 0130 3A       		.uleb128 0x3a
+ 1474 0131 0B       		.uleb128 0xb
+ 1475 0132 3B       		.uleb128 0x3b
+ 1476 0133 0B       		.uleb128 0xb
+ 1477 0134 49       		.uleb128 0x49
+ 1478 0135 13       		.uleb128 0x13
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 27
+
+
+ 1479 0136 02       		.uleb128 0x2
+ 1480 0137 0A       		.uleb128 0xa
+ 1481 0138 00       		.byte	0
+ 1482 0139 00       		.byte	0
+ 1483 013a 19       		.uleb128 0x19
+ 1484 013b 26       		.uleb128 0x26
+ 1485 013c 00       		.byte	0
+ 1486 013d 49       		.uleb128 0x49
+ 1487 013e 13       		.uleb128 0x13
+ 1488 013f 00       		.byte	0
+ 1489 0140 00       		.byte	0
+ 1490 0141 1A       		.uleb128 0x1a
+ 1491 0142 34       		.uleb128 0x34
+ 1492 0143 00       		.byte	0
+ 1493 0144 03       		.uleb128 0x3
+ 1494 0145 0E       		.uleb128 0xe
+ 1495 0146 3A       		.uleb128 0x3a
+ 1496 0147 0B       		.uleb128 0xb
+ 1497 0148 3B       		.uleb128 0x3b
+ 1498 0149 05       		.uleb128 0x5
+ 1499 014a 49       		.uleb128 0x49
+ 1500 014b 13       		.uleb128 0x13
+ 1501 014c 3F       		.uleb128 0x3f
+ 1502 014d 0C       		.uleb128 0xc
+ 1503 014e 3C       		.uleb128 0x3c
+ 1504 014f 0C       		.uleb128 0xc
+ 1505 0150 00       		.byte	0
+ 1506 0151 00       		.byte	0
+ 1507 0152 1B       		.uleb128 0x1b
+ 1508 0153 2E       		.uleb128 0x2e
+ 1509 0154 01       		.byte	0x1
+ 1510 0155 3F       		.uleb128 0x3f
+ 1511 0156 0C       		.uleb128 0xc
+ 1512 0157 03       		.uleb128 0x3
+ 1513 0158 0E       		.uleb128 0xe
+ 1514 0159 3A       		.uleb128 0x3a
+ 1515 015a 0B       		.uleb128 0xb
+ 1516 015b 3B       		.uleb128 0x3b
+ 1517 015c 0B       		.uleb128 0xb
+ 1518 015d 27       		.uleb128 0x27
+ 1519 015e 0C       		.uleb128 0xc
+ 1520 015f 3C       		.uleb128 0x3c
+ 1521 0160 0C       		.uleb128 0xc
+ 1522 0161 01       		.uleb128 0x1
+ 1523 0162 13       		.uleb128 0x13
+ 1524 0163 00       		.byte	0
+ 1525 0164 00       		.byte	0
+ 1526 0165 1C       		.uleb128 0x1c
+ 1527 0166 05       		.uleb128 0x5
+ 1528 0167 00       		.byte	0
+ 1529 0168 49       		.uleb128 0x49
+ 1530 0169 13       		.uleb128 0x13
+ 1531 016a 00       		.byte	0
+ 1532 016b 00       		.byte	0
+ 1533 016c 1D       		.uleb128 0x1d
+ 1534 016d 2E       		.uleb128 0x2e
+ 1535 016e 01       		.byte	0x1
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 28
+
+
+ 1536 016f 3F       		.uleb128 0x3f
+ 1537 0170 0C       		.uleb128 0xc
+ 1538 0171 03       		.uleb128 0x3
+ 1539 0172 0E       		.uleb128 0xe
+ 1540 0173 3A       		.uleb128 0x3a
+ 1541 0174 0B       		.uleb128 0xb
+ 1542 0175 3B       		.uleb128 0x3b
+ 1543 0176 0B       		.uleb128 0xb
+ 1544 0177 27       		.uleb128 0x27
+ 1545 0178 0C       		.uleb128 0xc
+ 1546 0179 49       		.uleb128 0x49
+ 1547 017a 13       		.uleb128 0x13
+ 1548 017b 3C       		.uleb128 0x3c
+ 1549 017c 0C       		.uleb128 0xc
+ 1550 017d 01       		.uleb128 0x1
+ 1551 017e 13       		.uleb128 0x13
+ 1552 017f 00       		.byte	0
+ 1553 0180 00       		.byte	0
+ 1554 0181 1E       		.uleb128 0x1e
+ 1555 0182 2E       		.uleb128 0x2e
+ 1556 0183 01       		.byte	0x1
+ 1557 0184 3F       		.uleb128 0x3f
+ 1558 0185 0C       		.uleb128 0xc
+ 1559 0186 03       		.uleb128 0x3
+ 1560 0187 0E       		.uleb128 0xe
+ 1561 0188 3A       		.uleb128 0x3a
+ 1562 0189 0B       		.uleb128 0xb
+ 1563 018a 3B       		.uleb128 0x3b
+ 1564 018b 0B       		.uleb128 0xb
+ 1565 018c 27       		.uleb128 0x27
+ 1566 018d 0C       		.uleb128 0xc
+ 1567 018e 3C       		.uleb128 0x3c
+ 1568 018f 0C       		.uleb128 0xc
+ 1569 0190 00       		.byte	0
+ 1570 0191 00       		.byte	0
+ 1571 0192 00       		.byte	0
+ 1572              		.section	.debug_loc,"",%progbits
+ 1573              	.Ldebug_loc0:
+ 1574              	.LLST0:
+ 1575 0000 00000000 		.4byte	.LFB64
+ 1576 0004 04000000 		.4byte	.LCFI0
+ 1577 0008 0200     		.2byte	0x2
+ 1578 000a 7D       		.byte	0x7d
+ 1579 000b 00       		.sleb128 0
+ 1580 000c 04000000 		.4byte	.LCFI0
+ 1581 0010 08000000 		.4byte	.LCFI1
+ 1582 0014 0200     		.2byte	0x2
+ 1583 0016 7D       		.byte	0x7d
+ 1584 0017 24       		.sleb128 36
+ 1585 0018 08000000 		.4byte	.LCFI1
+ 1586 001c 8C030000 		.4byte	.LFE64
+ 1587 0020 0200     		.2byte	0x2
+ 1588 0022 7D       		.byte	0x7d
+ 1589 0023 30       		.sleb128 48
+ 1590 0024 00000000 		.4byte	0
+ 1591 0028 00000000 		.4byte	0
+ 1592              	.LLST1:
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 29
+
+
+ 1593 002c 00000000 		.4byte	.LVL0
+ 1594 0030 56000000 		.4byte	.LVL10
+ 1595 0034 0100     		.2byte	0x1
+ 1596 0036 50       		.byte	0x50
+ 1597 0037 56000000 		.4byte	.LVL10
+ 1598 003b 7C030000 		.4byte	.LVL79
+ 1599 003f 0400     		.2byte	0x4
+ 1600 0041 F3       		.byte	0xf3
+ 1601 0042 01       		.uleb128 0x1
+ 1602 0043 50       		.byte	0x50
+ 1603 0044 9F       		.byte	0x9f
+ 1604 0045 7C030000 		.4byte	.LVL79
+ 1605 0049 82030000 		.4byte	.LVL80
+ 1606 004d 0100     		.2byte	0x1
+ 1607 004f 50       		.byte	0x50
+ 1608 0050 82030000 		.4byte	.LVL80
+ 1609 0054 8C030000 		.4byte	.LFE64
+ 1610 0058 0400     		.2byte	0x4
+ 1611 005a F3       		.byte	0xf3
+ 1612 005b 01       		.uleb128 0x1
+ 1613 005c 50       		.byte	0x50
+ 1614 005d 9F       		.byte	0x9f
+ 1615 005e 00000000 		.4byte	0
+ 1616 0062 00000000 		.4byte	0
+ 1617              	.LLST2:
+ 1618 0066 00000000 		.4byte	.LVL0
+ 1619 006a 1A000000 		.4byte	.LVL2
+ 1620 006e 0100     		.2byte	0x1
+ 1621 0070 51       		.byte	0x51
+ 1622 0071 1A000000 		.4byte	.LVL2
+ 1623 0075 7C030000 		.4byte	.LVL79
+ 1624 0079 0100     		.2byte	0x1
+ 1625 007b 57       		.byte	0x57
+ 1626 007c 7C030000 		.4byte	.LVL79
+ 1627 0080 82030000 		.4byte	.LVL80
+ 1628 0084 0100     		.2byte	0x1
+ 1629 0086 51       		.byte	0x51
+ 1630 0087 82030000 		.4byte	.LVL80
+ 1631 008b 8C030000 		.4byte	.LFE64
+ 1632 008f 0100     		.2byte	0x1
+ 1633 0091 57       		.byte	0x57
+ 1634 0092 00000000 		.4byte	0
+ 1635 0096 00000000 		.4byte	0
+ 1636              	.LLST3:
+ 1637 009a 00000000 		.4byte	.LVL0
+ 1638 009e 18000000 		.4byte	.LVL1
+ 1639 00a2 0100     		.2byte	0x1
+ 1640 00a4 52       		.byte	0x52
+ 1641 00a5 18000000 		.4byte	.LVL1
+ 1642 00a9 7C030000 		.4byte	.LVL79
+ 1643 00ad 0200     		.2byte	0x2
+ 1644 00af 91       		.byte	0x91
+ 1645 00b0 54       		.sleb128 -44
+ 1646 00b1 7C030000 		.4byte	.LVL79
+ 1647 00b5 82030000 		.4byte	.LVL80
+ 1648 00b9 0100     		.2byte	0x1
+ 1649 00bb 52       		.byte	0x52
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 30
+
+
+ 1650 00bc 82030000 		.4byte	.LVL80
+ 1651 00c0 8C030000 		.4byte	.LFE64
+ 1652 00c4 0200     		.2byte	0x2
+ 1653 00c6 91       		.byte	0x91
+ 1654 00c7 54       		.sleb128 -44
+ 1655 00c8 00000000 		.4byte	0
+ 1656 00cc 00000000 		.4byte	0
+ 1657              	.LLST4:
+ 1658 00d0 00000000 		.4byte	.LVL0
+ 1659 00d4 1A000000 		.4byte	.LVL2
+ 1660 00d8 0100     		.2byte	0x1
+ 1661 00da 50       		.byte	0x50
+ 1662 00db 20000000 		.4byte	.LVL4
+ 1663 00df 24000000 		.4byte	.LVL5
+ 1664 00e3 0100     		.2byte	0x1
+ 1665 00e5 51       		.byte	0x51
+ 1666 00e6 24000000 		.4byte	.LVL5
+ 1667 00ea 62000000 		.4byte	.LVL11
+ 1668 00ee 0100     		.2byte	0x1
+ 1669 00f0 59       		.byte	0x59
+ 1670 00f1 62000000 		.4byte	.LVL11
+ 1671 00f5 68000000 		.4byte	.LVL12
+ 1672 00f9 0100     		.2byte	0x1
+ 1673 00fb 53       		.byte	0x53
+ 1674 00fc 68000000 		.4byte	.LVL12
+ 1675 0100 74000000 		.4byte	.LVL13
+ 1676 0104 0100     		.2byte	0x1
+ 1677 0106 59       		.byte	0x59
+ 1678 0107 74000000 		.4byte	.LVL13
+ 1679 010b 86000000 		.4byte	.LVL14
+ 1680 010f 0300     		.2byte	0x3
+ 1681 0111 79       		.byte	0x79
+ 1682 0112 01       		.sleb128 1
+ 1683 0113 9F       		.byte	0x9f
+ 1684 0114 86000000 		.4byte	.LVL14
+ 1685 0118 96000000 		.4byte	.LVL15
+ 1686 011c 0100     		.2byte	0x1
+ 1687 011e 50       		.byte	0x50
+ 1688 011f 96000000 		.4byte	.LVL15
+ 1689 0123 98000000 		.4byte	.LVL16
+ 1690 0127 0300     		.2byte	0x3
+ 1691 0129 79       		.byte	0x79
+ 1692 012a 02       		.sleb128 2
+ 1693 012b 9F       		.byte	0x9f
+ 1694 012c C8000000 		.4byte	.LVL19
+ 1695 0130 D2000000 		.4byte	.LVL21
+ 1696 0134 0100     		.2byte	0x1
+ 1697 0136 59       		.byte	0x59
+ 1698 0137 D2000000 		.4byte	.LVL21
+ 1699 013b D6000000 		.4byte	.LVL22
+ 1700 013f 0100     		.2byte	0x1
+ 1701 0141 52       		.byte	0x52
+ 1702 0142 D6000000 		.4byte	.LVL22
+ 1703 0146 F2000000 		.4byte	.LVL25
+ 1704 014a 0100     		.2byte	0x1
+ 1705 014c 59       		.byte	0x59
+ 1706 014d F2000000 		.4byte	.LVL25
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 31
+
+
+ 1707 0151 3C010000 		.4byte	.LVL31
+ 1708 0155 0100     		.2byte	0x1
+ 1709 0157 54       		.byte	0x54
+ 1710 0158 3C010000 		.4byte	.LVL31
+ 1711 015c 40010000 		.4byte	.LVL32
+ 1712 0160 0100     		.2byte	0x1
+ 1713 0162 53       		.byte	0x53
+ 1714 0163 40010000 		.4byte	.LVL32
+ 1715 0167 66010000 		.4byte	.LVL34
+ 1716 016b 0100     		.2byte	0x1
+ 1717 016d 54       		.byte	0x54
+ 1718 016e 86010000 		.4byte	.LVL37
+ 1719 0172 62020000 		.4byte	.LVL38
+ 1720 0176 0100     		.2byte	0x1
+ 1721 0178 54       		.byte	0x54
+ 1722 0179 70020000 		.4byte	.LVL40
+ 1723 017d 84020000 		.4byte	.LVL41
+ 1724 0181 0100     		.2byte	0x1
+ 1725 0183 50       		.byte	0x50
+ 1726 0184 84020000 		.4byte	.LVL41
+ 1727 0188 86020000 		.4byte	.LVL42
+ 1728 018c 0100     		.2byte	0x1
+ 1729 018e 54       		.byte	0x54
+ 1730 018f 86020000 		.4byte	.LVL42
+ 1731 0193 8E020000 		.4byte	.LVL43
+ 1732 0197 0300     		.2byte	0x3
+ 1733 0199 74       		.byte	0x74
+ 1734 019a 01       		.sleb128 1
+ 1735 019b 9F       		.byte	0x9f
+ 1736 019c 8E020000 		.4byte	.LVL43
+ 1737 01a0 A0020000 		.4byte	.LVL44
+ 1738 01a4 0100     		.2byte	0x1
+ 1739 01a6 54       		.byte	0x54
+ 1740 01a7 A0020000 		.4byte	.LVL44
+ 1741 01ab AC020000 		.4byte	.LVL45
+ 1742 01af 0300     		.2byte	0x3
+ 1743 01b1 74       		.byte	0x74
+ 1744 01b2 01       		.sleb128 1
+ 1745 01b3 9F       		.byte	0x9f
+ 1746 01b4 AC020000 		.4byte	.LVL45
+ 1747 01b8 B8020000 		.4byte	.LVL46
+ 1748 01bc 0100     		.2byte	0x1
+ 1749 01be 54       		.byte	0x54
+ 1750 01bf B8020000 		.4byte	.LVL46
+ 1751 01c3 BA020000 		.4byte	.LVL47
+ 1752 01c7 0300     		.2byte	0x3
+ 1753 01c9 74       		.byte	0x74
+ 1754 01ca 01       		.sleb128 1
+ 1755 01cb 9F       		.byte	0x9f
+ 1756 01cc BA020000 		.4byte	.LVL47
+ 1757 01d0 C8020000 		.4byte	.LVL48
+ 1758 01d4 0100     		.2byte	0x1
+ 1759 01d6 54       		.byte	0x54
+ 1760 01d7 C8020000 		.4byte	.LVL48
+ 1761 01db CA020000 		.4byte	.LVL49
+ 1762 01df 0300     		.2byte	0x3
+ 1763 01e1 74       		.byte	0x74
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 32
+
+
+ 1764 01e2 01       		.sleb128 1
+ 1765 01e3 9F       		.byte	0x9f
+ 1766 01e4 CA020000 		.4byte	.LVL49
+ 1767 01e8 D2020000 		.4byte	.LVL51
+ 1768 01ec 0100     		.2byte	0x1
+ 1769 01ee 54       		.byte	0x54
+ 1770 01ef D2020000 		.4byte	.LVL51
+ 1771 01f3 D6020000 		.4byte	.LVL52
+ 1772 01f7 0100     		.2byte	0x1
+ 1773 01f9 53       		.byte	0x53
+ 1774 01fa D6020000 		.4byte	.LVL52
+ 1775 01fe 4E030000 		.4byte	.LVL65
+ 1776 0202 0100     		.2byte	0x1
+ 1777 0204 54       		.byte	0x54
+ 1778 0205 4E030000 		.4byte	.LVL65
+ 1779 0209 50030000 		.4byte	.LVL66
+ 1780 020d 0300     		.2byte	0x3
+ 1781 020f 74       		.byte	0x74
+ 1782 0210 01       		.sleb128 1
+ 1783 0211 9F       		.byte	0x9f
+ 1784 0212 50030000 		.4byte	.LVL66
+ 1785 0216 56030000 		.4byte	.LVL69
+ 1786 021a 0100     		.2byte	0x1
+ 1787 021c 54       		.byte	0x54
+ 1788 021d 56030000 		.4byte	.LVL69
+ 1789 0221 5C030000 		.4byte	.LVL71
+ 1790 0225 0300     		.2byte	0x3
+ 1791 0227 74       		.byte	0x74
+ 1792 0228 01       		.sleb128 1
+ 1793 0229 9F       		.byte	0x9f
+ 1794 022a 5C030000 		.4byte	.LVL71
+ 1795 022e 7C030000 		.4byte	.LVL79
+ 1796 0232 0100     		.2byte	0x1
+ 1797 0234 54       		.byte	0x54
+ 1798 0235 7C030000 		.4byte	.LVL79
+ 1799 0239 82030000 		.4byte	.LVL80
+ 1800 023d 0100     		.2byte	0x1
+ 1801 023f 50       		.byte	0x50
+ 1802 0240 82030000 		.4byte	.LVL80
+ 1803 0244 8C030000 		.4byte	.LFE64
+ 1804 0248 0100     		.2byte	0x1
+ 1805 024a 54       		.byte	0x54
+ 1806 024b 00000000 		.4byte	0
+ 1807 024f 00000000 		.4byte	0
+ 1808              	.LLST5:
+ 1809 0253 00000000 		.4byte	.LVL0
+ 1810 0257 1A000000 		.4byte	.LVL2
+ 1811 025b 0600     		.2byte	0x6
+ 1812 025d 03       		.byte	0x3
+ 1813 025e 00000000 		.4byte	name
+ 1814 0262 9F       		.byte	0x9f
+ 1815 0263 1E000000 		.4byte	.LVL3
+ 1816 0267 28000000 		.4byte	.LVL6
+ 1817 026b 0100     		.2byte	0x1
+ 1818 026d 52       		.byte	0x52
+ 1819 026e 28000000 		.4byte	.LVL6
+ 1820 0272 30000000 		.4byte	.LVL7
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 33
+
+
+ 1821 0276 0100     		.2byte	0x1
+ 1822 0278 54       		.byte	0x54
+ 1823 0279 F2000000 		.4byte	.LVL25
+ 1824 027d FE000000 		.4byte	.LVL26
+ 1825 0281 0100     		.2byte	0x1
+ 1826 0283 54       		.byte	0x54
+ 1827 0284 7C030000 		.4byte	.LVL79
+ 1828 0288 82030000 		.4byte	.LVL80
+ 1829 028c 0600     		.2byte	0x6
+ 1830 028e 03       		.byte	0x3
+ 1831 028f 00000000 		.4byte	name
+ 1832 0293 9F       		.byte	0x9f
+ 1833 0294 00000000 		.4byte	0
+ 1834 0298 00000000 		.4byte	0
+ 1835              	.LLST6:
+ 1836 029c 00000000 		.4byte	.LVL0
+ 1837 02a0 4A000000 		.4byte	.LVL9
+ 1838 02a4 0200     		.2byte	0x2
+ 1839 02a6 34       		.byte	0x34
+ 1840 02a7 9F       		.byte	0x9f
+ 1841 02a8 7C030000 		.4byte	.LVL79
+ 1842 02ac 82030000 		.4byte	.LVL80
+ 1843 02b0 0200     		.2byte	0x2
+ 1844 02b2 34       		.byte	0x34
+ 1845 02b3 9F       		.byte	0x9f
+ 1846 02b4 00000000 		.4byte	0
+ 1847 02b8 00000000 		.4byte	0
+ 1848              	.LLST7:
+ 1849 02bc 00000000 		.4byte	.LVL0
+ 1850 02c0 4A000000 		.4byte	.LVL9
+ 1851 02c4 0200     		.2byte	0x2
+ 1852 02c6 36       		.byte	0x36
+ 1853 02c7 9F       		.byte	0x9f
+ 1854 02c8 7C030000 		.4byte	.LVL79
+ 1855 02cc 82030000 		.4byte	.LVL80
+ 1856 02d0 0200     		.2byte	0x2
+ 1857 02d2 36       		.byte	0x36
+ 1858 02d3 9F       		.byte	0x9f
+ 1859 02d4 00000000 		.4byte	0
+ 1860 02d8 00000000 		.4byte	0
+ 1861              	.LLST8:
+ 1862 02dc 00000000 		.4byte	.LVL0
+ 1863 02e0 4A000000 		.4byte	.LVL9
+ 1864 02e4 0300     		.2byte	0x3
+ 1865 02e6 08       		.byte	0x8
+ 1866 02e7 3F       		.byte	0x3f
+ 1867 02e8 9F       		.byte	0x9f
+ 1868 02e9 4A000000 		.4byte	.LVL9
+ 1869 02ed D0000000 		.4byte	.LVL20
+ 1870 02f1 0100     		.2byte	0x1
+ 1871 02f3 58       		.byte	0x58
+ 1872 02f4 E2000000 		.4byte	.LVL23
+ 1873 02f8 2C010000 		.4byte	.LVL30
+ 1874 02fc 0100     		.2byte	0x1
+ 1875 02fe 58       		.byte	0x58
+ 1876 02ff 62020000 		.4byte	.LVL38
+ 1877 0303 68020000 		.4byte	.LVL39
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 34
+
+
+ 1878 0307 0100     		.2byte	0x1
+ 1879 0309 58       		.byte	0x58
+ 1880 030a 70020000 		.4byte	.LVL40
+ 1881 030e 84020000 		.4byte	.LVL41
+ 1882 0312 0100     		.2byte	0x1
+ 1883 0314 58       		.byte	0x58
+ 1884 0315 7C030000 		.4byte	.LVL79
+ 1885 0319 82030000 		.4byte	.LVL80
+ 1886 031d 0300     		.2byte	0x3
+ 1887 031f 08       		.byte	0x8
+ 1888 0320 3F       		.byte	0x3f
+ 1889 0321 9F       		.byte	0x9f
+ 1890 0322 00000000 		.4byte	0
+ 1891 0326 00000000 		.4byte	0
+ 1892              	.LLST9:
+ 1893 032a 00000000 		.4byte	.LVL0
+ 1894 032e F2000000 		.4byte	.LVL25
+ 1895 0332 0200     		.2byte	0x2
+ 1896 0334 30       		.byte	0x30
+ 1897 0335 9F       		.byte	0x9f
+ 1898 0336 F2000000 		.4byte	.LVL25
+ 1899 033a FE000000 		.4byte	.LVL26
+ 1900 033e 0200     		.2byte	0x2
+ 1901 0340 31       		.byte	0x31
+ 1902 0341 9F       		.byte	0x9f
+ 1903 0342 08010000 		.4byte	.LVL27
+ 1904 0346 12010000 		.4byte	.LVL28
+ 1905 034a 0100     		.2byte	0x1
+ 1906 034c 50       		.byte	0x50
+ 1907 034d 12010000 		.4byte	.LVL28
+ 1908 0351 15010000 		.4byte	.LVL29-1
+ 1909 0355 0300     		.2byte	0x3
+ 1910 0357 70       		.byte	0x70
+ 1911 0358 7F       		.sleb128 -1
+ 1912 0359 9F       		.byte	0x9f
+ 1913 035a 62020000 		.4byte	.LVL38
+ 1914 035e 68020000 		.4byte	.LVL39
+ 1915 0362 0200     		.2byte	0x2
+ 1916 0364 30       		.byte	0x30
+ 1917 0365 9F       		.byte	0x9f
+ 1918 0366 70020000 		.4byte	.LVL40
+ 1919 036a 84020000 		.4byte	.LVL41
+ 1920 036e 0200     		.2byte	0x2
+ 1921 0370 30       		.byte	0x30
+ 1922 0371 9F       		.byte	0x9f
+ 1923 0372 7C030000 		.4byte	.LVL79
+ 1924 0376 82030000 		.4byte	.LVL80
+ 1925 037a 0200     		.2byte	0x2
+ 1926 037c 30       		.byte	0x30
+ 1927 037d 9F       		.byte	0x9f
+ 1928 037e 00000000 		.4byte	0
+ 1929 0382 00000000 		.4byte	0
+ 1930              	.LLST10:
+ 1931 0386 74000000 		.4byte	.LVL13
+ 1932 038a E6000000 		.4byte	.LVL24
+ 1933 038e 0100     		.2byte	0x1
+ 1934 0390 54       		.byte	0x54
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 35
+
+
+ 1935 0391 62020000 		.4byte	.LVL38
+ 1936 0395 68020000 		.4byte	.LVL39
+ 1937 0399 0100     		.2byte	0x1
+ 1938 039b 54       		.byte	0x54
+ 1939 039c 70020000 		.4byte	.LVL40
+ 1940 03a0 84020000 		.4byte	.LVL41
+ 1941 03a4 0100     		.2byte	0x1
+ 1942 03a6 54       		.byte	0x54
+ 1943 03a7 00000000 		.4byte	0
+ 1944 03ab 00000000 		.4byte	0
+ 1945              	.LLST11:
+ 1946 03af 86000000 		.4byte	.LVL14
+ 1947 03b3 98000000 		.4byte	.LVL16
+ 1948 03b7 0200     		.2byte	0x2
+ 1949 03b9 30       		.byte	0x30
+ 1950 03ba 9F       		.byte	0x9f
+ 1951 03bb A6000000 		.4byte	.LVL17
+ 1952 03bf B4000000 		.4byte	.LVL18
+ 1953 03c3 0100     		.2byte	0x1
+ 1954 03c5 51       		.byte	0x51
+ 1955 03c6 70020000 		.4byte	.LVL40
+ 1956 03ca 84020000 		.4byte	.LVL41
+ 1957 03ce 0200     		.2byte	0x2
+ 1958 03d0 30       		.byte	0x30
+ 1959 03d1 9F       		.byte	0x9f
+ 1960 03d2 00000000 		.4byte	0
+ 1961 03d6 00000000 		.4byte	0
+ 1962              	.LLST12:
+ 1963 03da 84020000 		.4byte	.LVL41
+ 1964 03de 86020000 		.4byte	.LVL42
+ 1965 03e2 0200     		.2byte	0x2
+ 1966 03e4 3B       		.byte	0x3b
+ 1967 03e5 9F       		.byte	0x9f
+ 1968 03e6 86020000 		.4byte	.LVL42
+ 1969 03ea FC020000 		.4byte	.LVL57
+ 1970 03ee 0100     		.2byte	0x1
+ 1971 03f0 50       		.byte	0x50
+ 1972 03f1 FC020000 		.4byte	.LVL57
+ 1973 03f5 00030000 		.4byte	.LVL58
+ 1974 03f9 0300     		.2byte	0x3
+ 1975 03fb 73       		.byte	0x73
+ 1976 03fc 7F       		.sleb128 -1
+ 1977 03fd 9F       		.byte	0x9f
+ 1978 03fe 4A030000 		.4byte	.LVL64
+ 1979 0402 54030000 		.4byte	.LVL68
+ 1980 0406 0100     		.2byte	0x1
+ 1981 0408 50       		.byte	0x50
+ 1982 0409 54030000 		.4byte	.LVL68
+ 1983 040d 56030000 		.4byte	.LVL69
+ 1984 0411 0300     		.2byte	0x3
+ 1985 0413 73       		.byte	0x73
+ 1986 0414 7F       		.sleb128 -1
+ 1987 0415 9F       		.byte	0x9f
+ 1988 0416 56030000 		.4byte	.LVL69
+ 1989 041a 5E030000 		.4byte	.LVL72
+ 1990 041e 0100     		.2byte	0x1
+ 1991 0420 50       		.byte	0x50
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 36
+
+
+ 1992 0421 5E030000 		.4byte	.LVL72
+ 1993 0425 62030000 		.4byte	.LVL73
+ 1994 0429 0200     		.2byte	0x2
+ 1995 042b 37       		.byte	0x37
+ 1996 042c 9F       		.byte	0x9f
+ 1997 042d 62030000 		.4byte	.LVL73
+ 1998 0431 66030000 		.4byte	.LVL74
+ 1999 0435 0200     		.2byte	0x2
+ 2000 0437 35       		.byte	0x35
+ 2001 0438 9F       		.byte	0x9f
+ 2002 0439 66030000 		.4byte	.LVL74
+ 2003 043d 6A030000 		.4byte	.LVL75
+ 2004 0441 0200     		.2byte	0x2
+ 2005 0443 34       		.byte	0x34
+ 2006 0444 9F       		.byte	0x9f
+ 2007 0445 6A030000 		.4byte	.LVL75
+ 2008 0449 6E030000 		.4byte	.LVL76
+ 2009 044d 0200     		.2byte	0x2
+ 2010 044f 32       		.byte	0x32
+ 2011 0450 9F       		.byte	0x9f
+ 2012 0451 72030000 		.4byte	.LVL77
+ 2013 0455 76030000 		.4byte	.LVL78
+ 2014 0459 0200     		.2byte	0x2
+ 2015 045b 39       		.byte	0x39
+ 2016 045c 9F       		.byte	0x9f
+ 2017 045d 00000000 		.4byte	0
+ 2018 0461 00000000 		.4byte	0
+ 2019              	.LLST13:
+ 2020 0465 B8020000 		.4byte	.LVL46
+ 2021 0469 F4020000 		.4byte	.LVL55
+ 2022 046d 0100     		.2byte	0x1
+ 2023 046f 5E       		.byte	0x5e
+ 2024 0470 F4020000 		.4byte	.LVL55
+ 2025 0474 F8020000 		.4byte	.LVL56
+ 2026 0478 0300     		.2byte	0x3
+ 2027 047a 7E       		.byte	0x7e
+ 2028 047b 7F       		.sleb128 -1
+ 2029 047c 9F       		.byte	0x9f
+ 2030 047d 52030000 		.4byte	.LVL67
+ 2031 0481 56030000 		.4byte	.LVL69
+ 2032 0485 0100     		.2byte	0x1
+ 2033 0487 5E       		.byte	0x5e
+ 2034 0488 00000000 		.4byte	0
+ 2035 048c 00000000 		.4byte	0
+ 2036              	.LLST14:
+ 2037 0490 86010000 		.4byte	.LVL37
+ 2038 0494 62020000 		.4byte	.LVL38
+ 2039 0498 0100     		.2byte	0x1
+ 2040 049a 51       		.byte	0x51
+ 2041 049b 84020000 		.4byte	.LVL41
+ 2042 049f D0020000 		.4byte	.LVL50
+ 2043 04a3 0100     		.2byte	0x1
+ 2044 04a5 51       		.byte	0x51
+ 2045 04a6 4A030000 		.4byte	.LVL64
+ 2046 04aa 52030000 		.4byte	.LVL67
+ 2047 04ae 0100     		.2byte	0x1
+ 2048 04b0 51       		.byte	0x51
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 37
+
+
+ 2049 04b1 56030000 		.4byte	.LVL69
+ 2050 04b5 7C030000 		.4byte	.LVL79
+ 2051 04b9 0100     		.2byte	0x1
+ 2052 04bb 51       		.byte	0x51
+ 2053 04bc 00000000 		.4byte	0
+ 2054 04c0 00000000 		.4byte	0
+ 2055              	.LLST15:
+ 2056 04c4 EE020000 		.4byte	.LVL54
+ 2057 04c8 2B030000 		.4byte	.LVL61-1
+ 2058 04cc 0100     		.2byte	0x1
+ 2059 04ce 52       		.byte	0x52
+ 2060 04cf 52030000 		.4byte	.LVL67
+ 2061 04d3 56030000 		.4byte	.LVL69
+ 2062 04d7 0100     		.2byte	0x1
+ 2063 04d9 52       		.byte	0x52
+ 2064 04da 00000000 		.4byte	0
+ 2065 04de 00000000 		.4byte	0
+ 2066              	.LLST16:
+ 2067 04e2 26030000 		.4byte	.LVL60
+ 2068 04e6 2B030000 		.4byte	.LVL61-1
+ 2069 04ea 0100     		.2byte	0x1
+ 2070 04ec 50       		.byte	0x50
+ 2071 04ed 00000000 		.4byte	0
+ 2072 04f1 00000000 		.4byte	0
+ 2073              	.LLST17:
+ 2074 04f5 FC020000 		.4byte	.LVL57
+ 2075 04f9 1E030000 		.4byte	.LVL59
+ 2076 04fd 0100     		.2byte	0x1
+ 2077 04ff 50       		.byte	0x50
+ 2078 0500 00000000 		.4byte	0
+ 2079 0504 00000000 		.4byte	0
+ 2080              	.LLST18:
+ 2081 0508 56010000 		.4byte	.LVL33
+ 2082 050c 66010000 		.4byte	.LVL34
+ 2083 0510 0200     		.2byte	0x2
+ 2084 0512 30       		.byte	0x30
+ 2085 0513 9F       		.byte	0x9f
+ 2086 0514 74010000 		.4byte	.LVL35
+ 2087 0518 82010000 		.4byte	.LVL36
+ 2088 051c 0100     		.2byte	0x1
+ 2089 051e 53       		.byte	0x53
+ 2090 051f 82030000 		.4byte	.LVL80
+ 2091 0523 8C030000 		.4byte	.LFE64
+ 2092 0527 0200     		.2byte	0x2
+ 2093 0529 30       		.byte	0x30
+ 2094 052a 9F       		.byte	0x9f
+ 2095 052b 00000000 		.4byte	0
+ 2096 052f 00000000 		.4byte	0
+ 2097              		.section	.debug_aranges,"",%progbits
+ 2098 0000 1C000000 		.4byte	0x1c
+ 2099 0004 0200     		.2byte	0x2
+ 2100 0006 00000000 		.4byte	.Ldebug_info0
+ 2101 000a 04       		.byte	0x4
+ 2102 000b 00       		.byte	0
+ 2103 000c 0000     		.2byte	0
+ 2104 000e 0000     		.2byte	0
+ 2105 0010 00000000 		.4byte	.LFB64
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 38
+
+
+ 2106 0014 8C030000 		.4byte	.LFE64-.LFB64
+ 2107 0018 00000000 		.4byte	0
+ 2108 001c 00000000 		.4byte	0
+ 2109              		.section	.debug_ranges,"",%progbits
+ 2110              	.Ldebug_ranges0:
+ 2111 0000 4E000000 		.4byte	.LBB7
+ 2112 0004 52000000 		.4byte	.LBE7
+ 2113 0008 56000000 		.4byte	.LBB8
+ 2114 000c E2000000 		.4byte	.LBE8
+ 2115 0010 62020000 		.4byte	.LBB22
+ 2116 0014 68020000 		.4byte	.LBE22
+ 2117 0018 70020000 		.4byte	.LBB24
+ 2118 001c 84020000 		.4byte	.LBE24
+ 2119 0020 00000000 		.4byte	0
+ 2120 0024 00000000 		.4byte	0
+ 2121 0028 20010000 		.4byte	.LBB9
+ 2122 002c 64010000 		.4byte	.LBE9
+ 2123 0030 66010000 		.4byte	.LBB21
+ 2124 0034 62020000 		.4byte	.LBE21
+ 2125 0038 68020000 		.4byte	.LBB23
+ 2126 003c 6A020000 		.4byte	.LBE23
+ 2127 0040 84020000 		.4byte	.LBB25
+ 2128 0044 2C030000 		.4byte	.LBE25
+ 2129 0048 4C030000 		.4byte	.LBB26
+ 2130 004c 7C030000 		.4byte	.LBE26
+ 2131 0050 82030000 		.4byte	.LBB27
+ 2132 0054 8C030000 		.4byte	.LBE27
+ 2133 0058 00000000 		.4byte	0
+ 2134 005c 00000000 		.4byte	0
+ 2135 0060 20010000 		.4byte	.LBB10
+ 2136 0064 28010000 		.4byte	.LBE10
+ 2137 0068 30010000 		.4byte	.LBB15
+ 2138 006c 34010000 		.4byte	.LBE15
+ 2139 0070 FC020000 		.4byte	.LBB19
+ 2140 0074 26030000 		.4byte	.LBE19
+ 2141 0078 00000000 		.4byte	0
+ 2142 007c 00000000 		.4byte	0
+ 2143 0080 2C010000 		.4byte	.LBB14
+ 2144 0084 30010000 		.4byte	.LBE14
+ 2145 0088 4E010000 		.4byte	.LBB16
+ 2146 008c 50010000 		.4byte	.LBE16
+ 2147 0090 56010000 		.4byte	.LBB17
+ 2148 0094 64010000 		.4byte	.LBE17
+ 2149 0098 66010000 		.4byte	.LBB18
+ 2150 009c 86010000 		.4byte	.LBE18
+ 2151 00a0 82030000 		.4byte	.LBB20
+ 2152 00a4 8C030000 		.4byte	.LBE20
+ 2153 00a8 00000000 		.4byte	0
+ 2154 00ac 00000000 		.4byte	0
+ 2155 00b0 00000000 		.4byte	.LFB64
+ 2156 00b4 8C030000 		.4byte	.LFE64
+ 2157 00b8 00000000 		.4byte	0
+ 2158 00bc 00000000 		.4byte	0
+ 2159              		.section	.debug_line,"",%progbits
+ 2160              	.Ldebug_line0:
+ 2161 0000 17020000 		.section	.debug_str,"MS",%progbits,1
+ 2161      0200F800 
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 39
+
+
+ 2161      00000201 
+ 2161      FB0E0D00 
+ 2161      01010101 
+ 2162              	.LASF12:
+ 2163 0000 6B566578 		.ascii	"kVexDigital_None\000"
+ 2163      44696769 
+ 2163      74616C5F 
+ 2163      4E6F6E65 
+ 2163      00
+ 2164              	.LASF37:
+ 2165 0011 6B496D65 		.ascii	"kImeChannelNone\000"
+ 2165      4368616E 
+ 2165      6E656C4E 
+ 2165      6F6E6500 
+ 2166              	.LASF29:
+ 2167 0021 6B496D65 		.ascii	"kImeChannel_2\000"
+ 2167      4368616E 
+ 2167      6E656C5F 
+ 2167      3200
+ 2168              	.LASF30:
+ 2169 002f 6B496D65 		.ascii	"kImeChannel_3\000"
+ 2169      4368616E 
+ 2169      6E656C5F 
+ 2169      3300
+ 2170              	.LASF31:
+ 2171 003d 6B496D65 		.ascii	"kImeChannel_4\000"
+ 2171      4368616E 
+ 2171      6E656C5F 
+ 2171      3400
+ 2172              	.LASF32:
+ 2173 004b 6B496D65 		.ascii	"kImeChannel_5\000"
+ 2173      4368616E 
+ 2173      6E656C5F 
+ 2173      3500
+ 2174              	.LASF33:
+ 2175 0059 6B496D65 		.ascii	"kImeChannel_6\000"
+ 2175      4368616E 
+ 2175      6E656C5F 
+ 2175      3600
+ 2176              	.LASF34:
+ 2177 0067 6B496D65 		.ascii	"kImeChannel_7\000"
+ 2177      4368616E 
+ 2177      6E656C5F 
+ 2177      3700
+ 2178              	.LASF35:
+ 2179 0075 6B496D65 		.ascii	"kImeChannel_8\000"
+ 2179      4368616E 
+ 2179      6E656C5F 
+ 2179      3800
+ 2180              	.LASF3:
+ 2181 0083 73686F72 		.ascii	"short int\000"
+ 2181      7420696E 
+ 2181      7400
+ 2182              	.LASF10:
+ 2183 008d 73697A65 		.ascii	"sizetype\000"
+ 2183      74797065 
+ 2183      00
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 40
+
+
+ 2184              	.LASF36:
+ 2185 0096 6B496D65 		.ascii	"kImeTotal\000"
+ 2185      546F7461 
+ 2185      6C00
+ 2186              	.LASF42:
+ 2187 00a0 64656673 		.ascii	"defscale\000"
+ 2187      63616C65 
+ 2187      00
+ 2188              	.LASF55:
+ 2189 00a9 6E6F7465 		.ascii	"note2freq\000"
+ 2189      32667265 
+ 2189      7100
+ 2190              	.LASF40:
+ 2191 00b3 72657065 		.ascii	"repeat\000"
+ 2191      617400
+ 2192              	.LASF60:
+ 2193 00ba 76657841 		.ascii	"vexAudioStartChipToneSong\000"
+ 2193      7564696F 
+ 2193      53746172 
+ 2193      74436869 
+ 2193      70546F6E 
+ 2194              	.LASF27:
+ 2195 00d4 6B566578 		.ascii	"kVexDigitalOutput\000"
+ 2195      44696769 
+ 2195      74616C4F 
+ 2195      75747075 
+ 2195      7400
+ 2196              	.LASF45:
+ 2197 00e6 76616C75 		.ascii	"value\000"
+ 2197      6500
+ 2198              	.LASF22:
+ 2199 00ec 6B566578 		.ascii	"kVexDigital_10\000"
+ 2199      44696769 
+ 2199      74616C5F 
+ 2199      313000
+ 2200              	.LASF23:
+ 2201 00fb 6B566578 		.ascii	"kVexDigital_11\000"
+ 2201      44696769 
+ 2201      74616C5F 
+ 2201      313100
+ 2202              	.LASF24:
+ 2203 010a 6B566578 		.ascii	"kVexDigital_12\000"
+ 2203      44696769 
+ 2203      74616C5F 
+ 2203      313200
+ 2204              	.LASF48:
+ 2205 0119 66726571 		.ascii	"freq\000"
+ 2205      00
+ 2206              	.LASF7:
+ 2207 011e 6C6F6E67 		.ascii	"long long int\000"
+ 2207      206C6F6E 
+ 2207      6720696E 
+ 2207      7400
+ 2208              	.LASF5:
+ 2209 012c 6C6F6E67 		.ascii	"long int\000"
+ 2209      20696E74 
+ 2209      00
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 41
+
+
+ 2210              	.LASF46:
+ 2211 0135 6E6F7465 		.ascii	"note\000"
+ 2211      00
+ 2212              	.LASF26:
+ 2213 013a 6B566578 		.ascii	"kVexDigitalInput\000"
+ 2213      44696769 
+ 2213      74616C49 
+ 2213      6E707574 
+ 2213      00
+ 2214              	.LASF50:
+ 2215 014b 6E616D65 		.ascii	"name\000"
+ 2215      00
+ 2216              	.LASF28:
+ 2217 0150 6B496D65 		.ascii	"kImeChannel_1\000"
+ 2217      4368616E 
+ 2217      6E656C5F 
+ 2217      3100
+ 2218              	.LASF53:
+ 2219 015e 433A5C55 		.ascii	"C:\\Users\\Caitlin\\pros\\127B\000"
+ 2219      73657273 
+ 2219      5C436169 
+ 2219      746C696E 
+ 2219      5C70726F 
+ 2220              	.LASF2:
+ 2221 0179 756E7369 		.ascii	"unsigned char\000"
+ 2221      676E6564 
+ 2221      20636861 
+ 2221      7200
+ 2222              	.LASF1:
+ 2223 0187 7369676E 		.ascii	"signed char\000"
+ 2223      65642063 
+ 2223      68617200 
+ 2224              	.LASF39:
+ 2225 0193 616D706C 		.ascii	"amplitude\000"
+ 2225      69747564 
+ 2225      6500
+ 2226              	.LASF8:
+ 2227 019d 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2227      206C6F6E 
+ 2227      6720756E 
+ 2227      7369676E 
+ 2227      65642069 
+ 2228              	.LASF47:
+ 2229 01b4 7363616C 		.ascii	"scale\000"
+ 2229      6500
+ 2230              	.LASF15:
+ 2231 01ba 6B566578 		.ascii	"kVexDigital_3\000"
+ 2231      44696769 
+ 2231      74616C5F 
+ 2231      3300
+ 2232              	.LASF51:
+ 2233 01c8 474E5520 		.ascii	"GNU C 4.7.1\000"
+ 2233      4320342E 
+ 2233      372E3100 
+ 2234              	.LASF59:
+ 2235 01d4 76657841 		.ascii	"vexAudioInitChipToneSong\000"
+ 2235      7564696F 
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 42
+
+
+ 2235      496E6974 
+ 2235      43686970 
+ 2235      546F6E65 
+ 2236              	.LASF44:
+ 2237 01ed 70617261 		.ascii	"param\000"
+ 2237      6D00
+ 2238              	.LASF41:
+ 2239 01f3 64656664 		.ascii	"defdur\000"
+ 2239      757200
+ 2240              	.LASF4:
+ 2241 01fa 73686F72 		.ascii	"short unsigned int\000"
+ 2241      7420756E 
+ 2241      7369676E 
+ 2241      65642069 
+ 2241      6E7400
+ 2242              	.LASF11:
+ 2243 020d 63686172 		.ascii	"char\000"
+ 2243      00
+ 2244              	.LASF13:
+ 2245 0212 6B566578 		.ascii	"kVexDigital_1\000"
+ 2245      44696769 
+ 2245      74616C5F 
+ 2245      3100
+ 2246              	.LASF14:
+ 2247 0220 6B566578 		.ascii	"kVexDigital_2\000"
+ 2247      44696769 
+ 2247      74616C5F 
+ 2247      3200
+ 2248              	.LASF54:
+ 2249 022e 696E7433 		.ascii	"int32_t\000"
+ 2249      325F7400 
+ 2250              	.LASF16:
+ 2251 0236 6B566578 		.ascii	"kVexDigital_4\000"
+ 2251      44696769 
+ 2251      74616C5F 
+ 2251      3400
+ 2252              	.LASF17:
+ 2253 0244 6B566578 		.ascii	"kVexDigital_5\000"
+ 2253      44696769 
+ 2253      74616C5F 
+ 2253      3500
+ 2254              	.LASF18:
+ 2255 0252 6B566578 		.ascii	"kVexDigital_6\000"
+ 2255      44696769 
+ 2255      74616C5F 
+ 2255      3600
+ 2256              	.LASF19:
+ 2257 0260 6B566578 		.ascii	"kVexDigital_7\000"
+ 2257      44696769 
+ 2257      74616C5F 
+ 2257      3700
+ 2258              	.LASF20:
+ 2259 026e 6B566578 		.ascii	"kVexDigital_8\000"
+ 2259      44696769 
+ 2259      74616C5F 
+ 2259      3800
+ 2260              	.LASF21:
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 43
+
+
+ 2261 027c 6B566578 		.ascii	"kVexDigital_9\000"
+ 2261      44696769 
+ 2261      74616C5F 
+ 2261      3900
+ 2262              	.LASF9:
+ 2263 028a 5F426F6F 		.ascii	"_Bool\000"
+ 2263      6C00
+ 2264              	.LASF56:
+ 2265 0290 76657841 		.ascii	"vexAudioPlayRtttl\000"
+ 2265      7564696F 
+ 2265      506C6179 
+ 2265      52747474 
+ 2265      6C00
+ 2266              	.LASF6:
+ 2267 02a2 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2267      20756E73 
+ 2267      69676E65 
+ 2267      6420696E 
+ 2267      7400
+ 2268              	.LASF52:
+ 2269 02b4 2E2E2F63 		.ascii	"../convex/cortex/fw/vexrttl.c\000"
+ 2269      6F6E7665 
+ 2269      782F636F 
+ 2269      72746578 
+ 2269      2F66772F 
+ 2270              	.LASF58:
+ 2271 02d2 76657841 		.ascii	"vexAudioSetNextChipTone\000"
+ 2271      7564696F 
+ 2271      5365744E 
+ 2271      65787443 
+ 2271      68697054 
+ 2272              	.LASF43:
+ 2273 02ea 636F756E 		.ascii	"count\000"
+ 2273      7400
+ 2274              	.LASF25:
+ 2275 02f0 6B566578 		.ascii	"kVexDigital_Num\000"
+ 2275      44696769 
+ 2275      74616C5F 
+ 2275      4E756D00 
+ 2276              	.LASF38:
+ 2277 0300 736F6E67 		.ascii	"song\000"
+ 2277      00
+ 2278              	.LASF57:
+ 2279 0305 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 2279      52784275 
+ 2279      66666572 
+ 2279      00
+ 2280              	.LASF0:
+ 2281 0312 756E7369 		.ascii	"unsigned int\000"
+ 2281      676E6564 
+ 2281      20696E74 
+ 2281      00
+ 2282              	.LASF49:
+ 2283 031f 6E6F7465 		.ascii	"notefreq\000"
+ 2283      66726571 
+ 2283      00
+ 2284              		.ident	"GCC: (GNU) 4.7.1"
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 44
+
+
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s 			page 45
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 vexrttl.c
+C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s:19     .text.vexAudioPlayRtttl:00000000 $t
+C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s:25     .text.vexAudioPlayRtttl:00000000 vexAudioPlayRtttl
+C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s:334    .text.vexAudioPlayRtttl:00000190 $d
+C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s:444    .text.vexAudioPlayRtttl:00000262 $t
+C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s:468    .text.vexAudioPlayRtttl:00000278 $d
+C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s:476    .text.vexAudioPlayRtttl:00000284 $t
+C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s:688    .text.vexAudioPlayRtttl:00000388 $d
+C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s:695    .rodata.notefreq:00000000 $d
+C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s:699    .rodata.notefreq:00000000 notefreq
+C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s:713    .rodata.str1.4:00000000 $d
+C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s:717    .bss.name:00000000 $d
+C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s:721    .bss.name:00000000 name
+                     .debug_frame:00000010 $d
+C:\Users\Caitlin\AppData\Local\Temp\cclKqfB3.s:694    .text.vexAudioPlayRtttl:0000038c $t
+
+UNDEFINED SYMBOLS
+vexAudioInitChipToneSong
+vexAudioSetNextChipTone
+vexAudioStartChipToneSong

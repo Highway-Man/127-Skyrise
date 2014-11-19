@@ -1,0 +1,2058 @@
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"ext.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.extInit,"ax",%progbits
+  19              		.align	2
+  20              		.p2align 4,,15
+  21              		.global	extInit
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	extInit, %function
+  25              	extInit:
+  26              	.LFB63:
+  27              		.file 1 "../ChibiOS_2.6.2/os/hal/src/ext.c"
+  28              		.loc 1 68 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              		.loc 1 71 0
+  34              		.loc 1 70 0
+  35 0000 FFF7FEBF 		b	ext_lld_init
+  36              	.LVL0:
+  37              		.cfi_endproc
+  38              	.LFE63:
+  39              		.size	extInit, .-extInit
+  40 0004 AFF30080 		.section	.text.extObjectInit,"ax",%progbits
+  40      AFF30080 
+  40      AFF30080 
+  41              		.align	2
+  42              		.p2align 4,,15
+  43              		.global	extObjectInit
+  44              		.thumb
+  45              		.thumb_func
+  46              		.type	extObjectInit, %function
+  47              	extObjectInit:
+  48              	.LFB64:
+  49              		.loc 1 80 0
+  50              		.cfi_startproc
+  51              		@ args = 0, pretend = 0, frame = 0
+  52              		@ frame_needed = 0, uses_anonymous_args = 0
+  53              		@ link register save eliminated.
+  54              	.LVL1:
+  55              		.loc 1 82 0
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s 			page 2
+
+
+  56 0000 0123     		movs	r3, #1
+  57 0002 0370     		strb	r3, [r0, #0]
+  58              		.loc 1 83 0
+  59 0004 0023     		movs	r3, #0
+  60 0006 4360     		str	r3, [r0, #4]
+  61 0008 7047     		bx	lr
+  62              		.cfi_endproc
+  63              	.LFE64:
+  64              		.size	extObjectInit, .-extObjectInit
+  65 000a 00BFAFF3 		.section	.text.extStart,"ax",%progbits
+  65      0080
+  66              		.align	2
+  67              		.p2align 4,,15
+  68              		.global	extStart
+  69              		.thumb
+  70              		.thumb_func
+  71              		.type	extStart, %function
+  72              	extStart:
+  73              	.LFB65:
+  74              		.loc 1 96 0
+  75              		.cfi_startproc
+  76              		@ args = 0, pretend = 0, frame = 0
+  77              		@ frame_needed = 0, uses_anonymous_args = 0
+  78              	.LVL2:
+  79 0000 10B5     		push	{r4, lr}
+  80              	.LCFI0:
+  81              		.cfi_def_cfa_offset 8
+  82              		.cfi_offset 4, -8
+  83              		.cfi_offset 14, -4
+  84              	.LBB2:
+  85              		.loc 1 100 0
+  86 0002 2023     		movs	r3, #32
+  87              	.LVL3:
+  88              	.LBE2:
+  89              		.loc 1 96 0
+  90 0004 0446     		mov	r4, r0
+  91              	.LBB3:
+  92              		.loc 1 100 0
+  93              	@ 100 "../ChibiOS_2.6.2/os/hal/src/ext.c" 1
+  94 0006 83F31188 		msr     BASEPRI, r3
+  95              	@ 0 "" 2
+  96              	.LVL4:
+  97              		.thumb
+  98              	.LBE3:
+  99              		.loc 1 103 0
+ 100 000a 4160     		str	r1, [r0, #4]
+ 101              		.loc 1 104 0
+ 102 000c FFF7FEFF 		bl	ext_lld_start
+ 103              	.LVL5:
+ 104              		.loc 1 105 0
+ 105 0010 0223     		movs	r3, #2
+ 106 0012 2370     		strb	r3, [r4, #0]
+ 107              	.LBB4:
+ 108              		.loc 1 106 0
+ 109 0014 0023     		movs	r3, #0
+ 110              	.LVL6:
+ 111              	@ 106 "../ChibiOS_2.6.2/os/hal/src/ext.c" 1
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s 			page 3
+
+
+ 112 0016 83F31188 		msr     BASEPRI, r3
+ 113              	@ 0 "" 2
+ 114              	.LVL7:
+ 115              		.thumb
+ 116 001a 10BD     		pop	{r4, pc}
+ 117              	.LBE4:
+ 118              		.cfi_endproc
+ 119              	.LFE65:
+ 120              		.size	extStart, .-extStart
+ 121 001c AFF30080 		.section	.text.extStop,"ax",%progbits
+ 122              		.align	2
+ 123              		.p2align 4,,15
+ 124              		.global	extStop
+ 125              		.thumb
+ 126              		.thumb_func
+ 127              		.type	extStop, %function
+ 128              	extStop:
+ 129              	.LFB66:
+ 130              		.loc 1 116 0
+ 131              		.cfi_startproc
+ 132              		@ args = 0, pretend = 0, frame = 0
+ 133              		@ frame_needed = 0, uses_anonymous_args = 0
+ 134              	.LVL8:
+ 135 0000 10B5     		push	{r4, lr}
+ 136              	.LCFI1:
+ 137              		.cfi_def_cfa_offset 8
+ 138              		.cfi_offset 4, -8
+ 139              		.cfi_offset 14, -4
+ 140              	.LBB5:
+ 141              		.loc 1 120 0
+ 142 0002 2023     		movs	r3, #32
+ 143              	.LVL9:
+ 144              	.LBE5:
+ 145              		.loc 1 116 0
+ 146 0004 0446     		mov	r4, r0
+ 147              	.LBB6:
+ 148              		.loc 1 120 0
+ 149              	@ 120 "../ChibiOS_2.6.2/os/hal/src/ext.c" 1
+ 150 0006 83F31188 		msr     BASEPRI, r3
+ 151              	@ 0 "" 2
+ 152              	.LVL10:
+ 153              		.thumb
+ 154              	.LBE6:
+ 155              		.loc 1 123 0
+ 156 000a FFF7FEFF 		bl	ext_lld_stop
+ 157              	.LVL11:
+ 158              		.loc 1 124 0
+ 159 000e 0123     		movs	r3, #1
+ 160 0010 2370     		strb	r3, [r4, #0]
+ 161              	.LBB7:
+ 162              		.loc 1 125 0
+ 163 0012 0023     		movs	r3, #0
+ 164              	.LVL12:
+ 165              	@ 125 "../ChibiOS_2.6.2/os/hal/src/ext.c" 1
+ 166 0014 83F31188 		msr     BASEPRI, r3
+ 167              	@ 0 "" 2
+ 168              	.LVL13:
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s 			page 4
+
+
+ 169              		.thumb
+ 170 0018 10BD     		pop	{r4, pc}
+ 171              	.LBE7:
+ 172              		.cfi_endproc
+ 173              	.LFE66:
+ 174              		.size	extStop, .-extStop
+ 175 001a 00BFAFF3 		.section	.text.extChannelEnable,"ax",%progbits
+ 175      0080
+ 176              		.align	2
+ 177              		.p2align 4,,15
+ 178              		.global	extChannelEnable
+ 179              		.thumb
+ 180              		.thumb_func
+ 181              		.type	extChannelEnable, %function
+ 182              	extChannelEnable:
+ 183              	.LFB67:
+ 184              		.loc 1 137 0
+ 185              		.cfi_startproc
+ 186              		@ args = 0, pretend = 0, frame = 0
+ 187              		@ frame_needed = 0, uses_anonymous_args = 0
+ 188              	.LVL14:
+ 189 0000 08B5     		push	{r3, lr}
+ 190              	.LCFI2:
+ 191              		.cfi_def_cfa_offset 8
+ 192              		.cfi_offset 3, -8
+ 193              		.cfi_offset 14, -4
+ 194              	.LBB8:
+ 195              		.loc 1 142 0
+ 196 0002 2023     		movs	r3, #32
+ 197              	.LVL15:
+ 198              	@ 142 "../ChibiOS_2.6.2/os/hal/src/ext.c" 1
+ 199 0004 83F31188 		msr     BASEPRI, r3
+ 200              	@ 0 "" 2
+ 201              	.LVL16:
+ 202              		.thumb
+ 203              	.LBE8:
+ 204              		.loc 1 147 0
+ 205 0008 FFF7FEFF 		bl	ext_lld_channel_enable
+ 206              	.LVL17:
+ 207              	.LBB9:
+ 208              		.loc 1 148 0
+ 209 000c 0023     		movs	r3, #0
+ 210              	.LVL18:
+ 211              	@ 148 "../ChibiOS_2.6.2/os/hal/src/ext.c" 1
+ 212 000e 83F31188 		msr     BASEPRI, r3
+ 213              	@ 0 "" 2
+ 214              	.LVL19:
+ 215              		.thumb
+ 216 0012 08BD     		pop	{r3, pc}
+ 217              	.LBE9:
+ 218              		.cfi_endproc
+ 219              	.LFE67:
+ 220              		.size	extChannelEnable, .-extChannelEnable
+ 221 0014 AFF30080 		.section	.text.extChannelDisable,"ax",%progbits
+ 221      AFF30080 
+ 221      AFF30080 
+ 222              		.align	2
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s 			page 5
+
+
+ 223              		.p2align 4,,15
+ 224              		.global	extChannelDisable
+ 225              		.thumb
+ 226              		.thumb_func
+ 227              		.type	extChannelDisable, %function
+ 228              	extChannelDisable:
+ 229              	.LFB68:
+ 230              		.loc 1 160 0
+ 231              		.cfi_startproc
+ 232              		@ args = 0, pretend = 0, frame = 0
+ 233              		@ frame_needed = 0, uses_anonymous_args = 0
+ 234              	.LVL20:
+ 235 0000 08B5     		push	{r3, lr}
+ 236              	.LCFI3:
+ 237              		.cfi_def_cfa_offset 8
+ 238              		.cfi_offset 3, -8
+ 239              		.cfi_offset 14, -4
+ 240              	.LBB10:
+ 241              		.loc 1 165 0
+ 242 0002 2023     		movs	r3, #32
+ 243              	.LVL21:
+ 244              	@ 165 "../ChibiOS_2.6.2/os/hal/src/ext.c" 1
+ 245 0004 83F31188 		msr     BASEPRI, r3
+ 246              	@ 0 "" 2
+ 247              	.LVL22:
+ 248              		.thumb
+ 249              	.LBE10:
+ 250              		.loc 1 170 0
+ 251 0008 FFF7FEFF 		bl	ext_lld_channel_disable
+ 252              	.LVL23:
+ 253              	.LBB11:
+ 254              		.loc 1 171 0
+ 255 000c 0023     		movs	r3, #0
+ 256              	.LVL24:
+ 257              	@ 171 "../ChibiOS_2.6.2/os/hal/src/ext.c" 1
+ 258 000e 83F31188 		msr     BASEPRI, r3
+ 259              	@ 0 "" 2
+ 260              	.LVL25:
+ 261              		.thumb
+ 262 0012 08BD     		pop	{r3, pc}
+ 263              	.LBE11:
+ 264              		.cfi_endproc
+ 265              	.LFE68:
+ 266              		.size	extChannelDisable, .-extChannelDisable
+ 267 0014 AFF30080 		.section	.text.extSetChannelModeI,"ax",%progbits
+ 267      AFF30080 
+ 267      AFF30080 
+ 268              		.align	2
+ 269              		.p2align 4,,15
+ 270              		.global	extSetChannelModeI
+ 271              		.thumb
+ 272              		.thumb_func
+ 273              		.type	extSetChannelModeI, %function
+ 274              	extSetChannelModeI:
+ 275              	.LFB69:
+ 276              		.loc 1 193 0
+ 277              		.cfi_startproc
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s 			page 6
+
+
+ 278              		@ args = 0, pretend = 0, frame = 0
+ 279              		@ frame_needed = 0, uses_anonymous_args = 0
+ 280              		@ link register save eliminated.
+ 281              	.LVL26:
+ 282 0000 30B4     		push	{r4, r5}
+ 283              	.LCFI4:
+ 284              		.cfi_def_cfa_offset 8
+ 285              		.cfi_offset 4, -8
+ 286              		.cfi_offset 5, -4
+ 287              		.loc 1 208 0
+ 288 0002 4568     		ldr	r5, [r0, #4]
+ 289              		.loc 1 193 0
+ 290 0004 0446     		mov	r4, r0
+ 291 0006 0B46     		mov	r3, r1
+ 292              	.LVL27:
+ 293              		.loc 1 208 0
+ 294 0008 05EBC105 		add	r5, r5, r1, lsl #3
+ 295              	.LVL28:
+ 296 000c 92E80300 		ldmia	r2, {r0, r1}
+ 297              	.LVL29:
+ 298 0010 85E80300 		stmia	r5, {r0, r1}
+ 299              		.loc 1 209 0
+ 300 0014 2046     		mov	r0, r4
+ 301 0016 1946     		mov	r1, r3
+ 302              		.loc 1 210 0
+ 303 0018 30BC     		pop	{r4, r5}
+ 304              		.loc 1 209 0
+ 305 001a FFF7FEBF 		b	ext_lld_channel_enable
+ 306              	.LVL30:
+ 307              		.cfi_endproc
+ 308              	.LFE69:
+ 309              		.size	extSetChannelModeI, .-extSetChannelModeI
+ 310 001e 00BF     		.text
+ 311              	.Letext0:
+ 312              		.file 2 "c:/program files (x86)/pros/toolchain/lib/gcc/../../arm-none-eabi/include/stdint.h"
+ 313              		.file 3 "../ChibiOS_2.6.2/os/hal/include/ext.h"
+ 314              		.file 4 "../ChibiOS_2.6.2/os/hal/platforms/STM32/ext_lld.h"
+ 315              		.file 5 "../ChibiOS_2.6.2/os/ports/common/ARMCMx/CMSIS/include/core_cm3.h"
+ 316              		.section	.debug_info,"",%progbits
+ 317              	.Ldebug_info0:
+ 318 0000 D3040000 		.4byte	0x4d3
+ 319 0004 0200     		.2byte	0x2
+ 320 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 321 000a 04       		.byte	0x4
+ 322 000b 01       		.uleb128 0x1
+ 323 000c C5010000 		.4byte	.LASF41
+ 324 0010 01       		.byte	0x1
+ 325 0011 7E010000 		.4byte	.LASF42
+ 326 0015 21010000 		.4byte	.LASF43
+ 327 0019 30000000 		.4byte	.Ldebug_ranges0+0x30
+ 328 001d 00000000 		.4byte	0
+ 329 0021 00000000 		.4byte	0
+ 330 0025 00000000 		.4byte	.Ldebug_line0
+ 331 0029 02       		.uleb128 0x2
+ 332 002a 04       		.byte	0x4
+ 333 002b 05       		.byte	0x5
+ 334 002c 696E7400 		.ascii	"int\000"
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s 			page 7
+
+
+ 335 0030 03       		.uleb128 0x3
+ 336 0031 04       		.byte	0x4
+ 337 0032 07       		.byte	0x7
+ 338 0033 47010000 		.4byte	.LASF0
+ 339 0037 03       		.uleb128 0x3
+ 340 0038 01       		.byte	0x1
+ 341 0039 06       		.byte	0x6
+ 342 003a 28020000 		.4byte	.LASF1
+ 343 003e 03       		.uleb128 0x3
+ 344 003f 01       		.byte	0x1
+ 345 0040 08       		.byte	0x8
+ 346 0041 B3000000 		.4byte	.LASF2
+ 347 0045 03       		.uleb128 0x3
+ 348 0046 02       		.byte	0x2
+ 349 0047 05       		.byte	0x5
+ 350 0048 FE010000 		.4byte	.LASF3
+ 351 004c 03       		.uleb128 0x3
+ 352 004d 02       		.byte	0x2
+ 353 004e 07       		.byte	0x7
+ 354 004f D9000000 		.4byte	.LASF4
+ 355 0053 04       		.uleb128 0x4
+ 356 0054 A6010000 		.4byte	.LASF6
+ 357 0058 02       		.byte	0x2
+ 358 0059 4F       		.byte	0x4f
+ 359 005a 5E000000 		.4byte	0x5e
+ 360 005e 03       		.uleb128 0x3
+ 361 005f 04       		.byte	0x4
+ 362 0060 05       		.byte	0x5
+ 363 0061 1F020000 		.4byte	.LASF5
+ 364 0065 04       		.uleb128 0x4
+ 365 0066 16020000 		.4byte	.LASF7
+ 366 006a 02       		.byte	0x2
+ 367 006b 50       		.byte	0x50
+ 368 006c 70000000 		.4byte	0x70
+ 369 0070 03       		.uleb128 0x3
+ 370 0071 04       		.byte	0x4
+ 371 0072 07       		.byte	0x7
+ 372 0073 C7000000 		.4byte	.LASF8
+ 373 0077 03       		.uleb128 0x3
+ 374 0078 08       		.byte	0x8
+ 375 0079 05       		.byte	0x5
+ 376 007a B7010000 		.4byte	.LASF9
+ 377 007e 03       		.uleb128 0x3
+ 378 007f 08       		.byte	0x8
+ 379 0080 07       		.byte	0x7
+ 380 0081 9C000000 		.4byte	.LASF10
+ 381 0085 03       		.uleb128 0x3
+ 382 0086 01       		.byte	0x1
+ 383 0087 02       		.byte	0x2
+ 384 0088 34020000 		.4byte	.LASF11
+ 385 008c 03       		.uleb128 0x3
+ 386 008d 04       		.byte	0x4
+ 387 008e 07       		.byte	0x7
+ 388 008f AE010000 		.4byte	.LASF12
+ 389 0093 03       		.uleb128 0x3
+ 390 0094 01       		.byte	0x1
+ 391 0095 08       		.byte	0x8
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s 			page 8
+
+
+ 392 0096 59010000 		.4byte	.LASF13
+ 393 009a 05       		.uleb128 0x5
+ 394 009b 53000000 		.4byte	0x53
+ 395 009f 06       		.uleb128 0x6
+ 396 00a0 01       		.byte	0x1
+ 397 00a1 03       		.byte	0x3
+ 398 00a2 4A       		.byte	0x4a
+ 399 00a3 BA000000 		.4byte	0xba
+ 400 00a7 07       		.uleb128 0x7
+ 401 00a8 41000000 		.4byte	.LASF14
+ 402 00ac 00       		.sleb128 0
+ 403 00ad 07       		.uleb128 0x7
+ 404 00ae 48020000 		.4byte	.LASF15
+ 405 00b2 01       		.sleb128 1
+ 406 00b3 07       		.uleb128 0x7
+ 407 00b4 3C010000 		.4byte	.LASF16
+ 408 00b8 02       		.sleb128 2
+ 409 00b9 00       		.byte	0
+ 410 00ba 04       		.uleb128 0x4
+ 411 00bb 25000000 		.4byte	.LASF17
+ 412 00bf 03       		.byte	0x3
+ 413 00c0 4E       		.byte	0x4e
+ 414 00c1 9F000000 		.4byte	0x9f
+ 415 00c5 04       		.uleb128 0x4
+ 416 00c6 00000000 		.4byte	.LASF18
+ 417 00ca 03       		.byte	0x3
+ 418 00cb 53       		.byte	0x53
+ 419 00cc D0000000 		.4byte	0xd0
+ 420 00d0 08       		.uleb128 0x8
+ 421 00d1 00000000 		.4byte	.LASF18
+ 422 00d5 08       		.byte	0x8
+ 423 00d6 04       		.byte	0x4
+ 424 00d7 71       		.byte	0x71
+ 425 00d8 F9000000 		.4byte	0xf9
+ 426 00dc 09       		.uleb128 0x9
+ 427 00dd 1F000000 		.4byte	.LASF19
+ 428 00e1 04       		.byte	0x4
+ 429 00e2 75       		.byte	0x75
+ 430 00e3 BA000000 		.4byte	0xba
+ 431 00e7 02       		.byte	0x2
+ 432 00e8 23       		.byte	0x23
+ 433 00e9 00       		.uleb128 0
+ 434 00ea 09       		.uleb128 0x9
+ 435 00eb F9000000 		.4byte	.LASF20
+ 436 00ef 04       		.byte	0x4
+ 437 00f0 79       		.byte	0x79
+ 438 00f1 8D010000 		.4byte	0x18d
+ 439 00f5 02       		.byte	0x2
+ 440 00f6 23       		.byte	0x23
+ 441 00f7 04       		.uleb128 0x4
+ 442 00f8 00       		.byte	0
+ 443 00f9 04       		.uleb128 0x4
+ 444 00fa 6E000000 		.4byte	.LASF21
+ 445 00fe 04       		.byte	0x4
+ 446 00ff 47       		.byte	0x47
+ 447 0100 65000000 		.4byte	0x65
+ 448 0104 04       		.uleb128 0x4
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s 			page 9
+
+
+ 449 0105 5E010000 		.4byte	.LASF22
+ 450 0109 04       		.byte	0x4
+ 451 010a 4F       		.byte	0x4f
+ 452 010b 0F010000 		.4byte	0x10f
+ 453 010f 0A       		.uleb128 0xa
+ 454 0110 04       		.byte	0x4
+ 455 0111 15010000 		.4byte	0x115
+ 456 0115 0B       		.uleb128 0xb
+ 457 0116 01       		.byte	0x1
+ 458 0117 26010000 		.4byte	0x126
+ 459 011b 0C       		.uleb128 0xc
+ 460 011c 26010000 		.4byte	0x126
+ 461 0120 0C       		.uleb128 0xc
+ 462 0121 F9000000 		.4byte	0xf9
+ 463 0125 00       		.byte	0
+ 464 0126 0A       		.uleb128 0xa
+ 465 0127 04       		.byte	0x4
+ 466 0128 C5000000 		.4byte	0xc5
+ 467 012c 0D       		.uleb128 0xd
+ 468 012d 08       		.byte	0x8
+ 469 012e 04       		.byte	0x4
+ 470 012f 54       		.byte	0x54
+ 471 0130 50010000 		.4byte	0x150
+ 472 0134 09       		.uleb128 0x9
+ 473 0135 6C010000 		.4byte	.LASF23
+ 474 0139 04       		.byte	0x4
+ 475 013a 58       		.byte	0x58
+ 476 013b 65000000 		.4byte	0x65
+ 477 013f 02       		.byte	0x2
+ 478 0140 23       		.byte	0x23
+ 479 0141 00       		.uleb128 0
+ 480 0142 0E       		.uleb128 0xe
+ 481 0143 636200   		.ascii	"cb\000"
+ 482 0146 04       		.byte	0x4
+ 483 0147 5F       		.byte	0x5f
+ 484 0148 04010000 		.4byte	0x104
+ 485 014c 02       		.byte	0x2
+ 486 014d 23       		.byte	0x23
+ 487 014e 04       		.uleb128 0x4
+ 488 014f 00       		.byte	0
+ 489 0150 04       		.uleb128 0x4
+ 490 0151 30000000 		.4byte	.LASF24
+ 491 0155 04       		.byte	0x4
+ 492 0156 60       		.byte	0x60
+ 493 0157 2C010000 		.4byte	0x12c
+ 494 015b 0D       		.uleb128 0xd
+ 495 015c 98       		.byte	0x98
+ 496 015d 04       		.byte	0x4
+ 497 015e 66       		.byte	0x66
+ 498 015f 72010000 		.4byte	0x172
+ 499 0163 09       		.uleb128 0x9
+ 500 0164 D1010000 		.4byte	.LASF25
+ 501 0168 04       		.byte	0x4
+ 502 0169 6A       		.byte	0x6a
+ 503 016a 72010000 		.4byte	0x172
+ 504 016e 02       		.byte	0x2
+ 505 016f 23       		.byte	0x23
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s 			page 10
+
+
+ 506 0170 00       		.uleb128 0
+ 507 0171 00       		.byte	0
+ 508 0172 0F       		.uleb128 0xf
+ 509 0173 50010000 		.4byte	0x150
+ 510 0177 82010000 		.4byte	0x182
+ 511 017b 10       		.uleb128 0x10
+ 512 017c 8C000000 		.4byte	0x8c
+ 513 0180 12       		.byte	0x12
+ 514 0181 00       		.byte	0
+ 515 0182 04       		.uleb128 0x4
+ 516 0183 00010000 		.4byte	.LASF26
+ 517 0187 04       		.byte	0x4
+ 518 0188 6C       		.byte	0x6c
+ 519 0189 5B010000 		.4byte	0x15b
+ 520 018d 0A       		.uleb128 0xa
+ 521 018e 04       		.byte	0x4
+ 522 018f 93010000 		.4byte	0x193
+ 523 0193 11       		.uleb128 0x11
+ 524 0194 82010000 		.4byte	0x182
+ 525 0198 12       		.uleb128 0x12
+ 526 0199 01       		.byte	0x1
+ 527 019a 54000000 		.4byte	.LASF27
+ 528 019e 01       		.byte	0x1
+ 529 019f 44       		.byte	0x44
+ 530 01a0 01       		.byte	0x1
+ 531 01a1 00000000 		.4byte	.LFB63
+ 532 01a5 04000000 		.4byte	.LFE63
+ 533 01a9 02       		.byte	0x2
+ 534 01aa 7D       		.byte	0x7d
+ 535 01ab 00       		.sleb128 0
+ 536 01ac 01       		.byte	0x1
+ 537 01ad BC010000 		.4byte	0x1bc
+ 538 01b1 13       		.uleb128 0x13
+ 539 01b2 04000000 		.4byte	.LVL0
+ 540 01b6 01       		.byte	0x1
+ 541 01b7 76040000 		.4byte	0x476
+ 542 01bb 00       		.byte	0
+ 543 01bc 12       		.uleb128 0x12
+ 544 01bd 01       		.byte	0x1
+ 545 01be 08020000 		.4byte	.LASF28
+ 546 01c2 01       		.byte	0x1
+ 547 01c3 50       		.byte	0x50
+ 548 01c4 01       		.byte	0x1
+ 549 01c5 00000000 		.4byte	.LFB64
+ 550 01c9 0A000000 		.4byte	.LFE64
+ 551 01cd 02       		.byte	0x2
+ 552 01ce 7D       		.byte	0x7d
+ 553 01cf 00       		.sleb128 0
+ 554 01d0 01       		.byte	0x1
+ 555 01d1 E3010000 		.4byte	0x1e3
+ 556 01d5 14       		.uleb128 0x14
+ 557 01d6 54010000 		.4byte	.LASF30
+ 558 01da 01       		.byte	0x1
+ 559 01db 50       		.byte	0x50
+ 560 01dc 26010000 		.4byte	0x126
+ 561 01e0 01       		.byte	0x1
+ 562 01e1 50       		.byte	0x50
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s 			page 11
+
+
+ 563 01e2 00       		.byte	0
+ 564 01e3 15       		.uleb128 0x15
+ 565 01e4 01       		.byte	0x1
+ 566 01e5 7B000000 		.4byte	.LASF29
+ 567 01e9 01       		.byte	0x1
+ 568 01ea 60       		.byte	0x60
+ 569 01eb 01       		.byte	0x1
+ 570 01ec 00000000 		.4byte	.LFB65
+ 571 01f0 1C000000 		.4byte	.LFE65
+ 572 01f4 00000000 		.4byte	.LLST0
+ 573 01f8 01       		.byte	0x1
+ 574 01f9 62020000 		.4byte	0x262
+ 575 01fd 16       		.uleb128 0x16
+ 576 01fe 54010000 		.4byte	.LASF30
+ 577 0202 01       		.byte	0x1
+ 578 0203 60       		.byte	0x60
+ 579 0204 26010000 		.4byte	0x126
+ 580 0208 20000000 		.4byte	.LLST1
+ 581 020c 16       		.uleb128 0x16
+ 582 020d F9000000 		.4byte	.LASF20
+ 583 0211 01       		.byte	0x1
+ 584 0212 60       		.byte	0x60
+ 585 0213 8D010000 		.4byte	0x18d
+ 586 0217 3E000000 		.4byte	.LLST2
+ 587 021b 17       		.uleb128 0x17
+ 588 021c 00000000 		.4byte	.Ldebug_ranges0+0
+ 589 0220 34020000 		.4byte	0x234
+ 590 0224 18       		.uleb128 0x18
+ 591 0225 746D7000 		.ascii	"tmp\000"
+ 592 0229 01       		.byte	0x1
+ 593 022a 64       		.byte	0x64
+ 594 022b 65000000 		.4byte	0x65
+ 595 022f 5F000000 		.4byte	.LLST3
+ 596 0233 00       		.byte	0
+ 597 0234 19       		.uleb128 0x19
+ 598 0235 14000000 		.4byte	.LBB4
+ 599 0239 1C000000 		.4byte	.LBE4
+ 600 023d 51020000 		.4byte	0x251
+ 601 0241 18       		.uleb128 0x18
+ 602 0242 746D7000 		.ascii	"tmp\000"
+ 603 0246 01       		.byte	0x1
+ 604 0247 6A       		.byte	0x6a
+ 605 0248 65000000 		.4byte	0x65
+ 606 024c 72000000 		.4byte	.LLST4
+ 607 0250 00       		.byte	0
+ 608 0251 1A       		.uleb128 0x1a
+ 609 0252 10000000 		.4byte	.LVL5
+ 610 0256 80040000 		.4byte	0x480
+ 611 025a 1B       		.uleb128 0x1b
+ 612 025b 01       		.byte	0x1
+ 613 025c 50       		.byte	0x50
+ 614 025d 02       		.byte	0x2
+ 615 025e 74       		.byte	0x74
+ 616 025f 00       		.sleb128 0
+ 617 0260 00       		.byte	0
+ 618 0261 00       		.byte	0
+ 619 0262 15       		.uleb128 0x15
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s 			page 12
+
+
+ 620 0263 01       		.byte	0x1
+ 621 0264 4C000000 		.4byte	.LASF31
+ 622 0268 01       		.byte	0x1
+ 623 0269 74       		.byte	0x74
+ 624 026a 01       		.byte	0x1
+ 625 026b 00000000 		.4byte	.LFB66
+ 626 026f 1A000000 		.4byte	.LFE66
+ 627 0273 85000000 		.4byte	.LLST5
+ 628 0277 01       		.byte	0x1
+ 629 0278 D2020000 		.4byte	0x2d2
+ 630 027c 16       		.uleb128 0x16
+ 631 027d 54010000 		.4byte	.LASF30
+ 632 0281 01       		.byte	0x1
+ 633 0282 74       		.byte	0x74
+ 634 0283 26010000 		.4byte	0x126
+ 635 0287 A5000000 		.4byte	.LLST6
+ 636 028b 17       		.uleb128 0x17
+ 637 028c 18000000 		.4byte	.Ldebug_ranges0+0x18
+ 638 0290 A4020000 		.4byte	0x2a4
+ 639 0294 18       		.uleb128 0x18
+ 640 0295 746D7000 		.ascii	"tmp\000"
+ 641 0299 01       		.byte	0x1
+ 642 029a 78       		.byte	0x78
+ 643 029b 65000000 		.4byte	0x65
+ 644 029f C3000000 		.4byte	.LLST7
+ 645 02a3 00       		.byte	0
+ 646 02a4 19       		.uleb128 0x19
+ 647 02a5 12000000 		.4byte	.LBB7
+ 648 02a9 1A000000 		.4byte	.LBE7
+ 649 02ad C1020000 		.4byte	0x2c1
+ 650 02b1 18       		.uleb128 0x18
+ 651 02b2 746D7000 		.ascii	"tmp\000"
+ 652 02b6 01       		.byte	0x1
+ 653 02b7 7D       		.byte	0x7d
+ 654 02b8 65000000 		.4byte	0x65
+ 655 02bc D6000000 		.4byte	.LLST8
+ 656 02c0 00       		.byte	0
+ 657 02c1 1A       		.uleb128 0x1a
+ 658 02c2 0E000000 		.4byte	.LVL11
+ 659 02c6 94040000 		.4byte	0x494
+ 660 02ca 1B       		.uleb128 0x1b
+ 661 02cb 01       		.byte	0x1
+ 662 02cc 50       		.byte	0x50
+ 663 02cd 02       		.byte	0x2
+ 664 02ce 74       		.byte	0x74
+ 665 02cf 00       		.sleb128 0
+ 666 02d0 00       		.byte	0
+ 667 02d1 00       		.byte	0
+ 668 02d2 15       		.uleb128 0x15
+ 669 02d3 01       		.byte	0x1
+ 670 02d4 ED010000 		.4byte	.LASF32
+ 671 02d8 01       		.byte	0x1
+ 672 02d9 89       		.byte	0x89
+ 673 02da 01       		.byte	0x1
+ 674 02db 00000000 		.4byte	.LFB67
+ 675 02df 14000000 		.4byte	.LFE67
+ 676 02e3 E9000000 		.4byte	.LLST9
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s 			page 13
+
+
+ 677 02e7 01       		.byte	0x1
+ 678 02e8 5D030000 		.4byte	0x35d
+ 679 02ec 16       		.uleb128 0x16
+ 680 02ed 54010000 		.4byte	.LASF30
+ 681 02f1 01       		.byte	0x1
+ 682 02f2 89       		.byte	0x89
+ 683 02f3 26010000 		.4byte	0x126
+ 684 02f7 09010000 		.4byte	.LLST10
+ 685 02fb 16       		.uleb128 0x16
+ 686 02fc 0A000000 		.4byte	.LASF33
+ 687 0300 01       		.byte	0x1
+ 688 0301 89       		.byte	0x89
+ 689 0302 F9000000 		.4byte	0xf9
+ 690 0306 2A010000 		.4byte	.LLST11
+ 691 030a 19       		.uleb128 0x19
+ 692 030b 02000000 		.4byte	.LBB8
+ 693 030f 08000000 		.4byte	.LBE8
+ 694 0313 27030000 		.4byte	0x327
+ 695 0317 18       		.uleb128 0x18
+ 696 0318 746D7000 		.ascii	"tmp\000"
+ 697 031c 01       		.byte	0x1
+ 698 031d 8E       		.byte	0x8e
+ 699 031e 65000000 		.4byte	0x65
+ 700 0322 4B010000 		.4byte	.LLST12
+ 701 0326 00       		.byte	0
+ 702 0327 19       		.uleb128 0x19
+ 703 0328 0C000000 		.4byte	.LBB9
+ 704 032c 14000000 		.4byte	.LBE9
+ 705 0330 44030000 		.4byte	0x344
+ 706 0334 18       		.uleb128 0x18
+ 707 0335 746D7000 		.ascii	"tmp\000"
+ 708 0339 01       		.byte	0x1
+ 709 033a 94       		.byte	0x94
+ 710 033b 65000000 		.4byte	0x65
+ 711 033f 5E010000 		.4byte	.LLST13
+ 712 0343 00       		.byte	0
+ 713 0344 1A       		.uleb128 0x1a
+ 714 0345 0C000000 		.4byte	.LVL17
+ 715 0349 A8040000 		.4byte	0x4a8
+ 716 034d 1B       		.uleb128 0x1b
+ 717 034e 01       		.byte	0x1
+ 718 034f 51       		.byte	0x51
+ 719 0350 03       		.byte	0x3
+ 720 0351 F3       		.byte	0xf3
+ 721 0352 01       		.uleb128 0x1
+ 722 0353 51       		.byte	0x51
+ 723 0354 1B       		.uleb128 0x1b
+ 724 0355 01       		.byte	0x1
+ 725 0356 50       		.byte	0x50
+ 726 0357 03       		.byte	0x3
+ 727 0358 F3       		.byte	0xf3
+ 728 0359 01       		.uleb128 0x1
+ 729 035a 50       		.byte	0x50
+ 730 035b 00       		.byte	0
+ 731 035c 00       		.byte	0
+ 732 035d 15       		.uleb128 0x15
+ 733 035e 01       		.byte	0x1
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s 			page 14
+
+
+ 734 035f 5C000000 		.4byte	.LASF34
+ 735 0363 01       		.byte	0x1
+ 736 0364 A0       		.byte	0xa0
+ 737 0365 01       		.byte	0x1
+ 738 0366 00000000 		.4byte	.LFB68
+ 739 036a 14000000 		.4byte	.LFE68
+ 740 036e 71010000 		.4byte	.LLST14
+ 741 0372 01       		.byte	0x1
+ 742 0373 E8030000 		.4byte	0x3e8
+ 743 0377 16       		.uleb128 0x16
+ 744 0378 54010000 		.4byte	.LASF30
+ 745 037c 01       		.byte	0x1
+ 746 037d A0       		.byte	0xa0
+ 747 037e 26010000 		.4byte	0x126
+ 748 0382 91010000 		.4byte	.LLST15
+ 749 0386 16       		.uleb128 0x16
+ 750 0387 0A000000 		.4byte	.LASF33
+ 751 038b 01       		.byte	0x1
+ 752 038c A0       		.byte	0xa0
+ 753 038d F9000000 		.4byte	0xf9
+ 754 0391 B2010000 		.4byte	.LLST16
+ 755 0395 19       		.uleb128 0x19
+ 756 0396 02000000 		.4byte	.LBB10
+ 757 039a 08000000 		.4byte	.LBE10
+ 758 039e B2030000 		.4byte	0x3b2
+ 759 03a2 18       		.uleb128 0x18
+ 760 03a3 746D7000 		.ascii	"tmp\000"
+ 761 03a7 01       		.byte	0x1
+ 762 03a8 A5       		.byte	0xa5
+ 763 03a9 65000000 		.4byte	0x65
+ 764 03ad D3010000 		.4byte	.LLST17
+ 765 03b1 00       		.byte	0
+ 766 03b2 19       		.uleb128 0x19
+ 767 03b3 0C000000 		.4byte	.LBB11
+ 768 03b7 14000000 		.4byte	.LBE11
+ 769 03bb CF030000 		.4byte	0x3cf
+ 770 03bf 18       		.uleb128 0x18
+ 771 03c0 746D7000 		.ascii	"tmp\000"
+ 772 03c4 01       		.byte	0x1
+ 773 03c5 AB       		.byte	0xab
+ 774 03c6 65000000 		.4byte	0x65
+ 775 03ca E6010000 		.4byte	.LLST18
+ 776 03ce 00       		.byte	0
+ 777 03cf 1A       		.uleb128 0x1a
+ 778 03d0 0C000000 		.4byte	.LVL23
+ 779 03d4 C1040000 		.4byte	0x4c1
+ 780 03d8 1B       		.uleb128 0x1b
+ 781 03d9 01       		.byte	0x1
+ 782 03da 51       		.byte	0x51
+ 783 03db 03       		.byte	0x3
+ 784 03dc F3       		.byte	0xf3
+ 785 03dd 01       		.uleb128 0x1
+ 786 03de 51       		.byte	0x51
+ 787 03df 1B       		.uleb128 0x1b
+ 788 03e0 01       		.byte	0x1
+ 789 03e1 50       		.byte	0x50
+ 790 03e2 03       		.byte	0x3
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s 			page 15
+
+
+ 791 03e3 F3       		.byte	0xf3
+ 792 03e4 01       		.uleb128 0x1
+ 793 03e5 50       		.byte	0x50
+ 794 03e6 00       		.byte	0
+ 795 03e7 00       		.byte	0
+ 796 03e8 15       		.uleb128 0x15
+ 797 03e9 01       		.byte	0x1
+ 798 03ea DA010000 		.4byte	.LASF35
+ 799 03ee 01       		.byte	0x1
+ 800 03ef BF       		.byte	0xbf
+ 801 03f0 01       		.byte	0x1
+ 802 03f1 00000000 		.4byte	.LFB69
+ 803 03f5 1E000000 		.4byte	.LFE69
+ 804 03f9 F9010000 		.4byte	.LLST19
+ 805 03fd 01       		.byte	0x1
+ 806 03fe 57040000 		.4byte	0x457
+ 807 0402 16       		.uleb128 0x16
+ 808 0403 54010000 		.4byte	.LASF30
+ 809 0407 01       		.byte	0x1
+ 810 0408 BF       		.byte	0xbf
+ 811 0409 26010000 		.4byte	0x126
+ 812 040d 19020000 		.4byte	.LLST20
+ 813 0411 16       		.uleb128 0x16
+ 814 0412 0A000000 		.4byte	.LASF33
+ 815 0416 01       		.byte	0x1
+ 816 0417 C0       		.byte	0xc0
+ 817 0418 F9000000 		.4byte	0xf9
+ 818 041c 37020000 		.4byte	.LLST21
+ 819 0420 16       		.uleb128 0x16
+ 820 0421 C1000000 		.4byte	.LASF36
+ 821 0425 01       		.byte	0x1
+ 822 0426 C1       		.byte	0xc1
+ 823 0427 57040000 		.4byte	0x457
+ 824 042b 63020000 		.4byte	.LLST22
+ 825 042f 1C       		.uleb128 0x1c
+ 826 0430 A0010000 		.4byte	.LASF37
+ 827 0434 01       		.byte	0x1
+ 828 0435 C2       		.byte	0xc2
+ 829 0436 62040000 		.4byte	0x462
+ 830 043a 84020000 		.4byte	.LLST23
+ 831 043e 1D       		.uleb128 0x1d
+ 832 043f 1E000000 		.4byte	.LVL30
+ 833 0443 01       		.byte	0x1
+ 834 0444 A8040000 		.4byte	0x4a8
+ 835 0448 1B       		.uleb128 0x1b
+ 836 0449 01       		.byte	0x1
+ 837 044a 51       		.byte	0x51
+ 838 044b 03       		.byte	0x3
+ 839 044c F3       		.byte	0xf3
+ 840 044d 01       		.uleb128 0x1
+ 841 044e 51       		.byte	0x51
+ 842 044f 1B       		.uleb128 0x1b
+ 843 0450 01       		.byte	0x1
+ 844 0451 50       		.byte	0x50
+ 845 0452 02       		.byte	0x2
+ 846 0453 74       		.byte	0x74
+ 847 0454 00       		.sleb128 0
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s 			page 16
+
+
+ 848 0455 00       		.byte	0
+ 849 0456 00       		.byte	0
+ 850 0457 0A       		.uleb128 0xa
+ 851 0458 04       		.byte	0x4
+ 852 0459 5D040000 		.4byte	0x45d
+ 853 045d 11       		.uleb128 0x11
+ 854 045e 50010000 		.4byte	0x150
+ 855 0462 0A       		.uleb128 0xa
+ 856 0463 04       		.byte	0x4
+ 857 0464 50010000 		.4byte	0x150
+ 858 0468 1E       		.uleb128 0x1e
+ 859 0469 EC000000 		.4byte	.LASF44
+ 860 046d 05       		.byte	0x5
+ 861 046e 0706     		.2byte	0x607
+ 862 0470 9A000000 		.4byte	0x9a
+ 863 0474 01       		.byte	0x1
+ 864 0475 01       		.byte	0x1
+ 865 0476 1F       		.uleb128 0x1f
+ 866 0477 01       		.byte	0x1
+ 867 0478 12000000 		.4byte	.LASF45
+ 868 047c 04       		.byte	0x4
+ 869 047d 8C       		.byte	0x8c
+ 870 047e 01       		.byte	0x1
+ 871 047f 01       		.byte	0x1
+ 872 0480 20       		.uleb128 0x20
+ 873 0481 01       		.byte	0x1
+ 874 0482 3A020000 		.4byte	.LASF38
+ 875 0486 04       		.byte	0x4
+ 876 0487 8D       		.byte	0x8d
+ 877 0488 01       		.byte	0x1
+ 878 0489 01       		.byte	0x1
+ 879 048a 94040000 		.4byte	0x494
+ 880 048e 0C       		.uleb128 0xc
+ 881 048f 26010000 		.4byte	0x126
+ 882 0493 00       		.byte	0
+ 883 0494 20       		.uleb128 0x20
+ 884 0495 01       		.byte	0x1
+ 885 0496 71010000 		.4byte	.LASF39
+ 886 049a 04       		.byte	0x4
+ 887 049b 8E       		.byte	0x8e
+ 888 049c 01       		.byte	0x1
+ 889 049d 01       		.byte	0x1
+ 890 049e A8040000 		.4byte	0x4a8
+ 891 04a2 0C       		.uleb128 0xc
+ 892 04a3 26010000 		.4byte	0x126
+ 893 04a7 00       		.byte	0
+ 894 04a8 20       		.uleb128 0x20
+ 895 04a9 01       		.byte	0x1
+ 896 04aa 0A010000 		.4byte	.LASF40
+ 897 04ae 04       		.byte	0x4
+ 898 04af 8F       		.byte	0x8f
+ 899 04b0 01       		.byte	0x1
+ 900 04b1 01       		.byte	0x1
+ 901 04b2 C1040000 		.4byte	0x4c1
+ 902 04b6 0C       		.uleb128 0xc
+ 903 04b7 26010000 		.4byte	0x126
+ 904 04bb 0C       		.uleb128 0xc
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s 			page 17
+
+
+ 905 04bc F9000000 		.4byte	0xf9
+ 906 04c0 00       		.byte	0
+ 907 04c1 21       		.uleb128 0x21
+ 908 04c2 01       		.byte	0x1
+ 909 04c3 84000000 		.4byte	.LASF46
+ 910 04c7 04       		.byte	0x4
+ 911 04c8 90       		.byte	0x90
+ 912 04c9 01       		.byte	0x1
+ 913 04ca 01       		.byte	0x1
+ 914 04cb 0C       		.uleb128 0xc
+ 915 04cc 26010000 		.4byte	0x126
+ 916 04d0 0C       		.uleb128 0xc
+ 917 04d1 F9000000 		.4byte	0xf9
+ 918 04d5 00       		.byte	0
+ 919 04d6 00       		.byte	0
+ 920              		.section	.debug_abbrev,"",%progbits
+ 921              	.Ldebug_abbrev0:
+ 922 0000 01       		.uleb128 0x1
+ 923 0001 11       		.uleb128 0x11
+ 924 0002 01       		.byte	0x1
+ 925 0003 25       		.uleb128 0x25
+ 926 0004 0E       		.uleb128 0xe
+ 927 0005 13       		.uleb128 0x13
+ 928 0006 0B       		.uleb128 0xb
+ 929 0007 03       		.uleb128 0x3
+ 930 0008 0E       		.uleb128 0xe
+ 931 0009 1B       		.uleb128 0x1b
+ 932 000a 0E       		.uleb128 0xe
+ 933 000b 55       		.uleb128 0x55
+ 934 000c 06       		.uleb128 0x6
+ 935 000d 11       		.uleb128 0x11
+ 936 000e 01       		.uleb128 0x1
+ 937 000f 52       		.uleb128 0x52
+ 938 0010 01       		.uleb128 0x1
+ 939 0011 10       		.uleb128 0x10
+ 940 0012 06       		.uleb128 0x6
+ 941 0013 00       		.byte	0
+ 942 0014 00       		.byte	0
+ 943 0015 02       		.uleb128 0x2
+ 944 0016 24       		.uleb128 0x24
+ 945 0017 00       		.byte	0
+ 946 0018 0B       		.uleb128 0xb
+ 947 0019 0B       		.uleb128 0xb
+ 948 001a 3E       		.uleb128 0x3e
+ 949 001b 0B       		.uleb128 0xb
+ 950 001c 03       		.uleb128 0x3
+ 951 001d 08       		.uleb128 0x8
+ 952 001e 00       		.byte	0
+ 953 001f 00       		.byte	0
+ 954 0020 03       		.uleb128 0x3
+ 955 0021 24       		.uleb128 0x24
+ 956 0022 00       		.byte	0
+ 957 0023 0B       		.uleb128 0xb
+ 958 0024 0B       		.uleb128 0xb
+ 959 0025 3E       		.uleb128 0x3e
+ 960 0026 0B       		.uleb128 0xb
+ 961 0027 03       		.uleb128 0x3
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s 			page 18
+
+
+ 962 0028 0E       		.uleb128 0xe
+ 963 0029 00       		.byte	0
+ 964 002a 00       		.byte	0
+ 965 002b 04       		.uleb128 0x4
+ 966 002c 16       		.uleb128 0x16
+ 967 002d 00       		.byte	0
+ 968 002e 03       		.uleb128 0x3
+ 969 002f 0E       		.uleb128 0xe
+ 970 0030 3A       		.uleb128 0x3a
+ 971 0031 0B       		.uleb128 0xb
+ 972 0032 3B       		.uleb128 0x3b
+ 973 0033 0B       		.uleb128 0xb
+ 974 0034 49       		.uleb128 0x49
+ 975 0035 13       		.uleb128 0x13
+ 976 0036 00       		.byte	0
+ 977 0037 00       		.byte	0
+ 978 0038 05       		.uleb128 0x5
+ 979 0039 35       		.uleb128 0x35
+ 980 003a 00       		.byte	0
+ 981 003b 49       		.uleb128 0x49
+ 982 003c 13       		.uleb128 0x13
+ 983 003d 00       		.byte	0
+ 984 003e 00       		.byte	0
+ 985 003f 06       		.uleb128 0x6
+ 986 0040 04       		.uleb128 0x4
+ 987 0041 01       		.byte	0x1
+ 988 0042 0B       		.uleb128 0xb
+ 989 0043 0B       		.uleb128 0xb
+ 990 0044 3A       		.uleb128 0x3a
+ 991 0045 0B       		.uleb128 0xb
+ 992 0046 3B       		.uleb128 0x3b
+ 993 0047 0B       		.uleb128 0xb
+ 994 0048 01       		.uleb128 0x1
+ 995 0049 13       		.uleb128 0x13
+ 996 004a 00       		.byte	0
+ 997 004b 00       		.byte	0
+ 998 004c 07       		.uleb128 0x7
+ 999 004d 28       		.uleb128 0x28
+ 1000 004e 00       		.byte	0
+ 1001 004f 03       		.uleb128 0x3
+ 1002 0050 0E       		.uleb128 0xe
+ 1003 0051 1C       		.uleb128 0x1c
+ 1004 0052 0D       		.uleb128 0xd
+ 1005 0053 00       		.byte	0
+ 1006 0054 00       		.byte	0
+ 1007 0055 08       		.uleb128 0x8
+ 1008 0056 13       		.uleb128 0x13
+ 1009 0057 01       		.byte	0x1
+ 1010 0058 03       		.uleb128 0x3
+ 1011 0059 0E       		.uleb128 0xe
+ 1012 005a 0B       		.uleb128 0xb
+ 1013 005b 0B       		.uleb128 0xb
+ 1014 005c 3A       		.uleb128 0x3a
+ 1015 005d 0B       		.uleb128 0xb
+ 1016 005e 3B       		.uleb128 0x3b
+ 1017 005f 0B       		.uleb128 0xb
+ 1018 0060 01       		.uleb128 0x1
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s 			page 19
+
+
+ 1019 0061 13       		.uleb128 0x13
+ 1020 0062 00       		.byte	0
+ 1021 0063 00       		.byte	0
+ 1022 0064 09       		.uleb128 0x9
+ 1023 0065 0D       		.uleb128 0xd
+ 1024 0066 00       		.byte	0
+ 1025 0067 03       		.uleb128 0x3
+ 1026 0068 0E       		.uleb128 0xe
+ 1027 0069 3A       		.uleb128 0x3a
+ 1028 006a 0B       		.uleb128 0xb
+ 1029 006b 3B       		.uleb128 0x3b
+ 1030 006c 0B       		.uleb128 0xb
+ 1031 006d 49       		.uleb128 0x49
+ 1032 006e 13       		.uleb128 0x13
+ 1033 006f 38       		.uleb128 0x38
+ 1034 0070 0A       		.uleb128 0xa
+ 1035 0071 00       		.byte	0
+ 1036 0072 00       		.byte	0
+ 1037 0073 0A       		.uleb128 0xa
+ 1038 0074 0F       		.uleb128 0xf
+ 1039 0075 00       		.byte	0
+ 1040 0076 0B       		.uleb128 0xb
+ 1041 0077 0B       		.uleb128 0xb
+ 1042 0078 49       		.uleb128 0x49
+ 1043 0079 13       		.uleb128 0x13
+ 1044 007a 00       		.byte	0
+ 1045 007b 00       		.byte	0
+ 1046 007c 0B       		.uleb128 0xb
+ 1047 007d 15       		.uleb128 0x15
+ 1048 007e 01       		.byte	0x1
+ 1049 007f 27       		.uleb128 0x27
+ 1050 0080 0C       		.uleb128 0xc
+ 1051 0081 01       		.uleb128 0x1
+ 1052 0082 13       		.uleb128 0x13
+ 1053 0083 00       		.byte	0
+ 1054 0084 00       		.byte	0
+ 1055 0085 0C       		.uleb128 0xc
+ 1056 0086 05       		.uleb128 0x5
+ 1057 0087 00       		.byte	0
+ 1058 0088 49       		.uleb128 0x49
+ 1059 0089 13       		.uleb128 0x13
+ 1060 008a 00       		.byte	0
+ 1061 008b 00       		.byte	0
+ 1062 008c 0D       		.uleb128 0xd
+ 1063 008d 13       		.uleb128 0x13
+ 1064 008e 01       		.byte	0x1
+ 1065 008f 0B       		.uleb128 0xb
+ 1066 0090 0B       		.uleb128 0xb
+ 1067 0091 3A       		.uleb128 0x3a
+ 1068 0092 0B       		.uleb128 0xb
+ 1069 0093 3B       		.uleb128 0x3b
+ 1070 0094 0B       		.uleb128 0xb
+ 1071 0095 01       		.uleb128 0x1
+ 1072 0096 13       		.uleb128 0x13
+ 1073 0097 00       		.byte	0
+ 1074 0098 00       		.byte	0
+ 1075 0099 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s 			page 20
+
+
+ 1076 009a 0D       		.uleb128 0xd
+ 1077 009b 00       		.byte	0
+ 1078 009c 03       		.uleb128 0x3
+ 1079 009d 08       		.uleb128 0x8
+ 1080 009e 3A       		.uleb128 0x3a
+ 1081 009f 0B       		.uleb128 0xb
+ 1082 00a0 3B       		.uleb128 0x3b
+ 1083 00a1 0B       		.uleb128 0xb
+ 1084 00a2 49       		.uleb128 0x49
+ 1085 00a3 13       		.uleb128 0x13
+ 1086 00a4 38       		.uleb128 0x38
+ 1087 00a5 0A       		.uleb128 0xa
+ 1088 00a6 00       		.byte	0
+ 1089 00a7 00       		.byte	0
+ 1090 00a8 0F       		.uleb128 0xf
+ 1091 00a9 01       		.uleb128 0x1
+ 1092 00aa 01       		.byte	0x1
+ 1093 00ab 49       		.uleb128 0x49
+ 1094 00ac 13       		.uleb128 0x13
+ 1095 00ad 01       		.uleb128 0x1
+ 1096 00ae 13       		.uleb128 0x13
+ 1097 00af 00       		.byte	0
+ 1098 00b0 00       		.byte	0
+ 1099 00b1 10       		.uleb128 0x10
+ 1100 00b2 21       		.uleb128 0x21
+ 1101 00b3 00       		.byte	0
+ 1102 00b4 49       		.uleb128 0x49
+ 1103 00b5 13       		.uleb128 0x13
+ 1104 00b6 2F       		.uleb128 0x2f
+ 1105 00b7 0B       		.uleb128 0xb
+ 1106 00b8 00       		.byte	0
+ 1107 00b9 00       		.byte	0
+ 1108 00ba 11       		.uleb128 0x11
+ 1109 00bb 26       		.uleb128 0x26
+ 1110 00bc 00       		.byte	0
+ 1111 00bd 49       		.uleb128 0x49
+ 1112 00be 13       		.uleb128 0x13
+ 1113 00bf 00       		.byte	0
+ 1114 00c0 00       		.byte	0
+ 1115 00c1 12       		.uleb128 0x12
+ 1116 00c2 2E       		.uleb128 0x2e
+ 1117 00c3 01       		.byte	0x1
+ 1118 00c4 3F       		.uleb128 0x3f
+ 1119 00c5 0C       		.uleb128 0xc
+ 1120 00c6 03       		.uleb128 0x3
+ 1121 00c7 0E       		.uleb128 0xe
+ 1122 00c8 3A       		.uleb128 0x3a
+ 1123 00c9 0B       		.uleb128 0xb
+ 1124 00ca 3B       		.uleb128 0x3b
+ 1125 00cb 0B       		.uleb128 0xb
+ 1126 00cc 27       		.uleb128 0x27
+ 1127 00cd 0C       		.uleb128 0xc
+ 1128 00ce 11       		.uleb128 0x11
+ 1129 00cf 01       		.uleb128 0x1
+ 1130 00d0 12       		.uleb128 0x12
+ 1131 00d1 01       		.uleb128 0x1
+ 1132 00d2 40       		.uleb128 0x40
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s 			page 21
+
+
+ 1133 00d3 0A       		.uleb128 0xa
+ 1134 00d4 9742     		.uleb128 0x2117
+ 1135 00d6 0C       		.uleb128 0xc
+ 1136 00d7 01       		.uleb128 0x1
+ 1137 00d8 13       		.uleb128 0x13
+ 1138 00d9 00       		.byte	0
+ 1139 00da 00       		.byte	0
+ 1140 00db 13       		.uleb128 0x13
+ 1141 00dc 898201   		.uleb128 0x4109
+ 1142 00df 00       		.byte	0
+ 1143 00e0 11       		.uleb128 0x11
+ 1144 00e1 01       		.uleb128 0x1
+ 1145 00e2 9542     		.uleb128 0x2115
+ 1146 00e4 0C       		.uleb128 0xc
+ 1147 00e5 31       		.uleb128 0x31
+ 1148 00e6 13       		.uleb128 0x13
+ 1149 00e7 00       		.byte	0
+ 1150 00e8 00       		.byte	0
+ 1151 00e9 14       		.uleb128 0x14
+ 1152 00ea 05       		.uleb128 0x5
+ 1153 00eb 00       		.byte	0
+ 1154 00ec 03       		.uleb128 0x3
+ 1155 00ed 0E       		.uleb128 0xe
+ 1156 00ee 3A       		.uleb128 0x3a
+ 1157 00ef 0B       		.uleb128 0xb
+ 1158 00f0 3B       		.uleb128 0x3b
+ 1159 00f1 0B       		.uleb128 0xb
+ 1160 00f2 49       		.uleb128 0x49
+ 1161 00f3 13       		.uleb128 0x13
+ 1162 00f4 02       		.uleb128 0x2
+ 1163 00f5 0A       		.uleb128 0xa
+ 1164 00f6 00       		.byte	0
+ 1165 00f7 00       		.byte	0
+ 1166 00f8 15       		.uleb128 0x15
+ 1167 00f9 2E       		.uleb128 0x2e
+ 1168 00fa 01       		.byte	0x1
+ 1169 00fb 3F       		.uleb128 0x3f
+ 1170 00fc 0C       		.uleb128 0xc
+ 1171 00fd 03       		.uleb128 0x3
+ 1172 00fe 0E       		.uleb128 0xe
+ 1173 00ff 3A       		.uleb128 0x3a
+ 1174 0100 0B       		.uleb128 0xb
+ 1175 0101 3B       		.uleb128 0x3b
+ 1176 0102 0B       		.uleb128 0xb
+ 1177 0103 27       		.uleb128 0x27
+ 1178 0104 0C       		.uleb128 0xc
+ 1179 0105 11       		.uleb128 0x11
+ 1180 0106 01       		.uleb128 0x1
+ 1181 0107 12       		.uleb128 0x12
+ 1182 0108 01       		.uleb128 0x1
+ 1183 0109 40       		.uleb128 0x40
+ 1184 010a 06       		.uleb128 0x6
+ 1185 010b 9742     		.uleb128 0x2117
+ 1186 010d 0C       		.uleb128 0xc
+ 1187 010e 01       		.uleb128 0x1
+ 1188 010f 13       		.uleb128 0x13
+ 1189 0110 00       		.byte	0
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s 			page 22
+
+
+ 1190 0111 00       		.byte	0
+ 1191 0112 16       		.uleb128 0x16
+ 1192 0113 05       		.uleb128 0x5
+ 1193 0114 00       		.byte	0
+ 1194 0115 03       		.uleb128 0x3
+ 1195 0116 0E       		.uleb128 0xe
+ 1196 0117 3A       		.uleb128 0x3a
+ 1197 0118 0B       		.uleb128 0xb
+ 1198 0119 3B       		.uleb128 0x3b
+ 1199 011a 0B       		.uleb128 0xb
+ 1200 011b 49       		.uleb128 0x49
+ 1201 011c 13       		.uleb128 0x13
+ 1202 011d 02       		.uleb128 0x2
+ 1203 011e 06       		.uleb128 0x6
+ 1204 011f 00       		.byte	0
+ 1205 0120 00       		.byte	0
+ 1206 0121 17       		.uleb128 0x17
+ 1207 0122 0B       		.uleb128 0xb
+ 1208 0123 01       		.byte	0x1
+ 1209 0124 55       		.uleb128 0x55
+ 1210 0125 06       		.uleb128 0x6
+ 1211 0126 01       		.uleb128 0x1
+ 1212 0127 13       		.uleb128 0x13
+ 1213 0128 00       		.byte	0
+ 1214 0129 00       		.byte	0
+ 1215 012a 18       		.uleb128 0x18
+ 1216 012b 34       		.uleb128 0x34
+ 1217 012c 00       		.byte	0
+ 1218 012d 03       		.uleb128 0x3
+ 1219 012e 08       		.uleb128 0x8
+ 1220 012f 3A       		.uleb128 0x3a
+ 1221 0130 0B       		.uleb128 0xb
+ 1222 0131 3B       		.uleb128 0x3b
+ 1223 0132 0B       		.uleb128 0xb
+ 1224 0133 49       		.uleb128 0x49
+ 1225 0134 13       		.uleb128 0x13
+ 1226 0135 02       		.uleb128 0x2
+ 1227 0136 06       		.uleb128 0x6
+ 1228 0137 00       		.byte	0
+ 1229 0138 00       		.byte	0
+ 1230 0139 19       		.uleb128 0x19
+ 1231 013a 0B       		.uleb128 0xb
+ 1232 013b 01       		.byte	0x1
+ 1233 013c 11       		.uleb128 0x11
+ 1234 013d 01       		.uleb128 0x1
+ 1235 013e 12       		.uleb128 0x12
+ 1236 013f 01       		.uleb128 0x1
+ 1237 0140 01       		.uleb128 0x1
+ 1238 0141 13       		.uleb128 0x13
+ 1239 0142 00       		.byte	0
+ 1240 0143 00       		.byte	0
+ 1241 0144 1A       		.uleb128 0x1a
+ 1242 0145 898201   		.uleb128 0x4109
+ 1243 0148 01       		.byte	0x1
+ 1244 0149 11       		.uleb128 0x11
+ 1245 014a 01       		.uleb128 0x1
+ 1246 014b 31       		.uleb128 0x31
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s 			page 23
+
+
+ 1247 014c 13       		.uleb128 0x13
+ 1248 014d 00       		.byte	0
+ 1249 014e 00       		.byte	0
+ 1250 014f 1B       		.uleb128 0x1b
+ 1251 0150 8A8201   		.uleb128 0x410a
+ 1252 0153 00       		.byte	0
+ 1253 0154 02       		.uleb128 0x2
+ 1254 0155 0A       		.uleb128 0xa
+ 1255 0156 9142     		.uleb128 0x2111
+ 1256 0158 0A       		.uleb128 0xa
+ 1257 0159 00       		.byte	0
+ 1258 015a 00       		.byte	0
+ 1259 015b 1C       		.uleb128 0x1c
+ 1260 015c 34       		.uleb128 0x34
+ 1261 015d 00       		.byte	0
+ 1262 015e 03       		.uleb128 0x3
+ 1263 015f 0E       		.uleb128 0xe
+ 1264 0160 3A       		.uleb128 0x3a
+ 1265 0161 0B       		.uleb128 0xb
+ 1266 0162 3B       		.uleb128 0x3b
+ 1267 0163 0B       		.uleb128 0xb
+ 1268 0164 49       		.uleb128 0x49
+ 1269 0165 13       		.uleb128 0x13
+ 1270 0166 02       		.uleb128 0x2
+ 1271 0167 06       		.uleb128 0x6
+ 1272 0168 00       		.byte	0
+ 1273 0169 00       		.byte	0
+ 1274 016a 1D       		.uleb128 0x1d
+ 1275 016b 898201   		.uleb128 0x4109
+ 1276 016e 01       		.byte	0x1
+ 1277 016f 11       		.uleb128 0x11
+ 1278 0170 01       		.uleb128 0x1
+ 1279 0171 9542     		.uleb128 0x2115
+ 1280 0173 0C       		.uleb128 0xc
+ 1281 0174 31       		.uleb128 0x31
+ 1282 0175 13       		.uleb128 0x13
+ 1283 0176 00       		.byte	0
+ 1284 0177 00       		.byte	0
+ 1285 0178 1E       		.uleb128 0x1e
+ 1286 0179 34       		.uleb128 0x34
+ 1287 017a 00       		.byte	0
+ 1288 017b 03       		.uleb128 0x3
+ 1289 017c 0E       		.uleb128 0xe
+ 1290 017d 3A       		.uleb128 0x3a
+ 1291 017e 0B       		.uleb128 0xb
+ 1292 017f 3B       		.uleb128 0x3b
+ 1293 0180 05       		.uleb128 0x5
+ 1294 0181 49       		.uleb128 0x49
+ 1295 0182 13       		.uleb128 0x13
+ 1296 0183 3F       		.uleb128 0x3f
+ 1297 0184 0C       		.uleb128 0xc
+ 1298 0185 3C       		.uleb128 0x3c
+ 1299 0186 0C       		.uleb128 0xc
+ 1300 0187 00       		.byte	0
+ 1301 0188 00       		.byte	0
+ 1302 0189 1F       		.uleb128 0x1f
+ 1303 018a 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s 			page 24
+
+
+ 1304 018b 00       		.byte	0
+ 1305 018c 3F       		.uleb128 0x3f
+ 1306 018d 0C       		.uleb128 0xc
+ 1307 018e 03       		.uleb128 0x3
+ 1308 018f 0E       		.uleb128 0xe
+ 1309 0190 3A       		.uleb128 0x3a
+ 1310 0191 0B       		.uleb128 0xb
+ 1311 0192 3B       		.uleb128 0x3b
+ 1312 0193 0B       		.uleb128 0xb
+ 1313 0194 27       		.uleb128 0x27
+ 1314 0195 0C       		.uleb128 0xc
+ 1315 0196 3C       		.uleb128 0x3c
+ 1316 0197 0C       		.uleb128 0xc
+ 1317 0198 00       		.byte	0
+ 1318 0199 00       		.byte	0
+ 1319 019a 20       		.uleb128 0x20
+ 1320 019b 2E       		.uleb128 0x2e
+ 1321 019c 01       		.byte	0x1
+ 1322 019d 3F       		.uleb128 0x3f
+ 1323 019e 0C       		.uleb128 0xc
+ 1324 019f 03       		.uleb128 0x3
+ 1325 01a0 0E       		.uleb128 0xe
+ 1326 01a1 3A       		.uleb128 0x3a
+ 1327 01a2 0B       		.uleb128 0xb
+ 1328 01a3 3B       		.uleb128 0x3b
+ 1329 01a4 0B       		.uleb128 0xb
+ 1330 01a5 27       		.uleb128 0x27
+ 1331 01a6 0C       		.uleb128 0xc
+ 1332 01a7 3C       		.uleb128 0x3c
+ 1333 01a8 0C       		.uleb128 0xc
+ 1334 01a9 01       		.uleb128 0x1
+ 1335 01aa 13       		.uleb128 0x13
+ 1336 01ab 00       		.byte	0
+ 1337 01ac 00       		.byte	0
+ 1338 01ad 21       		.uleb128 0x21
+ 1339 01ae 2E       		.uleb128 0x2e
+ 1340 01af 01       		.byte	0x1
+ 1341 01b0 3F       		.uleb128 0x3f
+ 1342 01b1 0C       		.uleb128 0xc
+ 1343 01b2 03       		.uleb128 0x3
+ 1344 01b3 0E       		.uleb128 0xe
+ 1345 01b4 3A       		.uleb128 0x3a
+ 1346 01b5 0B       		.uleb128 0xb
+ 1347 01b6 3B       		.uleb128 0x3b
+ 1348 01b7 0B       		.uleb128 0xb
+ 1349 01b8 27       		.uleb128 0x27
+ 1350 01b9 0C       		.uleb128 0xc
+ 1351 01ba 3C       		.uleb128 0x3c
+ 1352 01bb 0C       		.uleb128 0xc
+ 1353 01bc 00       		.byte	0
+ 1354 01bd 00       		.byte	0
+ 1355 01be 00       		.byte	0
+ 1356              		.section	.debug_loc,"",%progbits
+ 1357              	.Ldebug_loc0:
+ 1358              	.LLST0:
+ 1359 0000 00000000 		.4byte	.LFB65
+ 1360 0004 02000000 		.4byte	.LCFI0
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s 			page 25
+
+
+ 1361 0008 0200     		.2byte	0x2
+ 1362 000a 7D       		.byte	0x7d
+ 1363 000b 00       		.sleb128 0
+ 1364 000c 02000000 		.4byte	.LCFI0
+ 1365 0010 1C000000 		.4byte	.LFE65
+ 1366 0014 0200     		.2byte	0x2
+ 1367 0016 7D       		.byte	0x7d
+ 1368 0017 08       		.sleb128 8
+ 1369 0018 00000000 		.4byte	0
+ 1370 001c 00000000 		.4byte	0
+ 1371              	.LLST1:
+ 1372 0020 00000000 		.4byte	.LVL2
+ 1373 0024 0F000000 		.4byte	.LVL5-1
+ 1374 0028 0100     		.2byte	0x1
+ 1375 002a 50       		.byte	0x50
+ 1376 002b 0F000000 		.4byte	.LVL5-1
+ 1377 002f 1C000000 		.4byte	.LFE65
+ 1378 0033 0100     		.2byte	0x1
+ 1379 0035 54       		.byte	0x54
+ 1380 0036 00000000 		.4byte	0
+ 1381 003a 00000000 		.4byte	0
+ 1382              	.LLST2:
+ 1383 003e 00000000 		.4byte	.LVL2
+ 1384 0042 0F000000 		.4byte	.LVL5-1
+ 1385 0046 0100     		.2byte	0x1
+ 1386 0048 51       		.byte	0x51
+ 1387 0049 0F000000 		.4byte	.LVL5-1
+ 1388 004d 1C000000 		.4byte	.LFE65
+ 1389 0051 0400     		.2byte	0x4
+ 1390 0053 F3       		.byte	0xf3
+ 1391 0054 01       		.uleb128 0x1
+ 1392 0055 51       		.byte	0x51
+ 1393 0056 9F       		.byte	0x9f
+ 1394 0057 00000000 		.4byte	0
+ 1395 005b 00000000 		.4byte	0
+ 1396              	.LLST3:
+ 1397 005f 0A000000 		.4byte	.LVL4
+ 1398 0063 0F000000 		.4byte	.LVL5-1
+ 1399 0067 0100     		.2byte	0x1
+ 1400 0069 53       		.byte	0x53
+ 1401 006a 00000000 		.4byte	0
+ 1402 006e 00000000 		.4byte	0
+ 1403              	.LLST4:
+ 1404 0072 1A000000 		.4byte	.LVL7
+ 1405 0076 1C000000 		.4byte	.LFE65
+ 1406 007a 0100     		.2byte	0x1
+ 1407 007c 53       		.byte	0x53
+ 1408 007d 00000000 		.4byte	0
+ 1409 0081 00000000 		.4byte	0
+ 1410              	.LLST5:
+ 1411 0085 00000000 		.4byte	.LFB66
+ 1412 0089 02000000 		.4byte	.LCFI1
+ 1413 008d 0200     		.2byte	0x2
+ 1414 008f 7D       		.byte	0x7d
+ 1415 0090 00       		.sleb128 0
+ 1416 0091 02000000 		.4byte	.LCFI1
+ 1417 0095 1A000000 		.4byte	.LFE66
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s 			page 26
+
+
+ 1418 0099 0200     		.2byte	0x2
+ 1419 009b 7D       		.byte	0x7d
+ 1420 009c 08       		.sleb128 8
+ 1421 009d 00000000 		.4byte	0
+ 1422 00a1 00000000 		.4byte	0
+ 1423              	.LLST6:
+ 1424 00a5 00000000 		.4byte	.LVL8
+ 1425 00a9 0D000000 		.4byte	.LVL11-1
+ 1426 00ad 0100     		.2byte	0x1
+ 1427 00af 50       		.byte	0x50
+ 1428 00b0 0D000000 		.4byte	.LVL11-1
+ 1429 00b4 1A000000 		.4byte	.LFE66
+ 1430 00b8 0100     		.2byte	0x1
+ 1431 00ba 54       		.byte	0x54
+ 1432 00bb 00000000 		.4byte	0
+ 1433 00bf 00000000 		.4byte	0
+ 1434              	.LLST7:
+ 1435 00c3 0A000000 		.4byte	.LVL10
+ 1436 00c7 0D000000 		.4byte	.LVL11-1
+ 1437 00cb 0100     		.2byte	0x1
+ 1438 00cd 53       		.byte	0x53
+ 1439 00ce 00000000 		.4byte	0
+ 1440 00d2 00000000 		.4byte	0
+ 1441              	.LLST8:
+ 1442 00d6 18000000 		.4byte	.LVL13
+ 1443 00da 1A000000 		.4byte	.LFE66
+ 1444 00de 0100     		.2byte	0x1
+ 1445 00e0 53       		.byte	0x53
+ 1446 00e1 00000000 		.4byte	0
+ 1447 00e5 00000000 		.4byte	0
+ 1448              	.LLST9:
+ 1449 00e9 00000000 		.4byte	.LFB67
+ 1450 00ed 02000000 		.4byte	.LCFI2
+ 1451 00f1 0200     		.2byte	0x2
+ 1452 00f3 7D       		.byte	0x7d
+ 1453 00f4 00       		.sleb128 0
+ 1454 00f5 02000000 		.4byte	.LCFI2
+ 1455 00f9 14000000 		.4byte	.LFE67
+ 1456 00fd 0200     		.2byte	0x2
+ 1457 00ff 7D       		.byte	0x7d
+ 1458 0100 08       		.sleb128 8
+ 1459 0101 00000000 		.4byte	0
+ 1460 0105 00000000 		.4byte	0
+ 1461              	.LLST10:
+ 1462 0109 00000000 		.4byte	.LVL14
+ 1463 010d 0B000000 		.4byte	.LVL17-1
+ 1464 0111 0100     		.2byte	0x1
+ 1465 0113 50       		.byte	0x50
+ 1466 0114 0B000000 		.4byte	.LVL17-1
+ 1467 0118 14000000 		.4byte	.LFE67
+ 1468 011c 0400     		.2byte	0x4
+ 1469 011e F3       		.byte	0xf3
+ 1470 011f 01       		.uleb128 0x1
+ 1471 0120 50       		.byte	0x50
+ 1472 0121 9F       		.byte	0x9f
+ 1473 0122 00000000 		.4byte	0
+ 1474 0126 00000000 		.4byte	0
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s 			page 27
+
+
+ 1475              	.LLST11:
+ 1476 012a 00000000 		.4byte	.LVL14
+ 1477 012e 0B000000 		.4byte	.LVL17-1
+ 1478 0132 0100     		.2byte	0x1
+ 1479 0134 51       		.byte	0x51
+ 1480 0135 0B000000 		.4byte	.LVL17-1
+ 1481 0139 14000000 		.4byte	.LFE67
+ 1482 013d 0400     		.2byte	0x4
+ 1483 013f F3       		.byte	0xf3
+ 1484 0140 01       		.uleb128 0x1
+ 1485 0141 51       		.byte	0x51
+ 1486 0142 9F       		.byte	0x9f
+ 1487 0143 00000000 		.4byte	0
+ 1488 0147 00000000 		.4byte	0
+ 1489              	.LLST12:
+ 1490 014b 08000000 		.4byte	.LVL16
+ 1491 014f 0B000000 		.4byte	.LVL17-1
+ 1492 0153 0100     		.2byte	0x1
+ 1493 0155 53       		.byte	0x53
+ 1494 0156 00000000 		.4byte	0
+ 1495 015a 00000000 		.4byte	0
+ 1496              	.LLST13:
+ 1497 015e 12000000 		.4byte	.LVL19
+ 1498 0162 14000000 		.4byte	.LFE67
+ 1499 0166 0100     		.2byte	0x1
+ 1500 0168 53       		.byte	0x53
+ 1501 0169 00000000 		.4byte	0
+ 1502 016d 00000000 		.4byte	0
+ 1503              	.LLST14:
+ 1504 0171 00000000 		.4byte	.LFB68
+ 1505 0175 02000000 		.4byte	.LCFI3
+ 1506 0179 0200     		.2byte	0x2
+ 1507 017b 7D       		.byte	0x7d
+ 1508 017c 00       		.sleb128 0
+ 1509 017d 02000000 		.4byte	.LCFI3
+ 1510 0181 14000000 		.4byte	.LFE68
+ 1511 0185 0200     		.2byte	0x2
+ 1512 0187 7D       		.byte	0x7d
+ 1513 0188 08       		.sleb128 8
+ 1514 0189 00000000 		.4byte	0
+ 1515 018d 00000000 		.4byte	0
+ 1516              	.LLST15:
+ 1517 0191 00000000 		.4byte	.LVL20
+ 1518 0195 0B000000 		.4byte	.LVL23-1
+ 1519 0199 0100     		.2byte	0x1
+ 1520 019b 50       		.byte	0x50
+ 1521 019c 0B000000 		.4byte	.LVL23-1
+ 1522 01a0 14000000 		.4byte	.LFE68
+ 1523 01a4 0400     		.2byte	0x4
+ 1524 01a6 F3       		.byte	0xf3
+ 1525 01a7 01       		.uleb128 0x1
+ 1526 01a8 50       		.byte	0x50
+ 1527 01a9 9F       		.byte	0x9f
+ 1528 01aa 00000000 		.4byte	0
+ 1529 01ae 00000000 		.4byte	0
+ 1530              	.LLST16:
+ 1531 01b2 00000000 		.4byte	.LVL20
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s 			page 28
+
+
+ 1532 01b6 0B000000 		.4byte	.LVL23-1
+ 1533 01ba 0100     		.2byte	0x1
+ 1534 01bc 51       		.byte	0x51
+ 1535 01bd 0B000000 		.4byte	.LVL23-1
+ 1536 01c1 14000000 		.4byte	.LFE68
+ 1537 01c5 0400     		.2byte	0x4
+ 1538 01c7 F3       		.byte	0xf3
+ 1539 01c8 01       		.uleb128 0x1
+ 1540 01c9 51       		.byte	0x51
+ 1541 01ca 9F       		.byte	0x9f
+ 1542 01cb 00000000 		.4byte	0
+ 1543 01cf 00000000 		.4byte	0
+ 1544              	.LLST17:
+ 1545 01d3 08000000 		.4byte	.LVL22
+ 1546 01d7 0B000000 		.4byte	.LVL23-1
+ 1547 01db 0100     		.2byte	0x1
+ 1548 01dd 53       		.byte	0x53
+ 1549 01de 00000000 		.4byte	0
+ 1550 01e2 00000000 		.4byte	0
+ 1551              	.LLST18:
+ 1552 01e6 12000000 		.4byte	.LVL25
+ 1553 01ea 14000000 		.4byte	.LFE68
+ 1554 01ee 0100     		.2byte	0x1
+ 1555 01f0 53       		.byte	0x53
+ 1556 01f1 00000000 		.4byte	0
+ 1557 01f5 00000000 		.4byte	0
+ 1558              	.LLST19:
+ 1559 01f9 00000000 		.4byte	.LFB69
+ 1560 01fd 02000000 		.4byte	.LCFI4
+ 1561 0201 0200     		.2byte	0x2
+ 1562 0203 7D       		.byte	0x7d
+ 1563 0204 00       		.sleb128 0
+ 1564 0205 02000000 		.4byte	.LCFI4
+ 1565 0209 1E000000 		.4byte	.LFE69
+ 1566 020d 0200     		.2byte	0x2
+ 1567 020f 7D       		.byte	0x7d
+ 1568 0210 08       		.sleb128 8
+ 1569 0211 00000000 		.4byte	0
+ 1570 0215 00000000 		.4byte	0
+ 1571              	.LLST20:
+ 1572 0219 00000000 		.4byte	.LVL26
+ 1573 021d 10000000 		.4byte	.LVL29
+ 1574 0221 0100     		.2byte	0x1
+ 1575 0223 50       		.byte	0x50
+ 1576 0224 10000000 		.4byte	.LVL29
+ 1577 0228 1E000000 		.4byte	.LFE69
+ 1578 022c 0100     		.2byte	0x1
+ 1579 022e 54       		.byte	0x54
+ 1580 022f 00000000 		.4byte	0
+ 1581 0233 00000000 		.4byte	0
+ 1582              	.LLST21:
+ 1583 0237 00000000 		.4byte	.LVL26
+ 1584 023b 10000000 		.4byte	.LVL29
+ 1585 023f 0100     		.2byte	0x1
+ 1586 0241 51       		.byte	0x51
+ 1587 0242 10000000 		.4byte	.LVL29
+ 1588 0246 1D000000 		.4byte	.LVL30-1
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s 			page 29
+
+
+ 1589 024a 0100     		.2byte	0x1
+ 1590 024c 53       		.byte	0x53
+ 1591 024d 1D000000 		.4byte	.LVL30-1
+ 1592 0251 1E000000 		.4byte	.LFE69
+ 1593 0255 0400     		.2byte	0x4
+ 1594 0257 F3       		.byte	0xf3
+ 1595 0258 01       		.uleb128 0x1
+ 1596 0259 51       		.byte	0x51
+ 1597 025a 9F       		.byte	0x9f
+ 1598 025b 00000000 		.4byte	0
+ 1599 025f 00000000 		.4byte	0
+ 1600              	.LLST22:
+ 1601 0263 00000000 		.4byte	.LVL26
+ 1602 0267 1D000000 		.4byte	.LVL30-1
+ 1603 026b 0100     		.2byte	0x1
+ 1604 026d 52       		.byte	0x52
+ 1605 026e 1D000000 		.4byte	.LVL30-1
+ 1606 0272 1E000000 		.4byte	.LFE69
+ 1607 0276 0400     		.2byte	0x4
+ 1608 0278 F3       		.byte	0xf3
+ 1609 0279 01       		.uleb128 0x1
+ 1610 027a 52       		.byte	0x52
+ 1611 027b 9F       		.byte	0x9f
+ 1612 027c 00000000 		.4byte	0
+ 1613 0280 00000000 		.4byte	0
+ 1614              	.LLST23:
+ 1615 0284 08000000 		.4byte	.LVL27
+ 1616 0288 0C000000 		.4byte	.LVL28
+ 1617 028c 0800     		.2byte	0x8
+ 1618 028e 71       		.byte	0x71
+ 1619 028f 00       		.sleb128 0
+ 1620 0290 33       		.byte	0x33
+ 1621 0291 24       		.byte	0x24
+ 1622 0292 75       		.byte	0x75
+ 1623 0293 00       		.sleb128 0
+ 1624 0294 22       		.byte	0x22
+ 1625 0295 9F       		.byte	0x9f
+ 1626 0296 0C000000 		.4byte	.LVL28
+ 1627 029a 10000000 		.4byte	.LVL29
+ 1628 029e 0900     		.2byte	0x9
+ 1629 02a0 71       		.byte	0x71
+ 1630 02a1 00       		.sleb128 0
+ 1631 02a2 33       		.byte	0x33
+ 1632 02a3 24       		.byte	0x24
+ 1633 02a4 70       		.byte	0x70
+ 1634 02a5 04       		.sleb128 4
+ 1635 02a6 06       		.byte	0x6
+ 1636 02a7 22       		.byte	0x22
+ 1637 02a8 9F       		.byte	0x9f
+ 1638 02a9 10000000 		.4byte	.LVL29
+ 1639 02ad 1D000000 		.4byte	.LVL30-1
+ 1640 02b1 0900     		.2byte	0x9
+ 1641 02b3 73       		.byte	0x73
+ 1642 02b4 00       		.sleb128 0
+ 1643 02b5 33       		.byte	0x33
+ 1644 02b6 24       		.byte	0x24
+ 1645 02b7 74       		.byte	0x74
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s 			page 30
+
+
+ 1646 02b8 04       		.sleb128 4
+ 1647 02b9 06       		.byte	0x6
+ 1648 02ba 22       		.byte	0x22
+ 1649 02bb 9F       		.byte	0x9f
+ 1650 02bc 00000000 		.4byte	0
+ 1651 02c0 00000000 		.4byte	0
+ 1652              		.section	.debug_aranges,"",%progbits
+ 1653 0000 4C000000 		.4byte	0x4c
+ 1654 0004 0200     		.2byte	0x2
+ 1655 0006 00000000 		.4byte	.Ldebug_info0
+ 1656 000a 04       		.byte	0x4
+ 1657 000b 00       		.byte	0
+ 1658 000c 0000     		.2byte	0
+ 1659 000e 0000     		.2byte	0
+ 1660 0010 00000000 		.4byte	.LFB63
+ 1661 0014 04000000 		.4byte	.LFE63-.LFB63
+ 1662 0018 00000000 		.4byte	.LFB64
+ 1663 001c 0A000000 		.4byte	.LFE64-.LFB64
+ 1664 0020 00000000 		.4byte	.LFB65
+ 1665 0024 1C000000 		.4byte	.LFE65-.LFB65
+ 1666 0028 00000000 		.4byte	.LFB66
+ 1667 002c 1A000000 		.4byte	.LFE66-.LFB66
+ 1668 0030 00000000 		.4byte	.LFB67
+ 1669 0034 14000000 		.4byte	.LFE67-.LFB67
+ 1670 0038 00000000 		.4byte	.LFB68
+ 1671 003c 14000000 		.4byte	.LFE68-.LFB68
+ 1672 0040 00000000 		.4byte	.LFB69
+ 1673 0044 1E000000 		.4byte	.LFE69-.LFB69
+ 1674 0048 00000000 		.4byte	0
+ 1675 004c 00000000 		.4byte	0
+ 1676              		.section	.debug_ranges,"",%progbits
+ 1677              	.Ldebug_ranges0:
+ 1678 0000 02000000 		.4byte	.LBB2
+ 1679 0004 04000000 		.4byte	.LBE2
+ 1680 0008 06000000 		.4byte	.LBB3
+ 1681 000c 0A000000 		.4byte	.LBE3
+ 1682 0010 00000000 		.4byte	0
+ 1683 0014 00000000 		.4byte	0
+ 1684 0018 02000000 		.4byte	.LBB5
+ 1685 001c 04000000 		.4byte	.LBE5
+ 1686 0020 06000000 		.4byte	.LBB6
+ 1687 0024 0A000000 		.4byte	.LBE6
+ 1688 0028 00000000 		.4byte	0
+ 1689 002c 00000000 		.4byte	0
+ 1690 0030 00000000 		.4byte	.LFB63
+ 1691 0034 04000000 		.4byte	.LFE63
+ 1692 0038 00000000 		.4byte	.LFB64
+ 1693 003c 0A000000 		.4byte	.LFE64
+ 1694 0040 00000000 		.4byte	.LFB65
+ 1695 0044 1C000000 		.4byte	.LFE65
+ 1696 0048 00000000 		.4byte	.LFB66
+ 1697 004c 1A000000 		.4byte	.LFE66
+ 1698 0050 00000000 		.4byte	.LFB67
+ 1699 0054 14000000 		.4byte	.LFE67
+ 1700 0058 00000000 		.4byte	.LFB68
+ 1701 005c 14000000 		.4byte	.LFE68
+ 1702 0060 00000000 		.4byte	.LFB69
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s 			page 31
+
+
+ 1703 0064 1E000000 		.4byte	.LFE69
+ 1704 0068 00000000 		.4byte	0
+ 1705 006c 00000000 		.4byte	0
+ 1706              		.section	.debug_line,"",%progbits
+ 1707              	.Ldebug_line0:
+ 1708 0000 C9010000 		.section	.debug_str,"MS",%progbits,1
+ 1708      02003001 
+ 1708      00000201 
+ 1708      FB0E0D00 
+ 1708      01010101 
+ 1709              	.LASF18:
+ 1710 0000 45585444 		.ascii	"EXTDriver\000"
+ 1710      72697665 
+ 1710      7200
+ 1711              	.LASF33:
+ 1712 000a 6368616E 		.ascii	"channel\000"
+ 1712      6E656C00 
+ 1713              	.LASF45:
+ 1714 0012 6578745F 		.ascii	"ext_lld_init\000"
+ 1714      6C6C645F 
+ 1714      696E6974 
+ 1714      00
+ 1715              	.LASF19:
+ 1716 001f 73746174 		.ascii	"state\000"
+ 1716      6500
+ 1717              	.LASF17:
+ 1718 0025 65787473 		.ascii	"extstate_t\000"
+ 1718      74617465 
+ 1718      5F7400
+ 1719              	.LASF24:
+ 1720 0030 45585443 		.ascii	"EXTChannelConfig\000"
+ 1720      68616E6E 
+ 1720      656C436F 
+ 1720      6E666967 
+ 1720      00
+ 1721              	.LASF14:
+ 1722 0041 4558545F 		.ascii	"EXT_UNINIT\000"
+ 1722      554E494E 
+ 1722      495400
+ 1723              	.LASF31:
+ 1724 004c 65787453 		.ascii	"extStop\000"
+ 1724      746F7000 
+ 1725              	.LASF27:
+ 1726 0054 65787449 		.ascii	"extInit\000"
+ 1726      6E697400 
+ 1727              	.LASF34:
+ 1728 005c 65787443 		.ascii	"extChannelDisable\000"
+ 1728      68616E6E 
+ 1728      656C4469 
+ 1728      7361626C 
+ 1728      6500
+ 1729              	.LASF21:
+ 1730 006e 65787063 		.ascii	"expchannel_t\000"
+ 1730      68616E6E 
+ 1730      656C5F74 
+ 1730      00
+ 1731              	.LASF29:
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s 			page 32
+
+
+ 1732 007b 65787453 		.ascii	"extStart\000"
+ 1732      74617274 
+ 1732      00
+ 1733              	.LASF46:
+ 1734 0084 6578745F 		.ascii	"ext_lld_channel_disable\000"
+ 1734      6C6C645F 
+ 1734      6368616E 
+ 1734      6E656C5F 
+ 1734      64697361 
+ 1735              	.LASF10:
+ 1736 009c 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1736      206C6F6E 
+ 1736      6720756E 
+ 1736      7369676E 
+ 1736      65642069 
+ 1737              	.LASF2:
+ 1738 00b3 756E7369 		.ascii	"unsigned char\000"
+ 1738      676E6564 
+ 1738      20636861 
+ 1738      7200
+ 1739              	.LASF36:
+ 1740 00c1 65787463 		.ascii	"extcp\000"
+ 1740      7000
+ 1741              	.LASF8:
+ 1742 00c7 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1742      20756E73 
+ 1742      69676E65 
+ 1742      6420696E 
+ 1742      7400
+ 1743              	.LASF4:
+ 1744 00d9 73686F72 		.ascii	"short unsigned int\000"
+ 1744      7420756E 
+ 1744      7369676E 
+ 1744      65642069 
+ 1744      6E7400
+ 1745              	.LASF44:
+ 1746 00ec 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1746      52784275 
+ 1746      66666572 
+ 1746      00
+ 1747              	.LASF20:
+ 1748 00f9 636F6E66 		.ascii	"config\000"
+ 1748      696700
+ 1749              	.LASF26:
+ 1750 0100 45585443 		.ascii	"EXTConfig\000"
+ 1750      6F6E6669 
+ 1750      6700
+ 1751              	.LASF40:
+ 1752 010a 6578745F 		.ascii	"ext_lld_channel_enable\000"
+ 1752      6C6C645F 
+ 1752      6368616E 
+ 1752      6E656C5F 
+ 1752      656E6162 
+ 1753              	.LASF43:
+ 1754 0121 433A5C55 		.ascii	"C:\\Users\\Caitlin\\pros\\127B\000"
+ 1754      73657273 
+ 1754      5C436169 
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s 			page 33
+
+
+ 1754      746C696E 
+ 1754      5C70726F 
+ 1755              	.LASF16:
+ 1756 013c 4558545F 		.ascii	"EXT_ACTIVE\000"
+ 1756      41435449 
+ 1756      564500
+ 1757              	.LASF0:
+ 1758 0147 756E7369 		.ascii	"unsigned int\000"
+ 1758      676E6564 
+ 1758      20696E74 
+ 1758      00
+ 1759              	.LASF30:
+ 1760 0154 65787470 		.ascii	"extp\000"
+ 1760      00
+ 1761              	.LASF13:
+ 1762 0159 63686172 		.ascii	"char\000"
+ 1762      00
+ 1763              	.LASF22:
+ 1764 015e 65787463 		.ascii	"extcallback_t\000"
+ 1764      616C6C62 
+ 1764      61636B5F 
+ 1764      7400
+ 1765              	.LASF23:
+ 1766 016c 6D6F6465 		.ascii	"mode\000"
+ 1766      00
+ 1767              	.LASF39:
+ 1768 0171 6578745F 		.ascii	"ext_lld_stop\000"
+ 1768      6C6C645F 
+ 1768      73746F70 
+ 1768      00
+ 1769              	.LASF42:
+ 1770 017e 2E2E2F43 		.ascii	"../ChibiOS_2.6.2/os/hal/src/ext.c\000"
+ 1770      68696269 
+ 1770      4F535F32 
+ 1770      2E362E32 
+ 1770      2F6F732F 
+ 1771              	.LASF37:
+ 1772 01a0 6F6C6463 		.ascii	"oldcp\000"
+ 1772      7000
+ 1773              	.LASF6:
+ 1774 01a6 696E7433 		.ascii	"int32_t\000"
+ 1774      325F7400 
+ 1775              	.LASF12:
+ 1776 01ae 73697A65 		.ascii	"sizetype\000"
+ 1776      74797065 
+ 1776      00
+ 1777              	.LASF9:
+ 1778 01b7 6C6F6E67 		.ascii	"long long int\000"
+ 1778      206C6F6E 
+ 1778      6720696E 
+ 1778      7400
+ 1779              	.LASF41:
+ 1780 01c5 474E5520 		.ascii	"GNU C 4.7.1\000"
+ 1780      4320342E 
+ 1780      372E3100 
+ 1781              	.LASF25:
+ 1782 01d1 6368616E 		.ascii	"channels\000"
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s 			page 34
+
+
+ 1782      6E656C73 
+ 1782      00
+ 1783              	.LASF35:
+ 1784 01da 65787453 		.ascii	"extSetChannelModeI\000"
+ 1784      65744368 
+ 1784      616E6E65 
+ 1784      6C4D6F64 
+ 1784      654900
+ 1785              	.LASF32:
+ 1786 01ed 65787443 		.ascii	"extChannelEnable\000"
+ 1786      68616E6E 
+ 1786      656C456E 
+ 1786      61626C65 
+ 1786      00
+ 1787              	.LASF3:
+ 1788 01fe 73686F72 		.ascii	"short int\000"
+ 1788      7420696E 
+ 1788      7400
+ 1789              	.LASF28:
+ 1790 0208 6578744F 		.ascii	"extObjectInit\000"
+ 1790      626A6563 
+ 1790      74496E69 
+ 1790      7400
+ 1791              	.LASF7:
+ 1792 0216 75696E74 		.ascii	"uint32_t\000"
+ 1792      33325F74 
+ 1792      00
+ 1793              	.LASF5:
+ 1794 021f 6C6F6E67 		.ascii	"long int\000"
+ 1794      20696E74 
+ 1794      00
+ 1795              	.LASF1:
+ 1796 0228 7369676E 		.ascii	"signed char\000"
+ 1796      65642063 
+ 1796      68617200 
+ 1797              	.LASF11:
+ 1798 0234 5F426F6F 		.ascii	"_Bool\000"
+ 1798      6C00
+ 1799              	.LASF38:
+ 1800 023a 6578745F 		.ascii	"ext_lld_start\000"
+ 1800      6C6C645F 
+ 1800      73746172 
+ 1800      7400
+ 1801              	.LASF15:
+ 1802 0248 4558545F 		.ascii	"EXT_STOP\000"
+ 1802      53544F50 
+ 1802      00
+ 1803              		.ident	"GCC: (GNU) 4.7.1"
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s 			page 35
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 ext.c
+C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s:19     .text.extInit:00000000 $t
+C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s:25     .text.extInit:00000000 extInit
+C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s:41     .text.extObjectInit:00000000 $t
+C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s:47     .text.extObjectInit:00000000 extObjectInit
+C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s:66     .text.extStart:00000000 $t
+C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s:72     .text.extStart:00000000 extStart
+C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s:122    .text.extStop:00000000 $t
+C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s:128    .text.extStop:00000000 extStop
+C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s:176    .text.extChannelEnable:00000000 $t
+C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s:182    .text.extChannelEnable:00000000 extChannelEnable
+C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s:222    .text.extChannelDisable:00000000 $t
+C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s:228    .text.extChannelDisable:00000000 extChannelDisable
+C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s:268    .text.extSetChannelModeI:00000000 $t
+C:\Users\Caitlin\AppData\Local\Temp\ccXGIlCM.s:274    .text.extSetChannelModeI:00000000 extSetChannelModeI
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+ext_lld_init
+ext_lld_start
+ext_lld_stop
+ext_lld_channel_enable
+ext_lld_channel_disable

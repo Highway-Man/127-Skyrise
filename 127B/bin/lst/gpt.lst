@@ -1,0 +1,2915 @@
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"gpt.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.gptInit,"ax",%progbits
+  19              		.align	2
+  20              		.p2align 4,,15
+  21              		.global	gptInit
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	gptInit, %function
+  25              	gptInit:
+  26              	.LFB63:
+  27              		.file 1 "../ChibiOS_2.6.2/os/hal/src/gpt.c"
+  28              		.loc 1 68 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              		.loc 1 71 0
+  34              		.loc 1 70 0
+  35 0000 FFF7FEBF 		b	gpt_lld_init
+  36              	.LVL0:
+  37              		.cfi_endproc
+  38              	.LFE63:
+  39              		.size	gptInit, .-gptInit
+  40 0004 AFF30080 		.section	.text.gptObjectInit,"ax",%progbits
+  40      AFF30080 
+  40      AFF30080 
+  41              		.align	2
+  42              		.p2align 4,,15
+  43              		.global	gptObjectInit
+  44              		.thumb
+  45              		.thumb_func
+  46              		.type	gptObjectInit, %function
+  47              	gptObjectInit:
+  48              	.LFB64:
+  49              		.loc 1 80 0
+  50              		.cfi_startproc
+  51              		@ args = 0, pretend = 0, frame = 0
+  52              		@ frame_needed = 0, uses_anonymous_args = 0
+  53              		@ link register save eliminated.
+  54              	.LVL1:
+  55              		.loc 1 82 0
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 2
+
+
+  56 0000 0123     		movs	r3, #1
+  57 0002 0370     		strb	r3, [r0, #0]
+  58              		.loc 1 83 0
+  59 0004 0023     		movs	r3, #0
+  60 0006 4360     		str	r3, [r0, #4]
+  61 0008 7047     		bx	lr
+  62              		.cfi_endproc
+  63              	.LFE64:
+  64              		.size	gptObjectInit, .-gptObjectInit
+  65 000a 00BFAFF3 		.section	.text.gptStart,"ax",%progbits
+  65      0080
+  66              		.align	2
+  67              		.p2align 4,,15
+  68              		.global	gptStart
+  69              		.thumb
+  70              		.thumb_func
+  71              		.type	gptStart, %function
+  72              	gptStart:
+  73              	.LFB65:
+  74              		.loc 1 94 0
+  75              		.cfi_startproc
+  76              		@ args = 0, pretend = 0, frame = 0
+  77              		@ frame_needed = 0, uses_anonymous_args = 0
+  78              	.LVL2:
+  79 0000 10B5     		push	{r4, lr}
+  80              	.LCFI0:
+  81              		.cfi_def_cfa_offset 8
+  82              		.cfi_offset 4, -8
+  83              		.cfi_offset 14, -4
+  84              	.LBB2:
+  85              		.loc 1 98 0
+  86 0002 2023     		movs	r3, #32
+  87              	.LVL3:
+  88              	.LBE2:
+  89              		.loc 1 94 0
+  90 0004 0446     		mov	r4, r0
+  91              	.LBB3:
+  92              		.loc 1 98 0
+  93              	@ 98 "../ChibiOS_2.6.2/os/hal/src/gpt.c" 1
+  94 0006 83F31188 		msr     BASEPRI, r3
+  95              	@ 0 "" 2
+  96              	.LVL4:
+  97              		.thumb
+  98              	.LBE3:
+  99              		.loc 1 101 0
+ 100 000a 4160     		str	r1, [r0, #4]
+ 101              		.loc 1 102 0
+ 102 000c FFF7FEFF 		bl	gpt_lld_start
+ 103              	.LVL5:
+ 104              		.loc 1 103 0
+ 105 0010 0223     		movs	r3, #2
+ 106 0012 2370     		strb	r3, [r4, #0]
+ 107              	.LBB4:
+ 108              		.loc 1 104 0
+ 109 0014 0023     		movs	r3, #0
+ 110              	.LVL6:
+ 111              	@ 104 "../ChibiOS_2.6.2/os/hal/src/gpt.c" 1
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 3
+
+
+ 112 0016 83F31188 		msr     BASEPRI, r3
+ 113              	@ 0 "" 2
+ 114              	.LVL7:
+ 115              		.thumb
+ 116 001a 10BD     		pop	{r4, pc}
+ 117              	.LBE4:
+ 118              		.cfi_endproc
+ 119              	.LFE65:
+ 120              		.size	gptStart, .-gptStart
+ 121 001c AFF30080 		.section	.text.gptStop,"ax",%progbits
+ 122              		.align	2
+ 123              		.p2align 4,,15
+ 124              		.global	gptStop
+ 125              		.thumb
+ 126              		.thumb_func
+ 127              		.type	gptStop, %function
+ 128              	gptStop:
+ 129              	.LFB66:
+ 130              		.loc 1 114 0
+ 131              		.cfi_startproc
+ 132              		@ args = 0, pretend = 0, frame = 0
+ 133              		@ frame_needed = 0, uses_anonymous_args = 0
+ 134              	.LVL8:
+ 135 0000 10B5     		push	{r4, lr}
+ 136              	.LCFI1:
+ 137              		.cfi_def_cfa_offset 8
+ 138              		.cfi_offset 4, -8
+ 139              		.cfi_offset 14, -4
+ 140              	.LBB5:
+ 141              		.loc 1 118 0
+ 142 0002 2023     		movs	r3, #32
+ 143              	.LVL9:
+ 144              	.LBE5:
+ 145              		.loc 1 114 0
+ 146 0004 0446     		mov	r4, r0
+ 147              	.LBB6:
+ 148              		.loc 1 118 0
+ 149              	@ 118 "../ChibiOS_2.6.2/os/hal/src/gpt.c" 1
+ 150 0006 83F31188 		msr     BASEPRI, r3
+ 151              	@ 0 "" 2
+ 152              	.LVL10:
+ 153              		.thumb
+ 154              	.LBE6:
+ 155              		.loc 1 121 0
+ 156 000a FFF7FEFF 		bl	gpt_lld_stop
+ 157              	.LVL11:
+ 158              		.loc 1 122 0
+ 159 000e 0123     		movs	r3, #1
+ 160 0010 2370     		strb	r3, [r4, #0]
+ 161              	.LBB7:
+ 162              		.loc 1 123 0
+ 163 0012 0023     		movs	r3, #0
+ 164              	.LVL12:
+ 165              	@ 123 "../ChibiOS_2.6.2/os/hal/src/gpt.c" 1
+ 166 0014 83F31188 		msr     BASEPRI, r3
+ 167              	@ 0 "" 2
+ 168              	.LVL13:
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 4
+
+
+ 169              		.thumb
+ 170 0018 10BD     		pop	{r4, pc}
+ 171              	.LBE7:
+ 172              		.cfi_endproc
+ 173              	.LFE66:
+ 174              		.size	gptStop, .-gptStop
+ 175 001a 00BFAFF3 		.section	.text.gptChangeInterval,"ax",%progbits
+ 175      0080
+ 176              		.align	2
+ 177              		.p2align 4,,15
+ 178              		.global	gptChangeInterval
+ 179              		.thumb
+ 180              		.thumb_func
+ 181              		.type	gptChangeInterval, %function
+ 182              	gptChangeInterval:
+ 183              	.LFB67:
+ 184              		.loc 1 139 0
+ 185              		.cfi_startproc
+ 186              		@ args = 0, pretend = 0, frame = 0
+ 187              		@ frame_needed = 0, uses_anonymous_args = 0
+ 188              		@ link register save eliminated.
+ 189              	.LVL14:
+ 190              	.LBB8:
+ 191              		.loc 1 143 0
+ 192 0000 2023     		movs	r3, #32
+ 193              	.LVL15:
+ 194              	@ 143 "../ChibiOS_2.6.2/os/hal/src/gpt.c" 1
+ 195 0002 83F31188 		msr     BASEPRI, r3
+ 196              	@ 0 "" 2
+ 197              	.LVL16:
+ 198              		.thumb
+ 199              	.LBE8:
+ 200              		.loc 1 146 0
+ 201 0006 C368     		ldr	r3, [r0, #12]
+ 202              	.LVL17:
+ 203 0008 0139     		subs	r1, r1, #1
+ 204              	.LVL18:
+ 205 000a D962     		str	r1, [r3, #44]
+ 206              	.LBB9:
+ 207              		.loc 1 147 0
+ 208 000c 0023     		movs	r3, #0
+ 209              	.LVL19:
+ 210              	@ 147 "../ChibiOS_2.6.2/os/hal/src/gpt.c" 1
+ 211 000e 83F31188 		msr     BASEPRI, r3
+ 212              	@ 0 "" 2
+ 213              	.LVL20:
+ 214              		.thumb
+ 215 0012 7047     		bx	lr
+ 216              	.LBE9:
+ 217              		.cfi_endproc
+ 218              	.LFE67:
+ 219              		.size	gptChangeInterval, .-gptChangeInterval
+ 220 0014 AFF30080 		.section	.text.gptStartContinuousI,"ax",%progbits
+ 220      AFF30080 
+ 220      AFF30080 
+ 221              		.align	2
+ 222              		.p2align 4,,15
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 5
+
+
+ 223              		.global	gptStartContinuousI
+ 224              		.thumb
+ 225              		.thumb_func
+ 226              		.type	gptStartContinuousI, %function
+ 227              	gptStartContinuousI:
+ 228              	.LFB69:
+ 229              		.loc 1 173 0
+ 230              		.cfi_startproc
+ 231              		@ args = 0, pretend = 0, frame = 0
+ 232              		@ frame_needed = 0, uses_anonymous_args = 0
+ 233              		@ link register save eliminated.
+ 234              	.LVL21:
+ 235              		.loc 1 180 0
+ 236 0000 0323     		movs	r3, #3
+ 237 0002 0370     		strb	r3, [r0, #0]
+ 238              		.loc 1 182 0
+ 239              		.loc 1 181 0
+ 240 0004 FFF7FEBF 		b	gpt_lld_start_timer
+ 241              	.LVL22:
+ 242              		.cfi_endproc
+ 243              	.LFE69:
+ 244              		.size	gptStartContinuousI, .-gptStartContinuousI
+ 245 0008 AFF30080 		.section	.text.gptStartContinuous,"ax",%progbits
+ 245      AFF30080 
+ 246              		.align	2
+ 247              		.p2align 4,,15
+ 248              		.global	gptStartContinuous
+ 249              		.thumb
+ 250              		.thumb_func
+ 251              		.type	gptStartContinuous, %function
+ 252              	gptStartContinuous:
+ 253              	.LFB68:
+ 254              		.loc 1 158 0
+ 255              		.cfi_startproc
+ 256              		@ args = 0, pretend = 0, frame = 0
+ 257              		@ frame_needed = 0, uses_anonymous_args = 0
+ 258              	.LVL23:
+ 259 0000 08B5     		push	{r3, lr}
+ 260              	.LCFI2:
+ 261              		.cfi_def_cfa_offset 8
+ 262              		.cfi_offset 3, -8
+ 263              		.cfi_offset 14, -4
+ 264              	.LBB10:
+ 265              		.loc 1 160 0
+ 266 0002 2023     		movs	r3, #32
+ 267              	.LVL24:
+ 268              	@ 160 "../ChibiOS_2.6.2/os/hal/src/gpt.c" 1
+ 269 0004 83F31188 		msr     BASEPRI, r3
+ 270              	@ 0 "" 2
+ 271              	.LVL25:
+ 272              		.thumb
+ 273              	.LBE10:
+ 274              		.loc 1 161 0
+ 275 0008 FFF7FEFF 		bl	gptStartContinuousI
+ 276              	.LVL26:
+ 277              	.LBB11:
+ 278              		.loc 1 162 0
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 6
+
+
+ 279 000c 0023     		movs	r3, #0
+ 280              	.LVL27:
+ 281              	@ 162 "../ChibiOS_2.6.2/os/hal/src/gpt.c" 1
+ 282 000e 83F31188 		msr     BASEPRI, r3
+ 283              	@ 0 "" 2
+ 284              	.LVL28:
+ 285              		.thumb
+ 286 0012 08BD     		pop	{r3, pc}
+ 287              	.LBE11:
+ 288              		.cfi_endproc
+ 289              	.LFE68:
+ 290              		.size	gptStartContinuous, .-gptStartContinuous
+ 291 0014 AFF30080 		.section	.text.gptStartOneShotI,"ax",%progbits
+ 291      AFF30080 
+ 291      AFF30080 
+ 292              		.align	2
+ 293              		.p2align 4,,15
+ 294              		.global	gptStartOneShotI
+ 295              		.thumb
+ 296              		.thumb_func
+ 297              		.type	gptStartOneShotI, %function
+ 298              	gptStartOneShotI:
+ 299              	.LFB71:
+ 300              		.loc 1 207 0
+ 301              		.cfi_startproc
+ 302              		@ args = 0, pretend = 0, frame = 0
+ 303              		@ frame_needed = 0, uses_anonymous_args = 0
+ 304              		@ link register save eliminated.
+ 305              	.LVL29:
+ 306              		.loc 1 214 0
+ 307 0000 0423     		movs	r3, #4
+ 308 0002 0370     		strb	r3, [r0, #0]
+ 309              		.loc 1 216 0
+ 310              		.loc 1 215 0
+ 311 0004 FFF7FEBF 		b	gpt_lld_start_timer
+ 312              	.LVL30:
+ 313              		.cfi_endproc
+ 314              	.LFE71:
+ 315              		.size	gptStartOneShotI, .-gptStartOneShotI
+ 316 0008 AFF30080 		.section	.text.gptStartOneShot,"ax",%progbits
+ 316      AFF30080 
+ 317              		.align	2
+ 318              		.p2align 4,,15
+ 319              		.global	gptStartOneShot
+ 320              		.thumb
+ 321              		.thumb_func
+ 322              		.type	gptStartOneShot, %function
+ 323              	gptStartOneShot:
+ 324              	.LFB70:
+ 325              		.loc 1 192 0
+ 326              		.cfi_startproc
+ 327              		@ args = 0, pretend = 0, frame = 0
+ 328              		@ frame_needed = 0, uses_anonymous_args = 0
+ 329              	.LVL31:
+ 330 0000 08B5     		push	{r3, lr}
+ 331              	.LCFI3:
+ 332              		.cfi_def_cfa_offset 8
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 7
+
+
+ 333              		.cfi_offset 3, -8
+ 334              		.cfi_offset 14, -4
+ 335              	.LBB12:
+ 336              		.loc 1 194 0
+ 337 0002 2023     		movs	r3, #32
+ 338              	.LVL32:
+ 339              	@ 194 "../ChibiOS_2.6.2/os/hal/src/gpt.c" 1
+ 340 0004 83F31188 		msr     BASEPRI, r3
+ 341              	@ 0 "" 2
+ 342              	.LVL33:
+ 343              		.thumb
+ 344              	.LBE12:
+ 345              		.loc 1 195 0
+ 346 0008 FFF7FEFF 		bl	gptStartOneShotI
+ 347              	.LVL34:
+ 348              	.LBB13:
+ 349              		.loc 1 196 0
+ 350 000c 0023     		movs	r3, #0
+ 351              	.LVL35:
+ 352              	@ 196 "../ChibiOS_2.6.2/os/hal/src/gpt.c" 1
+ 353 000e 83F31188 		msr     BASEPRI, r3
+ 354              	@ 0 "" 2
+ 355              	.LVL36:
+ 356              		.thumb
+ 357 0012 08BD     		pop	{r3, pc}
+ 358              	.LBE13:
+ 359              		.cfi_endproc
+ 360              	.LFE70:
+ 361              		.size	gptStartOneShot, .-gptStartOneShot
+ 362 0014 AFF30080 		.section	.text.gptStopTimerI,"ax",%progbits
+ 362      AFF30080 
+ 362      AFF30080 
+ 363              		.align	2
+ 364              		.p2align 4,,15
+ 365              		.global	gptStopTimerI
+ 366              		.thumb
+ 367              		.thumb_func
+ 368              		.type	gptStopTimerI, %function
+ 369              	gptStopTimerI:
+ 370              	.LFB73:
+ 371              		.loc 1 239 0
+ 372              		.cfi_startproc
+ 373              		@ args = 0, pretend = 0, frame = 0
+ 374              		@ frame_needed = 0, uses_anonymous_args = 0
+ 375              		@ link register save eliminated.
+ 376              	.LVL37:
+ 377              		.loc 1 247 0
+ 378 0000 0223     		movs	r3, #2
+ 379 0002 0370     		strb	r3, [r0, #0]
+ 380              		.loc 1 249 0
+ 381              		.loc 1 248 0
+ 382 0004 FFF7FEBF 		b	gpt_lld_stop_timer
+ 383              	.LVL38:
+ 384              		.cfi_endproc
+ 385              	.LFE73:
+ 386              		.size	gptStopTimerI, .-gptStopTimerI
+ 387 0008 AFF30080 		.section	.text.gptStopTimer,"ax",%progbits
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 8
+
+
+ 387      AFF30080 
+ 388              		.align	2
+ 389              		.p2align 4,,15
+ 390              		.global	gptStopTimer
+ 391              		.thumb
+ 392              		.thumb_func
+ 393              		.type	gptStopTimer, %function
+ 394              	gptStopTimer:
+ 395              	.LFB72:
+ 396              		.loc 1 225 0
+ 397              		.cfi_startproc
+ 398              		@ args = 0, pretend = 0, frame = 0
+ 399              		@ frame_needed = 0, uses_anonymous_args = 0
+ 400              	.LVL39:
+ 401 0000 08B5     		push	{r3, lr}
+ 402              	.LCFI4:
+ 403              		.cfi_def_cfa_offset 8
+ 404              		.cfi_offset 3, -8
+ 405              		.cfi_offset 14, -4
+ 406              	.LBB14:
+ 407              		.loc 1 227 0
+ 408 0002 2023     		movs	r3, #32
+ 409              	.LVL40:
+ 410              	@ 227 "../ChibiOS_2.6.2/os/hal/src/gpt.c" 1
+ 411 0004 83F31188 		msr     BASEPRI, r3
+ 412              	@ 0 "" 2
+ 413              	.LVL41:
+ 414              		.thumb
+ 415              	.LBE14:
+ 416              		.loc 1 228 0
+ 417 0008 FFF7FEFF 		bl	gptStopTimerI
+ 418              	.LVL42:
+ 419              	.LBB15:
+ 420              		.loc 1 229 0
+ 421 000c 0023     		movs	r3, #0
+ 422              	.LVL43:
+ 423              	@ 229 "../ChibiOS_2.6.2/os/hal/src/gpt.c" 1
+ 424 000e 83F31188 		msr     BASEPRI, r3
+ 425              	@ 0 "" 2
+ 426              	.LVL44:
+ 427              		.thumb
+ 428 0012 08BD     		pop	{r3, pc}
+ 429              	.LBE15:
+ 430              		.cfi_endproc
+ 431              	.LFE72:
+ 432              		.size	gptStopTimer, .-gptStopTimer
+ 433 0014 AFF30080 		.section	.text.gptPolledDelay,"ax",%progbits
+ 433      AFF30080 
+ 433      AFF30080 
+ 434              		.align	2
+ 435              		.p2align 4,,15
+ 436              		.global	gptPolledDelay
+ 437              		.thumb
+ 438              		.thumb_func
+ 439              		.type	gptPolledDelay, %function
+ 440              	gptPolledDelay:
+ 441              	.LFB74:
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 9
+
+
+ 442              		.loc 1 263 0
+ 443              		.cfi_startproc
+ 444              		@ args = 0, pretend = 0, frame = 0
+ 445              		@ frame_needed = 0, uses_anonymous_args = 0
+ 446              	.LVL45:
+ 447              		.loc 1 268 0
+ 448 0000 0423     		movs	r3, #4
+ 449              		.loc 1 263 0
+ 450 0002 10B5     		push	{r4, lr}
+ 451              	.LCFI5:
+ 452              		.cfi_def_cfa_offset 8
+ 453              		.cfi_offset 4, -8
+ 454              		.cfi_offset 14, -4
+ 455              		.loc 1 268 0
+ 456 0004 0370     		strb	r3, [r0, #0]
+ 457              		.loc 1 263 0
+ 458 0006 0446     		mov	r4, r0
+ 459              		.loc 1 269 0
+ 460 0008 FFF7FEFF 		bl	gpt_lld_polled_delay
+ 461              	.LVL46:
+ 462              		.loc 1 270 0
+ 463 000c 0223     		movs	r3, #2
+ 464 000e 2370     		strb	r3, [r4, #0]
+ 465 0010 10BD     		pop	{r4, pc}
+ 466              		.cfi_endproc
+ 467              	.LFE74:
+ 468              		.size	gptPolledDelay, .-gptPolledDelay
+ 469 0012 00BFAFF3 		.text
+ 469      0080AFF3 
+ 469      0080AFF3 
+ 469      0080
+ 470              	.Letext0:
+ 471              		.file 2 "c:/program files (x86)/pros/toolchain/lib/gcc/../../arm-none-eabi/include/stdint.h"
+ 472              		.file 3 "../ChibiOS_2.6.2/os/hal/include/gpt.h"
+ 473              		.file 4 "../ChibiOS_2.6.2/os/hal/platforms/STM32/TIMv1/gpt_lld.h"
+ 474              		.file 5 "../ChibiOS_2.6.2/os/hal/platforms/STM32/TIMv1/stm32_tim.h"
+ 475              		.file 6 "../ChibiOS_2.6.2/os/ports/common/ARMCMx/CMSIS/include/core_cm3.h"
+ 476              		.section	.debug_info,"",%progbits
+ 477              	.Ldebug_info0:
+ 478 0000 04080000 		.4byte	0x804
+ 479 0004 0200     		.2byte	0x2
+ 480 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 481 000a 04       		.byte	0x4
+ 482 000b 01       		.uleb128 0x1
+ 483 000c AF010000 		.4byte	.LASF60
+ 484 0010 01       		.byte	0x1
+ 485 0011 2C020000 		.4byte	.LASF61
+ 486 0015 2D010000 		.4byte	.LASF62
+ 487 0019 30000000 		.4byte	.Ldebug_ranges0+0x30
+ 488 001d 00000000 		.4byte	0
+ 489 0021 00000000 		.4byte	0
+ 490 0025 00000000 		.4byte	.Ldebug_line0
+ 491 0029 02       		.uleb128 0x2
+ 492 002a 04       		.byte	0x4
+ 493 002b 05       		.byte	0x5
+ 494 002c 696E7400 		.ascii	"int\000"
+ 495 0030 03       		.uleb128 0x3
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 10
+
+
+ 496 0031 04       		.byte	0x4
+ 497 0032 07       		.byte	0x7
+ 498 0033 A2010000 		.4byte	.LASF0
+ 499 0037 03       		.uleb128 0x3
+ 500 0038 01       		.byte	0x1
+ 501 0039 06       		.byte	0x6
+ 502 003a 76010000 		.4byte	.LASF1
+ 503 003e 03       		.uleb128 0x3
+ 504 003f 01       		.byte	0x1
+ 505 0040 08       		.byte	0x8
+ 506 0041 48010000 		.4byte	.LASF2
+ 507 0045 03       		.uleb128 0x3
+ 508 0046 02       		.byte	0x2
+ 509 0047 05       		.byte	0x5
+ 510 0048 96000000 		.4byte	.LASF3
+ 511 004c 03       		.uleb128 0x3
+ 512 004d 02       		.byte	0x2
+ 513 004e 07       		.byte	0x7
+ 514 004f C0010000 		.4byte	.LASF4
+ 515 0053 04       		.uleb128 0x4
+ 516 0054 E9010000 		.4byte	.LASF6
+ 517 0058 02       		.byte	0x2
+ 518 0059 4F       		.byte	0x4f
+ 519 005a 5E000000 		.4byte	0x5e
+ 520 005e 03       		.uleb128 0x3
+ 521 005f 04       		.byte	0x4
+ 522 0060 05       		.byte	0x5
+ 523 0061 0B010000 		.4byte	.LASF5
+ 524 0065 04       		.uleb128 0x4
+ 525 0066 99010000 		.4byte	.LASF7
+ 526 006a 02       		.byte	0x2
+ 527 006b 50       		.byte	0x50
+ 528 006c 70000000 		.4byte	0x70
+ 529 0070 03       		.uleb128 0x3
+ 530 0071 04       		.byte	0x4
+ 531 0072 07       		.byte	0x7
+ 532 0073 1A020000 		.4byte	.LASF8
+ 533 0077 03       		.uleb128 0x3
+ 534 0078 08       		.byte	0x8
+ 535 0079 05       		.byte	0x5
+ 536 007a CB000000 		.4byte	.LASF9
+ 537 007e 03       		.uleb128 0x3
+ 538 007f 08       		.byte	0x8
+ 539 0080 07       		.byte	0x7
+ 540 0081 82010000 		.4byte	.LASF10
+ 541 0085 03       		.uleb128 0x3
+ 542 0086 01       		.byte	0x1
+ 543 0087 02       		.byte	0x2
+ 544 0088 F1010000 		.4byte	.LASF11
+ 545 008c 05       		.uleb128 0x5
+ 546 008d 65000000 		.4byte	0x65
+ 547 0091 03       		.uleb128 0x3
+ 548 0092 04       		.byte	0x4
+ 549 0093 07       		.byte	0x7
+ 550 0094 53000000 		.4byte	.LASF12
+ 551 0098 03       		.uleb128 0x3
+ 552 0099 01       		.byte	0x1
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 11
+
+
+ 553 009a 08       		.byte	0x8
+ 554 009b D3010000 		.4byte	.LASF13
+ 555 009f 06       		.uleb128 0x6
+ 556 00a0 65000000 		.4byte	0x65
+ 557 00a4 AF000000 		.4byte	0xaf
+ 558 00a8 07       		.uleb128 0x7
+ 559 00a9 91000000 		.4byte	0x91
+ 560 00ad 03       		.byte	0x3
+ 561 00ae 00       		.byte	0
+ 562 00af 05       		.uleb128 0x5
+ 563 00b0 53000000 		.4byte	0x53
+ 564 00b4 08       		.uleb128 0x8
+ 565 00b5 01       		.byte	0x1
+ 566 00b6 03       		.byte	0x3
+ 567 00b7 3C       		.byte	0x3c
+ 568 00b8 DB000000 		.4byte	0xdb
+ 569 00bc 09       		.uleb128 0x9
+ 570 00bd 0B000000 		.4byte	.LASF14
+ 571 00c1 00       		.sleb128 0
+ 572 00c2 09       		.uleb128 0x9
+ 573 00c3 73020000 		.4byte	.LASF15
+ 574 00c7 01       		.sleb128 1
+ 575 00c8 09       		.uleb128 0x9
+ 576 00c9 06020000 		.4byte	.LASF16
+ 577 00cd 02       		.sleb128 2
+ 578 00ce 09       		.uleb128 0x9
+ 579 00cf F7010000 		.4byte	.LASF17
+ 580 00d3 03       		.sleb128 3
+ 581 00d4 09       		.uleb128 0x9
+ 582 00d5 A7000000 		.4byte	.LASF18
+ 583 00d9 04       		.sleb128 4
+ 584 00da 00       		.byte	0
+ 585 00db 04       		.uleb128 0x4
+ 586 00dc B3000000 		.4byte	.LASF19
+ 587 00e0 03       		.byte	0x3
+ 588 00e1 42       		.byte	0x42
+ 589 00e2 B4000000 		.4byte	0xb4
+ 590 00e6 04       		.uleb128 0x4
+ 591 00e7 10020000 		.4byte	.LASF20
+ 592 00eb 03       		.byte	0x3
+ 593 00ec 47       		.byte	0x47
+ 594 00ed F1000000 		.4byte	0xf1
+ 595 00f1 0A       		.uleb128 0xa
+ 596 00f2 10020000 		.4byte	.LASF20
+ 597 00f6 10       		.byte	0x10
+ 598 00f7 04       		.byte	0x4
+ 599 00f8 9001     		.2byte	0x190
+ 600 00fa 3B010000 		.4byte	0x13b
+ 601 00fe 0B       		.uleb128 0xb
+ 602 00ff 1B000000 		.4byte	.LASF21
+ 603 0103 04       		.byte	0x4
+ 604 0104 9401     		.2byte	0x194
+ 605 0106 DB000000 		.4byte	0xdb
+ 606 010a 02       		.byte	0x2
+ 607 010b 23       		.byte	0x23
+ 608 010c 00       		.uleb128 0
+ 609 010d 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 12
+
+
+ 610 010e A0000000 		.4byte	.LASF22
+ 611 0112 04       		.byte	0x4
+ 612 0113 9801     		.2byte	0x198
+ 613 0115 0D030000 		.4byte	0x30d
+ 614 0119 02       		.byte	0x2
+ 615 011a 23       		.byte	0x23
+ 616 011b 04       		.uleb128 0x4
+ 617 011c 0B       		.uleb128 0xb
+ 618 011d 00000000 		.4byte	.LASF23
+ 619 0121 04       		.byte	0x4
+ 620 0122 A001     		.2byte	0x1a0
+ 621 0124 65000000 		.4byte	0x65
+ 622 0128 02       		.byte	0x2
+ 623 0129 23       		.byte	0x23
+ 624 012a 08       		.uleb128 0x8
+ 625 012b 0C       		.uleb128 0xc
+ 626 012c 74696D00 		.ascii	"tim\000"
+ 627 0130 04       		.byte	0x4
+ 628 0131 A401     		.2byte	0x1a4
+ 629 0133 18030000 		.4byte	0x318
+ 630 0137 02       		.byte	0x2
+ 631 0138 23       		.byte	0x23
+ 632 0139 0C       		.uleb128 0xc
+ 633 013a 00       		.byte	0
+ 634 013b 04       		.uleb128 0x4
+ 635 013c 5C000000 		.4byte	.LASF24
+ 636 0140 03       		.byte	0x3
+ 637 0141 4E       		.byte	0x4e
+ 638 0142 46010000 		.4byte	0x146
+ 639 0146 0D       		.uleb128 0xd
+ 640 0147 04       		.byte	0x4
+ 641 0148 4C010000 		.4byte	0x14c
+ 642 014c 0E       		.uleb128 0xe
+ 643 014d 01       		.byte	0x1
+ 644 014e 58010000 		.4byte	0x158
+ 645 0152 0F       		.uleb128 0xf
+ 646 0153 58010000 		.4byte	0x158
+ 647 0157 00       		.byte	0
+ 648 0158 0D       		.uleb128 0xd
+ 649 0159 04       		.byte	0x4
+ 650 015a E6000000 		.4byte	0xe6
+ 651 015e 10       		.uleb128 0x10
+ 652 015f 60       		.byte	0x60
+ 653 0160 05       		.byte	0x5
+ 654 0161 9E01     		.2byte	0x19e
+ 655 0163 A1020000 		.4byte	0x2a1
+ 656 0167 0C       		.uleb128 0xc
+ 657 0168 43523100 		.ascii	"CR1\000"
+ 658 016c 05       		.byte	0x5
+ 659 016d 9F01     		.2byte	0x19f
+ 660 016f 8C000000 		.4byte	0x8c
+ 661 0173 02       		.byte	0x2
+ 662 0174 23       		.byte	0x23
+ 663 0175 00       		.uleb128 0
+ 664 0176 0C       		.uleb128 0xc
+ 665 0177 43523200 		.ascii	"CR2\000"
+ 666 017b 05       		.byte	0x5
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 13
+
+
+ 667 017c A001     		.2byte	0x1a0
+ 668 017e 8C000000 		.4byte	0x8c
+ 669 0182 02       		.byte	0x2
+ 670 0183 23       		.byte	0x23
+ 671 0184 04       		.uleb128 0x4
+ 672 0185 0B       		.uleb128 0xb
+ 673 0186 28010000 		.4byte	.LASF25
+ 674 018a 05       		.byte	0x5
+ 675 018b A101     		.2byte	0x1a1
+ 676 018d 8C000000 		.4byte	0x8c
+ 677 0191 02       		.byte	0x2
+ 678 0192 23       		.byte	0x23
+ 679 0193 08       		.uleb128 0x8
+ 680 0194 0B       		.uleb128 0xb
+ 681 0195 BB010000 		.4byte	.LASF26
+ 682 0199 05       		.byte	0x5
+ 683 019a A201     		.2byte	0x1a2
+ 684 019c 8C000000 		.4byte	0x8c
+ 685 01a0 02       		.byte	0x2
+ 686 01a1 23       		.byte	0x23
+ 687 01a2 0C       		.uleb128 0xc
+ 688 01a3 0C       		.uleb128 0xc
+ 689 01a4 535200   		.ascii	"SR\000"
+ 690 01a7 05       		.byte	0x5
+ 691 01a8 A301     		.2byte	0x1a3
+ 692 01aa 8C000000 		.4byte	0x8c
+ 693 01ae 02       		.byte	0x2
+ 694 01af 23       		.byte	0x23
+ 695 01b0 10       		.uleb128 0x10
+ 696 01b1 0C       		.uleb128 0xc
+ 697 01b2 45475200 		.ascii	"EGR\000"
+ 698 01b6 05       		.byte	0x5
+ 699 01b7 A401     		.2byte	0x1a4
+ 700 01b9 8C000000 		.4byte	0x8c
+ 701 01bd 02       		.byte	0x2
+ 702 01be 23       		.byte	0x23
+ 703 01bf 14       		.uleb128 0x14
+ 704 01c0 0B       		.uleb128 0xb
+ 705 01c1 22010000 		.4byte	.LASF27
+ 706 01c5 05       		.byte	0x5
+ 707 01c6 A501     		.2byte	0x1a5
+ 708 01c8 8C000000 		.4byte	0x8c
+ 709 01cc 02       		.byte	0x2
+ 710 01cd 23       		.byte	0x23
+ 711 01ce 18       		.uleb128 0x18
+ 712 01cf 0B       		.uleb128 0xb
+ 713 01d0 21000000 		.4byte	.LASF28
+ 714 01d4 05       		.byte	0x5
+ 715 01d5 A601     		.2byte	0x1a6
+ 716 01d7 8C000000 		.4byte	0x8c
+ 717 01db 02       		.byte	0x2
+ 718 01dc 23       		.byte	0x23
+ 719 01dd 1C       		.uleb128 0x1c
+ 720 01de 0B       		.uleb128 0xb
+ 721 01df 06000000 		.4byte	.LASF29
+ 722 01e3 05       		.byte	0x5
+ 723 01e4 A701     		.2byte	0x1a7
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 14
+
+
+ 724 01e6 8C000000 		.4byte	0x8c
+ 725 01ea 02       		.byte	0x2
+ 726 01eb 23       		.byte	0x23
+ 727 01ec 20       		.uleb128 0x20
+ 728 01ed 0C       		.uleb128 0xc
+ 729 01ee 434E5400 		.ascii	"CNT\000"
+ 730 01f2 05       		.byte	0x5
+ 731 01f3 A801     		.2byte	0x1a8
+ 732 01f5 8C000000 		.4byte	0x8c
+ 733 01f9 02       		.byte	0x2
+ 734 01fa 23       		.byte	0x23
+ 735 01fb 24       		.uleb128 0x24
+ 736 01fc 0C       		.uleb128 0xc
+ 737 01fd 50534300 		.ascii	"PSC\000"
+ 738 0201 05       		.byte	0x5
+ 739 0202 A901     		.2byte	0x1a9
+ 740 0204 8C000000 		.4byte	0x8c
+ 741 0208 02       		.byte	0x2
+ 742 0209 23       		.byte	0x23
+ 743 020a 28       		.uleb128 0x28
+ 744 020b 0C       		.uleb128 0xc
+ 745 020c 41525200 		.ascii	"ARR\000"
+ 746 0210 05       		.byte	0x5
+ 747 0211 AA01     		.2byte	0x1aa
+ 748 0213 8C000000 		.4byte	0x8c
+ 749 0217 02       		.byte	0x2
+ 750 0218 23       		.byte	0x23
+ 751 0219 2C       		.uleb128 0x2c
+ 752 021a 0C       		.uleb128 0xc
+ 753 021b 52435200 		.ascii	"RCR\000"
+ 754 021f 05       		.byte	0x5
+ 755 0220 AB01     		.2byte	0x1ab
+ 756 0222 8C000000 		.4byte	0x8c
+ 757 0226 02       		.byte	0x2
+ 758 0227 23       		.byte	0x23
+ 759 0228 30       		.uleb128 0x30
+ 760 0229 0C       		.uleb128 0xc
+ 761 022a 43435200 		.ascii	"CCR\000"
+ 762 022e 05       		.byte	0x5
+ 763 022f AC01     		.2byte	0x1ac
+ 764 0231 A1020000 		.4byte	0x2a1
+ 765 0235 02       		.byte	0x2
+ 766 0236 23       		.byte	0x23
+ 767 0237 34       		.uleb128 0x34
+ 768 0238 0B       		.uleb128 0xb
+ 769 0239 E4010000 		.4byte	.LASF30
+ 770 023d 05       		.byte	0x5
+ 771 023e AD01     		.2byte	0x1ad
+ 772 0240 8C000000 		.4byte	0x8c
+ 773 0244 02       		.byte	0x2
+ 774 0245 23       		.byte	0x23
+ 775 0246 44       		.uleb128 0x44
+ 776 0247 0C       		.uleb128 0xc
+ 777 0248 44435200 		.ascii	"DCR\000"
+ 778 024c 05       		.byte	0x5
+ 779 024d AE01     		.2byte	0x1ae
+ 780 024f 8C000000 		.4byte	0x8c
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 15
+
+
+ 781 0253 02       		.byte	0x2
+ 782 0254 23       		.byte	0x23
+ 783 0255 48       		.uleb128 0x48
+ 784 0256 0B       		.uleb128 0xb
+ 785 0257 16000000 		.4byte	.LASF31
+ 786 025b 05       		.byte	0x5
+ 787 025c AF01     		.2byte	0x1af
+ 788 025e 8C000000 		.4byte	0x8c
+ 789 0262 02       		.byte	0x2
+ 790 0263 23       		.byte	0x23
+ 791 0264 4C       		.uleb128 0x4c
+ 792 0265 0C       		.uleb128 0xc
+ 793 0266 4F5200   		.ascii	"OR\000"
+ 794 0269 05       		.byte	0x5
+ 795 026a B001     		.2byte	0x1b0
+ 796 026c 8C000000 		.4byte	0x8c
+ 797 0270 02       		.byte	0x2
+ 798 0271 23       		.byte	0x23
+ 799 0272 50       		.uleb128 0x50
+ 800 0273 0B       		.uleb128 0xb
+ 801 0274 27000000 		.4byte	.LASF32
+ 802 0278 05       		.byte	0x5
+ 803 0279 B101     		.2byte	0x1b1
+ 804 027b 8C000000 		.4byte	0x8c
+ 805 027f 02       		.byte	0x2
+ 806 0280 23       		.byte	0x23
+ 807 0281 54       		.uleb128 0x54
+ 808 0282 0B       		.uleb128 0xb
+ 809 0283 5E010000 		.4byte	.LASF33
+ 810 0287 05       		.byte	0x5
+ 811 0288 B201     		.2byte	0x1b2
+ 812 028a 8C000000 		.4byte	0x8c
+ 813 028e 02       		.byte	0x2
+ 814 028f 23       		.byte	0x23
+ 815 0290 58       		.uleb128 0x58
+ 816 0291 0B       		.uleb128 0xb
+ 817 0292 1D010000 		.4byte	.LASF34
+ 818 0296 05       		.byte	0x5
+ 819 0297 B301     		.2byte	0x1b3
+ 820 0299 8C000000 		.4byte	0x8c
+ 821 029d 02       		.byte	0x2
+ 822 029e 23       		.byte	0x23
+ 823 029f 5C       		.uleb128 0x5c
+ 824 02a0 00       		.byte	0
+ 825 02a1 05       		.uleb128 0x5
+ 826 02a2 9F000000 		.4byte	0x9f
+ 827 02a6 11       		.uleb128 0x11
+ 828 02a7 D8010000 		.4byte	.LASF35
+ 829 02ab 05       		.byte	0x5
+ 830 02ac B401     		.2byte	0x1b4
+ 831 02ae 5E010000 		.4byte	0x15e
+ 832 02b2 11       		.uleb128 0x11
+ 833 02b3 E6020000 		.4byte	.LASF36
+ 834 02b7 04       		.byte	0x4
+ 835 02b8 6D01     		.2byte	0x16d
+ 836 02ba 65000000 		.4byte	0x65
+ 837 02be 11       		.uleb128 0x11
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 16
+
+
+ 838 02bf 7F000000 		.4byte	.LASF37
+ 839 02c3 04       		.byte	0x4
+ 840 02c4 7201     		.2byte	0x172
+ 841 02c6 65000000 		.4byte	0x65
+ 842 02ca 10       		.uleb128 0x10
+ 843 02cb 0C       		.byte	0xc
+ 844 02cc 04       		.byte	0x4
+ 845 02cd 7801     		.2byte	0x178
+ 846 02cf 01030000 		.4byte	0x301
+ 847 02d3 0B       		.uleb128 0xb
+ 848 02d4 AE020000 		.4byte	.LASF38
+ 849 02d8 04       		.byte	0x4
+ 850 02d9 7E01     		.2byte	0x17e
+ 851 02db B2020000 		.4byte	0x2b2
+ 852 02df 02       		.byte	0x2
+ 853 02e0 23       		.byte	0x23
+ 854 02e1 00       		.uleb128 0
+ 855 02e2 0B       		.uleb128 0xb
+ 856 02e3 F8020000 		.4byte	.LASF39
+ 857 02e7 04       		.byte	0x4
+ 858 02e8 8301     		.2byte	0x183
+ 859 02ea 3B010000 		.4byte	0x13b
+ 860 02ee 02       		.byte	0x2
+ 861 02ef 23       		.byte	0x23
+ 862 02f0 04       		.uleb128 0x4
+ 863 02f1 0B       		.uleb128 0xb
+ 864 02f2 9C020000 		.4byte	.LASF40
+ 865 02f6 04       		.byte	0x4
+ 866 02f7 8A01     		.2byte	0x18a
+ 867 02f9 65000000 		.4byte	0x65
+ 868 02fd 02       		.byte	0x2
+ 869 02fe 23       		.byte	0x23
+ 870 02ff 08       		.uleb128 0x8
+ 871 0300 00       		.byte	0
+ 872 0301 11       		.uleb128 0x11
+ 873 0302 81020000 		.4byte	.LASF41
+ 874 0306 04       		.byte	0x4
+ 875 0307 8B01     		.2byte	0x18b
+ 876 0309 CA020000 		.4byte	0x2ca
+ 877 030d 0D       		.uleb128 0xd
+ 878 030e 04       		.byte	0x4
+ 879 030f 13030000 		.4byte	0x313
+ 880 0313 12       		.uleb128 0x12
+ 881 0314 01030000 		.4byte	0x301
+ 882 0318 0D       		.uleb128 0xd
+ 883 0319 04       		.byte	0x4
+ 884 031a A6020000 		.4byte	0x2a6
+ 885 031e 13       		.uleb128 0x13
+ 886 031f 01       		.byte	0x1
+ 887 0320 56010000 		.4byte	.LASF42
+ 888 0324 01       		.byte	0x1
+ 889 0325 44       		.byte	0x44
+ 890 0326 01       		.byte	0x1
+ 891 0327 00000000 		.4byte	.LFB63
+ 892 032b 04000000 		.4byte	.LFE63
+ 893 032f 02       		.byte	0x2
+ 894 0330 7D       		.byte	0x7d
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 17
+
+
+ 895 0331 00       		.sleb128 0
+ 896 0332 01       		.byte	0x1
+ 897 0333 42030000 		.4byte	0x342
+ 898 0337 14       		.uleb128 0x14
+ 899 0338 04000000 		.4byte	.LVL0
+ 900 033c 01       		.byte	0x1
+ 901 033d 8D070000 		.4byte	0x78d
+ 902 0341 00       		.byte	0
+ 903 0342 13       		.uleb128 0x13
+ 904 0343 01       		.byte	0x1
+ 905 0344 CB020000 		.4byte	.LASF43
+ 906 0348 01       		.byte	0x1
+ 907 0349 50       		.byte	0x50
+ 908 034a 01       		.byte	0x1
+ 909 034b 00000000 		.4byte	.LFB64
+ 910 034f 0A000000 		.4byte	.LFE64
+ 911 0353 02       		.byte	0x2
+ 912 0354 7D       		.byte	0x7d
+ 913 0355 00       		.sleb128 0
+ 914 0356 01       		.byte	0x1
+ 915 0357 69030000 		.4byte	0x369
+ 916 035b 15       		.uleb128 0x15
+ 917 035c 7C020000 		.4byte	.LASF45
+ 918 0360 01       		.byte	0x1
+ 919 0361 50       		.byte	0x50
+ 920 0362 58010000 		.4byte	0x158
+ 921 0366 01       		.byte	0x1
+ 922 0367 50       		.byte	0x50
+ 923 0368 00       		.byte	0
+ 924 0369 16       		.uleb128 0x16
+ 925 036a 01       		.byte	0x1
+ 926 036b 14010000 		.4byte	.LASF44
+ 927 036f 01       		.byte	0x1
+ 928 0370 5E       		.byte	0x5e
+ 929 0371 01       		.byte	0x1
+ 930 0372 00000000 		.4byte	.LFB65
+ 931 0376 1C000000 		.4byte	.LFE65
+ 932 037a 00000000 		.4byte	.LLST0
+ 933 037e 01       		.byte	0x1
+ 934 037f E8030000 		.4byte	0x3e8
+ 935 0383 17       		.uleb128 0x17
+ 936 0384 7C020000 		.4byte	.LASF45
+ 937 0388 01       		.byte	0x1
+ 938 0389 5E       		.byte	0x5e
+ 939 038a 58010000 		.4byte	0x158
+ 940 038e 20000000 		.4byte	.LLST1
+ 941 0392 17       		.uleb128 0x17
+ 942 0393 A0000000 		.4byte	.LASF22
+ 943 0397 01       		.byte	0x1
+ 944 0398 5E       		.byte	0x5e
+ 945 0399 0D030000 		.4byte	0x30d
+ 946 039d 3E000000 		.4byte	.LLST2
+ 947 03a1 18       		.uleb128 0x18
+ 948 03a2 00000000 		.4byte	.Ldebug_ranges0+0
+ 949 03a6 BA030000 		.4byte	0x3ba
+ 950 03aa 19       		.uleb128 0x19
+ 951 03ab 746D7000 		.ascii	"tmp\000"
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 18
+
+
+ 952 03af 01       		.byte	0x1
+ 953 03b0 62       		.byte	0x62
+ 954 03b1 65000000 		.4byte	0x65
+ 955 03b5 5F000000 		.4byte	.LLST3
+ 956 03b9 00       		.byte	0
+ 957 03ba 1A       		.uleb128 0x1a
+ 958 03bb 14000000 		.4byte	.LBB4
+ 959 03bf 1C000000 		.4byte	.LBE4
+ 960 03c3 D7030000 		.4byte	0x3d7
+ 961 03c7 19       		.uleb128 0x19
+ 962 03c8 746D7000 		.ascii	"tmp\000"
+ 963 03cc 01       		.byte	0x1
+ 964 03cd 68       		.byte	0x68
+ 965 03ce 65000000 		.4byte	0x65
+ 966 03d2 72000000 		.4byte	.LLST4
+ 967 03d6 00       		.byte	0
+ 968 03d7 1B       		.uleb128 0x1b
+ 969 03d8 10000000 		.4byte	.LVL5
+ 970 03dc 98070000 		.4byte	0x798
+ 971 03e0 1C       		.uleb128 0x1c
+ 972 03e1 01       		.byte	0x1
+ 973 03e2 50       		.byte	0x50
+ 974 03e3 02       		.byte	0x2
+ 975 03e4 74       		.byte	0x74
+ 976 03e5 00       		.sleb128 0
+ 977 03e6 00       		.byte	0
+ 978 03e7 00       		.byte	0
+ 979 03e8 16       		.uleb128 0x16
+ 980 03e9 01       		.byte	0x1
+ 981 03ea F0020000 		.4byte	.LASF46
+ 982 03ee 01       		.byte	0x1
+ 983 03ef 72       		.byte	0x72
+ 984 03f0 01       		.byte	0x1
+ 985 03f1 00000000 		.4byte	.LFB66
+ 986 03f5 1A000000 		.4byte	.LFE66
+ 987 03f9 85000000 		.4byte	.LLST5
+ 988 03fd 01       		.byte	0x1
+ 989 03fe 58040000 		.4byte	0x458
+ 990 0402 17       		.uleb128 0x17
+ 991 0403 7C020000 		.4byte	.LASF45
+ 992 0407 01       		.byte	0x1
+ 993 0408 72       		.byte	0x72
+ 994 0409 58010000 		.4byte	0x158
+ 995 040d A5000000 		.4byte	.LLST6
+ 996 0411 18       		.uleb128 0x18
+ 997 0412 18000000 		.4byte	.Ldebug_ranges0+0x18
+ 998 0416 2A040000 		.4byte	0x42a
+ 999 041a 19       		.uleb128 0x19
+ 1000 041b 746D7000 		.ascii	"tmp\000"
+ 1001 041f 01       		.byte	0x1
+ 1002 0420 76       		.byte	0x76
+ 1003 0421 65000000 		.4byte	0x65
+ 1004 0425 C3000000 		.4byte	.LLST7
+ 1005 0429 00       		.byte	0
+ 1006 042a 1A       		.uleb128 0x1a
+ 1007 042b 12000000 		.4byte	.LBB7
+ 1008 042f 1A000000 		.4byte	.LBE7
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 19
+
+
+ 1009 0433 47040000 		.4byte	0x447
+ 1010 0437 19       		.uleb128 0x19
+ 1011 0438 746D7000 		.ascii	"tmp\000"
+ 1012 043c 01       		.byte	0x1
+ 1013 043d 7B       		.byte	0x7b
+ 1014 043e 65000000 		.4byte	0x65
+ 1015 0442 D6000000 		.4byte	.LLST8
+ 1016 0446 00       		.byte	0
+ 1017 0447 1B       		.uleb128 0x1b
+ 1018 0448 0E000000 		.4byte	.LVL11
+ 1019 044c AD070000 		.4byte	0x7ad
+ 1020 0450 1C       		.uleb128 0x1c
+ 1021 0451 01       		.byte	0x1
+ 1022 0452 50       		.byte	0x50
+ 1023 0453 02       		.byte	0x2
+ 1024 0454 74       		.byte	0x74
+ 1025 0455 00       		.sleb128 0
+ 1026 0456 00       		.byte	0
+ 1027 0457 00       		.byte	0
+ 1028 0458 13       		.uleb128 0x13
+ 1029 0459 01       		.byte	0x1
+ 1030 045a 41000000 		.4byte	.LASF47
+ 1031 045e 01       		.byte	0x1
+ 1032 045f 8B       		.byte	0x8b
+ 1033 0460 01       		.byte	0x1
+ 1034 0461 00000000 		.4byte	.LFB67
+ 1035 0465 14000000 		.4byte	.LFE67
+ 1036 0469 02       		.byte	0x2
+ 1037 046a 7D       		.byte	0x7d
+ 1038 046b 00       		.sleb128 0
+ 1039 046c 01       		.byte	0x1
+ 1040 046d C4040000 		.4byte	0x4c4
+ 1041 0471 15       		.uleb128 0x15
+ 1042 0472 7C020000 		.4byte	.LASF45
+ 1043 0476 01       		.byte	0x1
+ 1044 0477 8B       		.byte	0x8b
+ 1045 0478 58010000 		.4byte	0x158
+ 1046 047c 01       		.byte	0x1
+ 1047 047d 50       		.byte	0x50
+ 1048 047e 17       		.uleb128 0x17
+ 1049 047f 4E020000 		.4byte	.LASF48
+ 1050 0483 01       		.byte	0x1
+ 1051 0484 8B       		.byte	0x8b
+ 1052 0485 BE020000 		.4byte	0x2be
+ 1053 0489 E9000000 		.4byte	.LLST9
+ 1054 048d 1A       		.uleb128 0x1a
+ 1055 048e 00000000 		.4byte	.LBB8
+ 1056 0492 06000000 		.4byte	.LBE8
+ 1057 0496 AA040000 		.4byte	0x4aa
+ 1058 049a 19       		.uleb128 0x19
+ 1059 049b 746D7000 		.ascii	"tmp\000"
+ 1060 049f 01       		.byte	0x1
+ 1061 04a0 8F       		.byte	0x8f
+ 1062 04a1 65000000 		.4byte	0x65
+ 1063 04a5 09010000 		.4byte	.LLST10
+ 1064 04a9 00       		.byte	0
+ 1065 04aa 1D       		.uleb128 0x1d
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 20
+
+
+ 1066 04ab 0C000000 		.4byte	.LBB9
+ 1067 04af 14000000 		.4byte	.LBE9
+ 1068 04b3 19       		.uleb128 0x19
+ 1069 04b4 746D7000 		.ascii	"tmp\000"
+ 1070 04b8 01       		.byte	0x1
+ 1071 04b9 93       		.byte	0x93
+ 1072 04ba 65000000 		.4byte	0x65
+ 1073 04be 1C010000 		.4byte	.LLST11
+ 1074 04c2 00       		.byte	0
+ 1075 04c3 00       		.byte	0
+ 1076 04c4 13       		.uleb128 0x13
+ 1077 04c5 01       		.byte	0x1
+ 1078 04c6 F7000000 		.4byte	.LASF49
+ 1079 04ca 01       		.byte	0x1
+ 1080 04cb AD       		.byte	0xad
+ 1081 04cc 01       		.byte	0x1
+ 1082 04cd 00000000 		.4byte	.LFB69
+ 1083 04d1 08000000 		.4byte	.LFE69
+ 1084 04d5 02       		.byte	0x2
+ 1085 04d6 7D       		.byte	0x7d
+ 1086 04d7 00       		.sleb128 0
+ 1087 04d8 01       		.byte	0x1
+ 1088 04d9 15050000 		.4byte	0x515
+ 1089 04dd 17       		.uleb128 0x17
+ 1090 04de 7C020000 		.4byte	.LASF45
+ 1091 04e2 01       		.byte	0x1
+ 1092 04e3 AD       		.byte	0xad
+ 1093 04e4 58010000 		.4byte	0x158
+ 1094 04e8 2F010000 		.4byte	.LLST12
+ 1095 04ec 17       		.uleb128 0x17
+ 1096 04ed 4E020000 		.4byte	.LASF48
+ 1097 04f1 01       		.byte	0x1
+ 1098 04f2 AD       		.byte	0xad
+ 1099 04f3 BE020000 		.4byte	0x2be
+ 1100 04f7 50010000 		.4byte	.LLST13
+ 1101 04fb 1E       		.uleb128 0x1e
+ 1102 04fc 08000000 		.4byte	.LVL22
+ 1103 0500 01       		.byte	0x1
+ 1104 0501 C2070000 		.4byte	0x7c2
+ 1105 0505 1C       		.uleb128 0x1c
+ 1106 0506 01       		.byte	0x1
+ 1107 0507 51       		.byte	0x51
+ 1108 0508 03       		.byte	0x3
+ 1109 0509 F3       		.byte	0xf3
+ 1110 050a 01       		.uleb128 0x1
+ 1111 050b 51       		.byte	0x51
+ 1112 050c 1C       		.uleb128 0x1c
+ 1113 050d 01       		.byte	0x1
+ 1114 050e 50       		.byte	0x50
+ 1115 050f 03       		.byte	0x3
+ 1116 0510 F3       		.byte	0xf3
+ 1117 0511 01       		.uleb128 0x1
+ 1118 0512 50       		.byte	0x50
+ 1119 0513 00       		.byte	0
+ 1120 0514 00       		.byte	0
+ 1121 0515 16       		.uleb128 0x16
+ 1122 0516 01       		.byte	0x1
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 21
+
+
+ 1123 0517 63010000 		.4byte	.LASF50
+ 1124 051b 01       		.byte	0x1
+ 1125 051c 9E       		.byte	0x9e
+ 1126 051d 01       		.byte	0x1
+ 1127 051e 00000000 		.4byte	.LFB68
+ 1128 0522 14000000 		.4byte	.LFE68
+ 1129 0526 71010000 		.4byte	.LLST14
+ 1130 052a 01       		.byte	0x1
+ 1131 052b A0050000 		.4byte	0x5a0
+ 1132 052f 17       		.uleb128 0x17
+ 1133 0530 7C020000 		.4byte	.LASF45
+ 1134 0534 01       		.byte	0x1
+ 1135 0535 9E       		.byte	0x9e
+ 1136 0536 58010000 		.4byte	0x158
+ 1137 053a 91010000 		.4byte	.LLST15
+ 1138 053e 17       		.uleb128 0x17
+ 1139 053f 4E020000 		.4byte	.LASF48
+ 1140 0543 01       		.byte	0x1
+ 1141 0544 9E       		.byte	0x9e
+ 1142 0545 BE020000 		.4byte	0x2be
+ 1143 0549 B2010000 		.4byte	.LLST16
+ 1144 054d 1A       		.uleb128 0x1a
+ 1145 054e 02000000 		.4byte	.LBB10
+ 1146 0552 08000000 		.4byte	.LBE10
+ 1147 0556 6A050000 		.4byte	0x56a
+ 1148 055a 19       		.uleb128 0x19
+ 1149 055b 746D7000 		.ascii	"tmp\000"
+ 1150 055f 01       		.byte	0x1
+ 1151 0560 A0       		.byte	0xa0
+ 1152 0561 65000000 		.4byte	0x65
+ 1153 0565 D3010000 		.4byte	.LLST17
+ 1154 0569 00       		.byte	0
+ 1155 056a 1A       		.uleb128 0x1a
+ 1156 056b 0C000000 		.4byte	.LBB11
+ 1157 056f 14000000 		.4byte	.LBE11
+ 1158 0573 87050000 		.4byte	0x587
+ 1159 0577 19       		.uleb128 0x19
+ 1160 0578 746D7000 		.ascii	"tmp\000"
+ 1161 057c 01       		.byte	0x1
+ 1162 057d A2       		.byte	0xa2
+ 1163 057e 65000000 		.4byte	0x65
+ 1164 0582 E6010000 		.4byte	.LLST18
+ 1165 0586 00       		.byte	0
+ 1166 0587 1B       		.uleb128 0x1b
+ 1167 0588 0C000000 		.4byte	.LVL26
+ 1168 058c C4040000 		.4byte	0x4c4
+ 1169 0590 1C       		.uleb128 0x1c
+ 1170 0591 01       		.byte	0x1
+ 1171 0592 51       		.byte	0x51
+ 1172 0593 03       		.byte	0x3
+ 1173 0594 F3       		.byte	0xf3
+ 1174 0595 01       		.uleb128 0x1
+ 1175 0596 51       		.byte	0x51
+ 1176 0597 1C       		.uleb128 0x1c
+ 1177 0598 01       		.byte	0x1
+ 1178 0599 50       		.byte	0x50
+ 1179 059a 03       		.byte	0x3
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 22
+
+
+ 1180 059b F3       		.byte	0xf3
+ 1181 059c 01       		.uleb128 0x1
+ 1182 059d 50       		.byte	0x50
+ 1183 059e 00       		.byte	0
+ 1184 059f 00       		.byte	0
+ 1185 05a0 13       		.uleb128 0x13
+ 1186 05a1 01       		.byte	0x1
+ 1187 05a2 8B020000 		.4byte	.LASF51
+ 1188 05a6 01       		.byte	0x1
+ 1189 05a7 CF       		.byte	0xcf
+ 1190 05a8 01       		.byte	0x1
+ 1191 05a9 00000000 		.4byte	.LFB71
+ 1192 05ad 08000000 		.4byte	.LFE71
+ 1193 05b1 02       		.byte	0x2
+ 1194 05b2 7D       		.byte	0x7d
+ 1195 05b3 00       		.sleb128 0
+ 1196 05b4 01       		.byte	0x1
+ 1197 05b5 F1050000 		.4byte	0x5f1
+ 1198 05b9 17       		.uleb128 0x17
+ 1199 05ba 7C020000 		.4byte	.LASF45
+ 1200 05be 01       		.byte	0x1
+ 1201 05bf CF       		.byte	0xcf
+ 1202 05c0 58010000 		.4byte	0x158
+ 1203 05c4 F9010000 		.4byte	.LLST19
+ 1204 05c8 17       		.uleb128 0x17
+ 1205 05c9 4E020000 		.4byte	.LASF48
+ 1206 05cd 01       		.byte	0x1
+ 1207 05ce CF       		.byte	0xcf
+ 1208 05cf BE020000 		.4byte	0x2be
+ 1209 05d3 1A020000 		.4byte	.LLST20
+ 1210 05d7 1E       		.uleb128 0x1e
+ 1211 05d8 08000000 		.4byte	.LVL30
+ 1212 05dc 01       		.byte	0x1
+ 1213 05dd C2070000 		.4byte	0x7c2
+ 1214 05e1 1C       		.uleb128 0x1c
+ 1215 05e2 01       		.byte	0x1
+ 1216 05e3 51       		.byte	0x51
+ 1217 05e4 03       		.byte	0x3
+ 1218 05e5 F3       		.byte	0xf3
+ 1219 05e6 01       		.uleb128 0x1
+ 1220 05e7 51       		.byte	0x51
+ 1221 05e8 1C       		.uleb128 0x1c
+ 1222 05e9 01       		.byte	0x1
+ 1223 05ea 50       		.byte	0x50
+ 1224 05eb 03       		.byte	0x3
+ 1225 05ec F3       		.byte	0xf3
+ 1226 05ed 01       		.uleb128 0x1
+ 1227 05ee 50       		.byte	0x50
+ 1228 05ef 00       		.byte	0
+ 1229 05f0 00       		.byte	0
+ 1230 05f1 16       		.uleb128 0x16
+ 1231 05f2 01       		.byte	0x1
+ 1232 05f3 D9000000 		.4byte	.LASF52
+ 1233 05f7 01       		.byte	0x1
+ 1234 05f8 C0       		.byte	0xc0
+ 1235 05f9 01       		.byte	0x1
+ 1236 05fa 00000000 		.4byte	.LFB70
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 23
+
+
+ 1237 05fe 14000000 		.4byte	.LFE70
+ 1238 0602 3B020000 		.4byte	.LLST21
+ 1239 0606 01       		.byte	0x1
+ 1240 0607 7C060000 		.4byte	0x67c
+ 1241 060b 17       		.uleb128 0x17
+ 1242 060c 7C020000 		.4byte	.LASF45
+ 1243 0610 01       		.byte	0x1
+ 1244 0611 C0       		.byte	0xc0
+ 1245 0612 58010000 		.4byte	0x158
+ 1246 0616 5B020000 		.4byte	.LLST22
+ 1247 061a 17       		.uleb128 0x17
+ 1248 061b 4E020000 		.4byte	.LASF48
+ 1249 061f 01       		.byte	0x1
+ 1250 0620 C0       		.byte	0xc0
+ 1251 0621 BE020000 		.4byte	0x2be
+ 1252 0625 7C020000 		.4byte	.LLST23
+ 1253 0629 1A       		.uleb128 0x1a
+ 1254 062a 02000000 		.4byte	.LBB12
+ 1255 062e 08000000 		.4byte	.LBE12
+ 1256 0632 46060000 		.4byte	0x646
+ 1257 0636 19       		.uleb128 0x19
+ 1258 0637 746D7000 		.ascii	"tmp\000"
+ 1259 063b 01       		.byte	0x1
+ 1260 063c C2       		.byte	0xc2
+ 1261 063d 65000000 		.4byte	0x65
+ 1262 0641 9D020000 		.4byte	.LLST24
+ 1263 0645 00       		.byte	0
+ 1264 0646 1A       		.uleb128 0x1a
+ 1265 0647 0C000000 		.4byte	.LBB13
+ 1266 064b 14000000 		.4byte	.LBE13
+ 1267 064f 63060000 		.4byte	0x663
+ 1268 0653 19       		.uleb128 0x19
+ 1269 0654 746D7000 		.ascii	"tmp\000"
+ 1270 0658 01       		.byte	0x1
+ 1271 0659 C4       		.byte	0xc4
+ 1272 065a 65000000 		.4byte	0x65
+ 1273 065e B0020000 		.4byte	.LLST25
+ 1274 0662 00       		.byte	0
+ 1275 0663 1B       		.uleb128 0x1b
+ 1276 0664 0C000000 		.4byte	.LVL34
+ 1277 0668 A0050000 		.4byte	0x5a0
+ 1278 066c 1C       		.uleb128 0x1c
+ 1279 066d 01       		.byte	0x1
+ 1280 066e 51       		.byte	0x51
+ 1281 066f 03       		.byte	0x3
+ 1282 0670 F3       		.byte	0xf3
+ 1283 0671 01       		.uleb128 0x1
+ 1284 0672 51       		.byte	0x51
+ 1285 0673 1C       		.uleb128 0x1c
+ 1286 0674 01       		.byte	0x1
+ 1287 0675 50       		.byte	0x50
+ 1288 0676 03       		.byte	0x3
+ 1289 0677 F3       		.byte	0xf3
+ 1290 0678 01       		.uleb128 0x1
+ 1291 0679 50       		.byte	0x50
+ 1292 067a 00       		.byte	0
+ 1293 067b 00       		.byte	0
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 24
+
+
+ 1294 067c 13       		.uleb128 0x13
+ 1295 067d 01       		.byte	0x1
+ 1296 067e 88000000 		.4byte	.LASF53
+ 1297 0682 01       		.byte	0x1
+ 1298 0683 EF       		.byte	0xef
+ 1299 0684 01       		.byte	0x1
+ 1300 0685 00000000 		.4byte	.LFB73
+ 1301 0689 08000000 		.4byte	.LFE73
+ 1302 068d 02       		.byte	0x2
+ 1303 068e 7D       		.byte	0x7d
+ 1304 068f 00       		.sleb128 0
+ 1305 0690 01       		.byte	0x1
+ 1306 0691 B7060000 		.4byte	0x6b7
+ 1307 0695 17       		.uleb128 0x17
+ 1308 0696 7C020000 		.4byte	.LASF45
+ 1309 069a 01       		.byte	0x1
+ 1310 069b EF       		.byte	0xef
+ 1311 069c 58010000 		.4byte	0x158
+ 1312 06a0 C3020000 		.4byte	.LLST26
+ 1313 06a4 1E       		.uleb128 0x1e
+ 1314 06a5 08000000 		.4byte	.LVL38
+ 1315 06a9 01       		.byte	0x1
+ 1316 06aa DC070000 		.4byte	0x7dc
+ 1317 06ae 1C       		.uleb128 0x1c
+ 1318 06af 01       		.byte	0x1
+ 1319 06b0 50       		.byte	0x50
+ 1320 06b1 03       		.byte	0x3
+ 1321 06b2 F3       		.byte	0xf3
+ 1322 06b3 01       		.uleb128 0x1
+ 1323 06b4 50       		.byte	0x50
+ 1324 06b5 00       		.byte	0
+ 1325 06b6 00       		.byte	0
+ 1326 06b7 16       		.uleb128 0x16
+ 1327 06b8 01       		.byte	0x1
+ 1328 06b9 A1020000 		.4byte	.LASF54
+ 1329 06bd 01       		.byte	0x1
+ 1330 06be E1       		.byte	0xe1
+ 1331 06bf 01       		.byte	0x1
+ 1332 06c0 00000000 		.4byte	.LFB72
+ 1333 06c4 14000000 		.4byte	.LFE72
+ 1334 06c8 E4020000 		.4byte	.LLST27
+ 1335 06cc 01       		.byte	0x1
+ 1336 06cd 2C070000 		.4byte	0x72c
+ 1337 06d1 17       		.uleb128 0x17
+ 1338 06d2 7C020000 		.4byte	.LASF45
+ 1339 06d6 01       		.byte	0x1
+ 1340 06d7 E1       		.byte	0xe1
+ 1341 06d8 58010000 		.4byte	0x158
+ 1342 06dc 04030000 		.4byte	.LLST28
+ 1343 06e0 1A       		.uleb128 0x1a
+ 1344 06e1 02000000 		.4byte	.LBB14
+ 1345 06e5 08000000 		.4byte	.LBE14
+ 1346 06e9 FD060000 		.4byte	0x6fd
+ 1347 06ed 19       		.uleb128 0x19
+ 1348 06ee 746D7000 		.ascii	"tmp\000"
+ 1349 06f2 01       		.byte	0x1
+ 1350 06f3 E3       		.byte	0xe3
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 25
+
+
+ 1351 06f4 65000000 		.4byte	0x65
+ 1352 06f8 25030000 		.4byte	.LLST29
+ 1353 06fc 00       		.byte	0
+ 1354 06fd 1A       		.uleb128 0x1a
+ 1355 06fe 0C000000 		.4byte	.LBB15
+ 1356 0702 14000000 		.4byte	.LBE15
+ 1357 0706 1A070000 		.4byte	0x71a
+ 1358 070a 19       		.uleb128 0x19
+ 1359 070b 746D7000 		.ascii	"tmp\000"
+ 1360 070f 01       		.byte	0x1
+ 1361 0710 E5       		.byte	0xe5
+ 1362 0711 65000000 		.4byte	0x65
+ 1363 0715 38030000 		.4byte	.LLST30
+ 1364 0719 00       		.byte	0
+ 1365 071a 1B       		.uleb128 0x1b
+ 1366 071b 0C000000 		.4byte	.LVL42
+ 1367 071f 7C060000 		.4byte	0x67c
+ 1368 0723 1C       		.uleb128 0x1c
+ 1369 0724 01       		.byte	0x1
+ 1370 0725 50       		.byte	0x50
+ 1371 0726 03       		.byte	0x3
+ 1372 0727 F3       		.byte	0xf3
+ 1373 0728 01       		.uleb128 0x1
+ 1374 0729 50       		.byte	0x50
+ 1375 072a 00       		.byte	0
+ 1376 072b 00       		.byte	0
+ 1377 072c 1F       		.uleb128 0x1f
+ 1378 072d 01       		.byte	0x1
+ 1379 072e 64020000 		.4byte	.LASF55
+ 1380 0732 01       		.byte	0x1
+ 1381 0733 0701     		.2byte	0x107
+ 1382 0735 01       		.byte	0x1
+ 1383 0736 00000000 		.4byte	.LFB74
+ 1384 073a 12000000 		.4byte	.LFE74
+ 1385 073e 4B030000 		.4byte	.LLST31
+ 1386 0742 01       		.byte	0x1
+ 1387 0743 7F070000 		.4byte	0x77f
+ 1388 0747 20       		.uleb128 0x20
+ 1389 0748 7C020000 		.4byte	.LASF45
+ 1390 074c 01       		.byte	0x1
+ 1391 074d 0701     		.2byte	0x107
+ 1392 074f 58010000 		.4byte	0x158
+ 1393 0753 6B030000 		.4byte	.LLST32
+ 1394 0757 20       		.uleb128 0x20
+ 1395 0758 4E020000 		.4byte	.LASF48
+ 1396 075c 01       		.byte	0x1
+ 1397 075d 0701     		.2byte	0x107
+ 1398 075f BE020000 		.4byte	0x2be
+ 1399 0763 89030000 		.4byte	.LLST33
+ 1400 0767 1B       		.uleb128 0x1b
+ 1401 0768 0C000000 		.4byte	.LVL46
+ 1402 076c F1070000 		.4byte	0x7f1
+ 1403 0770 1C       		.uleb128 0x1c
+ 1404 0771 01       		.byte	0x1
+ 1405 0772 51       		.byte	0x51
+ 1406 0773 03       		.byte	0x3
+ 1407 0774 F3       		.byte	0xf3
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 26
+
+
+ 1408 0775 01       		.uleb128 0x1
+ 1409 0776 51       		.byte	0x51
+ 1410 0777 1C       		.uleb128 0x1c
+ 1411 0778 01       		.byte	0x1
+ 1412 0779 50       		.byte	0x50
+ 1413 077a 02       		.byte	0x2
+ 1414 077b 74       		.byte	0x74
+ 1415 077c 00       		.sleb128 0
+ 1416 077d 00       		.byte	0
+ 1417 077e 00       		.byte	0
+ 1418 077f 21       		.uleb128 0x21
+ 1419 0780 D9020000 		.4byte	.LASF63
+ 1420 0784 06       		.byte	0x6
+ 1421 0785 0706     		.2byte	0x607
+ 1422 0787 AF000000 		.4byte	0xaf
+ 1423 078b 01       		.byte	0x1
+ 1424 078c 01       		.byte	0x1
+ 1425 078d 22       		.uleb128 0x22
+ 1426 078e 01       		.byte	0x1
+ 1427 078f BE000000 		.4byte	.LASF64
+ 1428 0793 04       		.byte	0x4
+ 1429 0794 F201     		.2byte	0x1f2
+ 1430 0796 01       		.byte	0x1
+ 1431 0797 01       		.byte	0x1
+ 1432 0798 23       		.uleb128 0x23
+ 1433 0799 01       		.byte	0x1
+ 1434 079a E9000000 		.4byte	.LASF56
+ 1435 079e 04       		.byte	0x4
+ 1436 079f F301     		.2byte	0x1f3
+ 1437 07a1 01       		.byte	0x1
+ 1438 07a2 01       		.byte	0x1
+ 1439 07a3 AD070000 		.4byte	0x7ad
+ 1440 07a7 0F       		.uleb128 0xf
+ 1441 07a8 58010000 		.4byte	0x158
+ 1442 07ac 00       		.byte	0
+ 1443 07ad 23       		.uleb128 0x23
+ 1444 07ae 01       		.byte	0x1
+ 1445 07af 57020000 		.4byte	.LASF57
+ 1446 07b3 04       		.byte	0x4
+ 1447 07b4 F401     		.2byte	0x1f4
+ 1448 07b6 01       		.byte	0x1
+ 1449 07b7 01       		.byte	0x1
+ 1450 07b8 C2070000 		.4byte	0x7c2
+ 1451 07bc 0F       		.uleb128 0xf
+ 1452 07bd 58010000 		.4byte	0x158
+ 1453 07c1 00       		.byte	0
+ 1454 07c2 23       		.uleb128 0x23
+ 1455 07c3 01       		.byte	0x1
+ 1456 07c4 2D000000 		.4byte	.LASF58
+ 1457 07c8 04       		.byte	0x4
+ 1458 07c9 F501     		.2byte	0x1f5
+ 1459 07cb 01       		.byte	0x1
+ 1460 07cc 01       		.byte	0x1
+ 1461 07cd DC070000 		.4byte	0x7dc
+ 1462 07d1 0F       		.uleb128 0xf
+ 1463 07d2 58010000 		.4byte	0x158
+ 1464 07d6 0F       		.uleb128 0xf
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 27
+
+
+ 1465 07d7 BE020000 		.4byte	0x2be
+ 1466 07db 00       		.byte	0
+ 1467 07dc 23       		.uleb128 0x23
+ 1468 07dd 01       		.byte	0x1
+ 1469 07de B8020000 		.4byte	.LASF59
+ 1470 07e2 04       		.byte	0x4
+ 1471 07e3 F601     		.2byte	0x1f6
+ 1472 07e5 01       		.byte	0x1
+ 1473 07e6 01       		.byte	0x1
+ 1474 07e7 F1070000 		.4byte	0x7f1
+ 1475 07eb 0F       		.uleb128 0xf
+ 1476 07ec 58010000 		.4byte	0x158
+ 1477 07f0 00       		.byte	0
+ 1478 07f1 24       		.uleb128 0x24
+ 1479 07f2 01       		.byte	0x1
+ 1480 07f3 6A000000 		.4byte	.LASF65
+ 1481 07f7 04       		.byte	0x4
+ 1482 07f8 F701     		.2byte	0x1f7
+ 1483 07fa 01       		.byte	0x1
+ 1484 07fb 01       		.byte	0x1
+ 1485 07fc 0F       		.uleb128 0xf
+ 1486 07fd 58010000 		.4byte	0x158
+ 1487 0801 0F       		.uleb128 0xf
+ 1488 0802 BE020000 		.4byte	0x2be
+ 1489 0806 00       		.byte	0
+ 1490 0807 00       		.byte	0
+ 1491              		.section	.debug_abbrev,"",%progbits
+ 1492              	.Ldebug_abbrev0:
+ 1493 0000 01       		.uleb128 0x1
+ 1494 0001 11       		.uleb128 0x11
+ 1495 0002 01       		.byte	0x1
+ 1496 0003 25       		.uleb128 0x25
+ 1497 0004 0E       		.uleb128 0xe
+ 1498 0005 13       		.uleb128 0x13
+ 1499 0006 0B       		.uleb128 0xb
+ 1500 0007 03       		.uleb128 0x3
+ 1501 0008 0E       		.uleb128 0xe
+ 1502 0009 1B       		.uleb128 0x1b
+ 1503 000a 0E       		.uleb128 0xe
+ 1504 000b 55       		.uleb128 0x55
+ 1505 000c 06       		.uleb128 0x6
+ 1506 000d 11       		.uleb128 0x11
+ 1507 000e 01       		.uleb128 0x1
+ 1508 000f 52       		.uleb128 0x52
+ 1509 0010 01       		.uleb128 0x1
+ 1510 0011 10       		.uleb128 0x10
+ 1511 0012 06       		.uleb128 0x6
+ 1512 0013 00       		.byte	0
+ 1513 0014 00       		.byte	0
+ 1514 0015 02       		.uleb128 0x2
+ 1515 0016 24       		.uleb128 0x24
+ 1516 0017 00       		.byte	0
+ 1517 0018 0B       		.uleb128 0xb
+ 1518 0019 0B       		.uleb128 0xb
+ 1519 001a 3E       		.uleb128 0x3e
+ 1520 001b 0B       		.uleb128 0xb
+ 1521 001c 03       		.uleb128 0x3
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 28
+
+
+ 1522 001d 08       		.uleb128 0x8
+ 1523 001e 00       		.byte	0
+ 1524 001f 00       		.byte	0
+ 1525 0020 03       		.uleb128 0x3
+ 1526 0021 24       		.uleb128 0x24
+ 1527 0022 00       		.byte	0
+ 1528 0023 0B       		.uleb128 0xb
+ 1529 0024 0B       		.uleb128 0xb
+ 1530 0025 3E       		.uleb128 0x3e
+ 1531 0026 0B       		.uleb128 0xb
+ 1532 0027 03       		.uleb128 0x3
+ 1533 0028 0E       		.uleb128 0xe
+ 1534 0029 00       		.byte	0
+ 1535 002a 00       		.byte	0
+ 1536 002b 04       		.uleb128 0x4
+ 1537 002c 16       		.uleb128 0x16
+ 1538 002d 00       		.byte	0
+ 1539 002e 03       		.uleb128 0x3
+ 1540 002f 0E       		.uleb128 0xe
+ 1541 0030 3A       		.uleb128 0x3a
+ 1542 0031 0B       		.uleb128 0xb
+ 1543 0032 3B       		.uleb128 0x3b
+ 1544 0033 0B       		.uleb128 0xb
+ 1545 0034 49       		.uleb128 0x49
+ 1546 0035 13       		.uleb128 0x13
+ 1547 0036 00       		.byte	0
+ 1548 0037 00       		.byte	0
+ 1549 0038 05       		.uleb128 0x5
+ 1550 0039 35       		.uleb128 0x35
+ 1551 003a 00       		.byte	0
+ 1552 003b 49       		.uleb128 0x49
+ 1553 003c 13       		.uleb128 0x13
+ 1554 003d 00       		.byte	0
+ 1555 003e 00       		.byte	0
+ 1556 003f 06       		.uleb128 0x6
+ 1557 0040 01       		.uleb128 0x1
+ 1558 0041 01       		.byte	0x1
+ 1559 0042 49       		.uleb128 0x49
+ 1560 0043 13       		.uleb128 0x13
+ 1561 0044 01       		.uleb128 0x1
+ 1562 0045 13       		.uleb128 0x13
+ 1563 0046 00       		.byte	0
+ 1564 0047 00       		.byte	0
+ 1565 0048 07       		.uleb128 0x7
+ 1566 0049 21       		.uleb128 0x21
+ 1567 004a 00       		.byte	0
+ 1568 004b 49       		.uleb128 0x49
+ 1569 004c 13       		.uleb128 0x13
+ 1570 004d 2F       		.uleb128 0x2f
+ 1571 004e 0B       		.uleb128 0xb
+ 1572 004f 00       		.byte	0
+ 1573 0050 00       		.byte	0
+ 1574 0051 08       		.uleb128 0x8
+ 1575 0052 04       		.uleb128 0x4
+ 1576 0053 01       		.byte	0x1
+ 1577 0054 0B       		.uleb128 0xb
+ 1578 0055 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 29
+
+
+ 1579 0056 3A       		.uleb128 0x3a
+ 1580 0057 0B       		.uleb128 0xb
+ 1581 0058 3B       		.uleb128 0x3b
+ 1582 0059 0B       		.uleb128 0xb
+ 1583 005a 01       		.uleb128 0x1
+ 1584 005b 13       		.uleb128 0x13
+ 1585 005c 00       		.byte	0
+ 1586 005d 00       		.byte	0
+ 1587 005e 09       		.uleb128 0x9
+ 1588 005f 28       		.uleb128 0x28
+ 1589 0060 00       		.byte	0
+ 1590 0061 03       		.uleb128 0x3
+ 1591 0062 0E       		.uleb128 0xe
+ 1592 0063 1C       		.uleb128 0x1c
+ 1593 0064 0D       		.uleb128 0xd
+ 1594 0065 00       		.byte	0
+ 1595 0066 00       		.byte	0
+ 1596 0067 0A       		.uleb128 0xa
+ 1597 0068 13       		.uleb128 0x13
+ 1598 0069 01       		.byte	0x1
+ 1599 006a 03       		.uleb128 0x3
+ 1600 006b 0E       		.uleb128 0xe
+ 1601 006c 0B       		.uleb128 0xb
+ 1602 006d 0B       		.uleb128 0xb
+ 1603 006e 3A       		.uleb128 0x3a
+ 1604 006f 0B       		.uleb128 0xb
+ 1605 0070 3B       		.uleb128 0x3b
+ 1606 0071 05       		.uleb128 0x5
+ 1607 0072 01       		.uleb128 0x1
+ 1608 0073 13       		.uleb128 0x13
+ 1609 0074 00       		.byte	0
+ 1610 0075 00       		.byte	0
+ 1611 0076 0B       		.uleb128 0xb
+ 1612 0077 0D       		.uleb128 0xd
+ 1613 0078 00       		.byte	0
+ 1614 0079 03       		.uleb128 0x3
+ 1615 007a 0E       		.uleb128 0xe
+ 1616 007b 3A       		.uleb128 0x3a
+ 1617 007c 0B       		.uleb128 0xb
+ 1618 007d 3B       		.uleb128 0x3b
+ 1619 007e 05       		.uleb128 0x5
+ 1620 007f 49       		.uleb128 0x49
+ 1621 0080 13       		.uleb128 0x13
+ 1622 0081 38       		.uleb128 0x38
+ 1623 0082 0A       		.uleb128 0xa
+ 1624 0083 00       		.byte	0
+ 1625 0084 00       		.byte	0
+ 1626 0085 0C       		.uleb128 0xc
+ 1627 0086 0D       		.uleb128 0xd
+ 1628 0087 00       		.byte	0
+ 1629 0088 03       		.uleb128 0x3
+ 1630 0089 08       		.uleb128 0x8
+ 1631 008a 3A       		.uleb128 0x3a
+ 1632 008b 0B       		.uleb128 0xb
+ 1633 008c 3B       		.uleb128 0x3b
+ 1634 008d 05       		.uleb128 0x5
+ 1635 008e 49       		.uleb128 0x49
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 30
+
+
+ 1636 008f 13       		.uleb128 0x13
+ 1637 0090 38       		.uleb128 0x38
+ 1638 0091 0A       		.uleb128 0xa
+ 1639 0092 00       		.byte	0
+ 1640 0093 00       		.byte	0
+ 1641 0094 0D       		.uleb128 0xd
+ 1642 0095 0F       		.uleb128 0xf
+ 1643 0096 00       		.byte	0
+ 1644 0097 0B       		.uleb128 0xb
+ 1645 0098 0B       		.uleb128 0xb
+ 1646 0099 49       		.uleb128 0x49
+ 1647 009a 13       		.uleb128 0x13
+ 1648 009b 00       		.byte	0
+ 1649 009c 00       		.byte	0
+ 1650 009d 0E       		.uleb128 0xe
+ 1651 009e 15       		.uleb128 0x15
+ 1652 009f 01       		.byte	0x1
+ 1653 00a0 27       		.uleb128 0x27
+ 1654 00a1 0C       		.uleb128 0xc
+ 1655 00a2 01       		.uleb128 0x1
+ 1656 00a3 13       		.uleb128 0x13
+ 1657 00a4 00       		.byte	0
+ 1658 00a5 00       		.byte	0
+ 1659 00a6 0F       		.uleb128 0xf
+ 1660 00a7 05       		.uleb128 0x5
+ 1661 00a8 00       		.byte	0
+ 1662 00a9 49       		.uleb128 0x49
+ 1663 00aa 13       		.uleb128 0x13
+ 1664 00ab 00       		.byte	0
+ 1665 00ac 00       		.byte	0
+ 1666 00ad 10       		.uleb128 0x10
+ 1667 00ae 13       		.uleb128 0x13
+ 1668 00af 01       		.byte	0x1
+ 1669 00b0 0B       		.uleb128 0xb
+ 1670 00b1 0B       		.uleb128 0xb
+ 1671 00b2 3A       		.uleb128 0x3a
+ 1672 00b3 0B       		.uleb128 0xb
+ 1673 00b4 3B       		.uleb128 0x3b
+ 1674 00b5 05       		.uleb128 0x5
+ 1675 00b6 01       		.uleb128 0x1
+ 1676 00b7 13       		.uleb128 0x13
+ 1677 00b8 00       		.byte	0
+ 1678 00b9 00       		.byte	0
+ 1679 00ba 11       		.uleb128 0x11
+ 1680 00bb 16       		.uleb128 0x16
+ 1681 00bc 00       		.byte	0
+ 1682 00bd 03       		.uleb128 0x3
+ 1683 00be 0E       		.uleb128 0xe
+ 1684 00bf 3A       		.uleb128 0x3a
+ 1685 00c0 0B       		.uleb128 0xb
+ 1686 00c1 3B       		.uleb128 0x3b
+ 1687 00c2 05       		.uleb128 0x5
+ 1688 00c3 49       		.uleb128 0x49
+ 1689 00c4 13       		.uleb128 0x13
+ 1690 00c5 00       		.byte	0
+ 1691 00c6 00       		.byte	0
+ 1692 00c7 12       		.uleb128 0x12
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 31
+
+
+ 1693 00c8 26       		.uleb128 0x26
+ 1694 00c9 00       		.byte	0
+ 1695 00ca 49       		.uleb128 0x49
+ 1696 00cb 13       		.uleb128 0x13
+ 1697 00cc 00       		.byte	0
+ 1698 00cd 00       		.byte	0
+ 1699 00ce 13       		.uleb128 0x13
+ 1700 00cf 2E       		.uleb128 0x2e
+ 1701 00d0 01       		.byte	0x1
+ 1702 00d1 3F       		.uleb128 0x3f
+ 1703 00d2 0C       		.uleb128 0xc
+ 1704 00d3 03       		.uleb128 0x3
+ 1705 00d4 0E       		.uleb128 0xe
+ 1706 00d5 3A       		.uleb128 0x3a
+ 1707 00d6 0B       		.uleb128 0xb
+ 1708 00d7 3B       		.uleb128 0x3b
+ 1709 00d8 0B       		.uleb128 0xb
+ 1710 00d9 27       		.uleb128 0x27
+ 1711 00da 0C       		.uleb128 0xc
+ 1712 00db 11       		.uleb128 0x11
+ 1713 00dc 01       		.uleb128 0x1
+ 1714 00dd 12       		.uleb128 0x12
+ 1715 00de 01       		.uleb128 0x1
+ 1716 00df 40       		.uleb128 0x40
+ 1717 00e0 0A       		.uleb128 0xa
+ 1718 00e1 9742     		.uleb128 0x2117
+ 1719 00e3 0C       		.uleb128 0xc
+ 1720 00e4 01       		.uleb128 0x1
+ 1721 00e5 13       		.uleb128 0x13
+ 1722 00e6 00       		.byte	0
+ 1723 00e7 00       		.byte	0
+ 1724 00e8 14       		.uleb128 0x14
+ 1725 00e9 898201   		.uleb128 0x4109
+ 1726 00ec 00       		.byte	0
+ 1727 00ed 11       		.uleb128 0x11
+ 1728 00ee 01       		.uleb128 0x1
+ 1729 00ef 9542     		.uleb128 0x2115
+ 1730 00f1 0C       		.uleb128 0xc
+ 1731 00f2 31       		.uleb128 0x31
+ 1732 00f3 13       		.uleb128 0x13
+ 1733 00f4 00       		.byte	0
+ 1734 00f5 00       		.byte	0
+ 1735 00f6 15       		.uleb128 0x15
+ 1736 00f7 05       		.uleb128 0x5
+ 1737 00f8 00       		.byte	0
+ 1738 00f9 03       		.uleb128 0x3
+ 1739 00fa 0E       		.uleb128 0xe
+ 1740 00fb 3A       		.uleb128 0x3a
+ 1741 00fc 0B       		.uleb128 0xb
+ 1742 00fd 3B       		.uleb128 0x3b
+ 1743 00fe 0B       		.uleb128 0xb
+ 1744 00ff 49       		.uleb128 0x49
+ 1745 0100 13       		.uleb128 0x13
+ 1746 0101 02       		.uleb128 0x2
+ 1747 0102 0A       		.uleb128 0xa
+ 1748 0103 00       		.byte	0
+ 1749 0104 00       		.byte	0
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 32
+
+
+ 1750 0105 16       		.uleb128 0x16
+ 1751 0106 2E       		.uleb128 0x2e
+ 1752 0107 01       		.byte	0x1
+ 1753 0108 3F       		.uleb128 0x3f
+ 1754 0109 0C       		.uleb128 0xc
+ 1755 010a 03       		.uleb128 0x3
+ 1756 010b 0E       		.uleb128 0xe
+ 1757 010c 3A       		.uleb128 0x3a
+ 1758 010d 0B       		.uleb128 0xb
+ 1759 010e 3B       		.uleb128 0x3b
+ 1760 010f 0B       		.uleb128 0xb
+ 1761 0110 27       		.uleb128 0x27
+ 1762 0111 0C       		.uleb128 0xc
+ 1763 0112 11       		.uleb128 0x11
+ 1764 0113 01       		.uleb128 0x1
+ 1765 0114 12       		.uleb128 0x12
+ 1766 0115 01       		.uleb128 0x1
+ 1767 0116 40       		.uleb128 0x40
+ 1768 0117 06       		.uleb128 0x6
+ 1769 0118 9742     		.uleb128 0x2117
+ 1770 011a 0C       		.uleb128 0xc
+ 1771 011b 01       		.uleb128 0x1
+ 1772 011c 13       		.uleb128 0x13
+ 1773 011d 00       		.byte	0
+ 1774 011e 00       		.byte	0
+ 1775 011f 17       		.uleb128 0x17
+ 1776 0120 05       		.uleb128 0x5
+ 1777 0121 00       		.byte	0
+ 1778 0122 03       		.uleb128 0x3
+ 1779 0123 0E       		.uleb128 0xe
+ 1780 0124 3A       		.uleb128 0x3a
+ 1781 0125 0B       		.uleb128 0xb
+ 1782 0126 3B       		.uleb128 0x3b
+ 1783 0127 0B       		.uleb128 0xb
+ 1784 0128 49       		.uleb128 0x49
+ 1785 0129 13       		.uleb128 0x13
+ 1786 012a 02       		.uleb128 0x2
+ 1787 012b 06       		.uleb128 0x6
+ 1788 012c 00       		.byte	0
+ 1789 012d 00       		.byte	0
+ 1790 012e 18       		.uleb128 0x18
+ 1791 012f 0B       		.uleb128 0xb
+ 1792 0130 01       		.byte	0x1
+ 1793 0131 55       		.uleb128 0x55
+ 1794 0132 06       		.uleb128 0x6
+ 1795 0133 01       		.uleb128 0x1
+ 1796 0134 13       		.uleb128 0x13
+ 1797 0135 00       		.byte	0
+ 1798 0136 00       		.byte	0
+ 1799 0137 19       		.uleb128 0x19
+ 1800 0138 34       		.uleb128 0x34
+ 1801 0139 00       		.byte	0
+ 1802 013a 03       		.uleb128 0x3
+ 1803 013b 08       		.uleb128 0x8
+ 1804 013c 3A       		.uleb128 0x3a
+ 1805 013d 0B       		.uleb128 0xb
+ 1806 013e 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 33
+
+
+ 1807 013f 0B       		.uleb128 0xb
+ 1808 0140 49       		.uleb128 0x49
+ 1809 0141 13       		.uleb128 0x13
+ 1810 0142 02       		.uleb128 0x2
+ 1811 0143 06       		.uleb128 0x6
+ 1812 0144 00       		.byte	0
+ 1813 0145 00       		.byte	0
+ 1814 0146 1A       		.uleb128 0x1a
+ 1815 0147 0B       		.uleb128 0xb
+ 1816 0148 01       		.byte	0x1
+ 1817 0149 11       		.uleb128 0x11
+ 1818 014a 01       		.uleb128 0x1
+ 1819 014b 12       		.uleb128 0x12
+ 1820 014c 01       		.uleb128 0x1
+ 1821 014d 01       		.uleb128 0x1
+ 1822 014e 13       		.uleb128 0x13
+ 1823 014f 00       		.byte	0
+ 1824 0150 00       		.byte	0
+ 1825 0151 1B       		.uleb128 0x1b
+ 1826 0152 898201   		.uleb128 0x4109
+ 1827 0155 01       		.byte	0x1
+ 1828 0156 11       		.uleb128 0x11
+ 1829 0157 01       		.uleb128 0x1
+ 1830 0158 31       		.uleb128 0x31
+ 1831 0159 13       		.uleb128 0x13
+ 1832 015a 00       		.byte	0
+ 1833 015b 00       		.byte	0
+ 1834 015c 1C       		.uleb128 0x1c
+ 1835 015d 8A8201   		.uleb128 0x410a
+ 1836 0160 00       		.byte	0
+ 1837 0161 02       		.uleb128 0x2
+ 1838 0162 0A       		.uleb128 0xa
+ 1839 0163 9142     		.uleb128 0x2111
+ 1840 0165 0A       		.uleb128 0xa
+ 1841 0166 00       		.byte	0
+ 1842 0167 00       		.byte	0
+ 1843 0168 1D       		.uleb128 0x1d
+ 1844 0169 0B       		.uleb128 0xb
+ 1845 016a 01       		.byte	0x1
+ 1846 016b 11       		.uleb128 0x11
+ 1847 016c 01       		.uleb128 0x1
+ 1848 016d 12       		.uleb128 0x12
+ 1849 016e 01       		.uleb128 0x1
+ 1850 016f 00       		.byte	0
+ 1851 0170 00       		.byte	0
+ 1852 0171 1E       		.uleb128 0x1e
+ 1853 0172 898201   		.uleb128 0x4109
+ 1854 0175 01       		.byte	0x1
+ 1855 0176 11       		.uleb128 0x11
+ 1856 0177 01       		.uleb128 0x1
+ 1857 0178 9542     		.uleb128 0x2115
+ 1858 017a 0C       		.uleb128 0xc
+ 1859 017b 31       		.uleb128 0x31
+ 1860 017c 13       		.uleb128 0x13
+ 1861 017d 00       		.byte	0
+ 1862 017e 00       		.byte	0
+ 1863 017f 1F       		.uleb128 0x1f
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 34
+
+
+ 1864 0180 2E       		.uleb128 0x2e
+ 1865 0181 01       		.byte	0x1
+ 1866 0182 3F       		.uleb128 0x3f
+ 1867 0183 0C       		.uleb128 0xc
+ 1868 0184 03       		.uleb128 0x3
+ 1869 0185 0E       		.uleb128 0xe
+ 1870 0186 3A       		.uleb128 0x3a
+ 1871 0187 0B       		.uleb128 0xb
+ 1872 0188 3B       		.uleb128 0x3b
+ 1873 0189 05       		.uleb128 0x5
+ 1874 018a 27       		.uleb128 0x27
+ 1875 018b 0C       		.uleb128 0xc
+ 1876 018c 11       		.uleb128 0x11
+ 1877 018d 01       		.uleb128 0x1
+ 1878 018e 12       		.uleb128 0x12
+ 1879 018f 01       		.uleb128 0x1
+ 1880 0190 40       		.uleb128 0x40
+ 1881 0191 06       		.uleb128 0x6
+ 1882 0192 9742     		.uleb128 0x2117
+ 1883 0194 0C       		.uleb128 0xc
+ 1884 0195 01       		.uleb128 0x1
+ 1885 0196 13       		.uleb128 0x13
+ 1886 0197 00       		.byte	0
+ 1887 0198 00       		.byte	0
+ 1888 0199 20       		.uleb128 0x20
+ 1889 019a 05       		.uleb128 0x5
+ 1890 019b 00       		.byte	0
+ 1891 019c 03       		.uleb128 0x3
+ 1892 019d 0E       		.uleb128 0xe
+ 1893 019e 3A       		.uleb128 0x3a
+ 1894 019f 0B       		.uleb128 0xb
+ 1895 01a0 3B       		.uleb128 0x3b
+ 1896 01a1 05       		.uleb128 0x5
+ 1897 01a2 49       		.uleb128 0x49
+ 1898 01a3 13       		.uleb128 0x13
+ 1899 01a4 02       		.uleb128 0x2
+ 1900 01a5 06       		.uleb128 0x6
+ 1901 01a6 00       		.byte	0
+ 1902 01a7 00       		.byte	0
+ 1903 01a8 21       		.uleb128 0x21
+ 1904 01a9 34       		.uleb128 0x34
+ 1905 01aa 00       		.byte	0
+ 1906 01ab 03       		.uleb128 0x3
+ 1907 01ac 0E       		.uleb128 0xe
+ 1908 01ad 3A       		.uleb128 0x3a
+ 1909 01ae 0B       		.uleb128 0xb
+ 1910 01af 3B       		.uleb128 0x3b
+ 1911 01b0 05       		.uleb128 0x5
+ 1912 01b1 49       		.uleb128 0x49
+ 1913 01b2 13       		.uleb128 0x13
+ 1914 01b3 3F       		.uleb128 0x3f
+ 1915 01b4 0C       		.uleb128 0xc
+ 1916 01b5 3C       		.uleb128 0x3c
+ 1917 01b6 0C       		.uleb128 0xc
+ 1918 01b7 00       		.byte	0
+ 1919 01b8 00       		.byte	0
+ 1920 01b9 22       		.uleb128 0x22
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 35
+
+
+ 1921 01ba 2E       		.uleb128 0x2e
+ 1922 01bb 00       		.byte	0
+ 1923 01bc 3F       		.uleb128 0x3f
+ 1924 01bd 0C       		.uleb128 0xc
+ 1925 01be 03       		.uleb128 0x3
+ 1926 01bf 0E       		.uleb128 0xe
+ 1927 01c0 3A       		.uleb128 0x3a
+ 1928 01c1 0B       		.uleb128 0xb
+ 1929 01c2 3B       		.uleb128 0x3b
+ 1930 01c3 05       		.uleb128 0x5
+ 1931 01c4 27       		.uleb128 0x27
+ 1932 01c5 0C       		.uleb128 0xc
+ 1933 01c6 3C       		.uleb128 0x3c
+ 1934 01c7 0C       		.uleb128 0xc
+ 1935 01c8 00       		.byte	0
+ 1936 01c9 00       		.byte	0
+ 1937 01ca 23       		.uleb128 0x23
+ 1938 01cb 2E       		.uleb128 0x2e
+ 1939 01cc 01       		.byte	0x1
+ 1940 01cd 3F       		.uleb128 0x3f
+ 1941 01ce 0C       		.uleb128 0xc
+ 1942 01cf 03       		.uleb128 0x3
+ 1943 01d0 0E       		.uleb128 0xe
+ 1944 01d1 3A       		.uleb128 0x3a
+ 1945 01d2 0B       		.uleb128 0xb
+ 1946 01d3 3B       		.uleb128 0x3b
+ 1947 01d4 05       		.uleb128 0x5
+ 1948 01d5 27       		.uleb128 0x27
+ 1949 01d6 0C       		.uleb128 0xc
+ 1950 01d7 3C       		.uleb128 0x3c
+ 1951 01d8 0C       		.uleb128 0xc
+ 1952 01d9 01       		.uleb128 0x1
+ 1953 01da 13       		.uleb128 0x13
+ 1954 01db 00       		.byte	0
+ 1955 01dc 00       		.byte	0
+ 1956 01dd 24       		.uleb128 0x24
+ 1957 01de 2E       		.uleb128 0x2e
+ 1958 01df 01       		.byte	0x1
+ 1959 01e0 3F       		.uleb128 0x3f
+ 1960 01e1 0C       		.uleb128 0xc
+ 1961 01e2 03       		.uleb128 0x3
+ 1962 01e3 0E       		.uleb128 0xe
+ 1963 01e4 3A       		.uleb128 0x3a
+ 1964 01e5 0B       		.uleb128 0xb
+ 1965 01e6 3B       		.uleb128 0x3b
+ 1966 01e7 05       		.uleb128 0x5
+ 1967 01e8 27       		.uleb128 0x27
+ 1968 01e9 0C       		.uleb128 0xc
+ 1969 01ea 3C       		.uleb128 0x3c
+ 1970 01eb 0C       		.uleb128 0xc
+ 1971 01ec 00       		.byte	0
+ 1972 01ed 00       		.byte	0
+ 1973 01ee 00       		.byte	0
+ 1974              		.section	.debug_loc,"",%progbits
+ 1975              	.Ldebug_loc0:
+ 1976              	.LLST0:
+ 1977 0000 00000000 		.4byte	.LFB65
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 36
+
+
+ 1978 0004 02000000 		.4byte	.LCFI0
+ 1979 0008 0200     		.2byte	0x2
+ 1980 000a 7D       		.byte	0x7d
+ 1981 000b 00       		.sleb128 0
+ 1982 000c 02000000 		.4byte	.LCFI0
+ 1983 0010 1C000000 		.4byte	.LFE65
+ 1984 0014 0200     		.2byte	0x2
+ 1985 0016 7D       		.byte	0x7d
+ 1986 0017 08       		.sleb128 8
+ 1987 0018 00000000 		.4byte	0
+ 1988 001c 00000000 		.4byte	0
+ 1989              	.LLST1:
+ 1990 0020 00000000 		.4byte	.LVL2
+ 1991 0024 0F000000 		.4byte	.LVL5-1
+ 1992 0028 0100     		.2byte	0x1
+ 1993 002a 50       		.byte	0x50
+ 1994 002b 0F000000 		.4byte	.LVL5-1
+ 1995 002f 1C000000 		.4byte	.LFE65
+ 1996 0033 0100     		.2byte	0x1
+ 1997 0035 54       		.byte	0x54
+ 1998 0036 00000000 		.4byte	0
+ 1999 003a 00000000 		.4byte	0
+ 2000              	.LLST2:
+ 2001 003e 00000000 		.4byte	.LVL2
+ 2002 0042 0F000000 		.4byte	.LVL5-1
+ 2003 0046 0100     		.2byte	0x1
+ 2004 0048 51       		.byte	0x51
+ 2005 0049 0F000000 		.4byte	.LVL5-1
+ 2006 004d 1C000000 		.4byte	.LFE65
+ 2007 0051 0400     		.2byte	0x4
+ 2008 0053 F3       		.byte	0xf3
+ 2009 0054 01       		.uleb128 0x1
+ 2010 0055 51       		.byte	0x51
+ 2011 0056 9F       		.byte	0x9f
+ 2012 0057 00000000 		.4byte	0
+ 2013 005b 00000000 		.4byte	0
+ 2014              	.LLST3:
+ 2015 005f 0A000000 		.4byte	.LVL4
+ 2016 0063 0F000000 		.4byte	.LVL5-1
+ 2017 0067 0100     		.2byte	0x1
+ 2018 0069 53       		.byte	0x53
+ 2019 006a 00000000 		.4byte	0
+ 2020 006e 00000000 		.4byte	0
+ 2021              	.LLST4:
+ 2022 0072 1A000000 		.4byte	.LVL7
+ 2023 0076 1C000000 		.4byte	.LFE65
+ 2024 007a 0100     		.2byte	0x1
+ 2025 007c 53       		.byte	0x53
+ 2026 007d 00000000 		.4byte	0
+ 2027 0081 00000000 		.4byte	0
+ 2028              	.LLST5:
+ 2029 0085 00000000 		.4byte	.LFB66
+ 2030 0089 02000000 		.4byte	.LCFI1
+ 2031 008d 0200     		.2byte	0x2
+ 2032 008f 7D       		.byte	0x7d
+ 2033 0090 00       		.sleb128 0
+ 2034 0091 02000000 		.4byte	.LCFI1
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 37
+
+
+ 2035 0095 1A000000 		.4byte	.LFE66
+ 2036 0099 0200     		.2byte	0x2
+ 2037 009b 7D       		.byte	0x7d
+ 2038 009c 08       		.sleb128 8
+ 2039 009d 00000000 		.4byte	0
+ 2040 00a1 00000000 		.4byte	0
+ 2041              	.LLST6:
+ 2042 00a5 00000000 		.4byte	.LVL8
+ 2043 00a9 0D000000 		.4byte	.LVL11-1
+ 2044 00ad 0100     		.2byte	0x1
+ 2045 00af 50       		.byte	0x50
+ 2046 00b0 0D000000 		.4byte	.LVL11-1
+ 2047 00b4 1A000000 		.4byte	.LFE66
+ 2048 00b8 0100     		.2byte	0x1
+ 2049 00ba 54       		.byte	0x54
+ 2050 00bb 00000000 		.4byte	0
+ 2051 00bf 00000000 		.4byte	0
+ 2052              	.LLST7:
+ 2053 00c3 0A000000 		.4byte	.LVL10
+ 2054 00c7 0D000000 		.4byte	.LVL11-1
+ 2055 00cb 0100     		.2byte	0x1
+ 2056 00cd 53       		.byte	0x53
+ 2057 00ce 00000000 		.4byte	0
+ 2058 00d2 00000000 		.4byte	0
+ 2059              	.LLST8:
+ 2060 00d6 18000000 		.4byte	.LVL13
+ 2061 00da 1A000000 		.4byte	.LFE66
+ 2062 00de 0100     		.2byte	0x1
+ 2063 00e0 53       		.byte	0x53
+ 2064 00e1 00000000 		.4byte	0
+ 2065 00e5 00000000 		.4byte	0
+ 2066              	.LLST9:
+ 2067 00e9 00000000 		.4byte	.LVL14
+ 2068 00ed 0A000000 		.4byte	.LVL18
+ 2069 00f1 0100     		.2byte	0x1
+ 2070 00f3 51       		.byte	0x51
+ 2071 00f4 0A000000 		.4byte	.LVL18
+ 2072 00f8 14000000 		.4byte	.LFE67
+ 2073 00fc 0300     		.2byte	0x3
+ 2074 00fe 71       		.byte	0x71
+ 2075 00ff 01       		.sleb128 1
+ 2076 0100 9F       		.byte	0x9f
+ 2077 0101 00000000 		.4byte	0
+ 2078 0105 00000000 		.4byte	0
+ 2079              	.LLST10:
+ 2080 0109 06000000 		.4byte	.LVL16
+ 2081 010d 08000000 		.4byte	.LVL17
+ 2082 0111 0100     		.2byte	0x1
+ 2083 0113 53       		.byte	0x53
+ 2084 0114 00000000 		.4byte	0
+ 2085 0118 00000000 		.4byte	0
+ 2086              	.LLST11:
+ 2087 011c 12000000 		.4byte	.LVL20
+ 2088 0120 14000000 		.4byte	.LFE67
+ 2089 0124 0100     		.2byte	0x1
+ 2090 0126 53       		.byte	0x53
+ 2091 0127 00000000 		.4byte	0
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 38
+
+
+ 2092 012b 00000000 		.4byte	0
+ 2093              	.LLST12:
+ 2094 012f 00000000 		.4byte	.LVL21
+ 2095 0133 07000000 		.4byte	.LVL22-1
+ 2096 0137 0100     		.2byte	0x1
+ 2097 0139 50       		.byte	0x50
+ 2098 013a 07000000 		.4byte	.LVL22-1
+ 2099 013e 08000000 		.4byte	.LFE69
+ 2100 0142 0400     		.2byte	0x4
+ 2101 0144 F3       		.byte	0xf3
+ 2102 0145 01       		.uleb128 0x1
+ 2103 0146 50       		.byte	0x50
+ 2104 0147 9F       		.byte	0x9f
+ 2105 0148 00000000 		.4byte	0
+ 2106 014c 00000000 		.4byte	0
+ 2107              	.LLST13:
+ 2108 0150 00000000 		.4byte	.LVL21
+ 2109 0154 07000000 		.4byte	.LVL22-1
+ 2110 0158 0100     		.2byte	0x1
+ 2111 015a 51       		.byte	0x51
+ 2112 015b 07000000 		.4byte	.LVL22-1
+ 2113 015f 08000000 		.4byte	.LFE69
+ 2114 0163 0400     		.2byte	0x4
+ 2115 0165 F3       		.byte	0xf3
+ 2116 0166 01       		.uleb128 0x1
+ 2117 0167 51       		.byte	0x51
+ 2118 0168 9F       		.byte	0x9f
+ 2119 0169 00000000 		.4byte	0
+ 2120 016d 00000000 		.4byte	0
+ 2121              	.LLST14:
+ 2122 0171 00000000 		.4byte	.LFB68
+ 2123 0175 02000000 		.4byte	.LCFI2
+ 2124 0179 0200     		.2byte	0x2
+ 2125 017b 7D       		.byte	0x7d
+ 2126 017c 00       		.sleb128 0
+ 2127 017d 02000000 		.4byte	.LCFI2
+ 2128 0181 14000000 		.4byte	.LFE68
+ 2129 0185 0200     		.2byte	0x2
+ 2130 0187 7D       		.byte	0x7d
+ 2131 0188 08       		.sleb128 8
+ 2132 0189 00000000 		.4byte	0
+ 2133 018d 00000000 		.4byte	0
+ 2134              	.LLST15:
+ 2135 0191 00000000 		.4byte	.LVL23
+ 2136 0195 0B000000 		.4byte	.LVL26-1
+ 2137 0199 0100     		.2byte	0x1
+ 2138 019b 50       		.byte	0x50
+ 2139 019c 0B000000 		.4byte	.LVL26-1
+ 2140 01a0 14000000 		.4byte	.LFE68
+ 2141 01a4 0400     		.2byte	0x4
+ 2142 01a6 F3       		.byte	0xf3
+ 2143 01a7 01       		.uleb128 0x1
+ 2144 01a8 50       		.byte	0x50
+ 2145 01a9 9F       		.byte	0x9f
+ 2146 01aa 00000000 		.4byte	0
+ 2147 01ae 00000000 		.4byte	0
+ 2148              	.LLST16:
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 39
+
+
+ 2149 01b2 00000000 		.4byte	.LVL23
+ 2150 01b6 0B000000 		.4byte	.LVL26-1
+ 2151 01ba 0100     		.2byte	0x1
+ 2152 01bc 51       		.byte	0x51
+ 2153 01bd 0B000000 		.4byte	.LVL26-1
+ 2154 01c1 14000000 		.4byte	.LFE68
+ 2155 01c5 0400     		.2byte	0x4
+ 2156 01c7 F3       		.byte	0xf3
+ 2157 01c8 01       		.uleb128 0x1
+ 2158 01c9 51       		.byte	0x51
+ 2159 01ca 9F       		.byte	0x9f
+ 2160 01cb 00000000 		.4byte	0
+ 2161 01cf 00000000 		.4byte	0
+ 2162              	.LLST17:
+ 2163 01d3 08000000 		.4byte	.LVL25
+ 2164 01d7 0B000000 		.4byte	.LVL26-1
+ 2165 01db 0100     		.2byte	0x1
+ 2166 01dd 53       		.byte	0x53
+ 2167 01de 00000000 		.4byte	0
+ 2168 01e2 00000000 		.4byte	0
+ 2169              	.LLST18:
+ 2170 01e6 12000000 		.4byte	.LVL28
+ 2171 01ea 14000000 		.4byte	.LFE68
+ 2172 01ee 0100     		.2byte	0x1
+ 2173 01f0 53       		.byte	0x53
+ 2174 01f1 00000000 		.4byte	0
+ 2175 01f5 00000000 		.4byte	0
+ 2176              	.LLST19:
+ 2177 01f9 00000000 		.4byte	.LVL29
+ 2178 01fd 07000000 		.4byte	.LVL30-1
+ 2179 0201 0100     		.2byte	0x1
+ 2180 0203 50       		.byte	0x50
+ 2181 0204 07000000 		.4byte	.LVL30-1
+ 2182 0208 08000000 		.4byte	.LFE71
+ 2183 020c 0400     		.2byte	0x4
+ 2184 020e F3       		.byte	0xf3
+ 2185 020f 01       		.uleb128 0x1
+ 2186 0210 50       		.byte	0x50
+ 2187 0211 9F       		.byte	0x9f
+ 2188 0212 00000000 		.4byte	0
+ 2189 0216 00000000 		.4byte	0
+ 2190              	.LLST20:
+ 2191 021a 00000000 		.4byte	.LVL29
+ 2192 021e 07000000 		.4byte	.LVL30-1
+ 2193 0222 0100     		.2byte	0x1
+ 2194 0224 51       		.byte	0x51
+ 2195 0225 07000000 		.4byte	.LVL30-1
+ 2196 0229 08000000 		.4byte	.LFE71
+ 2197 022d 0400     		.2byte	0x4
+ 2198 022f F3       		.byte	0xf3
+ 2199 0230 01       		.uleb128 0x1
+ 2200 0231 51       		.byte	0x51
+ 2201 0232 9F       		.byte	0x9f
+ 2202 0233 00000000 		.4byte	0
+ 2203 0237 00000000 		.4byte	0
+ 2204              	.LLST21:
+ 2205 023b 00000000 		.4byte	.LFB70
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 40
+
+
+ 2206 023f 02000000 		.4byte	.LCFI3
+ 2207 0243 0200     		.2byte	0x2
+ 2208 0245 7D       		.byte	0x7d
+ 2209 0246 00       		.sleb128 0
+ 2210 0247 02000000 		.4byte	.LCFI3
+ 2211 024b 14000000 		.4byte	.LFE70
+ 2212 024f 0200     		.2byte	0x2
+ 2213 0251 7D       		.byte	0x7d
+ 2214 0252 08       		.sleb128 8
+ 2215 0253 00000000 		.4byte	0
+ 2216 0257 00000000 		.4byte	0
+ 2217              	.LLST22:
+ 2218 025b 00000000 		.4byte	.LVL31
+ 2219 025f 0B000000 		.4byte	.LVL34-1
+ 2220 0263 0100     		.2byte	0x1
+ 2221 0265 50       		.byte	0x50
+ 2222 0266 0B000000 		.4byte	.LVL34-1
+ 2223 026a 14000000 		.4byte	.LFE70
+ 2224 026e 0400     		.2byte	0x4
+ 2225 0270 F3       		.byte	0xf3
+ 2226 0271 01       		.uleb128 0x1
+ 2227 0272 50       		.byte	0x50
+ 2228 0273 9F       		.byte	0x9f
+ 2229 0274 00000000 		.4byte	0
+ 2230 0278 00000000 		.4byte	0
+ 2231              	.LLST23:
+ 2232 027c 00000000 		.4byte	.LVL31
+ 2233 0280 0B000000 		.4byte	.LVL34-1
+ 2234 0284 0100     		.2byte	0x1
+ 2235 0286 51       		.byte	0x51
+ 2236 0287 0B000000 		.4byte	.LVL34-1
+ 2237 028b 14000000 		.4byte	.LFE70
+ 2238 028f 0400     		.2byte	0x4
+ 2239 0291 F3       		.byte	0xf3
+ 2240 0292 01       		.uleb128 0x1
+ 2241 0293 51       		.byte	0x51
+ 2242 0294 9F       		.byte	0x9f
+ 2243 0295 00000000 		.4byte	0
+ 2244 0299 00000000 		.4byte	0
+ 2245              	.LLST24:
+ 2246 029d 08000000 		.4byte	.LVL33
+ 2247 02a1 0B000000 		.4byte	.LVL34-1
+ 2248 02a5 0100     		.2byte	0x1
+ 2249 02a7 53       		.byte	0x53
+ 2250 02a8 00000000 		.4byte	0
+ 2251 02ac 00000000 		.4byte	0
+ 2252              	.LLST25:
+ 2253 02b0 12000000 		.4byte	.LVL36
+ 2254 02b4 14000000 		.4byte	.LFE70
+ 2255 02b8 0100     		.2byte	0x1
+ 2256 02ba 53       		.byte	0x53
+ 2257 02bb 00000000 		.4byte	0
+ 2258 02bf 00000000 		.4byte	0
+ 2259              	.LLST26:
+ 2260 02c3 00000000 		.4byte	.LVL37
+ 2261 02c7 07000000 		.4byte	.LVL38-1
+ 2262 02cb 0100     		.2byte	0x1
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 41
+
+
+ 2263 02cd 50       		.byte	0x50
+ 2264 02ce 07000000 		.4byte	.LVL38-1
+ 2265 02d2 08000000 		.4byte	.LFE73
+ 2266 02d6 0400     		.2byte	0x4
+ 2267 02d8 F3       		.byte	0xf3
+ 2268 02d9 01       		.uleb128 0x1
+ 2269 02da 50       		.byte	0x50
+ 2270 02db 9F       		.byte	0x9f
+ 2271 02dc 00000000 		.4byte	0
+ 2272 02e0 00000000 		.4byte	0
+ 2273              	.LLST27:
+ 2274 02e4 00000000 		.4byte	.LFB72
+ 2275 02e8 02000000 		.4byte	.LCFI4
+ 2276 02ec 0200     		.2byte	0x2
+ 2277 02ee 7D       		.byte	0x7d
+ 2278 02ef 00       		.sleb128 0
+ 2279 02f0 02000000 		.4byte	.LCFI4
+ 2280 02f4 14000000 		.4byte	.LFE72
+ 2281 02f8 0200     		.2byte	0x2
+ 2282 02fa 7D       		.byte	0x7d
+ 2283 02fb 08       		.sleb128 8
+ 2284 02fc 00000000 		.4byte	0
+ 2285 0300 00000000 		.4byte	0
+ 2286              	.LLST28:
+ 2287 0304 00000000 		.4byte	.LVL39
+ 2288 0308 0B000000 		.4byte	.LVL42-1
+ 2289 030c 0100     		.2byte	0x1
+ 2290 030e 50       		.byte	0x50
+ 2291 030f 0B000000 		.4byte	.LVL42-1
+ 2292 0313 14000000 		.4byte	.LFE72
+ 2293 0317 0400     		.2byte	0x4
+ 2294 0319 F3       		.byte	0xf3
+ 2295 031a 01       		.uleb128 0x1
+ 2296 031b 50       		.byte	0x50
+ 2297 031c 9F       		.byte	0x9f
+ 2298 031d 00000000 		.4byte	0
+ 2299 0321 00000000 		.4byte	0
+ 2300              	.LLST29:
+ 2301 0325 08000000 		.4byte	.LVL41
+ 2302 0329 0B000000 		.4byte	.LVL42-1
+ 2303 032d 0100     		.2byte	0x1
+ 2304 032f 53       		.byte	0x53
+ 2305 0330 00000000 		.4byte	0
+ 2306 0334 00000000 		.4byte	0
+ 2307              	.LLST30:
+ 2308 0338 12000000 		.4byte	.LVL44
+ 2309 033c 14000000 		.4byte	.LFE72
+ 2310 0340 0100     		.2byte	0x1
+ 2311 0342 53       		.byte	0x53
+ 2312 0343 00000000 		.4byte	0
+ 2313 0347 00000000 		.4byte	0
+ 2314              	.LLST31:
+ 2315 034b 00000000 		.4byte	.LFB74
+ 2316 034f 04000000 		.4byte	.LCFI5
+ 2317 0353 0200     		.2byte	0x2
+ 2318 0355 7D       		.byte	0x7d
+ 2319 0356 00       		.sleb128 0
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 42
+
+
+ 2320 0357 04000000 		.4byte	.LCFI5
+ 2321 035b 12000000 		.4byte	.LFE74
+ 2322 035f 0200     		.2byte	0x2
+ 2323 0361 7D       		.byte	0x7d
+ 2324 0362 08       		.sleb128 8
+ 2325 0363 00000000 		.4byte	0
+ 2326 0367 00000000 		.4byte	0
+ 2327              	.LLST32:
+ 2328 036b 00000000 		.4byte	.LVL45
+ 2329 036f 0B000000 		.4byte	.LVL46-1
+ 2330 0373 0100     		.2byte	0x1
+ 2331 0375 50       		.byte	0x50
+ 2332 0376 0B000000 		.4byte	.LVL46-1
+ 2333 037a 12000000 		.4byte	.LFE74
+ 2334 037e 0100     		.2byte	0x1
+ 2335 0380 54       		.byte	0x54
+ 2336 0381 00000000 		.4byte	0
+ 2337 0385 00000000 		.4byte	0
+ 2338              	.LLST33:
+ 2339 0389 00000000 		.4byte	.LVL45
+ 2340 038d 0B000000 		.4byte	.LVL46-1
+ 2341 0391 0100     		.2byte	0x1
+ 2342 0393 51       		.byte	0x51
+ 2343 0394 0B000000 		.4byte	.LVL46-1
+ 2344 0398 12000000 		.4byte	.LFE74
+ 2345 039c 0400     		.2byte	0x4
+ 2346 039e F3       		.byte	0xf3
+ 2347 039f 01       		.uleb128 0x1
+ 2348 03a0 51       		.byte	0x51
+ 2349 03a1 9F       		.byte	0x9f
+ 2350 03a2 00000000 		.4byte	0
+ 2351 03a6 00000000 		.4byte	0
+ 2352              		.section	.debug_aranges,"",%progbits
+ 2353 0000 74000000 		.4byte	0x74
+ 2354 0004 0200     		.2byte	0x2
+ 2355 0006 00000000 		.4byte	.Ldebug_info0
+ 2356 000a 04       		.byte	0x4
+ 2357 000b 00       		.byte	0
+ 2358 000c 0000     		.2byte	0
+ 2359 000e 0000     		.2byte	0
+ 2360 0010 00000000 		.4byte	.LFB63
+ 2361 0014 04000000 		.4byte	.LFE63-.LFB63
+ 2362 0018 00000000 		.4byte	.LFB64
+ 2363 001c 0A000000 		.4byte	.LFE64-.LFB64
+ 2364 0020 00000000 		.4byte	.LFB65
+ 2365 0024 1C000000 		.4byte	.LFE65-.LFB65
+ 2366 0028 00000000 		.4byte	.LFB66
+ 2367 002c 1A000000 		.4byte	.LFE66-.LFB66
+ 2368 0030 00000000 		.4byte	.LFB67
+ 2369 0034 14000000 		.4byte	.LFE67-.LFB67
+ 2370 0038 00000000 		.4byte	.LFB69
+ 2371 003c 08000000 		.4byte	.LFE69-.LFB69
+ 2372 0040 00000000 		.4byte	.LFB68
+ 2373 0044 14000000 		.4byte	.LFE68-.LFB68
+ 2374 0048 00000000 		.4byte	.LFB71
+ 2375 004c 08000000 		.4byte	.LFE71-.LFB71
+ 2376 0050 00000000 		.4byte	.LFB70
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 43
+
+
+ 2377 0054 14000000 		.4byte	.LFE70-.LFB70
+ 2378 0058 00000000 		.4byte	.LFB73
+ 2379 005c 08000000 		.4byte	.LFE73-.LFB73
+ 2380 0060 00000000 		.4byte	.LFB72
+ 2381 0064 14000000 		.4byte	.LFE72-.LFB72
+ 2382 0068 00000000 		.4byte	.LFB74
+ 2383 006c 12000000 		.4byte	.LFE74-.LFB74
+ 2384 0070 00000000 		.4byte	0
+ 2385 0074 00000000 		.4byte	0
+ 2386              		.section	.debug_ranges,"",%progbits
+ 2387              	.Ldebug_ranges0:
+ 2388 0000 02000000 		.4byte	.LBB2
+ 2389 0004 04000000 		.4byte	.LBE2
+ 2390 0008 06000000 		.4byte	.LBB3
+ 2391 000c 0A000000 		.4byte	.LBE3
+ 2392 0010 00000000 		.4byte	0
+ 2393 0014 00000000 		.4byte	0
+ 2394 0018 02000000 		.4byte	.LBB5
+ 2395 001c 04000000 		.4byte	.LBE5
+ 2396 0020 06000000 		.4byte	.LBB6
+ 2397 0024 0A000000 		.4byte	.LBE6
+ 2398 0028 00000000 		.4byte	0
+ 2399 002c 00000000 		.4byte	0
+ 2400 0030 00000000 		.4byte	.LFB63
+ 2401 0034 04000000 		.4byte	.LFE63
+ 2402 0038 00000000 		.4byte	.LFB64
+ 2403 003c 0A000000 		.4byte	.LFE64
+ 2404 0040 00000000 		.4byte	.LFB65
+ 2405 0044 1C000000 		.4byte	.LFE65
+ 2406 0048 00000000 		.4byte	.LFB66
+ 2407 004c 1A000000 		.4byte	.LFE66
+ 2408 0050 00000000 		.4byte	.LFB67
+ 2409 0054 14000000 		.4byte	.LFE67
+ 2410 0058 00000000 		.4byte	.LFB69
+ 2411 005c 08000000 		.4byte	.LFE69
+ 2412 0060 00000000 		.4byte	.LFB68
+ 2413 0064 14000000 		.4byte	.LFE68
+ 2414 0068 00000000 		.4byte	.LFB71
+ 2415 006c 08000000 		.4byte	.LFE71
+ 2416 0070 00000000 		.4byte	.LFB70
+ 2417 0074 14000000 		.4byte	.LFE70
+ 2418 0078 00000000 		.4byte	.LFB73
+ 2419 007c 08000000 		.4byte	.LFE73
+ 2420 0080 00000000 		.4byte	.LFB72
+ 2421 0084 14000000 		.4byte	.LFE72
+ 2422 0088 00000000 		.4byte	.LFB74
+ 2423 008c 12000000 		.4byte	.LFE74
+ 2424 0090 00000000 		.4byte	0
+ 2425 0094 00000000 		.4byte	0
+ 2426              		.section	.debug_line,"",%progbits
+ 2427              	.Ldebug_line0:
+ 2428 0000 37020000 		.section	.debug_str,"MS",%progbits,1
+ 2428      02004501 
+ 2428      00000201 
+ 2428      FB0E0D00 
+ 2428      01010101 
+ 2429              	.LASF23:
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 44
+
+
+ 2430 0000 636C6F63 		.ascii	"clock\000"
+ 2430      6B00
+ 2431              	.LASF29:
+ 2432 0006 43434552 		.ascii	"CCER\000"
+ 2432      00
+ 2433              	.LASF14:
+ 2434 000b 4750545F 		.ascii	"GPT_UNINIT\000"
+ 2434      554E494E 
+ 2434      495400
+ 2435              	.LASF31:
+ 2436 0016 444D4152 		.ascii	"DMAR\000"
+ 2436      00
+ 2437              	.LASF21:
+ 2438 001b 73746174 		.ascii	"state\000"
+ 2438      6500
+ 2439              	.LASF28:
+ 2440 0021 43434D52 		.ascii	"CCMR2\000"
+ 2440      3200
+ 2441              	.LASF32:
+ 2442 0027 43434D52 		.ascii	"CCMR3\000"
+ 2442      3300
+ 2443              	.LASF58:
+ 2444 002d 6770745F 		.ascii	"gpt_lld_start_timer\000"
+ 2444      6C6C645F 
+ 2444      73746172 
+ 2444      745F7469 
+ 2444      6D657200 
+ 2445              	.LASF47:
+ 2446 0041 67707443 		.ascii	"gptChangeInterval\000"
+ 2446      68616E67 
+ 2446      65496E74 
+ 2446      65727661 
+ 2446      6C00
+ 2447              	.LASF12:
+ 2448 0053 73697A65 		.ascii	"sizetype\000"
+ 2448      74797065 
+ 2448      00
+ 2449              	.LASF24:
+ 2450 005c 67707463 		.ascii	"gptcallback_t\000"
+ 2450      616C6C62 
+ 2450      61636B5F 
+ 2450      7400
+ 2451              	.LASF65:
+ 2452 006a 6770745F 		.ascii	"gpt_lld_polled_delay\000"
+ 2452      6C6C645F 
+ 2452      706F6C6C 
+ 2452      65645F64 
+ 2452      656C6179 
+ 2453              	.LASF37:
+ 2454 007f 67707463 		.ascii	"gptcnt_t\000"
+ 2454      6E745F74 
+ 2454      00
+ 2455              	.LASF53:
+ 2456 0088 67707453 		.ascii	"gptStopTimerI\000"
+ 2456      746F7054 
+ 2456      696D6572 
+ 2456      4900
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 45
+
+
+ 2457              	.LASF3:
+ 2458 0096 73686F72 		.ascii	"short int\000"
+ 2458      7420696E 
+ 2458      7400
+ 2459              	.LASF22:
+ 2460 00a0 636F6E66 		.ascii	"config\000"
+ 2460      696700
+ 2461              	.LASF18:
+ 2462 00a7 4750545F 		.ascii	"GPT_ONESHOT\000"
+ 2462      4F4E4553 
+ 2462      484F5400 
+ 2463              	.LASF19:
+ 2464 00b3 67707473 		.ascii	"gptstate_t\000"
+ 2464      74617465 
+ 2464      5F7400
+ 2465              	.LASF64:
+ 2466 00be 6770745F 		.ascii	"gpt_lld_init\000"
+ 2466      6C6C645F 
+ 2466      696E6974 
+ 2466      00
+ 2467              	.LASF9:
+ 2468 00cb 6C6F6E67 		.ascii	"long long int\000"
+ 2468      206C6F6E 
+ 2468      6720696E 
+ 2468      7400
+ 2469              	.LASF52:
+ 2470 00d9 67707453 		.ascii	"gptStartOneShot\000"
+ 2470      74617274 
+ 2470      4F6E6553 
+ 2470      686F7400 
+ 2471              	.LASF56:
+ 2472 00e9 6770745F 		.ascii	"gpt_lld_start\000"
+ 2472      6C6C645F 
+ 2472      73746172 
+ 2472      7400
+ 2473              	.LASF49:
+ 2474 00f7 67707453 		.ascii	"gptStartContinuousI\000"
+ 2474      74617274 
+ 2474      436F6E74 
+ 2474      696E756F 
+ 2474      75734900 
+ 2475              	.LASF5:
+ 2476 010b 6C6F6E67 		.ascii	"long int\000"
+ 2476      20696E74 
+ 2476      00
+ 2477              	.LASF44:
+ 2478 0114 67707453 		.ascii	"gptStart\000"
+ 2478      74617274 
+ 2478      00
+ 2479              	.LASF34:
+ 2480 011d 43435236 		.ascii	"CCR6\000"
+ 2480      00
+ 2481              	.LASF27:
+ 2482 0122 43434D52 		.ascii	"CCMR1\000"
+ 2482      3100
+ 2483              	.LASF25:
+ 2484 0128 534D4352 		.ascii	"SMCR\000"
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 46
+
+
+ 2484      00
+ 2485              	.LASF62:
+ 2486 012d 433A5C55 		.ascii	"C:\\Users\\Caitlin\\pros\\127B\000"
+ 2486      73657273 
+ 2486      5C436169 
+ 2486      746C696E 
+ 2486      5C70726F 
+ 2487              	.LASF2:
+ 2488 0148 756E7369 		.ascii	"unsigned char\000"
+ 2488      676E6564 
+ 2488      20636861 
+ 2488      7200
+ 2489              	.LASF42:
+ 2490 0156 67707449 		.ascii	"gptInit\000"
+ 2490      6E697400 
+ 2491              	.LASF33:
+ 2492 015e 43435235 		.ascii	"CCR5\000"
+ 2492      00
+ 2493              	.LASF50:
+ 2494 0163 67707453 		.ascii	"gptStartContinuous\000"
+ 2494      74617274 
+ 2494      436F6E74 
+ 2494      696E756F 
+ 2494      757300
+ 2495              	.LASF1:
+ 2496 0176 7369676E 		.ascii	"signed char\000"
+ 2496      65642063 
+ 2496      68617200 
+ 2497              	.LASF10:
+ 2498 0182 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2498      206C6F6E 
+ 2498      6720756E 
+ 2498      7369676E 
+ 2498      65642069 
+ 2499              	.LASF7:
+ 2500 0199 75696E74 		.ascii	"uint32_t\000"
+ 2500      33325F74 
+ 2500      00
+ 2501              	.LASF0:
+ 2502 01a2 756E7369 		.ascii	"unsigned int\000"
+ 2502      676E6564 
+ 2502      20696E74 
+ 2502      00
+ 2503              	.LASF60:
+ 2504 01af 474E5520 		.ascii	"GNU C 4.7.1\000"
+ 2504      4320342E 
+ 2504      372E3100 
+ 2505              	.LASF26:
+ 2506 01bb 44494552 		.ascii	"DIER\000"
+ 2506      00
+ 2507              	.LASF4:
+ 2508 01c0 73686F72 		.ascii	"short unsigned int\000"
+ 2508      7420756E 
+ 2508      7369676E 
+ 2508      65642069 
+ 2508      6E7400
+ 2509              	.LASF13:
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 47
+
+
+ 2510 01d3 63686172 		.ascii	"char\000"
+ 2510      00
+ 2511              	.LASF35:
+ 2512 01d8 73746D33 		.ascii	"stm32_tim_t\000"
+ 2512      325F7469 
+ 2512      6D5F7400 
+ 2513              	.LASF30:
+ 2514 01e4 42445452 		.ascii	"BDTR\000"
+ 2514      00
+ 2515              	.LASF6:
+ 2516 01e9 696E7433 		.ascii	"int32_t\000"
+ 2516      325F7400 
+ 2517              	.LASF11:
+ 2518 01f1 5F426F6F 		.ascii	"_Bool\000"
+ 2518      6C00
+ 2519              	.LASF17:
+ 2520 01f7 4750545F 		.ascii	"GPT_CONTINUOUS\000"
+ 2520      434F4E54 
+ 2520      494E554F 
+ 2520      555300
+ 2521              	.LASF16:
+ 2522 0206 4750545F 		.ascii	"GPT_READY\000"
+ 2522      52454144 
+ 2522      5900
+ 2523              	.LASF20:
+ 2524 0210 47505444 		.ascii	"GPTDriver\000"
+ 2524      72697665 
+ 2524      7200
+ 2525              	.LASF8:
+ 2526 021a 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2526      20756E73 
+ 2526      69676E65 
+ 2526      6420696E 
+ 2526      7400
+ 2527              	.LASF61:
+ 2528 022c 2E2E2F43 		.ascii	"../ChibiOS_2.6.2/os/hal/src/gpt.c\000"
+ 2528      68696269 
+ 2528      4F535F32 
+ 2528      2E362E32 
+ 2528      2F6F732F 
+ 2529              	.LASF48:
+ 2530 024e 696E7465 		.ascii	"interval\000"
+ 2530      7276616C 
+ 2530      00
+ 2531              	.LASF57:
+ 2532 0257 6770745F 		.ascii	"gpt_lld_stop\000"
+ 2532      6C6C645F 
+ 2532      73746F70 
+ 2532      00
+ 2533              	.LASF55:
+ 2534 0264 67707450 		.ascii	"gptPolledDelay\000"
+ 2534      6F6C6C65 
+ 2534      6444656C 
+ 2534      617900
+ 2535              	.LASF15:
+ 2536 0273 4750545F 		.ascii	"GPT_STOP\000"
+ 2536      53544F50 
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 48
+
+
+ 2536      00
+ 2537              	.LASF45:
+ 2538 027c 67707470 		.ascii	"gptp\000"
+ 2538      00
+ 2539              	.LASF41:
+ 2540 0281 47505443 		.ascii	"GPTConfig\000"
+ 2540      6F6E6669 
+ 2540      6700
+ 2541              	.LASF51:
+ 2542 028b 67707453 		.ascii	"gptStartOneShotI\000"
+ 2542      74617274 
+ 2542      4F6E6553 
+ 2542      686F7449 
+ 2542      00
+ 2543              	.LASF40:
+ 2544 029c 64696572 		.ascii	"dier\000"
+ 2544      00
+ 2545              	.LASF54:
+ 2546 02a1 67707453 		.ascii	"gptStopTimer\000"
+ 2546      746F7054 
+ 2546      696D6572 
+ 2546      00
+ 2547              	.LASF38:
+ 2548 02ae 66726571 		.ascii	"frequency\000"
+ 2548      75656E63 
+ 2548      7900
+ 2549              	.LASF59:
+ 2550 02b8 6770745F 		.ascii	"gpt_lld_stop_timer\000"
+ 2550      6C6C645F 
+ 2550      73746F70 
+ 2550      5F74696D 
+ 2550      657200
+ 2551              	.LASF43:
+ 2552 02cb 6770744F 		.ascii	"gptObjectInit\000"
+ 2552      626A6563 
+ 2552      74496E69 
+ 2552      7400
+ 2553              	.LASF63:
+ 2554 02d9 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 2554      52784275 
+ 2554      66666572 
+ 2554      00
+ 2555              	.LASF36:
+ 2556 02e6 67707466 		.ascii	"gptfreq_t\000"
+ 2556      7265715F 
+ 2556      7400
+ 2557              	.LASF46:
+ 2558 02f0 67707453 		.ascii	"gptStop\000"
+ 2558      746F7000 
+ 2559              	.LASF39:
+ 2560 02f8 63616C6C 		.ascii	"callback\000"
+ 2560      6261636B 
+ 2560      00
+ 2561              		.ident	"GCC: (GNU) 4.7.1"
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s 			page 49
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 gpt.c
+C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s:19     .text.gptInit:00000000 $t
+C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s:25     .text.gptInit:00000000 gptInit
+C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s:41     .text.gptObjectInit:00000000 $t
+C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s:47     .text.gptObjectInit:00000000 gptObjectInit
+C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s:66     .text.gptStart:00000000 $t
+C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s:72     .text.gptStart:00000000 gptStart
+C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s:122    .text.gptStop:00000000 $t
+C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s:128    .text.gptStop:00000000 gptStop
+C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s:176    .text.gptChangeInterval:00000000 $t
+C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s:182    .text.gptChangeInterval:00000000 gptChangeInterval
+C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s:221    .text.gptStartContinuousI:00000000 $t
+C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s:227    .text.gptStartContinuousI:00000000 gptStartContinuousI
+C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s:246    .text.gptStartContinuous:00000000 $t
+C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s:252    .text.gptStartContinuous:00000000 gptStartContinuous
+C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s:292    .text.gptStartOneShotI:00000000 $t
+C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s:298    .text.gptStartOneShotI:00000000 gptStartOneShotI
+C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s:317    .text.gptStartOneShot:00000000 $t
+C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s:323    .text.gptStartOneShot:00000000 gptStartOneShot
+C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s:363    .text.gptStopTimerI:00000000 $t
+C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s:369    .text.gptStopTimerI:00000000 gptStopTimerI
+C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s:388    .text.gptStopTimer:00000000 $t
+C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s:394    .text.gptStopTimer:00000000 gptStopTimer
+C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s:434    .text.gptPolledDelay:00000000 $t
+C:\Users\Caitlin\AppData\Local\Temp\ccCr6RU8.s:440    .text.gptPolledDelay:00000000 gptPolledDelay
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+gpt_lld_init
+gpt_lld_start
+gpt_lld_stop
+gpt_lld_start_timer
+gpt_lld_stop_timer
+gpt_lld_polled_delay

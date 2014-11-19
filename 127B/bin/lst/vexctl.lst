@@ -1,0 +1,2485 @@
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"vexctl.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.vexControllerCompetitionStateSet,"ax",%progbits
+  19              		.align	2
+  20              		.p2align 4,,15
+  21              		.global	vexControllerCompetitionStateSet
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	vexControllerCompetitionStateSet, %function
+  25              	vexControllerCompetitionStateSet:
+  26              	.LFB63:
+  27              		.file 1 "../convex/cortex/fw/vexctl.c"
+  28              		.loc 1 70 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              	.LVL0:
+  33 0000 38B5     		push	{r3, r4, r5, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 16
+  36              		.cfi_offset 3, -16
+  37              		.cfi_offset 4, -12
+  38              		.cfi_offset 5, -8
+  39              		.cfi_offset 14, -4
+  40              		.loc 1 70 0
+  41 0002 0546     		mov	r5, r0
+  42 0004 0C46     		mov	r4, r1
+  43              		.loc 1 73 0
+  44 0006 FFF7FEFF 		bl	vexSpiGetControl
+  45              	.LVL1:
+  46 000a 00F00800 		and	r0, r0, #8
+  47 000e 83B2     		uxth	r3, r0
+  48 0010 1BB1     		cbz	r3, .L5
+  49              		.loc 1 84 0
+  50 0012 074B     		ldr	r3, .L6
+  51 0014 0020     		movs	r0, #0
+  52 0016 1880     		strh	r0, [r3, #0]	@ movhi
+  53              		.loc 1 87 0
+  54 0018 38BD     		pop	{r3, r4, r5, pc}
+  55              	.L5:
+  56              		.loc 1 80 0
+  57 001a 054B     		ldr	r3, .L6
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 2
+
+
+  58 001c 2540     		ands	r5, r5, r4
+  59              		.loc 1 79 0
+  60 001e 1A88     		ldrh	r2, [r3, #0]
+  61              		.loc 1 80 0
+  62 0020 05F0C005 		and	r5, r5, #192
+  63              		.loc 1 79 0
+  64 0024 22EA0404 		bic	r4, r2, r4
+  65              		.loc 1 80 0
+  66 0028 2C43     		orrs	r4, r4, r5
+  67 002a 1C80     		strh	r4, [r3, #0]	@ movhi
+  68              		.loc 1 81 0
+  69 002c 0120     		movs	r0, #1
+  70 002e 38BD     		pop	{r3, r4, r5, pc}
+  71              	.L7:
+  72              		.align	2
+  73              	.L6:
+  74 0030 00000000 		.word	.LANCHOR0
+  75              		.cfi_endproc
+  76              	.LFE63:
+  77              		.size	vexControllerCompetitionStateSet, .-vexControllerCompetitionStateSet
+  78 0034 AFF30080 		.section	.text.vexControllerCompetitonState,"ax",%progbits
+  78      AFF30080 
+  78      AFF30080 
+  79              		.align	2
+  80              		.p2align 4,,15
+  81              		.global	vexControllerCompetitonState
+  82              		.thumb
+  83              		.thumb_func
+  84              		.type	vexControllerCompetitonState, %function
+  85              	vexControllerCompetitonState:
+  86              	.LFB64:
+  87              		.loc 1 96 0
+  88              		.cfi_startproc
+  89              		@ args = 0, pretend = 0, frame = 0
+  90              		@ frame_needed = 0, uses_anonymous_args = 0
+  91 0000 08B5     		push	{r3, lr}
+  92              	.LCFI1:
+  93              		.cfi_def_cfa_offset 8
+  94              		.cfi_offset 3, -8
+  95              		.cfi_offset 14, -4
+  96              		.loc 1 97 0
+  97 0002 FFF7FEFF 		bl	vexSpiGetControl
+  98              	.LVL2:
+  99              		.loc 1 105 0
+ 100 0006 00F00803 		and	r3, r0, #8
+ 101 000a 9BB2     		uxth	r3, r3
+ 102 000c 1BB1     		cbz	r3, .L11
+ 103              		.loc 1 112 0
+ 104 000e 044B     		ldr	r3, .L12
+ 105 0010 0022     		movs	r2, #0
+ 106 0012 1A80     		strh	r2, [r3, #0]	@ movhi
+ 107              		.loc 1 115 0
+ 108 0014 08BD     		pop	{r3, pc}
+ 109              	.L11:
+ 110              		.loc 1 108 0
+ 111 0016 024B     		ldr	r3, .L12
+ 112 0018 1B88     		ldrh	r3, [r3, #0]
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 3
+
+
+ 113 001a 1843     		orrs	r0, r0, r3
+ 114              	.LVL3:
+ 115 001c 80B2     		uxth	r0, r0
+ 116              	.LVL4:
+ 117 001e 08BD     		pop	{r3, pc}
+ 118              	.L13:
+ 119              		.align	2
+ 120              	.L12:
+ 121 0020 00000000 		.word	.LANCHOR0
+ 122              		.cfi_endproc
+ 123              	.LFE64:
+ 124              		.size	vexControllerCompetitonState, .-vexControllerCompetitonState
+ 125              		.section	.text.vexControllerGet,"ax",%progbits
+ 126              		.align	2
+ 127              		.p2align 4,,15
+ 128              		.global	vexControllerGet
+ 129              		.thumb
+ 130              		.thumb_func
+ 131              		.type	vexControllerGet, %function
+ 132              	vexControllerGet:
+ 133              	.LFB65:
+ 134              		.loc 1 125 0
+ 135              		.cfi_startproc
+ 136              		@ args = 0, pretend = 0, frame = 0
+ 137              		@ frame_needed = 0, uses_anonymous_args = 0
+ 138              	.LVL5:
+ 139              		.loc 1 130 0
+ 140 0000 0306     		lsls	r3, r0, #24
+ 141              		.loc 1 125 0
+ 142 0002 10B5     		push	{r4, lr}
+ 143              	.LCFI2:
+ 144              		.cfi_def_cfa_offset 8
+ 145              		.cfi_offset 4, -8
+ 146              		.cfi_offset 14, -4
+ 147              		.loc 1 125 0
+ 148 0004 0446     		mov	r4, r0
+ 149              		.loc 1 130 0
+ 150 0006 15D4     		bmi	.L15
+ 151              		.loc 1 131 0
+ 152 0008 0120     		movs	r0, #1
+ 153              	.LVL6:
+ 154 000a FFF7FEFF 		bl	vexSpiGetJoystickDataPtr
+ 155              	.LVL7:
+ 156              	.L16:
+ 157              		.loc 1 136 0
+ 158 000e 04F07F04 		and	r4, r4, #127
+ 159 0012 172C     		cmp	r4, #23
+ 160 0014 00F28980 		bhi	.L46
+ 161 0018 DFE804F0 		tbb	[pc, r4]
+ 162              	.L42:
+ 163 001c 7C       		.byte	(.L18-.L42)/2
+ 164 001d 81       		.byte	(.L19-.L42)/2
+ 165 001e 75       		.byte	(.L20-.L42)/2
+ 166 001f 70       		.byte	(.L21-.L42)/2
+ 167 0020 6C       		.byte	(.L22-.L42)/2
+ 168 0021 68       		.byte	(.L23-.L42)/2
+ 169 0022 64       		.byte	(.L24-.L42)/2
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 4
+
+
+ 170 0023 60       		.byte	(.L25-.L42)/2
+ 171 0024 5C       		.byte	(.L26-.L42)/2
+ 172 0025 58       		.byte	(.L27-.L42)/2
+ 173 0026 54       		.byte	(.L28-.L42)/2
+ 174 0027 50       		.byte	(.L29-.L42)/2
+ 175 0028 4C       		.byte	(.L30-.L42)/2
+ 176 0029 48       		.byte	(.L31-.L42)/2
+ 177 002a 44       		.byte	(.L32-.L42)/2
+ 178 002b 2C       		.byte	(.L33-.L42)/2
+ 179 002c 27       		.byte	(.L34-.L42)/2
+ 180 002d 23       		.byte	(.L35-.L42)/2
+ 181 002e 1F       		.byte	(.L36-.L42)/2
+ 182 002f 37       		.byte	(.L37-.L42)/2
+ 183 0030 30       		.byte	(.L38-.L42)/2
+ 184 0031 3D       		.byte	(.L39-.L42)/2
+ 185 0032 19       		.byte	(.L40-.L42)/2
+ 186 0033 10       		.byte	(.L41-.L42)/2
+ 187              		.align	1
+ 188              	.LVL8:
+ 189              	.L15:
+ 190              		.loc 1 133 0
+ 191 0034 0220     		movs	r0, #2
+ 192              	.LVL9:
+ 193 0036 FFF7FEFF 		bl	vexSpiGetJoystickDataPtr
+ 194              	.LVL10:
+ 195 003a E8E7     		b	.L16
+ 196              	.L41:
+ 197              		.loc 1 223 0
+ 198 003c C379     		ldrb	r3, [r0, #7]	@ zero_extendqisi2
+ 199 003e 002B     		cmp	r3, #0
+ 200 0040 75D1     		bne	.L51
+ 201              		.loc 1 223 0 is_stmt 0 discriminator 2
+ 202 0042 007A     		ldrb	r0, [r0, #8]	@ zero_extendqisi2
+ 203              	.LVL11:
+ 204 0044 0030     		adds	r0, r0, #0
+ 205 0046 18BF     		it	ne
+ 206 0048 0120     		movne	r0, #1
+ 207              	.L17:
+ 208              		.loc 1 229 0 is_stmt 1
+ 209 004a 00B2     		sxth	r0, r0
+ 210 004c 10BD     		pop	{r4, pc}
+ 211              	.LVL12:
+ 212              	.L40:
+ 213              		.loc 1 218 0
+ 214 004e 007A     		ldrb	r0, [r0, #8]	@ zero_extendqisi2
+ 215              	.LVL13:
+ 216 0050 10F00F00 		ands	r0, r0, #15
+ 217 0054 18BF     		it	ne
+ 218 0056 0120     		movne	r0, #1
+ 219 0058 F7E7     		b	.L17
+ 220              	.LVL14:
+ 221              	.L36:
+ 222              		.loc 1 204 0
+ 223 005a 8079     		ldrb	r0, [r0, #6]	@ zero_extendqisi2
+ 224              	.LVL15:
+ 225 005c 7F38     		subs	r0, r0, #127
+ 226 005e 80B2     		uxth	r0, r0
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 5
+
+
+ 227 0060 F3E7     		b	.L17
+ 228              	.LVL16:
+ 229              	.L35:
+ 230              		.loc 1 201 0
+ 231 0062 0079     		ldrb	r0, [r0, #4]	@ zero_extendqisi2
+ 232              	.LVL17:
+ 233 0064 7F38     		subs	r0, r0, #127
+ 234 0066 80B2     		uxth	r0, r0
+ 235 0068 EFE7     		b	.L17
+ 236              	.LVL18:
+ 237              	.L34:
+ 238              		.loc 1 198 0
+ 239 006a 4079     		ldrb	r0, [r0, #5]	@ zero_extendqisi2
+ 240              	.LVL19:
+ 241              	.L54:
+ 242 006c 7F38     		subs	r0, r0, #127
+ 243 006e 80B2     		uxth	r0, r0
+ 244              		.loc 1 229 0
+ 245 0070 00B2     		sxth	r0, r0
+ 246 0072 10BD     		pop	{r4, pc}
+ 247              	.LVL20:
+ 248              	.L33:
+ 249              		.loc 1 193 0
+ 250 0074 C079     		ldrb	r0, [r0, #7]	@ zero_extendqisi2
+ 251              	.LVL21:
+ 252 0076 C0F3C000 		ubfx	r0, r0, #3, #1
+ 253 007a E6E7     		b	.L17
+ 254              	.LVL22:
+ 255              	.L38:
+ 256              		.loc 1 212 0
+ 257 007c C379     		ldrb	r3, [r0, #7]	@ zero_extendqisi2
+ 258 007e 13F00C0F 		tst	r3, #12
+ 259 0082 0CBF     		ite	eq
+ 260 0084 0020     		moveq	r0, #0
+ 261 0086 0120     		movne	r0, #1
+ 262              	.LVL23:
+ 263 0088 DFE7     		b	.L17
+ 264              	.LVL24:
+ 265              	.L37:
+ 266              		.loc 1 209 0
+ 267 008a C079     		ldrb	r0, [r0, #7]	@ zero_extendqisi2
+ 268              	.LVL25:
+ 269 008c 10F00300 		ands	r0, r0, #3
+ 270 0090 18BF     		it	ne
+ 271 0092 0120     		movne	r0, #1
+ 272 0094 D9E7     		b	.L17
+ 273              	.LVL26:
+ 274              	.L39:
+ 275              		.loc 1 215 0
+ 276 0096 037A     		ldrb	r3, [r0, #8]	@ zero_extendqisi2
+ 277 0098 13F0F00F 		tst	r3, #240
+ 278 009c 0CBF     		ite	eq
+ 279 009e 0020     		moveq	r0, #0
+ 280 00a0 0120     		movne	r0, #1
+ 281              	.LVL27:
+ 282 00a2 D2E7     		b	.L17
+ 283              	.LVL28:
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 6
+
+
+ 284              	.L32:
+ 285              		.loc 1 190 0
+ 286 00a4 C079     		ldrb	r0, [r0, #7]	@ zero_extendqisi2
+ 287              	.LVL29:
+ 288 00a6 C0F38000 		ubfx	r0, r0, #2, #1
+ 289 00aa CEE7     		b	.L17
+ 290              	.LVL30:
+ 291              	.L31:
+ 292              		.loc 1 186 0
+ 293 00ac C079     		ldrb	r0, [r0, #7]	@ zero_extendqisi2
+ 294              	.LVL31:
+ 295 00ae C0F34000 		ubfx	r0, r0, #1, #1
+ 296 00b2 CAE7     		b	.L17
+ 297              	.LVL32:
+ 298              	.L30:
+ 299              		.loc 1 183 0
+ 300 00b4 C079     		ldrb	r0, [r0, #7]	@ zero_extendqisi2
+ 301              	.LVL33:
+ 302 00b6 00F00100 		and	r0, r0, #1
+ 303 00ba C6E7     		b	.L17
+ 304              	.LVL34:
+ 305              	.L29:
+ 306              		.loc 1 179 0
+ 307 00bc 90F90800 		ldrsb	r0, [r0, #8]
+ 308              	.LVL35:
+ 309 00c0 C00F     		lsrs	r0, r0, #31
+ 310 00c2 C2E7     		b	.L17
+ 311              	.LVL36:
+ 312              	.L28:
+ 313              		.loc 1 176 0
+ 314 00c4 007A     		ldrb	r0, [r0, #8]	@ zero_extendqisi2
+ 315              	.LVL37:
+ 316 00c6 C0F38010 		ubfx	r0, r0, #6, #1
+ 317 00ca BEE7     		b	.L17
+ 318              	.LVL38:
+ 319              	.L27:
+ 320              		.loc 1 173 0
+ 321 00cc 007A     		ldrb	r0, [r0, #8]	@ zero_extendqisi2
+ 322              	.LVL39:
+ 323 00ce C0F34010 		ubfx	r0, r0, #5, #1
+ 324 00d2 BAE7     		b	.L17
+ 325              	.LVL40:
+ 326              	.L26:
+ 327              		.loc 1 170 0
+ 328 00d4 007A     		ldrb	r0, [r0, #8]	@ zero_extendqisi2
+ 329              	.LVL41:
+ 330 00d6 C0F30010 		ubfx	r0, r0, #4, #1
+ 331 00da B6E7     		b	.L17
+ 332              	.LVL42:
+ 333              	.L25:
+ 334              		.loc 1 166 0
+ 335 00dc 007A     		ldrb	r0, [r0, #8]	@ zero_extendqisi2
+ 336              	.LVL43:
+ 337 00de C0F3C000 		ubfx	r0, r0, #3, #1
+ 338 00e2 B2E7     		b	.L17
+ 339              	.LVL44:
+ 340              	.L24:
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 7
+
+
+ 341              		.loc 1 163 0
+ 342 00e4 007A     		ldrb	r0, [r0, #8]	@ zero_extendqisi2
+ 343              	.LVL45:
+ 344 00e6 C0F38000 		ubfx	r0, r0, #2, #1
+ 345 00ea AEE7     		b	.L17
+ 346              	.LVL46:
+ 347              	.L23:
+ 348              		.loc 1 160 0
+ 349 00ec 007A     		ldrb	r0, [r0, #8]	@ zero_extendqisi2
+ 350              	.LVL47:
+ 351 00ee C0F34000 		ubfx	r0, r0, #1, #1
+ 352 00f2 AAE7     		b	.L17
+ 353              	.LVL48:
+ 354              	.L22:
+ 355              		.loc 1 157 0
+ 356 00f4 007A     		ldrb	r0, [r0, #8]	@ zero_extendqisi2
+ 357              	.LVL49:
+ 358 00f6 00F00100 		and	r0, r0, #1
+ 359 00fa A6E7     		b	.L17
+ 360              	.LVL50:
+ 361              	.L21:
+ 362              		.loc 1 152 0
+ 363 00fc C078     		ldrb	r0, [r0, #3]	@ zero_extendqisi2
+ 364              	.LVL51:
+ 365 00fe FF28     		cmp	r0, #255
+ 366 0100 B4D1     		bne	.L54
+ 367              		.loc 1 140 0
+ 368 0102 7F20     		movs	r0, #127
+ 369 0104 A1E7     		b	.L17
+ 370              	.LVL52:
+ 371              	.L20:
+ 372              		.loc 1 148 0
+ 373 0106 8078     		ldrb	r0, [r0, #2]	@ zero_extendqisi2
+ 374              	.LVL53:
+ 375 0108 FF28     		cmp	r0, #255
+ 376 010a 0BD0     		beq	.L49
+ 377              	.L52:
+ 378 010c C0F17F00 		rsb	r0, r0, #127
+ 379 0110 80B2     		uxth	r0, r0
+ 380 0112 9AE7     		b	.L17
+ 381              	.LVL54:
+ 382              	.L18:
+ 383              		.loc 1 140 0
+ 384 0114 0078     		ldrb	r0, [r0, #0]	@ zero_extendqisi2
+ 385              	.LVL55:
+ 386 0116 FF28     		cmp	r0, #255
+ 387 0118 A8D1     		bne	.L54
+ 388 011a 7F20     		movs	r0, #127
+ 389 011c 95E7     		b	.L17
+ 390              	.LVL56:
+ 391              	.L19:
+ 392              		.loc 1 144 0
+ 393 011e 4078     		ldrb	r0, [r0, #1]	@ zero_extendqisi2
+ 394              	.LVL57:
+ 395 0120 FF28     		cmp	r0, #255
+ 396 0122 F3D1     		bne	.L52
+ 397              	.L49:
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 8
+
+
+ 398              		.loc 1 148 0
+ 399 0124 4FF68170 		movw	r0, #65409
+ 400              		.loc 1 149 0
+ 401 0128 8FE7     		b	.L17
+ 402              	.LVL58:
+ 403              	.L46:
+ 404              		.loc 1 227 0
+ 405 012a 0020     		movs	r0, #0
+ 406              	.LVL59:
+ 407 012c 8DE7     		b	.L17
+ 408              	.LVL60:
+ 409              	.L51:
+ 410              		.loc 1 223 0
+ 411 012e 0120     		movs	r0, #1
+ 412              	.LVL61:
+ 413 0130 8BE7     		b	.L17
+ 414              		.cfi_endproc
+ 415              	.LFE65:
+ 416              		.size	vexControllerGet, .-vexControllerGet
+ 417 0132 00BFAFF3 		.section	.text.vexControllerReleaseWait,"ax",%progbits
+ 417      0080AFF3 
+ 417      0080AFF3 
+ 417      0080
+ 418              		.align	2
+ 419              		.p2align 4,,15
+ 420              		.global	vexControllerReleaseWait
+ 421              		.thumb
+ 422              		.thumb_func
+ 423              		.type	vexControllerReleaseWait, %function
+ 424              	vexControllerReleaseWait:
+ 425              	.LFB66:
+ 426              		.loc 1 237 0
+ 427              		.cfi_startproc
+ 428              		@ args = 0, pretend = 0, frame = 0
+ 429              		@ frame_needed = 0, uses_anonymous_args = 0
+ 430              	.LVL62:
+ 431 0000 38B5     		push	{r3, r4, r5, lr}
+ 432              	.LCFI3:
+ 433              		.cfi_def_cfa_offset 16
+ 434              		.cfi_offset 3, -16
+ 435              		.cfi_offset 4, -12
+ 436              		.cfi_offset 5, -8
+ 437              		.cfi_offset 14, -4
+ 438              		.loc 1 242 0
+ 439 0002 00F07F03 		and	r3, r0, #127
+ 440 0006 032B     		cmp	r3, #3
+ 441              		.loc 1 237 0
+ 442 0008 0546     		mov	r5, r0
+ 443              		.loc 1 242 0
+ 444 000a 0BDD     		ble	.L56
+ 445 000c C824     		movs	r4, #200
+ 446 000e 04E0     		b	.L57
+ 447              	.LVL63:
+ 448              	.L64:
+ 449              		.loc 1 251 0
+ 450 0010 1920     		movs	r0, #25
+ 451 0012 FFF7FEFF 		bl	vexSleep
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 9
+
+
+ 452              	.LVL64:
+ 453              		.loc 1 246 0
+ 454 0016 013C     		subs	r4, r4, #1
+ 455 0018 04D0     		beq	.L56
+ 456              	.L57:
+ 457              		.loc 1 248 0
+ 458 001a 2846     		mov	r0, r5
+ 459 001c FFF7FEFF 		bl	vexControllerGet
+ 460              	.LVL65:
+ 461 0020 0028     		cmp	r0, #0
+ 462 0022 F5D1     		bne	.L64
+ 463              	.L56:
+ 464 0024 38BD     		pop	{r3, r4, r5, pc}
+ 465              		.cfi_endproc
+ 466              	.LFE66:
+ 467              		.size	vexControllerReleaseWait, .-vexControllerReleaseWait
+ 468 0026 00BFAFF3 		.section	.bss.vexLocalCompState,"aw",%nobits
+ 468      0080AFF3 
+ 468      0080
+ 469              		.align	1
+ 470              		.set	.LANCHOR0,. + 0
+ 471              		.type	vexLocalCompState, %object
+ 472              		.size	vexLocalCompState, 2
+ 473              	vexLocalCompState:
+ 474 0000 0000     		.space	2
+ 475              		.text
+ 476              	.Letext0:
+ 477              		.file 2 "c:/program files (x86)/pros/toolchain/lib/gcc/../../arm-none-eabi/include/stdint.h"
+ 478              		.file 3 "../convex/cortex/fw/vexdigital.h"
+ 479              		.file 4 "../convex/cortex/fw/vexime.h"
+ 480              		.file 5 "../convex/cortex/fw/vexspi.h"
+ 481              		.file 6 "../convex/cortex/fw/vexctl.h"
+ 482              		.file 7 "../ChibiOS_2.6.2/os/ports/common/ARMCMx/CMSIS/include/core_cm3.h"
+ 483              		.file 8 "../convex/cortex/fw/vex.h"
+ 484              		.section	.debug_info,"",%progbits
+ 485              	.Ldebug_info0:
+ 486 0000 2D050000 		.4byte	0x52d
+ 487 0004 0200     		.2byte	0x2
+ 488 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 489 000a 04       		.byte	0x4
+ 490 000b 01       		.uleb128 0x1
+ 491 000c 1D030000 		.4byte	.LASF107
+ 492 0010 01       		.byte	0x1
+ 493 0011 1B010000 		.4byte	.LASF108
+ 494 0015 92020000 		.4byte	.LASF109
+ 495 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 496 001d 00000000 		.4byte	0
+ 497 0021 00000000 		.4byte	0
+ 498 0025 00000000 		.4byte	.Ldebug_line0
+ 499 0029 02       		.uleb128 0x2
+ 500 002a 04       		.byte	0x4
+ 501 002b 05       		.byte	0x5
+ 502 002c 696E7400 		.ascii	"int\000"
+ 503 0030 03       		.uleb128 0x3
+ 504 0031 04       		.byte	0x4
+ 505 0032 07       		.byte	0x7
+ 506 0033 BC010000 		.4byte	.LASF0
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 10
+
+
+ 507 0037 03       		.uleb128 0x3
+ 508 0038 01       		.byte	0x1
+ 509 0039 06       		.byte	0x6
+ 510 003a DD020000 		.4byte	.LASF1
+ 511 003e 03       		.uleb128 0x3
+ 512 003f 01       		.byte	0x1
+ 513 0040 08       		.byte	0x8
+ 514 0041 AD020000 		.4byte	.LASF2
+ 515 0045 04       		.uleb128 0x4
+ 516 0046 E5040000 		.4byte	.LASF4
+ 517 004a 02       		.byte	0x2
+ 518 004b 35       		.byte	0x35
+ 519 004c 50000000 		.4byte	0x50
+ 520 0050 03       		.uleb128 0x3
+ 521 0051 02       		.byte	0x2
+ 522 0052 05       		.byte	0x5
+ 523 0053 F9000000 		.4byte	.LASF3
+ 524 0057 04       		.uleb128 0x4
+ 525 0058 14030000 		.4byte	.LASF5
+ 526 005c 02       		.byte	0x2
+ 527 005d 36       		.byte	0x36
+ 528 005e 62000000 		.4byte	0x62
+ 529 0062 03       		.uleb128 0x3
+ 530 0063 02       		.byte	0x2
+ 531 0064 07       		.byte	0x7
+ 532 0065 4D030000 		.4byte	.LASF6
+ 533 0069 04       		.uleb128 0x4
+ 534 006a 81030000 		.4byte	.LASF7
+ 535 006e 02       		.byte	0x2
+ 536 006f 4F       		.byte	0x4f
+ 537 0070 74000000 		.4byte	0x74
+ 538 0074 03       		.uleb128 0x3
+ 539 0075 04       		.byte	0x4
+ 540 0076 05       		.byte	0x5
+ 541 0077 F4010000 		.4byte	.LASF8
+ 542 007b 03       		.uleb128 0x3
+ 543 007c 04       		.byte	0x4
+ 544 007d 07       		.byte	0x7
+ 545 007e 15040000 		.4byte	.LASF9
+ 546 0082 03       		.uleb128 0x3
+ 547 0083 08       		.byte	0x8
+ 548 0084 05       		.byte	0x5
+ 549 0085 C9010000 		.4byte	.LASF10
+ 550 0089 03       		.uleb128 0x3
+ 551 008a 08       		.byte	0x8
+ 552 008b 07       		.byte	0x7
+ 553 008c E9020000 		.4byte	.LASF11
+ 554 0090 03       		.uleb128 0x3
+ 555 0091 01       		.byte	0x1
+ 556 0092 02       		.byte	0x2
+ 557 0093 DD030000 		.4byte	.LASF12
+ 558 0097 03       		.uleb128 0x3
+ 559 0098 04       		.byte	0x4
+ 560 0099 07       		.byte	0x7
+ 561 009a B2000000 		.4byte	.LASF13
+ 562 009e 03       		.uleb128 0x3
+ 563 009f 01       		.byte	0x1
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 11
+
+
+ 564 00a0 08       		.byte	0x8
+ 565 00a1 60030000 		.4byte	.LASF14
+ 566 00a5 05       		.uleb128 0x5
+ 567 00a6 69000000 		.4byte	0x69
+ 568 00aa 06       		.uleb128 0x6
+ 569 00ab 01       		.byte	0x1
+ 570 00ac 03       		.byte	0x3
+ 571 00ad 8D       		.byte	0x8d
+ 572 00ae 07010000 		.4byte	0x107
+ 573 00b2 07       		.uleb128 0x7
+ 574 00b3 0C000000 		.4byte	.LASF15
+ 575 00b7 7F       		.sleb128 -1
+ 576 00b8 07       		.uleb128 0x7
+ 577 00b9 65030000 		.4byte	.LASF16
+ 578 00bd 00       		.sleb128 0
+ 579 00be 07       		.uleb128 0x7
+ 580 00bf 73030000 		.4byte	.LASF17
+ 581 00c3 01       		.sleb128 1
+ 582 00c4 07       		.uleb128 0x7
+ 583 00c5 06030000 		.4byte	.LASF18
+ 584 00c9 02       		.sleb128 2
+ 585 00ca 07       		.uleb128 0x7
+ 586 00cb 89030000 		.4byte	.LASF19
+ 587 00cf 03       		.sleb128 3
+ 588 00d0 07       		.uleb128 0x7
+ 589 00d1 97030000 		.4byte	.LASF20
+ 590 00d5 04       		.sleb128 4
+ 591 00d6 07       		.uleb128 0x7
+ 592 00d7 A5030000 		.4byte	.LASF21
+ 593 00db 05       		.sleb128 5
+ 594 00dc 07       		.uleb128 0x7
+ 595 00dd B3030000 		.4byte	.LASF22
+ 596 00e1 06       		.sleb128 6
+ 597 00e2 07       		.uleb128 0x7
+ 598 00e3 C1030000 		.4byte	.LASF23
+ 599 00e7 07       		.sleb128 7
+ 600 00e8 07       		.uleb128 0x7
+ 601 00e9 CF030000 		.4byte	.LASF24
+ 602 00ed 08       		.sleb128 8
+ 603 00ee 07       		.uleb128 0x7
+ 604 00ef 79010000 		.4byte	.LASF25
+ 605 00f3 09       		.sleb128 9
+ 606 00f4 07       		.uleb128 0x7
+ 607 00f5 88010000 		.4byte	.LASF26
+ 608 00f9 0A       		.sleb128 10
+ 609 00fa 07       		.uleb128 0x7
+ 610 00fb 97010000 		.4byte	.LASF27
+ 611 00ff 0B       		.sleb128 11
+ 612 0100 07       		.uleb128 0x7
+ 613 0101 BF040000 		.4byte	.LASF28
+ 614 0105 0C       		.sleb128 12
+ 615 0106 00       		.byte	0
+ 616 0107 06       		.uleb128 0x6
+ 617 0108 01       		.byte	0x1
+ 618 0109 03       		.byte	0x3
+ 619 010a A2       		.byte	0xa2
+ 620 010b 1C010000 		.4byte	0x11c
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 12
+
+
+ 621 010f 07       		.uleb128 0x7
+ 622 0110 17020000 		.4byte	.LASF29
+ 623 0114 00       		.sleb128 0
+ 624 0115 07       		.uleb128 0x7
+ 625 0116 03010000 		.4byte	.LASF30
+ 626 011a 01       		.sleb128 1
+ 627 011b 00       		.byte	0
+ 628 011c 06       		.uleb128 0x6
+ 629 011d 01       		.byte	0x1
+ 630 011e 04       		.byte	0x4
+ 631 011f 46       		.byte	0x46
+ 632 0120 62010000 		.4byte	0x162
+ 633 0124 07       		.uleb128 0x7
+ 634 0125 2D000000 		.4byte	.LASF31
+ 635 0129 00       		.sleb128 0
+ 636 012a 07       		.uleb128 0x7
+ 637 012b 3B000000 		.4byte	.LASF32
+ 638 012f 01       		.sleb128 1
+ 639 0130 07       		.uleb128 0x7
+ 640 0131 49000000 		.4byte	.LASF33
+ 641 0135 02       		.sleb128 2
+ 642 0136 07       		.uleb128 0x7
+ 643 0137 57000000 		.4byte	.LASF34
+ 644 013b 03       		.sleb128 3
+ 645 013c 07       		.uleb128 0x7
+ 646 013d 65000000 		.4byte	.LASF35
+ 647 0141 04       		.sleb128 4
+ 648 0142 07       		.uleb128 0x7
+ 649 0143 73000000 		.4byte	.LASF36
+ 650 0147 05       		.sleb128 5
+ 651 0148 07       		.uleb128 0x7
+ 652 0149 81000000 		.4byte	.LASF37
+ 653 014d 06       		.sleb128 6
+ 654 014e 07       		.uleb128 0x7
+ 655 014f 8F000000 		.4byte	.LASF38
+ 656 0153 07       		.sleb128 7
+ 657 0154 07       		.uleb128 0x7
+ 658 0155 BB000000 		.4byte	.LASF39
+ 659 0159 08       		.sleb128 8
+ 660 015a 07       		.uleb128 0x7
+ 661 015b 1D000000 		.4byte	.LASF40
+ 662 015f E300     		.sleb128 99
+ 663 0161 00       		.byte	0
+ 664 0162 08       		.uleb128 0x8
+ 665 0163 E3030000 		.4byte	.LASF110
+ 666 0167 0B       		.byte	0xb
+ 667 0168 05       		.byte	0x5
+ 668 0169 57       		.byte	0x57
+ 669 016a ED010000 		.4byte	0x1ed
+ 670 016e 09       		.uleb128 0x9
+ 671 016f 43683100 		.ascii	"Ch1\000"
+ 672 0173 05       		.byte	0x5
+ 673 0174 58       		.byte	0x58
+ 674 0175 9E000000 		.4byte	0x9e
+ 675 0179 02       		.byte	0x2
+ 676 017a 23       		.byte	0x23
+ 677 017b 00       		.uleb128 0
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 13
+
+
+ 678 017c 09       		.uleb128 0x9
+ 679 017d 43683200 		.ascii	"Ch2\000"
+ 680 0181 05       		.byte	0x5
+ 681 0182 59       		.byte	0x59
+ 682 0183 9E000000 		.4byte	0x9e
+ 683 0187 02       		.byte	0x2
+ 684 0188 23       		.byte	0x23
+ 685 0189 01       		.uleb128 0x1
+ 686 018a 09       		.uleb128 0x9
+ 687 018b 43683300 		.ascii	"Ch3\000"
+ 688 018f 05       		.byte	0x5
+ 689 0190 5A       		.byte	0x5a
+ 690 0191 9E000000 		.4byte	0x9e
+ 691 0195 02       		.byte	0x2
+ 692 0196 23       		.byte	0x23
+ 693 0197 02       		.uleb128 0x2
+ 694 0198 09       		.uleb128 0x9
+ 695 0199 43683400 		.ascii	"Ch4\000"
+ 696 019d 05       		.byte	0x5
+ 697 019e 5B       		.byte	0x5b
+ 698 019f 9E000000 		.4byte	0x9e
+ 699 01a3 02       		.byte	0x2
+ 700 01a4 23       		.byte	0x23
+ 701 01a5 03       		.uleb128 0x3
+ 702 01a6 0A       		.uleb128 0xa
+ 703 01a7 06000000 		.4byte	.LASF41
+ 704 01ab 05       		.byte	0x5
+ 705 01ac 5C       		.byte	0x5c
+ 706 01ad 9E000000 		.4byte	0x9e
+ 707 01b1 02       		.byte	0x2
+ 708 01b2 23       		.byte	0x23
+ 709 01b3 04       		.uleb128 0x4
+ 710 01b4 0A       		.uleb128 0xa
+ 711 01b5 9D000000 		.4byte	.LASF42
+ 712 01b9 05       		.byte	0x5
+ 713 01ba 5D       		.byte	0x5d
+ 714 01bb 9E000000 		.4byte	0x9e
+ 715 01bf 02       		.byte	0x2
+ 716 01c0 23       		.byte	0x23
+ 717 01c1 05       		.uleb128 0x5
+ 718 01c2 0A       		.uleb128 0xa
+ 719 01c3 AC000000 		.4byte	.LASF43
+ 720 01c7 05       		.byte	0x5
+ 721 01c8 5E       		.byte	0x5e
+ 722 01c9 9E000000 		.4byte	0x9e
+ 723 01cd 02       		.byte	0x2
+ 724 01ce 23       		.byte	0x23
+ 725 01cf 06       		.uleb128 0x6
+ 726 01d0 0A       		.uleb128 0xa
+ 727 01d1 87020000 		.4byte	.LASF44
+ 728 01d5 05       		.byte	0x5
+ 729 01d6 5F       		.byte	0x5f
+ 730 01d7 ED010000 		.4byte	0x1ed
+ 731 01db 02       		.byte	0x2
+ 732 01dc 23       		.byte	0x23
+ 733 01dd 07       		.uleb128 0x7
+ 734 01de 09       		.uleb128 0x9
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 14
+
+
+ 735 01df 72657300 		.ascii	"res\000"
+ 736 01e3 05       		.byte	0x5
+ 737 01e4 60       		.byte	0x60
+ 738 01e5 ED010000 		.4byte	0x1ed
+ 739 01e9 02       		.byte	0x2
+ 740 01ea 23       		.byte	0x23
+ 741 01eb 09       		.uleb128 0x9
+ 742 01ec 00       		.byte	0
+ 743 01ed 0B       		.uleb128 0xb
+ 744 01ee 3E000000 		.4byte	0x3e
+ 745 01f2 FD010000 		.4byte	0x1fd
+ 746 01f6 0C       		.uleb128 0xc
+ 747 01f7 97000000 		.4byte	0x97
+ 748 01fb 01       		.byte	0x1
+ 749 01fc 00       		.byte	0
+ 750 01fd 04       		.uleb128 0x4
+ 751 01fe 66040000 		.4byte	.LASF45
+ 752 0202 05       		.byte	0x5
+ 753 0203 61       		.byte	0x61
+ 754 0204 62010000 		.4byte	0x162
+ 755 0208 06       		.uleb128 0x6
+ 756 0209 01       		.byte	0x1
+ 757 020a 06       		.byte	0x6
+ 758 020b 3F       		.byte	0x3f
+ 759 020c 49030000 		.4byte	0x349
+ 760 0210 0D       		.uleb128 0xd
+ 761 0211 43683100 		.ascii	"Ch1\000"
+ 762 0215 00       		.sleb128 0
+ 763 0216 0D       		.uleb128 0xd
+ 764 0217 43683200 		.ascii	"Ch2\000"
+ 765 021b 01       		.sleb128 1
+ 766 021c 0D       		.uleb128 0xd
+ 767 021d 43683300 		.ascii	"Ch3\000"
+ 768 0221 02       		.sleb128 2
+ 769 0222 0D       		.uleb128 0xd
+ 770 0223 43683400 		.ascii	"Ch4\000"
+ 771 0227 03       		.sleb128 3
+ 772 0228 07       		.uleb128 0x7
+ 773 0229 F6030000 		.4byte	.LASF46
+ 774 022d 04       		.sleb128 4
+ 775 022e 07       		.uleb128 0x7
+ 776 022f 38040000 		.4byte	.LASF47
+ 777 0233 05       		.sleb128 5
+ 778 0234 07       		.uleb128 0x7
+ 779 0235 8F040000 		.4byte	.LASF48
+ 780 0239 06       		.sleb128 6
+ 781 023a 07       		.uleb128 0x7
+ 782 023b 6D040000 		.4byte	.LASF49
+ 783 023f 07       		.sleb128 7
+ 784 0240 07       		.uleb128 0x7
+ 785 0241 8C020000 		.4byte	.LASF50
+ 786 0245 08       		.sleb128 8
+ 787 0246 07       		.uleb128 0x7
+ 788 0247 CE020000 		.4byte	.LASF51
+ 789 024b 09       		.sleb128 9
+ 790 024c 07       		.uleb128 0x7
+ 791 024d 00030000 		.4byte	.LASF52
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 15
+
+
+ 792 0251 0A       		.sleb128 10
+ 793 0252 07       		.uleb128 0x7
+ 794 0253 32040000 		.4byte	.LASF53
+ 795 0257 0B       		.sleb128 11
+ 796 0258 07       		.uleb128 0x7
+ 797 0259 29030000 		.4byte	.LASF54
+ 798 025d 0C       		.sleb128 12
+ 799 025e 07       		.uleb128 0x7
+ 800 025f 00000000 		.4byte	.LASF55
+ 801 0263 0D       		.sleb128 13
+ 802 0264 07       		.uleb128 0x7
+ 803 0265 15010000 		.4byte	.LASF56
+ 804 0269 0E       		.sleb128 14
+ 805 026a 07       		.uleb128 0x7
+ 806 026b 69010000 		.4byte	.LASF57
+ 807 026f 0F       		.sleb128 15
+ 808 0270 07       		.uleb128 0x7
+ 809 0271 38010000 		.4byte	.LASF58
+ 810 0275 10       		.sleb128 16
+ 811 0276 07       		.uleb128 0x7
+ 812 0277 3E010000 		.4byte	.LASF59
+ 813 027b 11       		.sleb128 17
+ 814 027c 07       		.uleb128 0x7
+ 815 027d 44010000 		.4byte	.LASF60
+ 816 0281 12       		.sleb128 18
+ 817 0282 07       		.uleb128 0x7
+ 818 0283 21050000 		.4byte	.LASF61
+ 819 0287 13       		.sleb128 19
+ 820 0288 07       		.uleb128 0x7
+ 821 0289 26050000 		.4byte	.LASF62
+ 822 028d 14       		.sleb128 20
+ 823 028e 07       		.uleb128 0x7
+ 824 028f 2B050000 		.4byte	.LASF63
+ 825 0293 15       		.sleb128 21
+ 826 0294 07       		.uleb128 0x7
+ 827 0295 30050000 		.4byte	.LASF64
+ 828 0299 16       		.sleb128 22
+ 829 029a 07       		.uleb128 0x7
+ 830 029b FD010000 		.4byte	.LASF65
+ 831 029f 17       		.sleb128 23
+ 832 02a0 07       		.uleb128 0x7
+ 833 02a1 C5020000 		.4byte	.LASF66
+ 834 02a5 8001     		.sleb128 128
+ 835 02a7 07       		.uleb128 0x7
+ 836 02a8 A3000000 		.4byte	.LASF67
+ 837 02ac 8101     		.sleb128 129
+ 838 02ae 07       		.uleb128 0x7
+ 839 02af 39030000 		.4byte	.LASF68
+ 840 02b3 8201     		.sleb128 130
+ 841 02b5 07       		.uleb128 0x7
+ 842 02b6 04020000 		.4byte	.LASF69
+ 843 02ba 8301     		.sleb128 131
+ 844 02bc 07       		.uleb128 0x7
+ 845 02bd 68020000 		.4byte	.LASF70
+ 846 02c1 8401     		.sleb128 132
+ 847 02c3 07       		.uleb128 0x7
+ 848 02c4 ED040000 		.4byte	.LASF71
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 16
+
+
+ 849 02c8 8501     		.sleb128 133
+ 850 02ca 07       		.uleb128 0x7
+ 851 02cb 95040000 		.4byte	.LASF72
+ 852 02cf 8601     		.sleb128 134
+ 853 02d1 07       		.uleb128 0x7
+ 854 02d2 A0040000 		.4byte	.LASF73
+ 855 02d6 8701     		.sleb128 135
+ 856 02d8 07       		.uleb128 0x7
+ 857 02d9 F8040000 		.4byte	.LASF74
+ 858 02dd 8801     		.sleb128 136
+ 859 02df 07       		.uleb128 0x7
+ 860 02e0 E2010000 		.4byte	.LASF75
+ 861 02e4 8901     		.sleb128 137
+ 862 02e6 07       		.uleb128 0x7
+ 863 02e7 A6010000 		.4byte	.LASF76
+ 864 02eb 8A01     		.sleb128 138
+ 865 02ed 07       		.uleb128 0x7
+ 866 02ee B1010000 		.4byte	.LASF77
+ 867 02f2 8B01     		.sleb128 139
+ 868 02f4 07       		.uleb128 0x7
+ 869 02f5 84040000 		.4byte	.LASF78
+ 870 02f9 8C01     		.sleb128 140
+ 871 02fb 07       		.uleb128 0x7
+ 872 02fc 42030000 		.4byte	.LASF79
+ 873 0300 8D01     		.sleb128 141
+ 874 0302 07       		.uleb128 0x7
+ 875 0303 D7010000 		.4byte	.LASF80
+ 876 0307 8E01     		.sleb128 142
+ 877 0309 07       		.uleb128 0x7
+ 878 030a 27040000 		.4byte	.LASF81
+ 879 030e 8F01     		.sleb128 143
+ 880 0310 07       		.uleb128 0x7
+ 881 0311 3E040000 		.4byte	.LASF82
+ 882 0315 9001     		.sleb128 144
+ 883 0317 07       		.uleb128 0x7
+ 884 0318 EB030000 		.4byte	.LASF83
+ 885 031c 9101     		.sleb128 145
+ 886 031e 07       		.uleb128 0x7
+ 887 031f C5000000 		.4byte	.LASF84
+ 888 0323 9201     		.sleb128 146
+ 889 0325 07       		.uleb128 0x7
+ 890 0326 BB020000 		.4byte	.LASF85
+ 891 032a 9301     		.sleb128 147
+ 892 032c 07       		.uleb128 0x7
+ 893 032d 66050000 		.4byte	.LASF86
+ 894 0331 9401     		.sleb128 148
+ 895 0333 07       		.uleb128 0x7
+ 896 0334 2F030000 		.4byte	.LASF87
+ 897 0338 9501     		.sleb128 149
+ 898 033a 07       		.uleb128 0x7
+ 899 033b 0D020000 		.4byte	.LASF88
+ 900 033f 9601     		.sleb128 150
+ 901 0341 07       		.uleb128 0x7
+ 902 0342 73040000 		.4byte	.LASF89
+ 903 0346 9701     		.sleb128 151
+ 904 0348 00       		.byte	0
+ 905 0349 04       		.uleb128 0x4
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 17
+
+
+ 906 034a 54050000 		.4byte	.LASF90
+ 907 034e 06       		.byte	0x6
+ 908 034f 51       		.byte	0x51
+ 909 0350 08020000 		.4byte	0x208
+ 910 0354 06       		.uleb128 0x6
+ 911 0355 01       		.byte	0x1
+ 912 0356 06       		.byte	0x6
+ 913 0357 56       		.byte	0x56
+ 914 0358 95030000 		.4byte	0x395
+ 915 035c 07       		.uleb128 0x7
+ 916 035d 59020000 		.4byte	.LASF91
+ 917 0361 00       		.sleb128 0
+ 918 0362 07       		.uleb128 0x7
+ 919 0363 CF040000 		.4byte	.LASF92
+ 920 0367 01       		.sleb128 1
+ 921 0368 07       		.uleb128 0x7
+ 922 0369 DA040000 		.4byte	.LASF93
+ 923 036d 02       		.sleb128 2
+ 924 036e 07       		.uleb128 0x7
+ 925 036f 6F010000 		.4byte	.LASF94
+ 926 0373 04       		.sleb128 4
+ 927 0374 07       		.uleb128 0x7
+ 928 0375 D0000000 		.4byte	.LASF95
+ 929 0379 08       		.sleb128 8
+ 930 037a 07       		.uleb128 0x7
+ 931 037b 28020000 		.4byte	.LASF96
+ 932 037f 10       		.sleb128 16
+ 933 0380 07       		.uleb128 0x7
+ 934 0381 AB040000 		.4byte	.LASF97
+ 935 0385 20       		.sleb128 32
+ 936 0386 07       		.uleb128 0x7
+ 937 0387 73020000 		.4byte	.LASF98
+ 938 038b C000     		.sleb128 64
+ 939 038d 07       		.uleb128 0x7
+ 940 038e 35050000 		.4byte	.LASF99
+ 941 0392 8001     		.sleb128 128
+ 942 0394 00       		.byte	0
+ 943 0395 0E       		.uleb128 0xe
+ 944 0396 01       		.byte	0x1
+ 945 0397 38020000 		.4byte	.LASF101
+ 946 039b 01       		.byte	0x1
+ 947 039c 45       		.byte	0x45
+ 948 039d 01       		.byte	0x1
+ 949 039e 45000000 		.4byte	0x45
+ 950 03a2 00000000 		.4byte	.LFB63
+ 951 03a6 34000000 		.4byte	.LFE63
+ 952 03aa 00000000 		.4byte	.LLST0
+ 953 03ae 01       		.byte	0x1
+ 954 03af DB030000 		.4byte	0x3db
+ 955 03b3 0F       		.uleb128 0xf
+ 956 03b4 63746C00 		.ascii	"ctl\000"
+ 957 03b8 01       		.byte	0x1
+ 958 03b9 45       		.byte	0x45
+ 959 03ba 57000000 		.4byte	0x57
+ 960 03be 20000000 		.4byte	.LLST1
+ 961 03c2 10       		.uleb128 0x10
+ 962 03c3 7F040000 		.4byte	.LASF100
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 18
+
+
+ 963 03c7 01       		.byte	0x1
+ 964 03c8 45       		.byte	0x45
+ 965 03c9 45000000 		.4byte	0x45
+ 966 03cd 41000000 		.4byte	.LLST2
+ 967 03d1 11       		.uleb128 0x11
+ 968 03d2 0A000000 		.4byte	.LVL1
+ 969 03d6 FA040000 		.4byte	0x4fa
+ 970 03da 00       		.byte	0
+ 971 03db 0E       		.uleb128 0xe
+ 972 03dc 01       		.byte	0x1
+ 973 03dd 49040000 		.4byte	.LASF102
+ 974 03e1 01       		.byte	0x1
+ 975 03e2 5F       		.byte	0x5f
+ 976 03e3 01       		.byte	0x1
+ 977 03e4 57000000 		.4byte	0x57
+ 978 03e8 00000000 		.4byte	.LFB64
+ 979 03ec 24000000 		.4byte	.LFE64
+ 980 03f0 62000000 		.4byte	.LLST3
+ 981 03f4 01       		.byte	0x1
+ 982 03f5 12040000 		.4byte	0x412
+ 983 03f9 12       		.uleb128 0x12
+ 984 03fa 63746C00 		.ascii	"ctl\000"
+ 985 03fe 01       		.byte	0x1
+ 986 03ff 61       		.byte	0x61
+ 987 0400 57000000 		.4byte	0x57
+ 988 0404 82000000 		.4byte	.LLST4
+ 989 0408 11       		.uleb128 0x11
+ 990 0409 06000000 		.4byte	.LVL2
+ 991 040d FA040000 		.4byte	0x4fa
+ 992 0411 00       		.byte	0
+ 993 0412 0E       		.uleb128 0xe
+ 994 0413 01       		.byte	0x1
+ 995 0414 03050000 		.4byte	.LASF103
+ 996 0418 01       		.byte	0x1
+ 997 0419 7C       		.byte	0x7c
+ 998 041a 01       		.byte	0x1
+ 999 041b 45000000 		.4byte	0x45
+ 1000 041f 00000000 		.4byte	.LFB65
+ 1001 0423 32010000 		.4byte	.LFE65
+ 1002 0427 A0000000 		.4byte	.LLST5
+ 1003 042b 01       		.byte	0x1
+ 1004 042c 7D040000 		.4byte	0x47d
+ 1005 0430 10       		.uleb128 0x10
+ 1006 0431 4A010000 		.4byte	.LASF104
+ 1007 0435 01       		.byte	0x1
+ 1008 0436 7C       		.byte	0x7c
+ 1009 0437 49030000 		.4byte	0x349
+ 1010 043b C0000000 		.4byte	.LLST6
+ 1011 043f 12       		.uleb128 0x12
+ 1012 0440 6A7300   		.ascii	"js\000"
+ 1013 0443 01       		.byte	0x1
+ 1014 0444 7E       		.byte	0x7e
+ 1015 0445 7D040000 		.4byte	0x47d
+ 1016 0449 FA000000 		.4byte	.LLST7
+ 1017 044d 13       		.uleb128 0x13
+ 1018 044e ED010000 		.4byte	.LASF105
+ 1019 0452 01       		.byte	0x1
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 19
+
+
+ 1020 0453 7F       		.byte	0x7f
+ 1021 0454 45000000 		.4byte	0x45
+ 1022 0458 01       		.byte	0x1
+ 1023 0459 50       		.byte	0x50
+ 1024 045a 14       		.uleb128 0x14
+ 1025 045b 0E000000 		.4byte	.LVL7
+ 1026 045f 08050000 		.4byte	0x508
+ 1027 0463 6D040000 		.4byte	0x46d
+ 1028 0467 15       		.uleb128 0x15
+ 1029 0468 01       		.byte	0x1
+ 1030 0469 50       		.byte	0x50
+ 1031 046a 01       		.byte	0x1
+ 1032 046b 31       		.byte	0x31
+ 1033 046c 00       		.byte	0
+ 1034 046d 16       		.uleb128 0x16
+ 1035 046e 3A000000 		.4byte	.LVL10
+ 1036 0472 08050000 		.4byte	0x508
+ 1037 0476 15       		.uleb128 0x15
+ 1038 0477 01       		.byte	0x1
+ 1039 0478 50       		.byte	0x50
+ 1040 0479 01       		.byte	0x1
+ 1041 047a 32       		.byte	0x32
+ 1042 047b 00       		.byte	0
+ 1043 047c 00       		.byte	0
+ 1044 047d 17       		.uleb128 0x17
+ 1045 047e 04       		.byte	0x4
+ 1046 047f FD010000 		.4byte	0x1fd
+ 1047 0483 18       		.uleb128 0x18
+ 1048 0484 01       		.byte	0x1
+ 1049 0485 FC030000 		.4byte	.LASF111
+ 1050 0489 01       		.byte	0x1
+ 1051 048a EC       		.byte	0xec
+ 1052 048b 01       		.byte	0x1
+ 1053 048c 00000000 		.4byte	.LFB66
+ 1054 0490 26000000 		.4byte	.LFE66
+ 1055 0494 2B020000 		.4byte	.LLST8
+ 1056 0498 01       		.byte	0x1
+ 1057 0499 DB040000 		.4byte	0x4db
+ 1058 049d 10       		.uleb128 0x10
+ 1059 049e 4A010000 		.4byte	.LASF104
+ 1060 04a2 01       		.byte	0x1
+ 1061 04a3 EC       		.byte	0xec
+ 1062 04a4 49030000 		.4byte	0x349
+ 1063 04a8 4B020000 		.4byte	.LLST9
+ 1064 04ac 19       		.uleb128 0x19
+ 1065 04ad 5E050000 		.4byte	.LASF112
+ 1066 04b1 01       		.byte	0x1
+ 1067 04b2 EE       		.byte	0xee
+ 1068 04b3 29000000 		.4byte	0x29
+ 1069 04b7 14       		.uleb128 0x14
+ 1070 04b8 16000000 		.4byte	.LVL64
+ 1071 04bc 20050000 		.4byte	0x520
+ 1072 04c0 CA040000 		.4byte	0x4ca
+ 1073 04c4 15       		.uleb128 0x15
+ 1074 04c5 01       		.byte	0x1
+ 1075 04c6 50       		.byte	0x50
+ 1076 04c7 01       		.byte	0x1
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 20
+
+
+ 1077 04c8 49       		.byte	0x49
+ 1078 04c9 00       		.byte	0
+ 1079 04ca 16       		.uleb128 0x16
+ 1080 04cb 20000000 		.4byte	.LVL65
+ 1081 04cf 12040000 		.4byte	0x412
+ 1082 04d3 15       		.uleb128 0x15
+ 1083 04d4 01       		.byte	0x1
+ 1084 04d5 50       		.byte	0x50
+ 1085 04d6 02       		.byte	0x2
+ 1086 04d7 75       		.byte	0x75
+ 1087 04d8 00       		.sleb128 0
+ 1088 04d9 00       		.byte	0
+ 1089 04da 00       		.byte	0
+ 1090 04db 13       		.uleb128 0x13
+ 1091 04dc E7000000 		.4byte	.LASF106
+ 1092 04e0 01       		.byte	0x1
+ 1093 04e1 3B       		.byte	0x3b
+ 1094 04e2 57000000 		.4byte	0x57
+ 1095 04e6 05       		.byte	0x5
+ 1096 04e7 03       		.byte	0x3
+ 1097 04e8 00000000 		.4byte	vexLocalCompState
+ 1098 04ec 1A       		.uleb128 0x1a
+ 1099 04ed 14050000 		.4byte	.LASF113
+ 1100 04f1 07       		.byte	0x7
+ 1101 04f2 0706     		.2byte	0x607
+ 1102 04f4 A5000000 		.4byte	0xa5
+ 1103 04f8 01       		.byte	0x1
+ 1104 04f9 01       		.byte	0x1
+ 1105 04fa 1B       		.uleb128 0x1b
+ 1106 04fb 01       		.byte	0x1
+ 1107 04fc 43050000 		.4byte	.LASF114
+ 1108 0500 05       		.byte	0x5
+ 1109 0501 B0       		.byte	0xb0
+ 1110 0502 01       		.byte	0x1
+ 1111 0503 57000000 		.4byte	0x57
+ 1112 0507 01       		.byte	0x1
+ 1113 0508 1C       		.uleb128 0x1c
+ 1114 0509 01       		.byte	0x1
+ 1115 050a 50010000 		.4byte	.LASF115
+ 1116 050e 05       		.byte	0x5
+ 1117 050f AF       		.byte	0xaf
+ 1118 0510 01       		.byte	0x1
+ 1119 0511 7D040000 		.4byte	0x47d
+ 1120 0515 01       		.byte	0x1
+ 1121 0516 20050000 		.4byte	0x520
+ 1122 051a 1D       		.uleb128 0x1d
+ 1123 051b 45000000 		.4byte	0x45
+ 1124 051f 00       		.byte	0
+ 1125 0520 1E       		.uleb128 0x1e
+ 1126 0521 01       		.byte	0x1
+ 1127 0522 D4020000 		.4byte	.LASF116
+ 1128 0526 08       		.byte	0x8
+ 1129 0527 A5       		.byte	0xa5
+ 1130 0528 01       		.byte	0x1
+ 1131 0529 01       		.byte	0x1
+ 1132 052a 1D       		.uleb128 0x1d
+ 1133 052b 69000000 		.4byte	0x69
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 21
+
+
+ 1134 052f 00       		.byte	0
+ 1135 0530 00       		.byte	0
+ 1136              		.section	.debug_abbrev,"",%progbits
+ 1137              	.Ldebug_abbrev0:
+ 1138 0000 01       		.uleb128 0x1
+ 1139 0001 11       		.uleb128 0x11
+ 1140 0002 01       		.byte	0x1
+ 1141 0003 25       		.uleb128 0x25
+ 1142 0004 0E       		.uleb128 0xe
+ 1143 0005 13       		.uleb128 0x13
+ 1144 0006 0B       		.uleb128 0xb
+ 1145 0007 03       		.uleb128 0x3
+ 1146 0008 0E       		.uleb128 0xe
+ 1147 0009 1B       		.uleb128 0x1b
+ 1148 000a 0E       		.uleb128 0xe
+ 1149 000b 55       		.uleb128 0x55
+ 1150 000c 06       		.uleb128 0x6
+ 1151 000d 11       		.uleb128 0x11
+ 1152 000e 01       		.uleb128 0x1
+ 1153 000f 52       		.uleb128 0x52
+ 1154 0010 01       		.uleb128 0x1
+ 1155 0011 10       		.uleb128 0x10
+ 1156 0012 06       		.uleb128 0x6
+ 1157 0013 00       		.byte	0
+ 1158 0014 00       		.byte	0
+ 1159 0015 02       		.uleb128 0x2
+ 1160 0016 24       		.uleb128 0x24
+ 1161 0017 00       		.byte	0
+ 1162 0018 0B       		.uleb128 0xb
+ 1163 0019 0B       		.uleb128 0xb
+ 1164 001a 3E       		.uleb128 0x3e
+ 1165 001b 0B       		.uleb128 0xb
+ 1166 001c 03       		.uleb128 0x3
+ 1167 001d 08       		.uleb128 0x8
+ 1168 001e 00       		.byte	0
+ 1169 001f 00       		.byte	0
+ 1170 0020 03       		.uleb128 0x3
+ 1171 0021 24       		.uleb128 0x24
+ 1172 0022 00       		.byte	0
+ 1173 0023 0B       		.uleb128 0xb
+ 1174 0024 0B       		.uleb128 0xb
+ 1175 0025 3E       		.uleb128 0x3e
+ 1176 0026 0B       		.uleb128 0xb
+ 1177 0027 03       		.uleb128 0x3
+ 1178 0028 0E       		.uleb128 0xe
+ 1179 0029 00       		.byte	0
+ 1180 002a 00       		.byte	0
+ 1181 002b 04       		.uleb128 0x4
+ 1182 002c 16       		.uleb128 0x16
+ 1183 002d 00       		.byte	0
+ 1184 002e 03       		.uleb128 0x3
+ 1185 002f 0E       		.uleb128 0xe
+ 1186 0030 3A       		.uleb128 0x3a
+ 1187 0031 0B       		.uleb128 0xb
+ 1188 0032 3B       		.uleb128 0x3b
+ 1189 0033 0B       		.uleb128 0xb
+ 1190 0034 49       		.uleb128 0x49
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 22
+
+
+ 1191 0035 13       		.uleb128 0x13
+ 1192 0036 00       		.byte	0
+ 1193 0037 00       		.byte	0
+ 1194 0038 05       		.uleb128 0x5
+ 1195 0039 35       		.uleb128 0x35
+ 1196 003a 00       		.byte	0
+ 1197 003b 49       		.uleb128 0x49
+ 1198 003c 13       		.uleb128 0x13
+ 1199 003d 00       		.byte	0
+ 1200 003e 00       		.byte	0
+ 1201 003f 06       		.uleb128 0x6
+ 1202 0040 04       		.uleb128 0x4
+ 1203 0041 01       		.byte	0x1
+ 1204 0042 0B       		.uleb128 0xb
+ 1205 0043 0B       		.uleb128 0xb
+ 1206 0044 3A       		.uleb128 0x3a
+ 1207 0045 0B       		.uleb128 0xb
+ 1208 0046 3B       		.uleb128 0x3b
+ 1209 0047 0B       		.uleb128 0xb
+ 1210 0048 01       		.uleb128 0x1
+ 1211 0049 13       		.uleb128 0x13
+ 1212 004a 00       		.byte	0
+ 1213 004b 00       		.byte	0
+ 1214 004c 07       		.uleb128 0x7
+ 1215 004d 28       		.uleb128 0x28
+ 1216 004e 00       		.byte	0
+ 1217 004f 03       		.uleb128 0x3
+ 1218 0050 0E       		.uleb128 0xe
+ 1219 0051 1C       		.uleb128 0x1c
+ 1220 0052 0D       		.uleb128 0xd
+ 1221 0053 00       		.byte	0
+ 1222 0054 00       		.byte	0
+ 1223 0055 08       		.uleb128 0x8
+ 1224 0056 13       		.uleb128 0x13
+ 1225 0057 01       		.byte	0x1
+ 1226 0058 03       		.uleb128 0x3
+ 1227 0059 0E       		.uleb128 0xe
+ 1228 005a 0B       		.uleb128 0xb
+ 1229 005b 0B       		.uleb128 0xb
+ 1230 005c 3A       		.uleb128 0x3a
+ 1231 005d 0B       		.uleb128 0xb
+ 1232 005e 3B       		.uleb128 0x3b
+ 1233 005f 0B       		.uleb128 0xb
+ 1234 0060 01       		.uleb128 0x1
+ 1235 0061 13       		.uleb128 0x13
+ 1236 0062 00       		.byte	0
+ 1237 0063 00       		.byte	0
+ 1238 0064 09       		.uleb128 0x9
+ 1239 0065 0D       		.uleb128 0xd
+ 1240 0066 00       		.byte	0
+ 1241 0067 03       		.uleb128 0x3
+ 1242 0068 08       		.uleb128 0x8
+ 1243 0069 3A       		.uleb128 0x3a
+ 1244 006a 0B       		.uleb128 0xb
+ 1245 006b 3B       		.uleb128 0x3b
+ 1246 006c 0B       		.uleb128 0xb
+ 1247 006d 49       		.uleb128 0x49
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 23
+
+
+ 1248 006e 13       		.uleb128 0x13
+ 1249 006f 38       		.uleb128 0x38
+ 1250 0070 0A       		.uleb128 0xa
+ 1251 0071 00       		.byte	0
+ 1252 0072 00       		.byte	0
+ 1253 0073 0A       		.uleb128 0xa
+ 1254 0074 0D       		.uleb128 0xd
+ 1255 0075 00       		.byte	0
+ 1256 0076 03       		.uleb128 0x3
+ 1257 0077 0E       		.uleb128 0xe
+ 1258 0078 3A       		.uleb128 0x3a
+ 1259 0079 0B       		.uleb128 0xb
+ 1260 007a 3B       		.uleb128 0x3b
+ 1261 007b 0B       		.uleb128 0xb
+ 1262 007c 49       		.uleb128 0x49
+ 1263 007d 13       		.uleb128 0x13
+ 1264 007e 38       		.uleb128 0x38
+ 1265 007f 0A       		.uleb128 0xa
+ 1266 0080 00       		.byte	0
+ 1267 0081 00       		.byte	0
+ 1268 0082 0B       		.uleb128 0xb
+ 1269 0083 01       		.uleb128 0x1
+ 1270 0084 01       		.byte	0x1
+ 1271 0085 49       		.uleb128 0x49
+ 1272 0086 13       		.uleb128 0x13
+ 1273 0087 01       		.uleb128 0x1
+ 1274 0088 13       		.uleb128 0x13
+ 1275 0089 00       		.byte	0
+ 1276 008a 00       		.byte	0
+ 1277 008b 0C       		.uleb128 0xc
+ 1278 008c 21       		.uleb128 0x21
+ 1279 008d 00       		.byte	0
+ 1280 008e 49       		.uleb128 0x49
+ 1281 008f 13       		.uleb128 0x13
+ 1282 0090 2F       		.uleb128 0x2f
+ 1283 0091 0B       		.uleb128 0xb
+ 1284 0092 00       		.byte	0
+ 1285 0093 00       		.byte	0
+ 1286 0094 0D       		.uleb128 0xd
+ 1287 0095 28       		.uleb128 0x28
+ 1288 0096 00       		.byte	0
+ 1289 0097 03       		.uleb128 0x3
+ 1290 0098 08       		.uleb128 0x8
+ 1291 0099 1C       		.uleb128 0x1c
+ 1292 009a 0D       		.uleb128 0xd
+ 1293 009b 00       		.byte	0
+ 1294 009c 00       		.byte	0
+ 1295 009d 0E       		.uleb128 0xe
+ 1296 009e 2E       		.uleb128 0x2e
+ 1297 009f 01       		.byte	0x1
+ 1298 00a0 3F       		.uleb128 0x3f
+ 1299 00a1 0C       		.uleb128 0xc
+ 1300 00a2 03       		.uleb128 0x3
+ 1301 00a3 0E       		.uleb128 0xe
+ 1302 00a4 3A       		.uleb128 0x3a
+ 1303 00a5 0B       		.uleb128 0xb
+ 1304 00a6 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 24
+
+
+ 1305 00a7 0B       		.uleb128 0xb
+ 1306 00a8 27       		.uleb128 0x27
+ 1307 00a9 0C       		.uleb128 0xc
+ 1308 00aa 49       		.uleb128 0x49
+ 1309 00ab 13       		.uleb128 0x13
+ 1310 00ac 11       		.uleb128 0x11
+ 1311 00ad 01       		.uleb128 0x1
+ 1312 00ae 12       		.uleb128 0x12
+ 1313 00af 01       		.uleb128 0x1
+ 1314 00b0 40       		.uleb128 0x40
+ 1315 00b1 06       		.uleb128 0x6
+ 1316 00b2 9742     		.uleb128 0x2117
+ 1317 00b4 0C       		.uleb128 0xc
+ 1318 00b5 01       		.uleb128 0x1
+ 1319 00b6 13       		.uleb128 0x13
+ 1320 00b7 00       		.byte	0
+ 1321 00b8 00       		.byte	0
+ 1322 00b9 0F       		.uleb128 0xf
+ 1323 00ba 05       		.uleb128 0x5
+ 1324 00bb 00       		.byte	0
+ 1325 00bc 03       		.uleb128 0x3
+ 1326 00bd 08       		.uleb128 0x8
+ 1327 00be 3A       		.uleb128 0x3a
+ 1328 00bf 0B       		.uleb128 0xb
+ 1329 00c0 3B       		.uleb128 0x3b
+ 1330 00c1 0B       		.uleb128 0xb
+ 1331 00c2 49       		.uleb128 0x49
+ 1332 00c3 13       		.uleb128 0x13
+ 1333 00c4 02       		.uleb128 0x2
+ 1334 00c5 06       		.uleb128 0x6
+ 1335 00c6 00       		.byte	0
+ 1336 00c7 00       		.byte	0
+ 1337 00c8 10       		.uleb128 0x10
+ 1338 00c9 05       		.uleb128 0x5
+ 1339 00ca 00       		.byte	0
+ 1340 00cb 03       		.uleb128 0x3
+ 1341 00cc 0E       		.uleb128 0xe
+ 1342 00cd 3A       		.uleb128 0x3a
+ 1343 00ce 0B       		.uleb128 0xb
+ 1344 00cf 3B       		.uleb128 0x3b
+ 1345 00d0 0B       		.uleb128 0xb
+ 1346 00d1 49       		.uleb128 0x49
+ 1347 00d2 13       		.uleb128 0x13
+ 1348 00d3 02       		.uleb128 0x2
+ 1349 00d4 06       		.uleb128 0x6
+ 1350 00d5 00       		.byte	0
+ 1351 00d6 00       		.byte	0
+ 1352 00d7 11       		.uleb128 0x11
+ 1353 00d8 898201   		.uleb128 0x4109
+ 1354 00db 00       		.byte	0
+ 1355 00dc 11       		.uleb128 0x11
+ 1356 00dd 01       		.uleb128 0x1
+ 1357 00de 31       		.uleb128 0x31
+ 1358 00df 13       		.uleb128 0x13
+ 1359 00e0 00       		.byte	0
+ 1360 00e1 00       		.byte	0
+ 1361 00e2 12       		.uleb128 0x12
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 25
+
+
+ 1362 00e3 34       		.uleb128 0x34
+ 1363 00e4 00       		.byte	0
+ 1364 00e5 03       		.uleb128 0x3
+ 1365 00e6 08       		.uleb128 0x8
+ 1366 00e7 3A       		.uleb128 0x3a
+ 1367 00e8 0B       		.uleb128 0xb
+ 1368 00e9 3B       		.uleb128 0x3b
+ 1369 00ea 0B       		.uleb128 0xb
+ 1370 00eb 49       		.uleb128 0x49
+ 1371 00ec 13       		.uleb128 0x13
+ 1372 00ed 02       		.uleb128 0x2
+ 1373 00ee 06       		.uleb128 0x6
+ 1374 00ef 00       		.byte	0
+ 1375 00f0 00       		.byte	0
+ 1376 00f1 13       		.uleb128 0x13
+ 1377 00f2 34       		.uleb128 0x34
+ 1378 00f3 00       		.byte	0
+ 1379 00f4 03       		.uleb128 0x3
+ 1380 00f5 0E       		.uleb128 0xe
+ 1381 00f6 3A       		.uleb128 0x3a
+ 1382 00f7 0B       		.uleb128 0xb
+ 1383 00f8 3B       		.uleb128 0x3b
+ 1384 00f9 0B       		.uleb128 0xb
+ 1385 00fa 49       		.uleb128 0x49
+ 1386 00fb 13       		.uleb128 0x13
+ 1387 00fc 02       		.uleb128 0x2
+ 1388 00fd 0A       		.uleb128 0xa
+ 1389 00fe 00       		.byte	0
+ 1390 00ff 00       		.byte	0
+ 1391 0100 14       		.uleb128 0x14
+ 1392 0101 898201   		.uleb128 0x4109
+ 1393 0104 01       		.byte	0x1
+ 1394 0105 11       		.uleb128 0x11
+ 1395 0106 01       		.uleb128 0x1
+ 1396 0107 31       		.uleb128 0x31
+ 1397 0108 13       		.uleb128 0x13
+ 1398 0109 01       		.uleb128 0x1
+ 1399 010a 13       		.uleb128 0x13
+ 1400 010b 00       		.byte	0
+ 1401 010c 00       		.byte	0
+ 1402 010d 15       		.uleb128 0x15
+ 1403 010e 8A8201   		.uleb128 0x410a
+ 1404 0111 00       		.byte	0
+ 1405 0112 02       		.uleb128 0x2
+ 1406 0113 0A       		.uleb128 0xa
+ 1407 0114 9142     		.uleb128 0x2111
+ 1408 0116 0A       		.uleb128 0xa
+ 1409 0117 00       		.byte	0
+ 1410 0118 00       		.byte	0
+ 1411 0119 16       		.uleb128 0x16
+ 1412 011a 898201   		.uleb128 0x4109
+ 1413 011d 01       		.byte	0x1
+ 1414 011e 11       		.uleb128 0x11
+ 1415 011f 01       		.uleb128 0x1
+ 1416 0120 31       		.uleb128 0x31
+ 1417 0121 13       		.uleb128 0x13
+ 1418 0122 00       		.byte	0
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 26
+
+
+ 1419 0123 00       		.byte	0
+ 1420 0124 17       		.uleb128 0x17
+ 1421 0125 0F       		.uleb128 0xf
+ 1422 0126 00       		.byte	0
+ 1423 0127 0B       		.uleb128 0xb
+ 1424 0128 0B       		.uleb128 0xb
+ 1425 0129 49       		.uleb128 0x49
+ 1426 012a 13       		.uleb128 0x13
+ 1427 012b 00       		.byte	0
+ 1428 012c 00       		.byte	0
+ 1429 012d 18       		.uleb128 0x18
+ 1430 012e 2E       		.uleb128 0x2e
+ 1431 012f 01       		.byte	0x1
+ 1432 0130 3F       		.uleb128 0x3f
+ 1433 0131 0C       		.uleb128 0xc
+ 1434 0132 03       		.uleb128 0x3
+ 1435 0133 0E       		.uleb128 0xe
+ 1436 0134 3A       		.uleb128 0x3a
+ 1437 0135 0B       		.uleb128 0xb
+ 1438 0136 3B       		.uleb128 0x3b
+ 1439 0137 0B       		.uleb128 0xb
+ 1440 0138 27       		.uleb128 0x27
+ 1441 0139 0C       		.uleb128 0xc
+ 1442 013a 11       		.uleb128 0x11
+ 1443 013b 01       		.uleb128 0x1
+ 1444 013c 12       		.uleb128 0x12
+ 1445 013d 01       		.uleb128 0x1
+ 1446 013e 40       		.uleb128 0x40
+ 1447 013f 06       		.uleb128 0x6
+ 1448 0140 9742     		.uleb128 0x2117
+ 1449 0142 0C       		.uleb128 0xc
+ 1450 0143 01       		.uleb128 0x1
+ 1451 0144 13       		.uleb128 0x13
+ 1452 0145 00       		.byte	0
+ 1453 0146 00       		.byte	0
+ 1454 0147 19       		.uleb128 0x19
+ 1455 0148 34       		.uleb128 0x34
+ 1456 0149 00       		.byte	0
+ 1457 014a 03       		.uleb128 0x3
+ 1458 014b 0E       		.uleb128 0xe
+ 1459 014c 3A       		.uleb128 0x3a
+ 1460 014d 0B       		.uleb128 0xb
+ 1461 014e 3B       		.uleb128 0x3b
+ 1462 014f 0B       		.uleb128 0xb
+ 1463 0150 49       		.uleb128 0x49
+ 1464 0151 13       		.uleb128 0x13
+ 1465 0152 00       		.byte	0
+ 1466 0153 00       		.byte	0
+ 1467 0154 1A       		.uleb128 0x1a
+ 1468 0155 34       		.uleb128 0x34
+ 1469 0156 00       		.byte	0
+ 1470 0157 03       		.uleb128 0x3
+ 1471 0158 0E       		.uleb128 0xe
+ 1472 0159 3A       		.uleb128 0x3a
+ 1473 015a 0B       		.uleb128 0xb
+ 1474 015b 3B       		.uleb128 0x3b
+ 1475 015c 05       		.uleb128 0x5
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 27
+
+
+ 1476 015d 49       		.uleb128 0x49
+ 1477 015e 13       		.uleb128 0x13
+ 1478 015f 3F       		.uleb128 0x3f
+ 1479 0160 0C       		.uleb128 0xc
+ 1480 0161 3C       		.uleb128 0x3c
+ 1481 0162 0C       		.uleb128 0xc
+ 1482 0163 00       		.byte	0
+ 1483 0164 00       		.byte	0
+ 1484 0165 1B       		.uleb128 0x1b
+ 1485 0166 2E       		.uleb128 0x2e
+ 1486 0167 00       		.byte	0
+ 1487 0168 3F       		.uleb128 0x3f
+ 1488 0169 0C       		.uleb128 0xc
+ 1489 016a 03       		.uleb128 0x3
+ 1490 016b 0E       		.uleb128 0xe
+ 1491 016c 3A       		.uleb128 0x3a
+ 1492 016d 0B       		.uleb128 0xb
+ 1493 016e 3B       		.uleb128 0x3b
+ 1494 016f 0B       		.uleb128 0xb
+ 1495 0170 27       		.uleb128 0x27
+ 1496 0171 0C       		.uleb128 0xc
+ 1497 0172 49       		.uleb128 0x49
+ 1498 0173 13       		.uleb128 0x13
+ 1499 0174 3C       		.uleb128 0x3c
+ 1500 0175 0C       		.uleb128 0xc
+ 1501 0176 00       		.byte	0
+ 1502 0177 00       		.byte	0
+ 1503 0178 1C       		.uleb128 0x1c
+ 1504 0179 2E       		.uleb128 0x2e
+ 1505 017a 01       		.byte	0x1
+ 1506 017b 3F       		.uleb128 0x3f
+ 1507 017c 0C       		.uleb128 0xc
+ 1508 017d 03       		.uleb128 0x3
+ 1509 017e 0E       		.uleb128 0xe
+ 1510 017f 3A       		.uleb128 0x3a
+ 1511 0180 0B       		.uleb128 0xb
+ 1512 0181 3B       		.uleb128 0x3b
+ 1513 0182 0B       		.uleb128 0xb
+ 1514 0183 27       		.uleb128 0x27
+ 1515 0184 0C       		.uleb128 0xc
+ 1516 0185 49       		.uleb128 0x49
+ 1517 0186 13       		.uleb128 0x13
+ 1518 0187 3C       		.uleb128 0x3c
+ 1519 0188 0C       		.uleb128 0xc
+ 1520 0189 01       		.uleb128 0x1
+ 1521 018a 13       		.uleb128 0x13
+ 1522 018b 00       		.byte	0
+ 1523 018c 00       		.byte	0
+ 1524 018d 1D       		.uleb128 0x1d
+ 1525 018e 05       		.uleb128 0x5
+ 1526 018f 00       		.byte	0
+ 1527 0190 49       		.uleb128 0x49
+ 1528 0191 13       		.uleb128 0x13
+ 1529 0192 00       		.byte	0
+ 1530 0193 00       		.byte	0
+ 1531 0194 1E       		.uleb128 0x1e
+ 1532 0195 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 28
+
+
+ 1533 0196 01       		.byte	0x1
+ 1534 0197 3F       		.uleb128 0x3f
+ 1535 0198 0C       		.uleb128 0xc
+ 1536 0199 03       		.uleb128 0x3
+ 1537 019a 0E       		.uleb128 0xe
+ 1538 019b 3A       		.uleb128 0x3a
+ 1539 019c 0B       		.uleb128 0xb
+ 1540 019d 3B       		.uleb128 0x3b
+ 1541 019e 0B       		.uleb128 0xb
+ 1542 019f 27       		.uleb128 0x27
+ 1543 01a0 0C       		.uleb128 0xc
+ 1544 01a1 3C       		.uleb128 0x3c
+ 1545 01a2 0C       		.uleb128 0xc
+ 1546 01a3 00       		.byte	0
+ 1547 01a4 00       		.byte	0
+ 1548 01a5 00       		.byte	0
+ 1549              		.section	.debug_loc,"",%progbits
+ 1550              	.Ldebug_loc0:
+ 1551              	.LLST0:
+ 1552 0000 00000000 		.4byte	.LFB63
+ 1553 0004 02000000 		.4byte	.LCFI0
+ 1554 0008 0200     		.2byte	0x2
+ 1555 000a 7D       		.byte	0x7d
+ 1556 000b 00       		.sleb128 0
+ 1557 000c 02000000 		.4byte	.LCFI0
+ 1558 0010 34000000 		.4byte	.LFE63
+ 1559 0014 0200     		.2byte	0x2
+ 1560 0016 7D       		.byte	0x7d
+ 1561 0017 10       		.sleb128 16
+ 1562 0018 00000000 		.4byte	0
+ 1563 001c 00000000 		.4byte	0
+ 1564              	.LLST1:
+ 1565 0020 00000000 		.4byte	.LVL0
+ 1566 0024 09000000 		.4byte	.LVL1-1
+ 1567 0028 0100     		.2byte	0x1
+ 1568 002a 50       		.byte	0x50
+ 1569 002b 09000000 		.4byte	.LVL1-1
+ 1570 002f 34000000 		.4byte	.LFE63
+ 1571 0033 0400     		.2byte	0x4
+ 1572 0035 F3       		.byte	0xf3
+ 1573 0036 01       		.uleb128 0x1
+ 1574 0037 50       		.byte	0x50
+ 1575 0038 9F       		.byte	0x9f
+ 1576 0039 00000000 		.4byte	0
+ 1577 003d 00000000 		.4byte	0
+ 1578              	.LLST2:
+ 1579 0041 00000000 		.4byte	.LVL0
+ 1580 0045 09000000 		.4byte	.LVL1-1
+ 1581 0049 0100     		.2byte	0x1
+ 1582 004b 51       		.byte	0x51
+ 1583 004c 09000000 		.4byte	.LVL1-1
+ 1584 0050 34000000 		.4byte	.LFE63
+ 1585 0054 0400     		.2byte	0x4
+ 1586 0056 F3       		.byte	0xf3
+ 1587 0057 01       		.uleb128 0x1
+ 1588 0058 51       		.byte	0x51
+ 1589 0059 9F       		.byte	0x9f
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 29
+
+
+ 1590 005a 00000000 		.4byte	0
+ 1591 005e 00000000 		.4byte	0
+ 1592              	.LLST3:
+ 1593 0062 00000000 		.4byte	.LFB64
+ 1594 0066 02000000 		.4byte	.LCFI1
+ 1595 006a 0200     		.2byte	0x2
+ 1596 006c 7D       		.byte	0x7d
+ 1597 006d 00       		.sleb128 0
+ 1598 006e 02000000 		.4byte	.LCFI1
+ 1599 0072 24000000 		.4byte	.LFE64
+ 1600 0076 0200     		.2byte	0x2
+ 1601 0078 7D       		.byte	0x7d
+ 1602 0079 08       		.sleb128 8
+ 1603 007a 00000000 		.4byte	0
+ 1604 007e 00000000 		.4byte	0
+ 1605              	.LLST4:
+ 1606 0082 06000000 		.4byte	.LVL2
+ 1607 0086 1C000000 		.4byte	.LVL3
+ 1608 008a 0100     		.2byte	0x1
+ 1609 008c 50       		.byte	0x50
+ 1610 008d 1E000000 		.4byte	.LVL4
+ 1611 0091 24000000 		.4byte	.LFE64
+ 1612 0095 0100     		.2byte	0x1
+ 1613 0097 50       		.byte	0x50
+ 1614 0098 00000000 		.4byte	0
+ 1615 009c 00000000 		.4byte	0
+ 1616              	.LLST5:
+ 1617 00a0 00000000 		.4byte	.LFB65
+ 1618 00a4 04000000 		.4byte	.LCFI2
+ 1619 00a8 0200     		.2byte	0x2
+ 1620 00aa 7D       		.byte	0x7d
+ 1621 00ab 00       		.sleb128 0
+ 1622 00ac 04000000 		.4byte	.LCFI2
+ 1623 00b0 32010000 		.4byte	.LFE65
+ 1624 00b4 0200     		.2byte	0x2
+ 1625 00b6 7D       		.byte	0x7d
+ 1626 00b7 08       		.sleb128 8
+ 1627 00b8 00000000 		.4byte	0
+ 1628 00bc 00000000 		.4byte	0
+ 1629              	.LLST6:
+ 1630 00c0 00000000 		.4byte	.LVL5
+ 1631 00c4 0A000000 		.4byte	.LVL6
+ 1632 00c8 0100     		.2byte	0x1
+ 1633 00ca 50       		.byte	0x50
+ 1634 00cb 0A000000 		.4byte	.LVL6
+ 1635 00cf 34000000 		.4byte	.LVL8
+ 1636 00d3 0400     		.2byte	0x4
+ 1637 00d5 F3       		.byte	0xf3
+ 1638 00d6 01       		.uleb128 0x1
+ 1639 00d7 50       		.byte	0x50
+ 1640 00d8 9F       		.byte	0x9f
+ 1641 00d9 34000000 		.4byte	.LVL8
+ 1642 00dd 36000000 		.4byte	.LVL9
+ 1643 00e1 0100     		.2byte	0x1
+ 1644 00e3 50       		.byte	0x50
+ 1645 00e4 36000000 		.4byte	.LVL9
+ 1646 00e8 32010000 		.4byte	.LFE65
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 30
+
+
+ 1647 00ec 0400     		.2byte	0x4
+ 1648 00ee F3       		.byte	0xf3
+ 1649 00ef 01       		.uleb128 0x1
+ 1650 00f0 50       		.byte	0x50
+ 1651 00f1 9F       		.byte	0x9f
+ 1652 00f2 00000000 		.4byte	0
+ 1653 00f6 00000000 		.4byte	0
+ 1654              	.LLST7:
+ 1655 00fa 0E000000 		.4byte	.LVL7
+ 1656 00fe 34000000 		.4byte	.LVL8
+ 1657 0102 0100     		.2byte	0x1
+ 1658 0104 50       		.byte	0x50
+ 1659 0105 3A000000 		.4byte	.LVL10
+ 1660 0109 44000000 		.4byte	.LVL11
+ 1661 010d 0100     		.2byte	0x1
+ 1662 010f 50       		.byte	0x50
+ 1663 0110 4E000000 		.4byte	.LVL12
+ 1664 0114 50000000 		.4byte	.LVL13
+ 1665 0118 0100     		.2byte	0x1
+ 1666 011a 50       		.byte	0x50
+ 1667 011b 5A000000 		.4byte	.LVL14
+ 1668 011f 5C000000 		.4byte	.LVL15
+ 1669 0123 0100     		.2byte	0x1
+ 1670 0125 50       		.byte	0x50
+ 1671 0126 62000000 		.4byte	.LVL16
+ 1672 012a 64000000 		.4byte	.LVL17
+ 1673 012e 0100     		.2byte	0x1
+ 1674 0130 50       		.byte	0x50
+ 1675 0131 6A000000 		.4byte	.LVL18
+ 1676 0135 6C000000 		.4byte	.LVL19
+ 1677 0139 0100     		.2byte	0x1
+ 1678 013b 50       		.byte	0x50
+ 1679 013c 74000000 		.4byte	.LVL20
+ 1680 0140 76000000 		.4byte	.LVL21
+ 1681 0144 0100     		.2byte	0x1
+ 1682 0146 50       		.byte	0x50
+ 1683 0147 7C000000 		.4byte	.LVL22
+ 1684 014b 88000000 		.4byte	.LVL23
+ 1685 014f 0100     		.2byte	0x1
+ 1686 0151 50       		.byte	0x50
+ 1687 0152 8A000000 		.4byte	.LVL24
+ 1688 0156 8C000000 		.4byte	.LVL25
+ 1689 015a 0100     		.2byte	0x1
+ 1690 015c 50       		.byte	0x50
+ 1691 015d 96000000 		.4byte	.LVL26
+ 1692 0161 A2000000 		.4byte	.LVL27
+ 1693 0165 0100     		.2byte	0x1
+ 1694 0167 50       		.byte	0x50
+ 1695 0168 A4000000 		.4byte	.LVL28
+ 1696 016c A6000000 		.4byte	.LVL29
+ 1697 0170 0100     		.2byte	0x1
+ 1698 0172 50       		.byte	0x50
+ 1699 0173 AC000000 		.4byte	.LVL30
+ 1700 0177 AE000000 		.4byte	.LVL31
+ 1701 017b 0100     		.2byte	0x1
+ 1702 017d 50       		.byte	0x50
+ 1703 017e B4000000 		.4byte	.LVL32
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 31
+
+
+ 1704 0182 B6000000 		.4byte	.LVL33
+ 1705 0186 0100     		.2byte	0x1
+ 1706 0188 50       		.byte	0x50
+ 1707 0189 BC000000 		.4byte	.LVL34
+ 1708 018d C0000000 		.4byte	.LVL35
+ 1709 0191 0100     		.2byte	0x1
+ 1710 0193 50       		.byte	0x50
+ 1711 0194 C4000000 		.4byte	.LVL36
+ 1712 0198 C6000000 		.4byte	.LVL37
+ 1713 019c 0100     		.2byte	0x1
+ 1714 019e 50       		.byte	0x50
+ 1715 019f CC000000 		.4byte	.LVL38
+ 1716 01a3 CE000000 		.4byte	.LVL39
+ 1717 01a7 0100     		.2byte	0x1
+ 1718 01a9 50       		.byte	0x50
+ 1719 01aa D4000000 		.4byte	.LVL40
+ 1720 01ae D6000000 		.4byte	.LVL41
+ 1721 01b2 0100     		.2byte	0x1
+ 1722 01b4 50       		.byte	0x50
+ 1723 01b5 DC000000 		.4byte	.LVL42
+ 1724 01b9 DE000000 		.4byte	.LVL43
+ 1725 01bd 0100     		.2byte	0x1
+ 1726 01bf 50       		.byte	0x50
+ 1727 01c0 E4000000 		.4byte	.LVL44
+ 1728 01c4 E6000000 		.4byte	.LVL45
+ 1729 01c8 0100     		.2byte	0x1
+ 1730 01ca 50       		.byte	0x50
+ 1731 01cb EC000000 		.4byte	.LVL46
+ 1732 01cf EE000000 		.4byte	.LVL47
+ 1733 01d3 0100     		.2byte	0x1
+ 1734 01d5 50       		.byte	0x50
+ 1735 01d6 F4000000 		.4byte	.LVL48
+ 1736 01da F6000000 		.4byte	.LVL49
+ 1737 01de 0100     		.2byte	0x1
+ 1738 01e0 50       		.byte	0x50
+ 1739 01e1 FC000000 		.4byte	.LVL50
+ 1740 01e5 FE000000 		.4byte	.LVL51
+ 1741 01e9 0100     		.2byte	0x1
+ 1742 01eb 50       		.byte	0x50
+ 1743 01ec 06010000 		.4byte	.LVL52
+ 1744 01f0 08010000 		.4byte	.LVL53
+ 1745 01f4 0100     		.2byte	0x1
+ 1746 01f6 50       		.byte	0x50
+ 1747 01f7 14010000 		.4byte	.LVL54
+ 1748 01fb 16010000 		.4byte	.LVL55
+ 1749 01ff 0100     		.2byte	0x1
+ 1750 0201 50       		.byte	0x50
+ 1751 0202 1E010000 		.4byte	.LVL56
+ 1752 0206 20010000 		.4byte	.LVL57
+ 1753 020a 0100     		.2byte	0x1
+ 1754 020c 50       		.byte	0x50
+ 1755 020d 2A010000 		.4byte	.LVL58
+ 1756 0211 2C010000 		.4byte	.LVL59
+ 1757 0215 0100     		.2byte	0x1
+ 1758 0217 50       		.byte	0x50
+ 1759 0218 2E010000 		.4byte	.LVL60
+ 1760 021c 30010000 		.4byte	.LVL61
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 32
+
+
+ 1761 0220 0100     		.2byte	0x1
+ 1762 0222 50       		.byte	0x50
+ 1763 0223 00000000 		.4byte	0
+ 1764 0227 00000000 		.4byte	0
+ 1765              	.LLST8:
+ 1766 022b 00000000 		.4byte	.LFB66
+ 1767 022f 02000000 		.4byte	.LCFI3
+ 1768 0233 0200     		.2byte	0x2
+ 1769 0235 7D       		.byte	0x7d
+ 1770 0236 00       		.sleb128 0
+ 1771 0237 02000000 		.4byte	.LCFI3
+ 1772 023b 26000000 		.4byte	.LFE66
+ 1773 023f 0200     		.2byte	0x2
+ 1774 0241 7D       		.byte	0x7d
+ 1775 0242 10       		.sleb128 16
+ 1776 0243 00000000 		.4byte	0
+ 1777 0247 00000000 		.4byte	0
+ 1778              	.LLST9:
+ 1779 024b 00000000 		.4byte	.LVL62
+ 1780 024f 10000000 		.4byte	.LVL63
+ 1781 0253 0100     		.2byte	0x1
+ 1782 0255 50       		.byte	0x50
+ 1783 0256 10000000 		.4byte	.LVL63
+ 1784 025a 26000000 		.4byte	.LFE66
+ 1785 025e 0400     		.2byte	0x4
+ 1786 0260 F3       		.byte	0xf3
+ 1787 0261 01       		.uleb128 0x1
+ 1788 0262 50       		.byte	0x50
+ 1789 0263 9F       		.byte	0x9f
+ 1790 0264 00000000 		.4byte	0
+ 1791 0268 00000000 		.4byte	0
+ 1792              		.section	.debug_aranges,"",%progbits
+ 1793 0000 34000000 		.4byte	0x34
+ 1794 0004 0200     		.2byte	0x2
+ 1795 0006 00000000 		.4byte	.Ldebug_info0
+ 1796 000a 04       		.byte	0x4
+ 1797 000b 00       		.byte	0
+ 1798 000c 0000     		.2byte	0
+ 1799 000e 0000     		.2byte	0
+ 1800 0010 00000000 		.4byte	.LFB63
+ 1801 0014 34000000 		.4byte	.LFE63-.LFB63
+ 1802 0018 00000000 		.4byte	.LFB64
+ 1803 001c 24000000 		.4byte	.LFE64-.LFB64
+ 1804 0020 00000000 		.4byte	.LFB65
+ 1805 0024 32010000 		.4byte	.LFE65-.LFB65
+ 1806 0028 00000000 		.4byte	.LFB66
+ 1807 002c 26000000 		.4byte	.LFE66-.LFB66
+ 1808 0030 00000000 		.4byte	0
+ 1809 0034 00000000 		.4byte	0
+ 1810              		.section	.debug_ranges,"",%progbits
+ 1811              	.Ldebug_ranges0:
+ 1812 0000 00000000 		.4byte	.LFB63
+ 1813 0004 34000000 		.4byte	.LFE63
+ 1814 0008 00000000 		.4byte	.LFB64
+ 1815 000c 24000000 		.4byte	.LFE64
+ 1816 0010 00000000 		.4byte	.LFB65
+ 1817 0014 32010000 		.4byte	.LFE65
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 33
+
+
+ 1818 0018 00000000 		.4byte	.LFB66
+ 1819 001c 26000000 		.4byte	.LFE66
+ 1820 0020 00000000 		.4byte	0
+ 1821 0024 00000000 		.4byte	0
+ 1822              		.section	.debug_line,"",%progbits
+ 1823              	.Ldebug_line0:
+ 1824 0000 B1010000 		.section	.debug_str,"MS",%progbits,1
+ 1824      02000A01 
+ 1824      00000201 
+ 1824      FB0E0D00 
+ 1824      01010101 
+ 1825              	.LASF55:
+ 1826 0000 42746E35 		.ascii	"Btn5U\000"
+ 1826      5500
+ 1827              	.LASF41:
+ 1828 0006 6163635F 		.ascii	"acc_y\000"
+ 1828      7900
+ 1829              	.LASF15:
+ 1830 000c 6B566578 		.ascii	"kVexDigital_None\000"
+ 1830      44696769 
+ 1830      74616C5F 
+ 1830      4E6F6E65 
+ 1830      00
+ 1831              	.LASF40:
+ 1832 001d 6B496D65 		.ascii	"kImeChannelNone\000"
+ 1832      4368616E 
+ 1832      6E656C4E 
+ 1832      6F6E6500 
+ 1833              	.LASF31:
+ 1834 002d 6B496D65 		.ascii	"kImeChannel_1\000"
+ 1834      4368616E 
+ 1834      6E656C5F 
+ 1834      3100
+ 1835              	.LASF32:
+ 1836 003b 6B496D65 		.ascii	"kImeChannel_2\000"
+ 1836      4368616E 
+ 1836      6E656C5F 
+ 1836      3200
+ 1837              	.LASF33:
+ 1838 0049 6B496D65 		.ascii	"kImeChannel_3\000"
+ 1838      4368616E 
+ 1838      6E656C5F 
+ 1838      3300
+ 1839              	.LASF34:
+ 1840 0057 6B496D65 		.ascii	"kImeChannel_4\000"
+ 1840      4368616E 
+ 1840      6E656C5F 
+ 1840      3400
+ 1841              	.LASF35:
+ 1842 0065 6B496D65 		.ascii	"kImeChannel_5\000"
+ 1842      4368616E 
+ 1842      6E656C5F 
+ 1842      3500
+ 1843              	.LASF36:
+ 1844 0073 6B496D65 		.ascii	"kImeChannel_6\000"
+ 1844      4368616E 
+ 1844      6E656C5F 
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 34
+
+
+ 1844      3600
+ 1845              	.LASF37:
+ 1846 0081 6B496D65 		.ascii	"kImeChannel_7\000"
+ 1846      4368616E 
+ 1846      6E656C5F 
+ 1846      3700
+ 1847              	.LASF38:
+ 1848 008f 6B496D65 		.ascii	"kImeChannel_8\000"
+ 1848      4368616E 
+ 1848      6E656C5F 
+ 1848      3800
+ 1849              	.LASF42:
+ 1850 009d 6163635F 		.ascii	"acc_x\000"
+ 1850      7800
+ 1851              	.LASF67:
+ 1852 00a3 43683258 		.ascii	"Ch2Xmtr2\000"
+ 1852      6D747232 
+ 1852      00
+ 1853              	.LASF43:
+ 1854 00ac 6163635F 		.ascii	"acc_z\000"
+ 1854      7A00
+ 1855              	.LASF13:
+ 1856 00b2 73697A65 		.ascii	"sizetype\000"
+ 1856      74797065 
+ 1856      00
+ 1857              	.LASF39:
+ 1858 00bb 6B496D65 		.ascii	"kImeTotal\000"
+ 1858      546F7461 
+ 1858      6C00
+ 1859              	.LASF84:
+ 1860 00c5 4163636C 		.ascii	"AcclZXmtr2\000"
+ 1860      5A586D74 
+ 1860      723200
+ 1861              	.LASF95:
+ 1862 00d0 6B466C61 		.ascii	"kFlagCompetitionSwitch\000"
+ 1862      67436F6D 
+ 1862      70657469 
+ 1862      74696F6E 
+ 1862      53776974 
+ 1863              	.LASF106:
+ 1864 00e7 7665784C 		.ascii	"vexLocalCompState\000"
+ 1864      6F63616C 
+ 1864      436F6D70 
+ 1864      53746174 
+ 1864      6500
+ 1865              	.LASF3:
+ 1866 00f9 73686F72 		.ascii	"short int\000"
+ 1866      7420696E 
+ 1866      7400
+ 1867              	.LASF30:
+ 1868 0103 6B566578 		.ascii	"kVexDigitalOutput\000"
+ 1868      44696769 
+ 1868      74616C4F 
+ 1868      75747075 
+ 1868      7400
+ 1869              	.LASF56:
+ 1870 0115 42746E36 		.ascii	"Btn6D\000"
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 35
+
+
+ 1870      4400
+ 1871              	.LASF108:
+ 1872 011b 2E2E2F63 		.ascii	"../convex/cortex/fw/vexctl.c\000"
+ 1872      6F6E7665 
+ 1872      782F636F 
+ 1872      72746578 
+ 1872      2F66772F 
+ 1873              	.LASF58:
+ 1874 0138 4163636C 		.ascii	"AcclX\000"
+ 1874      5800
+ 1875              	.LASF59:
+ 1876 013e 4163636C 		.ascii	"AcclY\000"
+ 1876      5900
+ 1877              	.LASF60:
+ 1878 0144 4163636C 		.ascii	"AcclZ\000"
+ 1878      5A00
+ 1879              	.LASF104:
+ 1880 014a 696E6465 		.ascii	"index\000"
+ 1880      7800
+ 1881              	.LASF115:
+ 1882 0150 76657853 		.ascii	"vexSpiGetJoystickDataPtr\000"
+ 1882      70694765 
+ 1882      744A6F79 
+ 1882      73746963 
+ 1882      6B446174 
+ 1883              	.LASF57:
+ 1884 0169 42746E36 		.ascii	"Btn6U\000"
+ 1884      5500
+ 1885              	.LASF94:
+ 1886 016f 6B466C61 		.ascii	"kFlagBit2\000"
+ 1886      67426974 
+ 1886      3200
+ 1887              	.LASF25:
+ 1888 0179 6B566578 		.ascii	"kVexDigital_10\000"
+ 1888      44696769 
+ 1888      74616C5F 
+ 1888      313000
+ 1889              	.LASF26:
+ 1890 0188 6B566578 		.ascii	"kVexDigital_11\000"
+ 1890      44696769 
+ 1890      74616C5F 
+ 1890      313100
+ 1891              	.LASF27:
+ 1892 0197 6B566578 		.ascii	"kVexDigital_12\000"
+ 1892      44696769 
+ 1892      74616C5F 
+ 1892      313200
+ 1893              	.LASF76:
+ 1894 01a6 42746E37 		.ascii	"Btn7UXmtr2\000"
+ 1894      55586D74 
+ 1894      723200
+ 1895              	.LASF77:
+ 1896 01b1 42746E37 		.ascii	"Btn7RXmtr2\000"
+ 1896      52586D74 
+ 1896      723200
+ 1897              	.LASF0:
+ 1898 01bc 756E7369 		.ascii	"unsigned int\000"
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 36
+
+
+ 1898      676E6564 
+ 1898      20696E74 
+ 1898      00
+ 1899              	.LASF10:
+ 1900 01c9 6C6F6E67 		.ascii	"long long int\000"
+ 1900      206C6F6E 
+ 1900      6720696E 
+ 1900      7400
+ 1901              	.LASF80:
+ 1902 01d7 42746E36 		.ascii	"Btn6DXmtr2\000"
+ 1902      44586D74 
+ 1902      723200
+ 1903              	.LASF75:
+ 1904 01e2 42746E37 		.ascii	"Btn7LXmtr2\000"
+ 1904      4C586D74 
+ 1904      723200
+ 1905              	.LASF105:
+ 1906 01ed 616E616C 		.ascii	"analog\000"
+ 1906      6F6700
+ 1907              	.LASF8:
+ 1908 01f4 6C6F6E67 		.ascii	"long int\000"
+ 1908      20696E74 
+ 1908      00
+ 1909              	.LASF65:
+ 1910 01fd 42746E41 		.ascii	"BtnAny\000"
+ 1910      6E7900
+ 1911              	.LASF69:
+ 1912 0204 43683458 		.ascii	"Ch4Xmtr2\000"
+ 1912      6D747232 
+ 1912      00
+ 1913              	.LASF88:
+ 1914 020d 42746E38 		.ascii	"Btn8mXtr2\000"
+ 1914      6D587472 
+ 1914      3200
+ 1915              	.LASF29:
+ 1916 0217 6B566578 		.ascii	"kVexDigitalInput\000"
+ 1916      44696769 
+ 1916      74616C49 
+ 1916      6E707574 
+ 1916      00
+ 1917              	.LASF96:
+ 1918 0228 6B466C61 		.ascii	"kFlagResetSlave\000"
+ 1918      67526573 
+ 1918      6574536C 
+ 1918      61766500 
+ 1919              	.LASF101:
+ 1920 0238 76657843 		.ascii	"vexControllerCompetitionStateSet\000"
+ 1920      6F6E7472 
+ 1920      6F6C6C65 
+ 1920      72436F6D 
+ 1920      70657469 
+ 1921              	.LASF91:
+ 1922 0259 6B466C61 		.ascii	"kFlagNoXmiters\000"
+ 1922      674E6F58 
+ 1922      6D697465 
+ 1922      727300
+ 1923              	.LASF70:
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 37
+
+
+ 1924 0268 42746E38 		.ascii	"Btn8DXmtr2\000"
+ 1924      44586D74 
+ 1924      723200
+ 1925              	.LASF98:
+ 1926 0273 6B466C61 		.ascii	"kFlagAutonomousMode\000"
+ 1926      67417574 
+ 1926      6F6E6F6D 
+ 1926      6F75734D 
+ 1926      6F646500 
+ 1927              	.LASF44:
+ 1928 0287 62746E73 		.ascii	"btns\000"
+ 1928      00
+ 1929              	.LASF50:
+ 1930 028c 42746E37 		.ascii	"Btn7D\000"
+ 1930      4400
+ 1931              	.LASF109:
+ 1932 0292 433A5C55 		.ascii	"C:\\Users\\Caitlin\\pros\\127B\000"
+ 1932      73657273 
+ 1932      5C436169 
+ 1932      746C696E 
+ 1932      5C70726F 
+ 1933              	.LASF2:
+ 1934 02ad 756E7369 		.ascii	"unsigned char\000"
+ 1934      676E6564 
+ 1934      20636861 
+ 1934      7200
+ 1935              	.LASF85:
+ 1936 02bb 42746E35 		.ascii	"Btn5Xmtr2\000"
+ 1936      586D7472 
+ 1936      3200
+ 1937              	.LASF66:
+ 1938 02c5 43683158 		.ascii	"Ch1Xmtr2\000"
+ 1938      6D747232 
+ 1938      00
+ 1939              	.LASF51:
+ 1940 02ce 42746E37 		.ascii	"Btn7L\000"
+ 1940      4C00
+ 1941              	.LASF116:
+ 1942 02d4 76657853 		.ascii	"vexSleep\000"
+ 1942      6C656570 
+ 1942      00
+ 1943              	.LASF1:
+ 1944 02dd 7369676E 		.ascii	"signed char\000"
+ 1944      65642063 
+ 1944      68617200 
+ 1945              	.LASF11:
+ 1946 02e9 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1946      206C6F6E 
+ 1946      6720756E 
+ 1946      7369676E 
+ 1946      65642069 
+ 1947              	.LASF52:
+ 1948 0300 42746E37 		.ascii	"Btn7U\000"
+ 1948      5500
+ 1949              	.LASF18:
+ 1950 0306 6B566578 		.ascii	"kVexDigital_3\000"
+ 1950      44696769 
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 38
+
+
+ 1950      74616C5F 
+ 1950      3300
+ 1951              	.LASF5:
+ 1952 0314 75696E74 		.ascii	"uint16_t\000"
+ 1952      31365F74 
+ 1952      00
+ 1953              	.LASF107:
+ 1954 031d 474E5520 		.ascii	"GNU C 4.7.1\000"
+ 1954      4320342E 
+ 1954      372E3100 
+ 1955              	.LASF54:
+ 1956 0329 42746E35 		.ascii	"Btn5D\000"
+ 1956      4400
+ 1957              	.LASF87:
+ 1958 032f 42746E37 		.ascii	"Btn7Xmtr2\000"
+ 1958      586D7472 
+ 1958      3200
+ 1959              	.LASF68:
+ 1960 0339 43683358 		.ascii	"Ch3Xmtr2\000"
+ 1960      6D747232 
+ 1960      00
+ 1961              	.LASF79:
+ 1962 0342 42746E35 		.ascii	"Btn5UXmtr2\000"
+ 1962      55586D74 
+ 1962      723200
+ 1963              	.LASF6:
+ 1964 034d 73686F72 		.ascii	"short unsigned int\000"
+ 1964      7420756E 
+ 1964      7369676E 
+ 1964      65642069 
+ 1964      6E7400
+ 1965              	.LASF14:
+ 1966 0360 63686172 		.ascii	"char\000"
+ 1966      00
+ 1967              	.LASF16:
+ 1968 0365 6B566578 		.ascii	"kVexDigital_1\000"
+ 1968      44696769 
+ 1968      74616C5F 
+ 1968      3100
+ 1969              	.LASF17:
+ 1970 0373 6B566578 		.ascii	"kVexDigital_2\000"
+ 1970      44696769 
+ 1970      74616C5F 
+ 1970      3200
+ 1971              	.LASF7:
+ 1972 0381 696E7433 		.ascii	"int32_t\000"
+ 1972      325F7400 
+ 1973              	.LASF19:
+ 1974 0389 6B566578 		.ascii	"kVexDigital_4\000"
+ 1974      44696769 
+ 1974      74616C5F 
+ 1974      3400
+ 1975              	.LASF20:
+ 1976 0397 6B566578 		.ascii	"kVexDigital_5\000"
+ 1976      44696769 
+ 1976      74616C5F 
+ 1976      3500
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 39
+
+
+ 1977              	.LASF21:
+ 1978 03a5 6B566578 		.ascii	"kVexDigital_6\000"
+ 1978      44696769 
+ 1978      74616C5F 
+ 1978      3600
+ 1979              	.LASF22:
+ 1980 03b3 6B566578 		.ascii	"kVexDigital_7\000"
+ 1980      44696769 
+ 1980      74616C5F 
+ 1980      3700
+ 1981              	.LASF23:
+ 1982 03c1 6B566578 		.ascii	"kVexDigital_8\000"
+ 1982      44696769 
+ 1982      74616C5F 
+ 1982      3800
+ 1983              	.LASF24:
+ 1984 03cf 6B566578 		.ascii	"kVexDigital_9\000"
+ 1984      44696769 
+ 1984      74616C5F 
+ 1984      3900
+ 1985              	.LASF12:
+ 1986 03dd 5F426F6F 		.ascii	"_Bool\000"
+ 1986      6C00
+ 1987              	.LASF110:
+ 1988 03e3 5F6A7364 		.ascii	"_jsdata\000"
+ 1988      61746100 
+ 1989              	.LASF83:
+ 1990 03eb 4163636C 		.ascii	"AcclYXmtr2\000"
+ 1990      59586D74 
+ 1990      723200
+ 1991              	.LASF46:
+ 1992 03f6 42746E38 		.ascii	"Btn8D\000"
+ 1992      4400
+ 1993              	.LASF111:
+ 1994 03fc 76657843 		.ascii	"vexControllerReleaseWait\000"
+ 1994      6F6E7472 
+ 1994      6F6C6C65 
+ 1994      7252656C 
+ 1994      65617365 
+ 1995              	.LASF9:
+ 1996 0415 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1996      20756E73 
+ 1996      69676E65 
+ 1996      6420696E 
+ 1996      7400
+ 1997              	.LASF81:
+ 1998 0427 42746E36 		.ascii	"Btn6UXmtr2\000"
+ 1998      55586D74 
+ 1998      723200
+ 1999              	.LASF53:
+ 2000 0432 42746E37 		.ascii	"Btn7R\000"
+ 2000      5200
+ 2001              	.LASF47:
+ 2002 0438 42746E38 		.ascii	"Btn8L\000"
+ 2002      4C00
+ 2003              	.LASF82:
+ 2004 043e 4163636C 		.ascii	"AcclXXmtr2\000"
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 40
+
+
+ 2004      58586D74 
+ 2004      723200
+ 2005              	.LASF102:
+ 2006 0449 76657843 		.ascii	"vexControllerCompetitonState\000"
+ 2006      6F6E7472 
+ 2006      6F6C6C65 
+ 2006      72436F6D 
+ 2006      70657469 
+ 2007              	.LASF45:
+ 2008 0466 6A736461 		.ascii	"jsdata\000"
+ 2008      746100
+ 2009              	.LASF49:
+ 2010 046d 42746E38 		.ascii	"Btn8R\000"
+ 2010      5200
+ 2011              	.LASF89:
+ 2012 0473 42746E41 		.ascii	"BtnAnyXmtr2\000"
+ 2012      6E79586D 
+ 2012      74723200 
+ 2013              	.LASF100:
+ 2014 047f 6D61736B 		.ascii	"mask\000"
+ 2014      00
+ 2015              	.LASF78:
+ 2016 0484 42746E35 		.ascii	"Btn5DXmtr2\000"
+ 2016      44586D74 
+ 2016      723200
+ 2017              	.LASF48:
+ 2018 048f 42746E38 		.ascii	"Btn8U\000"
+ 2018      5500
+ 2019              	.LASF72:
+ 2020 0495 42746E38 		.ascii	"Btn8UXmtr2\000"
+ 2020      55586D74 
+ 2020      723200
+ 2021              	.LASF73:
+ 2022 04a0 42746E38 		.ascii	"Btn8RXmtr2\000"
+ 2022      52586D74 
+ 2022      723200
+ 2023              	.LASF97:
+ 2024 04ab 6B466C61 		.ascii	"kFlagGameController\000"
+ 2024      6747616D 
+ 2024      65436F6E 
+ 2024      74726F6C 
+ 2024      6C657200 
+ 2025              	.LASF28:
+ 2026 04bf 6B566578 		.ascii	"kVexDigital_Num\000"
+ 2026      44696769 
+ 2026      74616C5F 
+ 2026      4E756D00 
+ 2027              	.LASF92:
+ 2028 04cf 6B466C61 		.ascii	"kFlagXmit1\000"
+ 2028      67586D69 
+ 2028      743100
+ 2029              	.LASF93:
+ 2030 04da 6B466C61 		.ascii	"kFlagXmit2\000"
+ 2030      67586D69 
+ 2030      743200
+ 2031              	.LASF4:
+ 2032 04e5 696E7431 		.ascii	"int16_t\000"
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 41
+
+
+ 2032      365F7400 
+ 2033              	.LASF71:
+ 2034 04ed 42746E38 		.ascii	"Btn8LXmtr2\000"
+ 2034      4C586D74 
+ 2034      723200
+ 2035              	.LASF74:
+ 2036 04f8 42746E37 		.ascii	"Btn7DXmtr2\000"
+ 2036      44586D74 
+ 2036      723200
+ 2037              	.LASF103:
+ 2038 0503 76657843 		.ascii	"vexControllerGet\000"
+ 2038      6F6E7472 
+ 2038      6F6C6C65 
+ 2038      72476574 
+ 2038      00
+ 2039              	.LASF113:
+ 2040 0514 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 2040      52784275 
+ 2040      66666572 
+ 2040      00
+ 2041              	.LASF61:
+ 2042 0521 42746E35 		.ascii	"Btn5\000"
+ 2042      00
+ 2043              	.LASF62:
+ 2044 0526 42746E36 		.ascii	"Btn6\000"
+ 2044      00
+ 2045              	.LASF63:
+ 2046 052b 42746E37 		.ascii	"Btn7\000"
+ 2046      00
+ 2047              	.LASF64:
+ 2048 0530 42746E38 		.ascii	"Btn8\000"
+ 2048      00
+ 2049              	.LASF99:
+ 2050 0535 6B466C61 		.ascii	"kFlagDisabled\000"
+ 2050      67446973 
+ 2050      61626C65 
+ 2050      6400
+ 2051              	.LASF114:
+ 2052 0543 76657853 		.ascii	"vexSpiGetControl\000"
+ 2052      70694765 
+ 2052      74436F6E 
+ 2052      74726F6C 
+ 2052      00
+ 2053              	.LASF90:
+ 2054 0554 7443746C 		.ascii	"tCtlIndex\000"
+ 2054      496E6465 
+ 2054      7800
+ 2055              	.LASF112:
+ 2056 055e 74696D65 		.ascii	"timeout\000"
+ 2056      6F757400 
+ 2057              	.LASF86:
+ 2058 0566 42746E36 		.ascii	"Btn6Xmtr2\000"
+ 2058      586D7472 
+ 2058      3200
+ 2059              		.ident	"GCC: (GNU) 4.7.1"
+ARM GAS  C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s 			page 42
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 vexctl.c
+C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s:19     .text.vexControllerCompetitionStateSet:00000000 $t
+C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s:25     .text.vexControllerCompetitionStateSet:00000000 vexControllerCompetitionStateSet
+C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s:74     .text.vexControllerCompetitionStateSet:00000030 $d
+C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s:79     .text.vexControllerCompetitonState:00000000 $t
+C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s:85     .text.vexControllerCompetitonState:00000000 vexControllerCompetitonState
+C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s:121    .text.vexControllerCompetitonState:00000020 $d
+C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s:126    .text.vexControllerGet:00000000 $t
+C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s:132    .text.vexControllerGet:00000000 vexControllerGet
+C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s:163    .text.vexControllerGet:0000001c $d
+C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s:187    .text.vexControllerGet:00000034 $t
+C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s:418    .text.vexControllerReleaseWait:00000000 $t
+C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s:424    .text.vexControllerReleaseWait:00000000 vexControllerReleaseWait
+C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s:469    .bss.vexLocalCompState:00000000 $d
+C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s:473    .bss.vexLocalCompState:00000000 vexLocalCompState
+                     .debug_frame:00000010 $d
+C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s:78     .text.vexControllerCompetitionStateSet:00000034 $t
+C:\Users\Caitlin\AppData\Local\Temp\ccdjM95r.s:2059   .text.vexControllerCompetitonState:00000024 $t
+
+UNDEFINED SYMBOLS
+vexSpiGetControl
+vexSpiGetJoystickDataPtr
+vexSleep
