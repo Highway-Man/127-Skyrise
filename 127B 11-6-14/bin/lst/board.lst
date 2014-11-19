@@ -1,0 +1,932 @@
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\ccedtDRg.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"board.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.__early_init,"ax",%progbits
+  19              		.align	2
+  20              		.p2align 4,,15
+  21              		.global	__early_init
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	__early_init, %function
+  25              	__early_init:
+  26              	.LFB63:
+  27              		.file 1 "../convex/cortex/boards/VEX_STM32_CORTEX/board.c"
+  28              		.loc 1 64 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              		.loc 1 67 0
+  34              		.loc 1 66 0
+  35 0000 FFF7FEBF 		b	stm32_clock_init
+  36              	.LVL0:
+  37              		.cfi_endproc
+  38              	.LFE63:
+  39              		.size	__early_init, .-__early_init
+  40 0004 AFF30080 		.section	.text.boardInit,"ax",%progbits
+  40      AFF30080 
+  40      AFF30080 
+  41              		.align	2
+  42              		.p2align 4,,15
+  43              		.global	boardInit
+  44              		.thumb
+  45              		.thumb_func
+  46              		.type	boardInit, %function
+  47              	boardInit:
+  48              	.LFB64:
+  49              		.loc 1 72 0
+  50              		.cfi_startproc
+  51              		@ args = 0, pretend = 0, frame = 0
+  52              		@ frame_needed = 0, uses_anonymous_args = 0
+  53              		@ link register save eliminated.
+  54              		.loc 1 75 0
+  55 0000 0023     		movs	r3, #0
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\ccedtDRg.s 			page 2
+
+
+  56 0002 C4F20103 		movt	r3, 16385
+  57 0006 5A68     		ldr	r2, [r3, #4]
+  58 0008 42F01A02 		orr	r2, r2, #26
+  59 000c 5A60     		str	r2, [r3, #4]
+  60 000e 7047     		bx	lr
+  61              		.cfi_endproc
+  62              	.LFE64:
+  63              		.size	boardInit, .-boardInit
+  64              		.global	pal_default_config
+  65              		.section	.rodata.pal_default_config,"a",%progbits
+  66              		.align	2
+  67              		.type	pal_default_config, %object
+  68              		.size	pal_default_config, 84
+  69              	pal_default_config:
+  70 0000 00000000 		.word	0
+  71 0004 0000B0BB 		.word	-1146093568
+  72 0008 B0340000 		.word	13488
+  73 000c 00000000 		.word	0
+  74 0010 00000000 		.word	0
+  75 0014 FF040000 		.word	1279
+  76 0018 C0000000 		.word	192
+  77 001c 00000088 		.word	-2013265920
+  78 0020 044B0000 		.word	19204
+  79 0024 03F00000 		.word	61443
+  80 0028 8810B114 		.word	347148424
+  81 002c 01001111 		.word	286326785
+  82 0030 817F0000 		.word	32641
+  83 0034 03000080 		.word	-2147483645
+  84 0038 88888808 		.word	143165576
+  85 003c 00000000 		.word	0
+  86 0040 44444444 		.word	1145324612
+  87 0044 44444444 		.word	1145324612
+  88 0048 00000000 		.word	0
+  89 004c 44444444 		.word	1145324612
+  90 0050 44444444 		.word	1145324612
+  91              		.text
+  92              	.Letext0:
+  93              		.file 2 "c:/program files/pros/toolchain/lib/gcc/../../arm-none-eabi/include/stdint.h"
+  94              		.file 3 "../ChibiOS_2.6.0/os/hal/platforms/STM32F1xx/stm32f10x.h"
+  95              		.file 4 "../ChibiOS_2.6.0/os/hal/platforms/STM32/GPIOv1/pal_lld.h"
+  96              		.file 5 "../ChibiOS_2.6.0/os/ports/common/ARMCMx/CMSIS/include/core_cm3.h"
+  97              		.file 6 "../ChibiOS_2.6.0/os/hal/platforms/STM32F1xx/hal_lld.h"
+  98              		.section	.debug_info,"",%progbits
+  99              	.Ldebug_info0:
+ 100 0000 33020000 		.4byte	0x233
+ 101 0004 0200     		.2byte	0x2
+ 102 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 103 000a 04       		.byte	0x4
+ 104 000b 01       		.uleb128 0x1
+ 105 000c 81010000 		.4byte	.LASF31
+ 106 0010 01       		.byte	0x1
+ 107 0011 ED000000 		.4byte	.LASF32
+ 108 0015 59010000 		.4byte	.LASF33
+ 109 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 110 001d 00000000 		.4byte	0
+ 111 0021 00000000 		.4byte	0
+ 112 0025 00000000 		.4byte	.Ldebug_line0
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\ccedtDRg.s 			page 3
+
+
+ 113 0029 02       		.uleb128 0x2
+ 114 002a 04       		.byte	0x4
+ 115 002b 05       		.byte	0x5
+ 116 002c 696E7400 		.ascii	"int\000"
+ 117 0030 03       		.uleb128 0x3
+ 118 0031 04       		.byte	0x4
+ 119 0032 07       		.byte	0x7
+ 120 0033 14000000 		.4byte	.LASF0
+ 121 0037 03       		.uleb128 0x3
+ 122 0038 01       		.byte	0x1
+ 123 0039 06       		.byte	0x6
+ 124 003a C0010000 		.4byte	.LASF1
+ 125 003e 03       		.uleb128 0x3
+ 126 003f 01       		.byte	0x1
+ 127 0040 08       		.byte	0x8
+ 128 0041 4E000000 		.4byte	.LASF2
+ 129 0045 03       		.uleb128 0x3
+ 130 0046 02       		.byte	0x2
+ 131 0047 05       		.byte	0x5
+ 132 0048 94010000 		.4byte	.LASF3
+ 133 004c 03       		.uleb128 0x3
+ 134 004d 02       		.byte	0x2
+ 135 004e 07       		.byte	0x7
+ 136 004f 92000000 		.4byte	.LASF4
+ 137 0053 04       		.uleb128 0x4
+ 138 0054 3A010000 		.4byte	.LASF6
+ 139 0058 02       		.byte	0x2
+ 140 0059 4F       		.byte	0x4f
+ 141 005a 5E000000 		.4byte	0x5e
+ 142 005e 03       		.uleb128 0x3
+ 143 005f 04       		.byte	0x4
+ 144 0060 05       		.byte	0x5
+ 145 0061 B2010000 		.4byte	.LASF5
+ 146 0065 04       		.uleb128 0x4
+ 147 0066 A5000000 		.4byte	.LASF7
+ 148 006a 02       		.byte	0x2
+ 149 006b 50       		.byte	0x50
+ 150 006c 70000000 		.4byte	0x70
+ 151 0070 03       		.uleb128 0x3
+ 152 0071 04       		.byte	0x4
+ 153 0072 07       		.byte	0x7
+ 154 0073 80000000 		.4byte	.LASF8
+ 155 0077 03       		.uleb128 0x3
+ 156 0078 08       		.byte	0x8
+ 157 0079 05       		.byte	0x5
+ 158 007a 4B010000 		.4byte	.LASF9
+ 159 007e 03       		.uleb128 0x3
+ 160 007f 08       		.byte	0x8
+ 161 0080 07       		.byte	0x7
+ 162 0081 30000000 		.4byte	.LASF10
+ 163 0085 03       		.uleb128 0x3
+ 164 0086 01       		.byte	0x1
+ 165 0087 02       		.byte	0x2
+ 166 0088 CC010000 		.4byte	.LASF11
+ 167 008c 05       		.uleb128 0x5
+ 168 008d 65000000 		.4byte	0x65
+ 169 0091 03       		.uleb128 0x3
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\ccedtDRg.s 			page 4
+
+
+ 170 0092 04       		.byte	0x4
+ 171 0093 07       		.byte	0x7
+ 172 0094 42010000 		.4byte	.LASF12
+ 173 0098 03       		.uleb128 0x3
+ 174 0099 01       		.byte	0x1
+ 175 009a 08       		.byte	0x8
+ 176 009b 1E010000 		.4byte	.LASF13
+ 177 009f 06       		.uleb128 0x6
+ 178 00a0 65000000 		.4byte	0x65
+ 179 00a4 AF000000 		.4byte	0xaf
+ 180 00a8 07       		.uleb128 0x7
+ 181 00a9 91000000 		.4byte	0x91
+ 182 00ad 03       		.byte	0x3
+ 183 00ae 00       		.byte	0
+ 184 00af 05       		.uleb128 0x5
+ 185 00b0 53000000 		.4byte	0x53
+ 186 00b4 08       		.uleb128 0x8
+ 187 00b5 20       		.byte	0x20
+ 188 00b6 03       		.byte	0x3
+ 189 00b7 0704     		.2byte	0x407
+ 190 00b9 09010000 		.4byte	0x109
+ 191 00bd 09       		.uleb128 0x9
+ 192 00be BB010000 		.4byte	.LASF14
+ 193 00c2 03       		.byte	0x3
+ 194 00c3 0904     		.2byte	0x409
+ 195 00c5 8C000000 		.4byte	0x8c
+ 196 00c9 02       		.byte	0x2
+ 197 00ca 23       		.byte	0x23
+ 198 00cb 00       		.uleb128 0
+ 199 00cc 09       		.uleb128 0x9
+ 200 00cd 21000000 		.4byte	.LASF15
+ 201 00d1 03       		.byte	0x3
+ 202 00d2 0A04     		.2byte	0x40a
+ 203 00d4 8C000000 		.4byte	0x8c
+ 204 00d8 02       		.byte	0x2
+ 205 00d9 23       		.byte	0x23
+ 206 00da 04       		.uleb128 0x4
+ 207 00db 09       		.uleb128 0x9
+ 208 00dc D8000000 		.4byte	.LASF16
+ 209 00e0 03       		.byte	0x3
+ 210 00e1 0B04     		.2byte	0x40b
+ 211 00e3 09010000 		.4byte	0x109
+ 212 00e7 02       		.byte	0x2
+ 213 00e8 23       		.byte	0x23
+ 214 00e9 08       		.uleb128 0x8
+ 215 00ea 09       		.uleb128 0x9
+ 216 00eb 26000000 		.4byte	.LASF17
+ 217 00ef 03       		.byte	0x3
+ 218 00f0 0C04     		.2byte	0x40c
+ 219 00f2 65000000 		.4byte	0x65
+ 220 00f6 02       		.byte	0x2
+ 221 00f7 23       		.byte	0x23
+ 222 00f8 18       		.uleb128 0x18
+ 223 00f9 09       		.uleb128 0x9
+ 224 00fa A5010000 		.4byte	.LASF18
+ 225 00fe 03       		.byte	0x3
+ 226 00ff 0D04     		.2byte	0x40d
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\ccedtDRg.s 			page 5
+
+
+ 227 0101 8C000000 		.4byte	0x8c
+ 228 0105 02       		.byte	0x2
+ 229 0106 23       		.byte	0x23
+ 230 0107 1C       		.uleb128 0x1c
+ 231 0108 00       		.byte	0
+ 232 0109 05       		.uleb128 0x5
+ 233 010a 9F000000 		.4byte	0x9f
+ 234 010e 0A       		.uleb128 0xa
+ 235 010f 00000000 		.4byte	.LASF19
+ 236 0113 03       		.byte	0x3
+ 237 0114 0E04     		.2byte	0x40e
+ 238 0116 B4000000 		.4byte	0xb4
+ 239 011a 0B       		.uleb128 0xb
+ 240 011b 0C       		.byte	0xc
+ 241 011c 04       		.byte	0x4
+ 242 011d 38       		.byte	0x38
+ 243 011e 4D010000 		.4byte	0x14d
+ 244 0122 0C       		.uleb128 0xc
+ 245 0123 6F647200 		.ascii	"odr\000"
+ 246 0127 04       		.byte	0x4
+ 247 0128 3A       		.byte	0x3a
+ 248 0129 65000000 		.4byte	0x65
+ 249 012d 02       		.byte	0x2
+ 250 012e 23       		.byte	0x23
+ 251 012f 00       		.uleb128 0
+ 252 0130 0C       		.uleb128 0xc
+ 253 0131 63726C00 		.ascii	"crl\000"
+ 254 0135 04       		.byte	0x4
+ 255 0136 3C       		.byte	0x3c
+ 256 0137 65000000 		.4byte	0x65
+ 257 013b 02       		.byte	0x2
+ 258 013c 23       		.byte	0x23
+ 259 013d 04       		.uleb128 0x4
+ 260 013e 0C       		.uleb128 0xc
+ 261 013f 63726800 		.ascii	"crh\000"
+ 262 0143 04       		.byte	0x4
+ 263 0144 3E       		.byte	0x3e
+ 264 0145 65000000 		.4byte	0x65
+ 265 0149 02       		.byte	0x2
+ 266 014a 23       		.byte	0x23
+ 267 014b 08       		.uleb128 0x8
+ 268 014c 00       		.byte	0
+ 269 014d 04       		.uleb128 0x4
+ 270 014e 5C000000 		.4byte	.LASF20
+ 271 0152 04       		.byte	0x4
+ 272 0153 3F       		.byte	0x3f
+ 273 0154 1A010000 		.4byte	0x11a
+ 274 0158 0B       		.uleb128 0xb
+ 275 0159 54       		.byte	0x54
+ 276 015a 04       		.byte	0x4
+ 277 015b 48       		.byte	0x48
+ 278 015c C3010000 		.4byte	0x1c3
+ 279 0160 0D       		.uleb128 0xd
+ 280 0161 AB010000 		.4byte	.LASF21
+ 281 0165 04       		.byte	0x4
+ 282 0166 4A       		.byte	0x4a
+ 283 0167 4D010000 		.4byte	0x14d
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\ccedtDRg.s 			page 6
+
+
+ 284 016b 02       		.byte	0x2
+ 285 016c 23       		.byte	0x23
+ 286 016d 00       		.uleb128 0
+ 287 016e 0D       		.uleb128 0xd
+ 288 016f E6000000 		.4byte	.LASF22
+ 289 0173 04       		.byte	0x4
+ 290 0174 4C       		.byte	0x4c
+ 291 0175 4D010000 		.4byte	0x14d
+ 292 0179 02       		.byte	0x2
+ 293 017a 23       		.byte	0x23
+ 294 017b 0C       		.uleb128 0xc
+ 295 017c 0D       		.uleb128 0xd
+ 296 017d 9E010000 		.4byte	.LASF23
+ 297 0181 04       		.byte	0x4
+ 298 0182 4E       		.byte	0x4e
+ 299 0183 4D010000 		.4byte	0x14d
+ 300 0187 02       		.byte	0x2
+ 301 0188 23       		.byte	0x23
+ 302 0189 18       		.uleb128 0x18
+ 303 018a 0D       		.uleb128 0xd
+ 304 018b 0D000000 		.4byte	.LASF24
+ 305 018f 04       		.byte	0x4
+ 306 0190 50       		.byte	0x50
+ 307 0191 4D010000 		.4byte	0x14d
+ 308 0195 02       		.byte	0x2
+ 309 0196 23       		.byte	0x23
+ 310 0197 24       		.uleb128 0x24
+ 311 0198 0D       		.uleb128 0xd
+ 312 0199 47000000 		.4byte	.LASF25
+ 313 019d 04       		.byte	0x4
+ 314 019e 53       		.byte	0x53
+ 315 019f 4D010000 		.4byte	0x14d
+ 316 01a3 02       		.byte	0x2
+ 317 01a4 23       		.byte	0x23
+ 318 01a5 30       		.uleb128 0x30
+ 319 01a6 0D       		.uleb128 0xd
+ 320 01a7 DF000000 		.4byte	.LASF26
+ 321 01ab 04       		.byte	0x4
+ 322 01ac 56       		.byte	0x56
+ 323 01ad 4D010000 		.4byte	0x14d
+ 324 01b1 02       		.byte	0x2
+ 325 01b2 23       		.byte	0x23
+ 326 01b3 3C       		.uleb128 0x3c
+ 327 01b4 0D       		.uleb128 0xd
+ 328 01b5 8D010000 		.4byte	.LASF27
+ 329 01b9 04       		.byte	0x4
+ 330 01ba 59       		.byte	0x59
+ 331 01bb 4D010000 		.4byte	0x14d
+ 332 01bf 02       		.byte	0x2
+ 333 01c0 23       		.byte	0x23
+ 334 01c1 48       		.uleb128 0x48
+ 335 01c2 00       		.byte	0
+ 336 01c3 04       		.uleb128 0x4
+ 337 01c4 BB000000 		.4byte	.LASF28
+ 338 01c8 04       		.byte	0x4
+ 339 01c9 5D       		.byte	0x5d
+ 340 01ca 58010000 		.4byte	0x158
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\ccedtDRg.s 			page 7
+
+
+ 341 01ce 0E       		.uleb128 0xe
+ 342 01cf 01       		.byte	0x1
+ 343 01d0 2D010000 		.4byte	.LASF34
+ 344 01d4 01       		.byte	0x1
+ 345 01d5 40       		.byte	0x40
+ 346 01d6 01       		.byte	0x1
+ 347 01d7 00000000 		.4byte	.LFB63
+ 348 01db 04000000 		.4byte	.LFE63
+ 349 01df 02       		.byte	0x2
+ 350 01e0 7D       		.byte	0x7d
+ 351 01e1 00       		.sleb128 0
+ 352 01e2 01       		.byte	0x1
+ 353 01e3 F2010000 		.4byte	0x1f2
+ 354 01e7 0F       		.uleb128 0xf
+ 355 01e8 04000000 		.4byte	.LVL0
+ 356 01ec 01       		.byte	0x1
+ 357 01ed 2C020000 		.4byte	0x22c
+ 358 01f1 00       		.byte	0
+ 359 01f2 10       		.uleb128 0x10
+ 360 01f3 01       		.byte	0x1
+ 361 01f4 23010000 		.4byte	.LASF35
+ 362 01f8 01       		.byte	0x1
+ 363 01f9 48       		.byte	0x48
+ 364 01fa 01       		.byte	0x1
+ 365 01fb 00000000 		.4byte	.LFB64
+ 366 01ff 10000000 		.4byte	.LFE64
+ 367 0203 02       		.byte	0x2
+ 368 0204 7D       		.byte	0x7d
+ 369 0205 00       		.sleb128 0
+ 370 0206 01       		.byte	0x1
+ 371 0207 11       		.uleb128 0x11
+ 372 0208 AE000000 		.4byte	.LASF29
+ 373 020c 05       		.byte	0x5
+ 374 020d 0706     		.2byte	0x607
+ 375 020f AF000000 		.4byte	0xaf
+ 376 0213 01       		.byte	0x1
+ 377 0214 01       		.byte	0x1
+ 378 0215 12       		.uleb128 0x12
+ 379 0216 C5000000 		.4byte	.LASF30
+ 380 021a 01       		.byte	0x1
+ 381 021b 2F       		.byte	0x2f
+ 382 021c 27020000 		.4byte	0x227
+ 383 0220 01       		.byte	0x1
+ 384 0221 05       		.byte	0x5
+ 385 0222 03       		.byte	0x3
+ 386 0223 00000000 		.4byte	pal_default_config
+ 387 0227 13       		.uleb128 0x13
+ 388 0228 C3010000 		.4byte	0x1c3
+ 389 022c 14       		.uleb128 0x14
+ 390 022d 01       		.byte	0x1
+ 391 022e 6F000000 		.4byte	.LASF36
+ 392 0232 06       		.byte	0x6
+ 393 0233 F8       		.byte	0xf8
+ 394 0234 01       		.byte	0x1
+ 395 0235 01       		.byte	0x1
+ 396 0236 00       		.byte	0
+ 397              		.section	.debug_abbrev,"",%progbits
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\ccedtDRg.s 			page 8
+
+
+ 398              	.Ldebug_abbrev0:
+ 399 0000 01       		.uleb128 0x1
+ 400 0001 11       		.uleb128 0x11
+ 401 0002 01       		.byte	0x1
+ 402 0003 25       		.uleb128 0x25
+ 403 0004 0E       		.uleb128 0xe
+ 404 0005 13       		.uleb128 0x13
+ 405 0006 0B       		.uleb128 0xb
+ 406 0007 03       		.uleb128 0x3
+ 407 0008 0E       		.uleb128 0xe
+ 408 0009 1B       		.uleb128 0x1b
+ 409 000a 0E       		.uleb128 0xe
+ 410 000b 55       		.uleb128 0x55
+ 411 000c 06       		.uleb128 0x6
+ 412 000d 11       		.uleb128 0x11
+ 413 000e 01       		.uleb128 0x1
+ 414 000f 52       		.uleb128 0x52
+ 415 0010 01       		.uleb128 0x1
+ 416 0011 10       		.uleb128 0x10
+ 417 0012 06       		.uleb128 0x6
+ 418 0013 00       		.byte	0
+ 419 0014 00       		.byte	0
+ 420 0015 02       		.uleb128 0x2
+ 421 0016 24       		.uleb128 0x24
+ 422 0017 00       		.byte	0
+ 423 0018 0B       		.uleb128 0xb
+ 424 0019 0B       		.uleb128 0xb
+ 425 001a 3E       		.uleb128 0x3e
+ 426 001b 0B       		.uleb128 0xb
+ 427 001c 03       		.uleb128 0x3
+ 428 001d 08       		.uleb128 0x8
+ 429 001e 00       		.byte	0
+ 430 001f 00       		.byte	0
+ 431 0020 03       		.uleb128 0x3
+ 432 0021 24       		.uleb128 0x24
+ 433 0022 00       		.byte	0
+ 434 0023 0B       		.uleb128 0xb
+ 435 0024 0B       		.uleb128 0xb
+ 436 0025 3E       		.uleb128 0x3e
+ 437 0026 0B       		.uleb128 0xb
+ 438 0027 03       		.uleb128 0x3
+ 439 0028 0E       		.uleb128 0xe
+ 440 0029 00       		.byte	0
+ 441 002a 00       		.byte	0
+ 442 002b 04       		.uleb128 0x4
+ 443 002c 16       		.uleb128 0x16
+ 444 002d 00       		.byte	0
+ 445 002e 03       		.uleb128 0x3
+ 446 002f 0E       		.uleb128 0xe
+ 447 0030 3A       		.uleb128 0x3a
+ 448 0031 0B       		.uleb128 0xb
+ 449 0032 3B       		.uleb128 0x3b
+ 450 0033 0B       		.uleb128 0xb
+ 451 0034 49       		.uleb128 0x49
+ 452 0035 13       		.uleb128 0x13
+ 453 0036 00       		.byte	0
+ 454 0037 00       		.byte	0
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\ccedtDRg.s 			page 9
+
+
+ 455 0038 05       		.uleb128 0x5
+ 456 0039 35       		.uleb128 0x35
+ 457 003a 00       		.byte	0
+ 458 003b 49       		.uleb128 0x49
+ 459 003c 13       		.uleb128 0x13
+ 460 003d 00       		.byte	0
+ 461 003e 00       		.byte	0
+ 462 003f 06       		.uleb128 0x6
+ 463 0040 01       		.uleb128 0x1
+ 464 0041 01       		.byte	0x1
+ 465 0042 49       		.uleb128 0x49
+ 466 0043 13       		.uleb128 0x13
+ 467 0044 01       		.uleb128 0x1
+ 468 0045 13       		.uleb128 0x13
+ 469 0046 00       		.byte	0
+ 470 0047 00       		.byte	0
+ 471 0048 07       		.uleb128 0x7
+ 472 0049 21       		.uleb128 0x21
+ 473 004a 00       		.byte	0
+ 474 004b 49       		.uleb128 0x49
+ 475 004c 13       		.uleb128 0x13
+ 476 004d 2F       		.uleb128 0x2f
+ 477 004e 0B       		.uleb128 0xb
+ 478 004f 00       		.byte	0
+ 479 0050 00       		.byte	0
+ 480 0051 08       		.uleb128 0x8
+ 481 0052 13       		.uleb128 0x13
+ 482 0053 01       		.byte	0x1
+ 483 0054 0B       		.uleb128 0xb
+ 484 0055 0B       		.uleb128 0xb
+ 485 0056 3A       		.uleb128 0x3a
+ 486 0057 0B       		.uleb128 0xb
+ 487 0058 3B       		.uleb128 0x3b
+ 488 0059 05       		.uleb128 0x5
+ 489 005a 01       		.uleb128 0x1
+ 490 005b 13       		.uleb128 0x13
+ 491 005c 00       		.byte	0
+ 492 005d 00       		.byte	0
+ 493 005e 09       		.uleb128 0x9
+ 494 005f 0D       		.uleb128 0xd
+ 495 0060 00       		.byte	0
+ 496 0061 03       		.uleb128 0x3
+ 497 0062 0E       		.uleb128 0xe
+ 498 0063 3A       		.uleb128 0x3a
+ 499 0064 0B       		.uleb128 0xb
+ 500 0065 3B       		.uleb128 0x3b
+ 501 0066 05       		.uleb128 0x5
+ 502 0067 49       		.uleb128 0x49
+ 503 0068 13       		.uleb128 0x13
+ 504 0069 38       		.uleb128 0x38
+ 505 006a 0A       		.uleb128 0xa
+ 506 006b 00       		.byte	0
+ 507 006c 00       		.byte	0
+ 508 006d 0A       		.uleb128 0xa
+ 509 006e 16       		.uleb128 0x16
+ 510 006f 00       		.byte	0
+ 511 0070 03       		.uleb128 0x3
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\ccedtDRg.s 			page 10
+
+
+ 512 0071 0E       		.uleb128 0xe
+ 513 0072 3A       		.uleb128 0x3a
+ 514 0073 0B       		.uleb128 0xb
+ 515 0074 3B       		.uleb128 0x3b
+ 516 0075 05       		.uleb128 0x5
+ 517 0076 49       		.uleb128 0x49
+ 518 0077 13       		.uleb128 0x13
+ 519 0078 00       		.byte	0
+ 520 0079 00       		.byte	0
+ 521 007a 0B       		.uleb128 0xb
+ 522 007b 13       		.uleb128 0x13
+ 523 007c 01       		.byte	0x1
+ 524 007d 0B       		.uleb128 0xb
+ 525 007e 0B       		.uleb128 0xb
+ 526 007f 3A       		.uleb128 0x3a
+ 527 0080 0B       		.uleb128 0xb
+ 528 0081 3B       		.uleb128 0x3b
+ 529 0082 0B       		.uleb128 0xb
+ 530 0083 01       		.uleb128 0x1
+ 531 0084 13       		.uleb128 0x13
+ 532 0085 00       		.byte	0
+ 533 0086 00       		.byte	0
+ 534 0087 0C       		.uleb128 0xc
+ 535 0088 0D       		.uleb128 0xd
+ 536 0089 00       		.byte	0
+ 537 008a 03       		.uleb128 0x3
+ 538 008b 08       		.uleb128 0x8
+ 539 008c 3A       		.uleb128 0x3a
+ 540 008d 0B       		.uleb128 0xb
+ 541 008e 3B       		.uleb128 0x3b
+ 542 008f 0B       		.uleb128 0xb
+ 543 0090 49       		.uleb128 0x49
+ 544 0091 13       		.uleb128 0x13
+ 545 0092 38       		.uleb128 0x38
+ 546 0093 0A       		.uleb128 0xa
+ 547 0094 00       		.byte	0
+ 548 0095 00       		.byte	0
+ 549 0096 0D       		.uleb128 0xd
+ 550 0097 0D       		.uleb128 0xd
+ 551 0098 00       		.byte	0
+ 552 0099 03       		.uleb128 0x3
+ 553 009a 0E       		.uleb128 0xe
+ 554 009b 3A       		.uleb128 0x3a
+ 555 009c 0B       		.uleb128 0xb
+ 556 009d 3B       		.uleb128 0x3b
+ 557 009e 0B       		.uleb128 0xb
+ 558 009f 49       		.uleb128 0x49
+ 559 00a0 13       		.uleb128 0x13
+ 560 00a1 38       		.uleb128 0x38
+ 561 00a2 0A       		.uleb128 0xa
+ 562 00a3 00       		.byte	0
+ 563 00a4 00       		.byte	0
+ 564 00a5 0E       		.uleb128 0xe
+ 565 00a6 2E       		.uleb128 0x2e
+ 566 00a7 01       		.byte	0x1
+ 567 00a8 3F       		.uleb128 0x3f
+ 568 00a9 0C       		.uleb128 0xc
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\ccedtDRg.s 			page 11
+
+
+ 569 00aa 03       		.uleb128 0x3
+ 570 00ab 0E       		.uleb128 0xe
+ 571 00ac 3A       		.uleb128 0x3a
+ 572 00ad 0B       		.uleb128 0xb
+ 573 00ae 3B       		.uleb128 0x3b
+ 574 00af 0B       		.uleb128 0xb
+ 575 00b0 27       		.uleb128 0x27
+ 576 00b1 0C       		.uleb128 0xc
+ 577 00b2 11       		.uleb128 0x11
+ 578 00b3 01       		.uleb128 0x1
+ 579 00b4 12       		.uleb128 0x12
+ 580 00b5 01       		.uleb128 0x1
+ 581 00b6 40       		.uleb128 0x40
+ 582 00b7 0A       		.uleb128 0xa
+ 583 00b8 9742     		.uleb128 0x2117
+ 584 00ba 0C       		.uleb128 0xc
+ 585 00bb 01       		.uleb128 0x1
+ 586 00bc 13       		.uleb128 0x13
+ 587 00bd 00       		.byte	0
+ 588 00be 00       		.byte	0
+ 589 00bf 0F       		.uleb128 0xf
+ 590 00c0 898201   		.uleb128 0x4109
+ 591 00c3 00       		.byte	0
+ 592 00c4 11       		.uleb128 0x11
+ 593 00c5 01       		.uleb128 0x1
+ 594 00c6 9542     		.uleb128 0x2115
+ 595 00c8 0C       		.uleb128 0xc
+ 596 00c9 31       		.uleb128 0x31
+ 597 00ca 13       		.uleb128 0x13
+ 598 00cb 00       		.byte	0
+ 599 00cc 00       		.byte	0
+ 600 00cd 10       		.uleb128 0x10
+ 601 00ce 2E       		.uleb128 0x2e
+ 602 00cf 00       		.byte	0
+ 603 00d0 3F       		.uleb128 0x3f
+ 604 00d1 0C       		.uleb128 0xc
+ 605 00d2 03       		.uleb128 0x3
+ 606 00d3 0E       		.uleb128 0xe
+ 607 00d4 3A       		.uleb128 0x3a
+ 608 00d5 0B       		.uleb128 0xb
+ 609 00d6 3B       		.uleb128 0x3b
+ 610 00d7 0B       		.uleb128 0xb
+ 611 00d8 27       		.uleb128 0x27
+ 612 00d9 0C       		.uleb128 0xc
+ 613 00da 11       		.uleb128 0x11
+ 614 00db 01       		.uleb128 0x1
+ 615 00dc 12       		.uleb128 0x12
+ 616 00dd 01       		.uleb128 0x1
+ 617 00de 40       		.uleb128 0x40
+ 618 00df 0A       		.uleb128 0xa
+ 619 00e0 9742     		.uleb128 0x2117
+ 620 00e2 0C       		.uleb128 0xc
+ 621 00e3 00       		.byte	0
+ 622 00e4 00       		.byte	0
+ 623 00e5 11       		.uleb128 0x11
+ 624 00e6 34       		.uleb128 0x34
+ 625 00e7 00       		.byte	0
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\ccedtDRg.s 			page 12
+
+
+ 626 00e8 03       		.uleb128 0x3
+ 627 00e9 0E       		.uleb128 0xe
+ 628 00ea 3A       		.uleb128 0x3a
+ 629 00eb 0B       		.uleb128 0xb
+ 630 00ec 3B       		.uleb128 0x3b
+ 631 00ed 05       		.uleb128 0x5
+ 632 00ee 49       		.uleb128 0x49
+ 633 00ef 13       		.uleb128 0x13
+ 634 00f0 3F       		.uleb128 0x3f
+ 635 00f1 0C       		.uleb128 0xc
+ 636 00f2 3C       		.uleb128 0x3c
+ 637 00f3 0C       		.uleb128 0xc
+ 638 00f4 00       		.byte	0
+ 639 00f5 00       		.byte	0
+ 640 00f6 12       		.uleb128 0x12
+ 641 00f7 34       		.uleb128 0x34
+ 642 00f8 00       		.byte	0
+ 643 00f9 03       		.uleb128 0x3
+ 644 00fa 0E       		.uleb128 0xe
+ 645 00fb 3A       		.uleb128 0x3a
+ 646 00fc 0B       		.uleb128 0xb
+ 647 00fd 3B       		.uleb128 0x3b
+ 648 00fe 0B       		.uleb128 0xb
+ 649 00ff 49       		.uleb128 0x49
+ 650 0100 13       		.uleb128 0x13
+ 651 0101 3F       		.uleb128 0x3f
+ 652 0102 0C       		.uleb128 0xc
+ 653 0103 02       		.uleb128 0x2
+ 654 0104 0A       		.uleb128 0xa
+ 655 0105 00       		.byte	0
+ 656 0106 00       		.byte	0
+ 657 0107 13       		.uleb128 0x13
+ 658 0108 26       		.uleb128 0x26
+ 659 0109 00       		.byte	0
+ 660 010a 49       		.uleb128 0x49
+ 661 010b 13       		.uleb128 0x13
+ 662 010c 00       		.byte	0
+ 663 010d 00       		.byte	0
+ 664 010e 14       		.uleb128 0x14
+ 665 010f 2E       		.uleb128 0x2e
+ 666 0110 00       		.byte	0
+ 667 0111 3F       		.uleb128 0x3f
+ 668 0112 0C       		.uleb128 0xc
+ 669 0113 03       		.uleb128 0x3
+ 670 0114 0E       		.uleb128 0xe
+ 671 0115 3A       		.uleb128 0x3a
+ 672 0116 0B       		.uleb128 0xb
+ 673 0117 3B       		.uleb128 0x3b
+ 674 0118 0B       		.uleb128 0xb
+ 675 0119 27       		.uleb128 0x27
+ 676 011a 0C       		.uleb128 0xc
+ 677 011b 3C       		.uleb128 0x3c
+ 678 011c 0C       		.uleb128 0xc
+ 679 011d 00       		.byte	0
+ 680 011e 00       		.byte	0
+ 681 011f 00       		.byte	0
+ 682              		.section	.debug_aranges,"",%progbits
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\ccedtDRg.s 			page 13
+
+
+ 683 0000 24000000 		.4byte	0x24
+ 684 0004 0200     		.2byte	0x2
+ 685 0006 00000000 		.4byte	.Ldebug_info0
+ 686 000a 04       		.byte	0x4
+ 687 000b 00       		.byte	0
+ 688 000c 0000     		.2byte	0
+ 689 000e 0000     		.2byte	0
+ 690 0010 00000000 		.4byte	.LFB63
+ 691 0014 04000000 		.4byte	.LFE63-.LFB63
+ 692 0018 00000000 		.4byte	.LFB64
+ 693 001c 10000000 		.4byte	.LFE64-.LFB64
+ 694 0020 00000000 		.4byte	0
+ 695 0024 00000000 		.4byte	0
+ 696              		.section	.debug_ranges,"",%progbits
+ 697              	.Ldebug_ranges0:
+ 698 0000 00000000 		.4byte	.LFB63
+ 699 0004 04000000 		.4byte	.LFE63
+ 700 0008 00000000 		.4byte	.LFB64
+ 701 000c 10000000 		.4byte	.LFE64
+ 702 0010 00000000 		.4byte	0
+ 703 0014 00000000 		.4byte	0
+ 704              		.section	.debug_line,"",%progbits
+ 705              	.Ldebug_line0:
+ 706 0000 87010000 		.section	.debug_str,"MS",%progbits,1
+ 706      02005F01 
+ 706      00000201 
+ 706      FB0E0D00 
+ 706      01010101 
+ 707              	.LASF19:
+ 708 0000 4146494F 		.ascii	"AFIO_TypeDef\000"
+ 708      5F547970 
+ 708      65446566 
+ 708      00
+ 709              	.LASF24:
+ 710 000d 50444461 		.ascii	"PDData\000"
+ 710      746100
+ 711              	.LASF0:
+ 712 0014 756E7369 		.ascii	"unsigned int\000"
+ 712      676E6564 
+ 712      20696E74 
+ 712      00
+ 713              	.LASF15:
+ 714 0021 4D415052 		.ascii	"MAPR\000"
+ 714      00
+ 715              	.LASF17:
+ 716 0026 52455345 		.ascii	"RESERVED0\000"
+ 716      52564544 
+ 716      3000
+ 717              	.LASF10:
+ 718 0030 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 718      206C6F6E 
+ 718      6720756E 
+ 718      7369676E 
+ 718      65642069 
+ 719              	.LASF25:
+ 720 0047 50454461 		.ascii	"PEData\000"
+ 720      746100
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\ccedtDRg.s 			page 14
+
+
+ 721              	.LASF2:
+ 722 004e 756E7369 		.ascii	"unsigned char\000"
+ 722      676E6564 
+ 722      20636861 
+ 722      7200
+ 723              	.LASF20:
+ 724 005c 73746D33 		.ascii	"stm32_gpio_setup_t\000"
+ 724      325F6770 
+ 724      696F5F73 
+ 724      65747570 
+ 724      5F7400
+ 725              	.LASF36:
+ 726 006f 73746D33 		.ascii	"stm32_clock_init\000"
+ 726      325F636C 
+ 726      6F636B5F 
+ 726      696E6974 
+ 726      00
+ 727              	.LASF8:
+ 728 0080 6C6F6E67 		.ascii	"long unsigned int\000"
+ 728      20756E73 
+ 728      69676E65 
+ 728      6420696E 
+ 728      7400
+ 729              	.LASF4:
+ 730 0092 73686F72 		.ascii	"short unsigned int\000"
+ 730      7420756E 
+ 730      7369676E 
+ 730      65642069 
+ 730      6E7400
+ 731              	.LASF7:
+ 732 00a5 75696E74 		.ascii	"uint32_t\000"
+ 732      33325F74 
+ 732      00
+ 733              	.LASF29:
+ 734 00ae 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 734      52784275 
+ 734      66666572 
+ 734      00
+ 735              	.LASF28:
+ 736 00bb 50414C43 		.ascii	"PALConfig\000"
+ 736      6F6E6669 
+ 736      6700
+ 737              	.LASF30:
+ 738 00c5 70616C5F 		.ascii	"pal_default_config\000"
+ 738      64656661 
+ 738      756C745F 
+ 738      636F6E66 
+ 738      696700
+ 739              	.LASF16:
+ 740 00d8 45585449 		.ascii	"EXTICR\000"
+ 740      435200
+ 741              	.LASF26:
+ 742 00df 50464461 		.ascii	"PFData\000"
+ 742      746100
+ 743              	.LASF22:
+ 744 00e6 50424461 		.ascii	"PBData\000"
+ 744      746100
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\ccedtDRg.s 			page 15
+
+
+ 745              	.LASF32:
+ 746 00ed 2E2E2F63 		.ascii	"../convex/cortex/boards/VEX_STM32_CORTEX/board.c\000"
+ 746      6F6E7665 
+ 746      782F636F 
+ 746      72746578 
+ 746      2F626F61 
+ 747              	.LASF13:
+ 748 011e 63686172 		.ascii	"char\000"
+ 748      00
+ 749              	.LASF35:
+ 750 0123 626F6172 		.ascii	"boardInit\000"
+ 750      64496E69 
+ 750      7400
+ 751              	.LASF34:
+ 752 012d 5F5F6561 		.ascii	"__early_init\000"
+ 752      726C795F 
+ 752      696E6974 
+ 752      00
+ 753              	.LASF6:
+ 754 013a 696E7433 		.ascii	"int32_t\000"
+ 754      325F7400 
+ 755              	.LASF12:
+ 756 0142 73697A65 		.ascii	"sizetype\000"
+ 756      74797065 
+ 756      00
+ 757              	.LASF9:
+ 758 014b 6C6F6E67 		.ascii	"long long int\000"
+ 758      206C6F6E 
+ 758      6720696E 
+ 758      7400
+ 759              	.LASF33:
+ 760 0159 433A5C55 		.ascii	"C:\\Users\\Grace Knaup\\pros\\ 127X 2-24-14\000"
+ 760      73657273 
+ 760      5C477261 
+ 760      6365204B 
+ 760      6E617570 
+ 761              	.LASF31:
+ 762 0181 474E5520 		.ascii	"GNU C 4.7.1\000"
+ 762      4320342E 
+ 762      372E3100 
+ 763              	.LASF27:
+ 764 018d 50474461 		.ascii	"PGData\000"
+ 764      746100
+ 765              	.LASF3:
+ 766 0194 73686F72 		.ascii	"short int\000"
+ 766      7420696E 
+ 766      7400
+ 767              	.LASF23:
+ 768 019e 50434461 		.ascii	"PCData\000"
+ 768      746100
+ 769              	.LASF18:
+ 770 01a5 4D415052 		.ascii	"MAPR2\000"
+ 770      3200
+ 771              	.LASF21:
+ 772 01ab 50414461 		.ascii	"PAData\000"
+ 772      746100
+ 773              	.LASF5:
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\ccedtDRg.s 			page 16
+
+
+ 774 01b2 6C6F6E67 		.ascii	"long int\000"
+ 774      20696E74 
+ 774      00
+ 775              	.LASF14:
+ 776 01bb 45564352 		.ascii	"EVCR\000"
+ 776      00
+ 777              	.LASF1:
+ 778 01c0 7369676E 		.ascii	"signed char\000"
+ 778      65642063 
+ 778      68617200 
+ 779              	.LASF11:
+ 780 01cc 5F426F6F 		.ascii	"_Bool\000"
+ 780      6C00
+ 781              		.ident	"GCC: (GNU) 4.7.1"
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\ccedtDRg.s 			page 17
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 board.c
+C:\Users\GRACEK~1\AppData\Local\Temp\ccedtDRg.s:19     .text.__early_init:00000000 $t
+C:\Users\GRACEK~1\AppData\Local\Temp\ccedtDRg.s:25     .text.__early_init:00000000 __early_init
+C:\Users\GRACEK~1\AppData\Local\Temp\ccedtDRg.s:41     .text.boardInit:00000000 $t
+C:\Users\GRACEK~1\AppData\Local\Temp\ccedtDRg.s:47     .text.boardInit:00000000 boardInit
+C:\Users\GRACEK~1\AppData\Local\Temp\ccedtDRg.s:69     .rodata.pal_default_config:00000000 pal_default_config
+C:\Users\GRACEK~1\AppData\Local\Temp\ccedtDRg.s:66     .rodata.pal_default_config:00000000 $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+stm32_clock_init

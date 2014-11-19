@@ -1,0 +1,4561 @@
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"pidlib.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.global	__aeabi_i2f
+  19              		.global	__aeabi_fcmplt
+  20              		.global	__aeabi_fcmpeq
+  21              		.global	__aeabi_fadd
+  22              		.global	__aeabi_fcmpgt
+  23              		.global	__aeabi_fmul
+  24              		.global	__aeabi_fsub
+  25              		.global	__aeabi_f2d
+  26              		.global	__aeabi_dmul
+  27              		.global	__aeabi_d2iz
+  28              		.global	__aeabi_f2iz
+  29              		.section	.text.PidControllerUpdate,"ax",%progbits
+  30              		.align	2
+  31              		.p2align 4,,15
+  32              		.global	PidControllerUpdate
+  33              		.thumb
+  34              		.thumb_func
+  35              		.type	PidControllerUpdate, %function
+  36              	PidControllerUpdate:
+  37              	.LFB71:
+  38              		.file 1 "../convex/cortex/opt/pidlib.c"
+  39              		.loc 1 160 0
+  40              		.cfi_startproc
+  41              		@ args = 0, pretend = 0, frame = 0
+  42              		@ frame_needed = 0, uses_anonymous_args = 0
+  43              	.LVL0:
+  44 0000 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, sl, lr}
+  45              	.LCFI0:
+  46              		.cfi_def_cfa_offset 32
+  47              		.cfi_offset 4, -32
+  48              		.cfi_offset 5, -28
+  49              		.cfi_offset 6, -24
+  50              		.cfi_offset 7, -20
+  51              		.cfi_offset 8, -16
+  52              		.cfi_offset 9, -12
+  53              		.cfi_offset 10, -8
+  54              		.cfi_offset 14, -4
+  55              		.loc 1 161 0
+  56 0004 0446     		mov	r4, r0
+  57 0006 0028     		cmp	r0, #0
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 2
+
+
+  58 0008 00F0E380 		beq	.L23
+  59              		.loc 1 164 0
+  60 000c B0F90030 		ldrsh	r3, [r0, #0]
+  61 0010 002B     		cmp	r3, #0
+  62 0012 00F09080 		beq	.L3
+  63              		.loc 1 168 0
+  64 0016 90F93400 		ldrsb	r0, [r0, #52]
+  65              	.LVL1:
+  66 001a 0028     		cmp	r0, #0
+  67 001c 80F2A380 		bge	.L4
+  68 0020 6569     		ldr	r5, [r4, #20]	@ float
+  69              	.L5:
+  70              		.loc 1 188 0
+  71 0022 25F00040 		bic	r0, r5, #-2147483648
+  72 0026 A16A     		ldr	r1, [r4, #40]	@ float
+  73 0028 FFF7FEFF 		bl	__aeabi_fcmplt
+  74              	.LVL2:
+  75 002c 08B1     		cbz	r0, .L8
+  76              		.loc 1 189 0
+  77 002e 0025     		movs	r5, #0
+  78 0030 6561     		str	r5, [r4, #20]	@ float
+  79              	.L8:
+  80              		.loc 1 192 0
+  81 0032 A768     		ldr	r7, [r4, #8]	@ float
+  82 0034 0026     		movs	r6, #0
+  83 0036 3846     		mov	r0, r7
+  84 0038 3146     		mov	r1, r6
+  85 003a FFF7FEFF 		bl	__aeabi_fcmpeq
+  86              	.LVL3:
+  87 003e 0028     		cmp	r0, #0
+  88 0040 40F09E80 		bne	.L39
+  89              		.loc 1 194 0
+  90 0044 E169     		ldr	r1, [r4, #28]	@ float
+  91 0046 2846     		mov	r0, r5
+  92 0048 FFF7FEFF 		bl	__aeabi_fadd
+  93              	.LVL4:
+  94              		.loc 1 197 0
+  95 004c D4F820A0 		ldr	sl, [r4, #32]	@ float
+  96              		.loc 1 194 0
+  97 0050 8146     		mov	r9, r0
+  98 0052 C4F81C90 		str	r9, [r4, #28]	@ float
+  99              		.loc 1 197 0
+ 100 0056 20F00040 		bic	r0, r0, #-2147483648
+ 101 005a 5146     		mov	r1, sl
+ 102              		.loc 1 194 0
+ 103 005c C846     		mov	r8, r9
+ 104              		.loc 1 197 0
+ 105 005e FFF7FEFF 		bl	__aeabi_fcmpgt
+ 106              	.LVL5:
+ 107 0062 98B1     		cbz	r0, .L12
+ 108              	.LVL6:
+ 109              	.LBB12:
+ 110              	.LBB13:
+ 111              		.loc 1 74 0
+ 112 0064 3146     		mov	r1, r6
+ 113 0066 4846     		mov	r0, r9
+ 114 0068 FFF7FEFF 		bl	__aeabi_fcmpeq
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 3
+
+
+ 115              	.LVL7:
+ 116 006c 3146     		mov	r1, r6
+ 117 006e 40B9     		cbnz	r0, .L14
+ 118              		.loc 1 75 0
+ 119 0070 3146     		mov	r1, r6
+ 120 0072 4846     		mov	r0, r9
+ 121 0074 FFF7FEFF 		bl	__aeabi_fcmpgt
+ 122              	.LVL8:
+ 123 0078 4FF07E51 		mov	r1, #1065353216
+ 124 007c 0028     		cmp	r0, #0
+ 125 007e 00F0B080 		beq	.L45
+ 126              	.L14:
+ 127              	.LBE13:
+ 128              	.LBE12:
+ 129              		.loc 1 198 0
+ 130 0082 5046     		mov	r0, sl
+ 131 0084 FFF7FEFF 		bl	__aeabi_fmul
+ 132              	.LVL9:
+ 133 0088 8046     		mov	r8, r0
+ 134              	.LVL10:
+ 135 008a E061     		str	r0, [r4, #28]	@ float
+ 136              	.LVL11:
+ 137              	.L12:
+ 138              		.loc 1 204 0
+ 139 008c A169     		ldr	r1, [r4, #24]	@ float
+ 140 008e 2846     		mov	r0, r5
+ 141 0090 FFF7FEFF 		bl	__aeabi_fsub
+ 142              	.LVL12:
+ 143              		.loc 1 205 0
+ 144 0094 A561     		str	r5, [r4, #24]	@ float
+ 145              		.loc 1 204 0
+ 146 0096 0646     		mov	r6, r0
+ 147 0098 6062     		str	r0, [r4, #36]	@ float
+ 148              		.loc 1 208 0
+ 149 009a 6168     		ldr	r1, [r4, #4]	@ float
+ 150 009c 2846     		mov	r0, r5
+ 151 009e FFF7FEFF 		bl	__aeabi_fmul
+ 152              	.LVL13:
+ 153 00a2 4146     		mov	r1, r8
+ 154 00a4 0546     		mov	r5, r0
+ 155 00a6 3846     		mov	r0, r7
+ 156 00a8 FFF7FEFF 		bl	__aeabi_fmul
+ 157              	.LVL14:
+ 158 00ac 0146     		mov	r1, r0
+ 159 00ae 2846     		mov	r0, r5
+ 160 00b0 FFF7FEFF 		bl	__aeabi_fadd
+ 161              	.LVL15:
+ 162 00b4 E168     		ldr	r1, [r4, #12]	@ float
+ 163 00b6 0546     		mov	r5, r0
+ 164 00b8 3046     		mov	r0, r6
+ 165 00ba FFF7FEFF 		bl	__aeabi_fmul
+ 166              	.LVL16:
+ 167 00be 0146     		mov	r1, r0
+ 168 00c0 2846     		mov	r0, r5
+ 169 00c2 FFF7FEFF 		bl	__aeabi_fadd
+ 170              	.LVL17:
+ 171 00c6 2169     		ldr	r1, [r4, #16]	@ float
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 4
+
+
+ 172 00c8 FFF7FEFF 		bl	__aeabi_fadd
+ 173              	.LVL18:
+ 174              		.loc 1 211 0
+ 175 00cc 4FF07E51 		mov	r1, #1065353216
+ 176              		.loc 1 208 0
+ 177 00d0 0546     		mov	r5, r0
+ 178              		.loc 1 211 0
+ 179 00d2 20F00040 		bic	r0, r0, #-2147483648
+ 180 00d6 FFF7FEFF 		bl	__aeabi_fcmpgt
+ 181              	.LVL19:
+ 182 00da 0028     		cmp	r0, #0
+ 183 00dc 63D0     		beq	.L46
+ 184              	.LVL20:
+ 185              	.LBB15:
+ 186              	.LBB16:
+ 187              		.loc 1 74 0
+ 188 00de 2846     		mov	r0, r5
+ 189 00e0 0021     		movs	r1, #0
+ 190 00e2 FFF7FEFF 		bl	__aeabi_fcmpeq
+ 191              	.LVL21:
+ 192 00e6 0028     		cmp	r0, #0
+ 193 00e8 4DD1     		bne	.L26
+ 194              		.loc 1 75 0
+ 195 00ea 2846     		mov	r0, r5
+ 196 00ec 0021     		movs	r1, #0
+ 197 00ee FFF7FEFF 		bl	__aeabi_fcmpgt
+ 198              	.LVL22:
+ 199 00f2 0028     		cmp	r0, #0
+ 200 00f4 79D0     		beq	.L41
+ 201 00f6 7F26     		movs	r6, #127
+ 202 00f8 0025     		movs	r5, #0
+ 203              	.LVL23:
+ 204 00fa C4F2FE25 		movt	r5, 17150
+ 205 00fe 3746     		mov	r7, r6
+ 206 0100 4FF07E53 		mov	r3, #1065353216
+ 207              	.L18:
+ 208              	.LBE16:
+ 209              	.LBE15:
+ 210              		.loc 1 212 0
+ 211 0104 E362     		str	r3, [r4, #44]	@ float
+ 212              	.L17:
+ 213              		.loc 1 230 0
+ 214 0106 424B     		ldr	r3, .L49+8
+ 215              		.loc 1 215 0
+ 216 0108 2786     		strh	r7, [r4, #48]	@ movhi
+ 217              		.loc 1 230 0
+ 218 010a 33F91600 		ldrsh	r0, [r3, r6, lsl #1]
+ 219 010e FFF7FEFF 		bl	__aeabi_i2f
+ 220              	.LVL24:
+ 221              	.LBB19:
+ 222              	.LBB20:
+ 223              		.loc 1 74 0
+ 224 0112 0021     		movs	r1, #0
+ 225              	.LBE20:
+ 226              	.LBE19:
+ 227              		.loc 1 230 0
+ 228 0114 0646     		mov	r6, r0
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 5
+
+
+ 229              	.LVL25:
+ 230              	.LBB23:
+ 231              	.LBB21:
+ 232              		.loc 1 74 0
+ 233 0116 2846     		mov	r0, r5
+ 234 0118 FFF7FEFF 		bl	__aeabi_fcmpeq
+ 235              	.LVL26:
+ 236 011c 0028     		cmp	r0, #0
+ 237 011e 6ED1     		bne	.L47
+ 238              		.loc 1 75 0
+ 239 0120 0021     		movs	r1, #0
+ 240 0122 2846     		mov	r0, r5
+ 241 0124 FFF7FEFF 		bl	__aeabi_fcmpgt
+ 242              	.LVL27:
+ 243 0128 4FF07E51 		mov	r1, #1065353216
+ 244 012c 88B9     		cbnz	r0, .L20
+ 245 012e 0021     		movs	r1, #0
+ 246 0130 CBF68071 		movt	r1, 49024
+ 247 0134 0DE0     		b	.L20
+ 248              	.LVL28:
+ 249              	.L3:
+ 250              	.LBE21:
+ 251              	.LBE23:
+ 252              		.loc 1 226 0
+ 253 0136 0386     		strh	r3, [r0, #48]	@ movhi
+ 254              		.loc 1 230 0
+ 255 0138 354B     		ldr	r3, .L49+8
+ 256              		.loc 1 221 0
+ 257 013a 0025     		movs	r5, #0
+ 258 013c 4561     		str	r5, [r0, #20]	@ float
+ 259              		.loc 1 222 0
+ 260 013e 8561     		str	r5, [r0, #24]	@ float
+ 261              		.loc 1 223 0
+ 262 0140 C561     		str	r5, [r0, #28]	@ float
+ 263              		.loc 1 224 0
+ 264 0142 4562     		str	r5, [r0, #36]	@ float
+ 265              		.loc 1 225 0
+ 266 0144 C562     		str	r5, [r0, #44]	@ float
+ 267              		.loc 1 230 0
+ 268 0146 B3F90000 		ldrsh	r0, [r3, #0]
+ 269              	.LVL29:
+ 270 014a FFF7FEFF 		bl	__aeabi_i2f
+ 271              	.LVL30:
+ 272              		.loc 1 74 0
+ 273 014e 2946     		mov	r1, r5
+ 274              		.loc 1 230 0
+ 275 0150 0646     		mov	r6, r0
+ 276              	.LVL31:
+ 277              	.L20:
+ 278 0152 3046     		mov	r0, r6
+ 279 0154 FFF7FEFF 		bl	__aeabi_fmul
+ 280              	.LVL32:
+ 281 0158 FFF7FEFF 		bl	__aeabi_f2iz
+ 282              	.LVL33:
+ 283 015c 83B2     		uxth	r3, r0
+ 284 015e 6086     		strh	r0, [r4, #50]	@ movhi
+ 285              		.loc 1 234 0
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 6
+
+
+ 286 0160 18B2     		sxth	r0, r3
+ 287 0162 BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, sl, pc}
+ 288              	.L4:
+ 289              		.loc 1 171 0
+ 290 0166 FFF7FEFF 		bl	vexSensorValueGet
+ 291              	.LVL34:
+ 292              		.loc 1 174 0
+ 293 016a B4F93630 		ldrsh	r3, [r4, #54]
+ 294              		.loc 1 171 0
+ 295 016e A063     		str	r0, [r4, #56]
+ 296              		.loc 1 174 0
+ 297 0170 73B9     		cbnz	r3, .L48
+ 298              	.L6:
+ 299              		.loc 1 184 0
+ 300 0172 E36B     		ldr	r3, [r4, #60]
+ 301 0174 181A     		subs	r0, r3, r0
+ 302 0176 FFF7FEFF 		bl	__aeabi_i2f
+ 303              	.LVL35:
+ 304 017a 0546     		mov	r5, r0
+ 305 017c 6061     		str	r0, [r4, #20]	@ float
+ 306 017e 50E7     		b	.L5
+ 307              	.L39:
+ 308              		.loc 1 201 0
+ 309 0180 E661     		str	r6, [r4, #28]	@ float
+ 310 0182 B046     		mov	r8, r6
+ 311 0184 82E7     		b	.L12
+ 312              	.LVL36:
+ 313              	.L26:
+ 314              	.LBB24:
+ 315              	.LBB17:
+ 316              		.loc 1 74 0
+ 317 0186 0025     		movs	r5, #0
+ 318              	.LVL37:
+ 319 0188 0026     		movs	r6, #0
+ 320 018a 3746     		mov	r7, r6
+ 321 018c 2B46     		mov	r3, r5
+ 322 018e B9E7     		b	.L18
+ 323              	.L48:
+ 324              	.LBE17:
+ 325              	.LBE24:
+ 326              		.loc 1 176 0
+ 327 0190 94F93400 		ldrsb	r0, [r4, #52]
+ 328 0194 FFF7FEFF 		bl	vexSensorIsAnalog
+ 329              	.LVL38:
+ 330 0198 F8B1     		cbz	r0, .L7
+ 331              		.loc 1 178 0
+ 332 019a A06B     		ldr	r0, [r4, #56]
+ 333 019c C0F57F60 		rsb	r0, r0, #4080
+ 334 01a0 0F30     		adds	r0, r0, #15
+ 335 01a2 A063     		str	r0, [r4, #56]
+ 336 01a4 E5E7     		b	.L6
+ 337              	.L46:
+ 338              		.loc 1 208 0
+ 339 01a6 E562     		str	r5, [r4, #44]	@ float
+ 340 01a8 2846     		mov	r0, r5
+ 341 01aa FFF7FEFF 		bl	__aeabi_f2d
+ 342              	.LVL39:
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 7
+
+
+ 343 01ae 16A3     		adr	r3, .L49
+ 344 01b0 D3E90023 		ldrd	r2, [r3]
+ 345 01b4 FFF7FEFF 		bl	__aeabi_dmul
+ 346              	.LVL40:
+ 347 01b8 FFF7FEFF 		bl	__aeabi_d2iz
+ 348              	.LVL41:
+ 349 01bc 06B2     		sxth	r6, r0
+ 350 01be 0746     		mov	r7, r0	@ movhi
+ 351 01c0 3046     		mov	r0, r6
+ 352 01c2 FFF7FEFF 		bl	__aeabi_i2f
+ 353              	.LVL42:
+ 354 01c6 BFB2     		uxth	r7, r7
+ 355 01c8 002E     		cmp	r6, #0
+ 356 01ca B8BF     		it	lt
+ 357 01cc 7642     		rsblt	r6, r6, #0
+ 358 01ce 0546     		mov	r5, r0
+ 359 01d0 99E7     		b	.L17
+ 360              	.LVL43:
+ 361              	.L23:
+ 362              		.loc 1 162 0
+ 363 01d2 0346     		mov	r3, r0
+ 364              		.loc 1 234 0
+ 365 01d4 18B2     		sxth	r0, r3
+ 366              	.LVL44:
+ 367 01d6 BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, sl, pc}
+ 368              	.L7:
+ 369              		.loc 1 181 0
+ 370 01da A06B     		ldr	r0, [r4, #56]
+ 371 01dc 4042     		negs	r0, r0
+ 372 01de A063     		str	r0, [r4, #56]
+ 373 01e0 C7E7     		b	.L6
+ 374              	.LVL45:
+ 375              	.L45:
+ 376              	.LBB25:
+ 377              	.LBB14:
+ 378              		.loc 1 75 0
+ 379 01e2 0021     		movs	r1, #0
+ 380 01e4 CBF68071 		movt	r1, 49024
+ 381 01e8 4BE7     		b	.L14
+ 382              	.LVL46:
+ 383              	.L41:
+ 384              	.LBE14:
+ 385              	.LBE25:
+ 386              	.LBB26:
+ 387              	.LBB18:
+ 388 01ea 0025     		movs	r5, #0
+ 389              	.LVL47:
+ 390 01ec 0023     		movs	r3, #0
+ 391 01ee CCF2FE25 		movt	r5, 49918
+ 392 01f2 CBF68073 		movt	r3, 49024
+ 393 01f6 7F26     		movs	r6, #127
+ 394 01f8 4FF68177 		movw	r7, #65409
+ 395 01fc 82E7     		b	.L18
+ 396              	.LVL48:
+ 397              	.L47:
+ 398              	.LBE18:
+ 399              	.LBE26:
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 8
+
+
+ 400              	.LBB27:
+ 401              	.LBB22:
+ 402              		.loc 1 74 0
+ 403 01fe 0021     		movs	r1, #0
+ 404 0200 A7E7     		b	.L20
+ 405              	.L50:
+ 406 0202 00BFAFF3 		.align	3
+ 406      0080
+ 407              	.L49:
+ 408 0208 00000000 		.word	0
+ 409 020c 00C05F40 		.word	1080016896
+ 410 0210 00000000 		.word	.LANCHOR0
+ 411              	.LBE22:
+ 412              	.LBE27:
+ 413              		.cfi_endproc
+ 414              	.LFE71:
+ 415              		.size	PidControllerUpdate, .-PidControllerUpdate
+ 416              		.global	__aeabi_fdiv
+ 417              		.global	__aeabi_f2uiz
+ 418              		.global	__aeabi_dsub
+ 419              		.global	__aeabi_ddiv
+ 420              		.global	__aeabi_dadd
+ 421 0214 AFF30080 		.section	.text.PidControllerMakeLut,"ax",%progbits
+ 421      AFF30080 
+ 421      AFF30080 
+ 422              		.align	2
+ 423              		.p2align 4,,15
+ 424              		.global	PidControllerMakeLut
+ 425              		.thumb
+ 426              		.thumb_func
+ 427              		.type	PidControllerMakeLut, %function
+ 428              	PidControllerMakeLut:
+ 429              	.LFB72:
+ 430              		.loc 1 243 0
+ 431              		.cfi_startproc
+ 432              		@ args = 0, pretend = 0, frame = 0
+ 433              		@ frame_needed = 0, uses_anonymous_args = 0
+ 434              	.LVL49:
+ 435 0000 2DE9F84F 		push	{r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
+ 436              	.LCFI1:
+ 437              		.cfi_def_cfa_offset 40
+ 438              		.cfi_offset 3, -40
+ 439              		.cfi_offset 4, -36
+ 440              		.cfi_offset 5, -32
+ 441              		.cfi_offset 6, -28
+ 442              		.cfi_offset 7, -24
+ 443              		.cfi_offset 8, -20
+ 444              		.cfi_offset 9, -16
+ 445              		.cfi_offset 10, -12
+ 446              		.cfi_offset 11, -8
+ 447              		.cfi_offset 14, -4
+ 448              		.loc 1 243 0
+ 449 0004 0024     		movs	r4, #0
+ 450 0006 DFF824A1 		ldr	sl, .L66
+ 451              		.loc 1 247 0
+ 452 000a 2646     		mov	r6, r4
+ 453 000c 63E0     		b	.L57
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 9
+
+
+ 454              	.LVL50:
+ 455              	.L65:
+ 456 000e 2846     		mov	r0, r5
+ 457 0010 FFF7FEFF 		bl	__aeabi_f2iz
+ 458              	.LVL51:
+ 459 0014 FFF7FEFF 		bl	__aeabi_i2f
+ 460              	.LVL52:
+ 461 0018 0146     		mov	r1, r0
+ 462 001a 2846     		mov	r0, r5
+ 463 001c FFF7FEFF 		bl	__aeabi_fsub
+ 464              	.LVL53:
+ 465 0020 48F65141 		movw	r1, #35921
+ 466 0024 8146     		mov	r9, r0
+ 467 0026 C4F2F221 		movt	r1, 17138
+ 468 002a 2846     		mov	r0, r5
+ 469 002c FFF7FEFF 		bl	__aeabi_fadd
+ 470              	.LVL54:
+ 471 0030 8346     		mov	fp, r0
+ 472              	.L54:
+ 473              	.LVL55:
+ 474              		.loc 1 254 0
+ 475 0032 042F     		cmp	r7, #4
+ 476              	.LBB34:
+ 477              	.LBB35:
+ 478              	.LBB36:
+ 479              	.LBB37:
+ 480              		.file 2 "../convex/cortex/opt/fastmath.c"
+ 481              		.loc 2 64 0
+ 482 0034 4046     		mov	r0, r8
+ 483 0036 4946     		mov	r1, r9
+ 484              	.LBE37:
+ 485              	.LBE36:
+ 486              	.LBE35:
+ 487              	.LBE34:
+ 488              		.loc 1 257 0
+ 489 0038 D8BF     		it	le
+ 490 003a 2AF80440 		strhle	r4, [sl, r4]	@ movhi
+ 491              		.loc 1 254 0
+ 492 003e 44DD     		ble	.L56
+ 493              	.LVL56:
+ 494              	.LBB46:
+ 495              	.LBB44:
+ 496              	.LBB41:
+ 497              	.LBB38:
+ 498              		.loc 2 64 0
+ 499 0040 FFF7FEFF 		bl	__aeabi_fadd
+ 500              	.LVL57:
+ 501              		.loc 2 65 0
+ 502 0044 0146     		mov	r1, r0
+ 503              		.loc 2 64 0
+ 504 0046 0546     		mov	r5, r0
+ 505              	.LVL58:
+ 506              		.loc 2 65 0
+ 507 0048 4FF2F850 		movw	r0, #62968
+ 508 004c C4F29A00 		movt	r0, 16538
+ 509 0050 FFF7FEFF 		bl	__aeabi_fsub
+ 510              	.LVL59:
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 10
+
+
+ 511 0054 0146     		mov	r1, r0
+ 512 0056 4DF2FE20 		movw	r0, #54014
+ 513 005a C4F2DD10 		movt	r0, 16861
+ 514 005e FFF7FEFF 		bl	__aeabi_fdiv
+ 515              	.LVL60:
+ 516 0062 5946     		mov	r1, fp
+ 517 0064 FFF7FEFF 		bl	__aeabi_fadd
+ 518              	.LVL61:
+ 519 0068 4BF68D41 		movw	r1, #48269
+ 520 006c 0746     		mov	r7, r0
+ 521 006e C3F6BE71 		movt	r1, 16318
+ 522 0072 2846     		mov	r0, r5
+ 523 0074 FFF7FEFF 		bl	__aeabi_fmul
+ 524              	.LVL62:
+ 525 0078 0146     		mov	r1, r0
+ 526 007a 3846     		mov	r0, r7
+ 527 007c FFF7FEFF 		bl	__aeabi_fsub
+ 528              	.LVL63:
+ 529 0080 4FF09641 		mov	r1, #1258291200
+ 530 0084 FFF7FEFF 		bl	__aeabi_fmul
+ 531              	.LVL64:
+ 532 0088 FFF7FEFF 		bl	__aeabi_f2uiz
+ 533              	.LVL65:
+ 534              	.LBE38:
+ 535              	.LBE41:
+ 536              	.LBE44:
+ 537              	.LBE46:
+ 538              		.loc 1 255 0
+ 539 008c FFF7FEFF 		bl	__aeabi_f2d
+ 540              	.LVL66:
+ 541 0090 0023     		movs	r3, #0
+ 542 0092 0022     		movs	r2, #0
+ 543 0094 C3F6F073 		movt	r3, 16368
+ 544 0098 FFF7FEFF 		bl	__aeabi_dsub
+ 545              	.LVL67:
+ 546 009c 0023     		movs	r3, #0
+ 547 009e 0022     		movs	r2, #0
+ 548 00a0 C4F23303 		movt	r3, 16435
+ 549 00a4 FFF7FEFF 		bl	__aeabi_ddiv
+ 550              	.LVL68:
+ 551 00a8 4FF48043 		mov	r3, #16384
+ 552 00ac 0022     		movs	r2, #0
+ 553 00ae C4F25D03 		movt	r3, 16477
+ 554 00b2 FFF7FEFF 		bl	__aeabi_dmul
+ 555              	.LVL69:
+ 556 00b6 0023     		movs	r3, #0
+ 557 00b8 0022     		movs	r2, #0
+ 558 00ba C4F22403 		movt	r3, 16420
+ 559 00be FFF7FEFF 		bl	__aeabi_dadd
+ 560              	.LVL70:
+ 561 00c2 FFF7FEFF 		bl	__aeabi_d2iz
+ 562              	.LVL71:
+ 563 00c6 2AF80400 		strh	r0, [sl, r4]	@ movhi
+ 564              	.L56:
+ 565 00ca 0234     		adds	r4, r4, #2
+ 566              		.loc 1 247 0
+ 567 00cc 0136     		adds	r6, r6, #1
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 11
+
+
+ 568              	.LVL72:
+ 569 00ce B4F5807F 		cmp	r4, #256
+ 570 00d2 B6B2     		uxth	r6, r6
+ 571              	.LVL73:
+ 572 00d4 28D0     		beq	.L63
+ 573              	.LVL74:
+ 574              	.L57:
+ 575              		.loc 1 252 0
+ 576 00d6 37B2     		sxth	r7, r6
+ 577 00d8 3846     		mov	r0, r7
+ 578 00da FFF7FEFF 		bl	__aeabi_i2f
+ 579              	.LVL75:
+ 580 00de 0021     		movs	r1, #0
+ 581 00e0 C4F2FE21 		movt	r1, 17150
+ 582 00e4 FFF7FEFF 		bl	__aeabi_fdiv
+ 583              	.LVL76:
+ 584              	.LBB47:
+ 585              	.LBB45:
+ 586              		.loc 2 93 0
+ 587 00e8 44F6B741 		movw	r1, #19639
+ 588 00ec C4F28A01 		movt	r1, 16522
+ 589 00f0 FFF7FEFF 		bl	__aeabi_fmul
+ 590              	.LVL77:
+ 591              	.LBB42:
+ 592              	.LBB39:
+ 593              		.loc 2 61 0
+ 594 00f4 0021     		movs	r1, #0
+ 595              	.LBE39:
+ 596              	.LBE42:
+ 597              		.loc 2 93 0
+ 598 00f6 0546     		mov	r5, r0
+ 599              	.LVL78:
+ 600              	.LBB43:
+ 601              	.LBB40:
+ 602              		.loc 2 61 0
+ 603 00f8 FFF7FEFF 		bl	__aeabi_fcmplt
+ 604              	.LVL79:
+ 605 00fc 4FF00008 		mov	r8, #0
+ 606 0100 78B9     		cbnz	r0, .L64
+ 607              	.L52:
+ 608              	.LVL80:
+ 609              		.loc 2 62 0
+ 610 0102 0021     		movs	r1, #0
+ 611 0104 CCF2FC21 		movt	r1, 49916
+ 612 0108 2846     		mov	r0, r5
+ 613 010a FFF7FEFF 		bl	__aeabi_fcmplt
+ 614              	.LVL81:
+ 615 010e 0028     		cmp	r0, #0
+ 616 0110 3FF47DAF 		beq	.L65
+ 617 0114 43F6F02B 		movw	fp, #15088
+ 618 0118 CCF2970B 		movt	fp, 49303
+ 619 011c 4FF00009 		mov	r9, #0
+ 620 0120 87E7     		b	.L54
+ 621              	.LVL82:
+ 622              	.L64:
+ 623              		.loc 2 61 0
+ 624 0122 4FF07E58 		mov	r8, #1065353216
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 12
+
+
+ 625 0126 ECE7     		b	.L52
+ 626              	.LVL83:
+ 627              	.L63:
+ 628              	.LBE40:
+ 629              	.LBE43:
+ 630              	.LBE45:
+ 631              	.LBE47:
+ 632              		.loc 1 265 0
+ 633 0128 BDE8F88F 		pop	{r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ 634              	.L67:
+ 635              		.align	2
+ 636              	.L66:
+ 637 012c 00000000 		.word	.LANCHOR0
+ 638              		.cfi_endproc
+ 639              	.LFE72:
+ 640              		.size	PidControllerMakeLut, .-PidControllerMakeLut
+ 641              		.section	.text.PidControllerInit,"ax",%progbits
+ 642              		.align	2
+ 643              		.p2align 4,,15
+ 644              		.global	PidControllerInit
+ 645              		.thumb
+ 646              		.thumb_func
+ 647              		.type	PidControllerInit, %function
+ 648              	PidControllerInit:
+ 649              	.LFB69:
+ 650              		.loc 1 88 0
+ 651              		.cfi_startproc
+ 652              		@ args = 4, pretend = 0, frame = 0
+ 653              		@ frame_needed = 0, uses_anonymous_args = 0
+ 654              	.LVL84:
+ 655 0000 2DE9F843 		push	{r3, r4, r5, r6, r7, r8, r9, lr}
+ 656              	.LCFI2:
+ 657              		.cfi_def_cfa_offset 32
+ 658              		.cfi_offset 3, -32
+ 659              		.cfi_offset 4, -28
+ 660              		.cfi_offset 5, -24
+ 661              		.cfi_offset 6, -20
+ 662              		.cfi_offset 7, -16
+ 663              		.cfi_offset 8, -12
+ 664              		.cfi_offset 9, -8
+ 665              		.cfi_offset 14, -4
+ 666              		.loc 1 88 0
+ 667 0004 0E46     		mov	r6, r1
+ 668 0006 0746     		mov	r7, r0
+ 669              		.loc 1 97 0
+ 670 0008 4021     		movs	r1, #64
+ 671              	.LVL85:
+ 672 000a 0020     		movs	r0, #0
+ 673              	.LVL86:
+ 674              		.loc 1 88 0
+ 675 000c 9046     		mov	r8, r2
+ 676 000e 9946     		mov	r9, r3
+ 677              		.loc 1 97 0
+ 678 0010 FFF7FEFF 		bl	chHeapAlloc
+ 679              	.LVL87:
+ 680              		.loc 1 104 0
+ 681 0014 0025     		movs	r5, #0
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 13
+
+
+ 682              		.loc 1 112 0
+ 683 0016 0022     		movs	r2, #0
+ 684              		.loc 1 97 0
+ 685 0018 0446     		mov	r4, r0
+ 686              	.LVL88:
+ 687              		.loc 1 101 0
+ 688 001a 4760     		str	r7, [r0, #4]	@ float
+ 689              		.loc 1 102 0
+ 690 001c 8660     		str	r6, [r0, #8]	@ float
+ 691              		.loc 1 103 0
+ 692 001e C0F80C80 		str	r8, [r0, #12]	@ float
+ 693              		.loc 1 104 0
+ 694 0022 0561     		str	r5, [r0, #16]	@ float
+ 695              		.loc 1 107 0
+ 696 0024 4561     		str	r5, [r0, #20]	@ float
+ 697              		.loc 1 108 0
+ 698 0026 8561     		str	r5, [r0, #24]	@ float
+ 699              		.loc 1 109 0
+ 700 0028 C561     		str	r5, [r0, #28]	@ float
+ 701              		.loc 1 110 0
+ 702 002a 4562     		str	r5, [r0, #36]	@ float
+ 703              		.loc 1 111 0
+ 704 002c C562     		str	r5, [r0, #44]	@ float
+ 705              		.loc 1 112 0
+ 706 002e 4286     		strh	r2, [r0, #50]	@ movhi
+ 707              		.loc 1 113 0
+ 708 0030 2946     		mov	r1, r5
+ 709 0032 3046     		mov	r0, r6
+ 710              	.LVL89:
+ 711 0034 FFF7FEFF 		bl	__aeabi_fcmpeq
+ 712              	.LVL90:
+ 713 0038 C0B9     		cbnz	r0, .L73
+ 714              		.loc 1 114 0
+ 715 003a 4FF07A50 		mov	r0, #1048576000
+ 716 003e 3146     		mov	r1, r6
+ 717 0040 FFF7FEFF 		bl	__aeabi_fdiv
+ 718              	.LVL91:
+ 719 0044 2062     		str	r0, [r4, #32]	@ float
+ 720              	.L71:
+ 721              		.loc 1 118 0
+ 722 0046 0023     		movs	r3, #0
+ 723 0048 C4F22013 		movt	r3, 16672
+ 724 004c A362     		str	r3, [r4, #40]	@ float
+ 725              		.loc 1 122 0
+ 726 004e BDF92030 		ldrsh	r3, [sp, #32]
+ 727              		.loc 1 123 0
+ 728 0052 0022     		movs	r2, #0
+ 729              		.loc 1 122 0
+ 730 0054 E386     		strh	r3, [r4, #54]	@ movhi
+ 731              		.loc 1 130 0
+ 732 0056 0123     		movs	r3, #1
+ 733              		.loc 1 121 0
+ 734 0058 84F83490 		strb	r9, [r4, #52]
+ 735              		.loc 1 123 0
+ 736 005c A263     		str	r2, [r4, #56]
+ 737              		.loc 1 125 0
+ 738 005e E263     		str	r2, [r4, #60]
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 14
+
+
+ 739              		.loc 1 130 0
+ 740 0060 2380     		strh	r3, [r4, #0]	@ movhi
+ 741              		.loc 1 134 0
+ 742 0062 FFF7FEFF 		bl	PidControllerMakeLut
+ 743              	.LVL92:
+ 744              		.loc 1 137 0
+ 745 0066 2046     		mov	r0, r4
+ 746 0068 BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
+ 747              	.L73:
+ 748              		.loc 1 116 0
+ 749 006c 2562     		str	r5, [r4, #32]	@ float
+ 750 006e EAE7     		b	.L71
+ 751              		.cfi_endproc
+ 752              	.LFE69:
+ 753              		.size	PidControllerInit, .-PidControllerInit
+ 754              		.section	.text.PidControllerInitWithBias,"ax",%progbits
+ 755              		.align	2
+ 756              		.p2align 4,,15
+ 757              		.global	PidControllerInitWithBias
+ 758              		.thumb
+ 759              		.thumb_func
+ 760              		.type	PidControllerInitWithBias, %function
+ 761              	PidControllerInitWithBias:
+ 762              	.LFB70:
+ 763              		.loc 1 145 0
+ 764              		.cfi_startproc
+ 765              		@ args = 8, pretend = 0, frame = 0
+ 766              		@ frame_needed = 0, uses_anonymous_args = 0
+ 767              	.LVL93:
+ 768 0000 30B5     		push	{r4, r5, lr}
+ 769              	.LCFI3:
+ 770              		.cfi_def_cfa_offset 12
+ 771              		.cfi_offset 4, -12
+ 772              		.cfi_offset 5, -8
+ 773              		.cfi_offset 14, -4
+ 774 0002 83B0     		sub	sp, sp, #12
+ 775              	.LCFI4:
+ 776              		.cfi_def_cfa_offset 24
+ 777              		.loc 1 147 0
+ 778 0004 BDF91C40 		ldrsh	r4, [sp, #28]
+ 779              		.loc 1 145 0
+ 780 0008 1D46     		mov	r5, r3
+ 781              		.loc 1 147 0
+ 782 000a 0094     		str	r4, [sp, #0]
+ 783 000c 9DF91830 		ldrsb	r3, [sp, #24]
+ 784              	.LVL94:
+ 785 0010 FFF7FEFF 		bl	PidControllerInit
+ 786              	.LVL95:
+ 787              		.loc 1 148 0
+ 788 0014 00B1     		cbz	r0, .L75
+ 789              		.loc 1 149 0
+ 790 0016 0561     		str	r5, [r0, #16]	@ float
+ 791              	.L75:
+ 792              		.loc 1 152 0
+ 793 0018 03B0     		add	sp, sp, #12
+ 794 001a 30BD     		pop	{r4, r5, pc}
+ 795              		.cfi_endproc
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 15
+
+
+ 796              	.LFE70:
+ 797              		.size	PidControllerInitWithBias, .-PidControllerInitWithBias
+ 798 001c AFF30080 		.section	.bss.PidDriveLut,"aw",%nobits
+ 799              		.align	2
+ 800              		.set	.LANCHOR0,. + 0
+ 801              		.type	PidDriveLut, %object
+ 802              		.size	PidDriveLut, 256
+ 803              	PidDriveLut:
+ 804 0000 00000000 		.space	256
+ 804      00000000 
+ 804      00000000 
+ 804      00000000 
+ 804      00000000 
+ 805              		.text
+ 806              	.Letext0:
+ 807              		.file 3 "c:\\program files\\pros\\toolchain\\bin\\../lib/gcc/arm-none-eabi/4.7.1/include/stddef.h"
+ 808              		.file 4 "c:/program files/pros/toolchain/lib/gcc/../../arm-none-eabi/include/stdint.h"
+ 809              		.file 5 "../ChibiOS_2.6.0/os/ports/GCC/ARMCMx/chtypes.h"
+ 810              		.file 6 "../ChibiOS_2.6.0/os/kernel/include/chlists.h"
+ 811              		.file 7 "../ChibiOS_2.6.0/os/kernel/include/chthreads.h"
+ 812              		.file 8 "../ChibiOS_2.6.0/os/ports/GCC/ARMCMx/chcore_v7m.h"
+ 813              		.file 9 "../ChibiOS_2.6.0/os/kernel/include/chmtx.h"
+ 814              		.file 10 "../ChibiOS_2.6.0/os/kernel/include/chmemcore.h"
+ 815              		.file 11 "../ChibiOS_2.6.0/os/kernel/include/chheap.h"
+ 816              		.file 12 "../convex/cortex/fw/vexsensor.h"
+ 817              		.file 13 "../convex/cortex/opt/pidlib.h"
+ 818              		.file 14 "../ChibiOS_2.6.0/os/ports/common/ARMCMx/CMSIS/include/core_cm3.h"
+ 819              		.section	.debug_info,"",%progbits
+ 820              	.Ldebug_info0:
+ 821 0000 F00A0000 		.4byte	0xaf0
+ 822 0004 0200     		.2byte	0x2
+ 823 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 824 000a 04       		.byte	0x4
+ 825 000b 01       		.uleb128 0x1
+ 826 000c 2A030000 		.4byte	.LASF130
+ 827 0010 01       		.byte	0x1
+ 828 0011 7D040000 		.4byte	.LASF131
+ 829 0015 00000000 		.4byte	.LASF132
+ 830 0019 E8000000 		.4byte	.Ldebug_ranges0+0xe8
+ 831 001d 00000000 		.4byte	0
+ 832 0021 00000000 		.4byte	0
+ 833 0025 00000000 		.4byte	.Ldebug_line0
+ 834 0029 02       		.uleb128 0x2
+ 835 002a 04       		.byte	0x4
+ 836 002b 04       		.byte	0x4
+ 837 002c 60030000 		.4byte	.LASF0
+ 838 0030 02       		.uleb128 0x2
+ 839 0031 04       		.byte	0x4
+ 840 0032 07       		.byte	0x7
+ 841 0033 AA010000 		.4byte	.LASF1
+ 842 0037 02       		.uleb128 0x2
+ 843 0038 02       		.byte	0x2
+ 844 0039 05       		.byte	0x5
+ 845 003a 24010000 		.4byte	.LASF2
+ 846 003e 03       		.uleb128 0x3
+ 847 003f 7A010000 		.4byte	.LASF13
+ 848 0043 03       		.byte	0x3
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 16
+
+
+ 849 0044 D5       		.byte	0xd5
+ 850 0045 30000000 		.4byte	0x30
+ 851 0049 02       		.uleb128 0x2
+ 852 004a 01       		.byte	0x1
+ 853 004b 06       		.byte	0x6
+ 854 004c BD000000 		.4byte	.LASF3
+ 855 0050 02       		.uleb128 0x2
+ 856 0051 01       		.byte	0x1
+ 857 0052 08       		.byte	0x8
+ 858 0053 B2030000 		.4byte	.LASF4
+ 859 0057 02       		.uleb128 0x2
+ 860 0058 02       		.byte	0x2
+ 861 0059 07       		.byte	0x7
+ 862 005a 1F020000 		.4byte	.LASF5
+ 863 005e 04       		.uleb128 0x4
+ 864 005f 04       		.byte	0x4
+ 865 0060 05       		.byte	0x5
+ 866 0061 696E7400 		.ascii	"int\000"
+ 867 0065 02       		.uleb128 0x2
+ 868 0066 08       		.byte	0x8
+ 869 0067 05       		.byte	0x5
+ 870 0068 AF000000 		.4byte	.LASF6
+ 871 006c 02       		.uleb128 0x2
+ 872 006d 08       		.byte	0x8
+ 873 006e 07       		.byte	0x7
+ 874 006f 8D010000 		.4byte	.LASF7
+ 875 0073 02       		.uleb128 0x2
+ 876 0074 04       		.byte	0x4
+ 877 0075 05       		.byte	0x5
+ 878 0076 F0000000 		.4byte	.LASF8
+ 879 007a 02       		.uleb128 0x2
+ 880 007b 04       		.byte	0x4
+ 881 007c 07       		.byte	0x7
+ 882 007d FD020000 		.4byte	.LASF9
+ 883 0081 05       		.uleb128 0x5
+ 884 0082 04       		.byte	0x4
+ 885 0083 02       		.uleb128 0x2
+ 886 0084 04       		.byte	0x4
+ 887 0085 07       		.byte	0x7
+ 888 0086 B1040000 		.4byte	.LASF10
+ 889 008a 02       		.uleb128 0x2
+ 890 008b 01       		.byte	0x1
+ 891 008c 08       		.byte	0x8
+ 892 008d C9040000 		.4byte	.LASF11
+ 893 0091 06       		.uleb128 0x6
+ 894 0092 04       		.byte	0x4
+ 895 0093 97000000 		.4byte	0x97
+ 896 0097 07       		.uleb128 0x7
+ 897 0098 8A000000 		.4byte	0x8a
+ 898 009c 02       		.uleb128 0x2
+ 899 009d 08       		.byte	0x8
+ 900 009e 04       		.byte	0x4
+ 901 009f 2E010000 		.4byte	.LASF12
+ 902 00a3 03       		.uleb128 0x3
+ 903 00a4 E0050000 		.4byte	.LASF14
+ 904 00a8 04       		.byte	0x4
+ 905 00a9 2A       		.byte	0x2a
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 17
+
+
+ 906 00aa 50000000 		.4byte	0x50
+ 907 00ae 03       		.uleb128 0x3
+ 908 00af A7000000 		.4byte	.LASF15
+ 909 00b3 04       		.byte	0x4
+ 910 00b4 35       		.byte	0x35
+ 911 00b5 37000000 		.4byte	0x37
+ 912 00b9 03       		.uleb128 0x3
+ 913 00ba AA030000 		.4byte	.LASF16
+ 914 00be 04       		.byte	0x4
+ 915 00bf 4F       		.byte	0x4f
+ 916 00c0 73000000 		.4byte	0x73
+ 917 00c4 03       		.uleb128 0x3
+ 918 00c5 9B040000 		.4byte	.LASF17
+ 919 00c9 04       		.byte	0x4
+ 920 00ca 50       		.byte	0x50
+ 921 00cb 83000000 		.4byte	0x83
+ 922 00cf 03       		.uleb128 0x3
+ 923 00d0 2F000000 		.4byte	.LASF18
+ 924 00d4 04       		.byte	0x4
+ 925 00d5 78       		.byte	0x78
+ 926 00d6 6C000000 		.4byte	0x6c
+ 927 00da 03       		.uleb128 0x3
+ 928 00db D7000000 		.4byte	.LASF19
+ 929 00df 05       		.byte	0x5
+ 930 00e0 2B       		.byte	0x2b
+ 931 00e1 E5000000 		.4byte	0xe5
+ 932 00e5 02       		.uleb128 0x2
+ 933 00e6 01       		.byte	0x1
+ 934 00e7 02       		.byte	0x2
+ 935 00e8 A4030000 		.4byte	.LASF20
+ 936 00ec 03       		.uleb128 0x3
+ 937 00ed 07010000 		.4byte	.LASF21
+ 938 00f1 05       		.byte	0x5
+ 939 00f2 2C       		.byte	0x2c
+ 940 00f3 A3000000 		.4byte	0xa3
+ 941 00f7 03       		.uleb128 0x3
+ 942 00f8 0F010000 		.4byte	.LASF22
+ 943 00fc 05       		.byte	0x5
+ 944 00fd 2D       		.byte	0x2d
+ 945 00fe A3000000 		.4byte	0xa3
+ 946 0102 03       		.uleb128 0x3
+ 947 0103 81030000 		.4byte	.LASF23
+ 948 0107 05       		.byte	0x5
+ 949 0108 2E       		.byte	0x2e
+ 950 0109 A3000000 		.4byte	0xa3
+ 951 010d 03       		.uleb128 0x3
+ 952 010e E6000000 		.4byte	.LASF24
+ 953 0112 05       		.byte	0x5
+ 954 0113 2F       		.byte	0x2f
+ 955 0114 A3000000 		.4byte	0xa3
+ 956 0118 03       		.uleb128 0x3
+ 957 0119 90030000 		.4byte	.LASF25
+ 958 011d 05       		.byte	0x5
+ 959 011e 30       		.byte	0x30
+ 960 011f C4000000 		.4byte	0xc4
+ 961 0123 03       		.uleb128 0x3
+ 962 0124 32020000 		.4byte	.LASF26
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 18
+
+
+ 963 0128 05       		.byte	0x5
+ 964 0129 31       		.byte	0x31
+ 965 012a B9000000 		.4byte	0xb9
+ 966 012e 03       		.uleb128 0x3
+ 967 012f 86020000 		.4byte	.LASF27
+ 968 0133 05       		.byte	0x5
+ 969 0134 33       		.byte	0x33
+ 970 0135 C4000000 		.4byte	0xc4
+ 971 0139 03       		.uleb128 0x3
+ 972 013a D5040000 		.4byte	.LASF28
+ 973 013e 05       		.byte	0x5
+ 974 013f 35       		.byte	0x35
+ 975 0140 C4000000 		.4byte	0xc4
+ 976 0144 03       		.uleb128 0x3
+ 977 0145 81010000 		.4byte	.LASF29
+ 978 0149 06       		.byte	0x6
+ 979 014a 2A       		.byte	0x2a
+ 980 014b 4F010000 		.4byte	0x14f
+ 981 014f 08       		.uleb128 0x8
+ 982 0150 81010000 		.4byte	.LASF29
+ 983 0154 48       		.byte	0x48
+ 984 0155 07       		.byte	0x7
+ 985 0156 5E       		.byte	0x5e
+ 986 0157 74020000 		.4byte	0x274
+ 987 015b 09       		.uleb128 0x9
+ 988 015c 33040000 		.4byte	.LASF30
+ 989 0160 07       		.byte	0x7
+ 990 0161 5F       		.byte	0x5f
+ 991 0162 99020000 		.4byte	0x299
+ 992 0166 02       		.byte	0x2
+ 993 0167 23       		.byte	0x23
+ 994 0168 00       		.uleb128 0
+ 995 0169 09       		.uleb128 0x9
+ 996 016a 89030000 		.4byte	.LASF31
+ 997 016e 07       		.byte	0x7
+ 998 016f 61       		.byte	0x61
+ 999 0170 99020000 		.4byte	0x299
+ 1000 0174 02       		.byte	0x2
+ 1001 0175 23       		.byte	0x23
+ 1002 0176 04       		.uleb128 0x4
+ 1003 0177 09       		.uleb128 0x9
+ 1004 0178 A0000000 		.4byte	.LASF32
+ 1005 017c 07       		.byte	0x7
+ 1006 017d 63       		.byte	0x63
+ 1007 017e 18010000 		.4byte	0x118
+ 1008 0182 02       		.byte	0x2
+ 1009 0183 23       		.byte	0x23
+ 1010 0184 08       		.uleb128 0x8
+ 1011 0185 09       		.uleb128 0x9
+ 1012 0186 99060000 		.4byte	.LASF33
+ 1013 018a 07       		.byte	0x7
+ 1014 018b 64       		.byte	0x64
+ 1015 018c 70030000 		.4byte	0x370
+ 1016 0190 02       		.byte	0x2
+ 1017 0191 23       		.byte	0x23
+ 1018 0192 0C       		.uleb128 0xc
+ 1019 0193 09       		.uleb128 0x9
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 19
+
+
+ 1020 0194 43010000 		.4byte	.LASF34
+ 1021 0198 07       		.byte	0x7
+ 1022 0199 66       		.byte	0x66
+ 1023 019a 99020000 		.4byte	0x299
+ 1024 019e 02       		.byte	0x2
+ 1025 019f 23       		.byte	0x23
+ 1026 01a0 10       		.uleb128 0x10
+ 1027 01a1 09       		.uleb128 0x9
+ 1028 01a2 22030000 		.4byte	.LASF35
+ 1029 01a6 07       		.byte	0x7
+ 1030 01a7 67       		.byte	0x67
+ 1031 01a8 99020000 		.4byte	0x299
+ 1032 01ac 02       		.byte	0x2
+ 1033 01ad 23       		.byte	0x23
+ 1034 01ae 14       		.uleb128 0x14
+ 1035 01af 09       		.uleb128 0x9
+ 1036 01b0 FA050000 		.4byte	.LASF36
+ 1037 01b4 07       		.byte	0x7
+ 1038 01b5 6E       		.byte	0x6e
+ 1039 01b6 91000000 		.4byte	0x91
+ 1040 01ba 02       		.byte	0x2
+ 1041 01bb 23       		.byte	0x23
+ 1042 01bc 18       		.uleb128 0x18
+ 1043 01bd 09       		.uleb128 0x9
+ 1044 01be E8030000 		.4byte	.LASF37
+ 1045 01c2 07       		.byte	0x7
+ 1046 01c3 79       		.byte	0x79
+ 1047 01c4 F7000000 		.4byte	0xf7
+ 1048 01c8 02       		.byte	0x2
+ 1049 01c9 23       		.byte	0x23
+ 1050 01ca 1C       		.uleb128 0x1c
+ 1051 01cb 09       		.uleb128 0x9
+ 1052 01cc 49040000 		.4byte	.LASF38
+ 1053 01d0 07       		.byte	0x7
+ 1054 01d1 7D       		.byte	0x7d
+ 1055 01d2 EC000000 		.4byte	0xec
+ 1056 01d6 02       		.byte	0x2
+ 1057 01d7 23       		.byte	0x23
+ 1058 01d8 1D       		.uleb128 0x1d
+ 1059 01d9 09       		.uleb128 0x9
+ 1060 01da D9050000 		.4byte	.LASF39
+ 1061 01de 07       		.byte	0x7
+ 1062 01df 82       		.byte	0x82
+ 1063 01e0 02010000 		.4byte	0x102
+ 1064 01e4 02       		.byte	0x2
+ 1065 01e5 23       		.byte	0x23
+ 1066 01e6 1E       		.uleb128 0x1e
+ 1067 01e7 09       		.uleb128 0x9
+ 1068 01e8 56030000 		.4byte	.LASF40
+ 1069 01ec 07       		.byte	0x7
+ 1070 01ed 88       		.byte	0x88
+ 1071 01ee 0D010000 		.4byte	0x10d
+ 1072 01f2 02       		.byte	0x2
+ 1073 01f3 23       		.byte	0x23
+ 1074 01f4 1F       		.uleb128 0x1f
+ 1075 01f5 09       		.uleb128 0x9
+ 1076 01f6 1E050000 		.4byte	.LASF41
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 20
+
+
+ 1077 01fa 07       		.byte	0x7
+ 1078 01fb 8F       		.byte	0x8f
+ 1079 01fc 93030000 		.4byte	0x393
+ 1080 0200 02       		.byte	0x2
+ 1081 0201 23       		.byte	0x23
+ 1082 0202 20       		.uleb128 0x20
+ 1083 0203 0A       		.uleb128 0xa
+ 1084 0204 705F7500 		.ascii	"p_u\000"
+ 1085 0208 07       		.byte	0x7
+ 1086 0209 B4       		.byte	0xb4
+ 1087 020a B2040000 		.4byte	0x4b2
+ 1088 020e 02       		.byte	0x2
+ 1089 020f 23       		.byte	0x23
+ 1090 0210 24       		.uleb128 0x24
+ 1091 0211 09       		.uleb128 0x9
+ 1092 0212 9F060000 		.4byte	.LASF42
+ 1093 0216 07       		.byte	0x7
+ 1094 0217 B9       		.byte	0xb9
+ 1095 0218 C1020000 		.4byte	0x2c1
+ 1096 021c 02       		.byte	0x2
+ 1097 021d 23       		.byte	0x23
+ 1098 021e 28       		.uleb128 0x28
+ 1099 021f 09       		.uleb128 0x9
+ 1100 0220 B7010000 		.4byte	.LASF43
+ 1101 0224 07       		.byte	0x7
+ 1102 0225 BF       		.byte	0xbf
+ 1103 0226 9F020000 		.4byte	0x29f
+ 1104 022a 02       		.byte	0x2
+ 1105 022b 23       		.byte	0x23
+ 1106 022c 2C       		.uleb128 0x2c
+ 1107 022d 09       		.uleb128 0x9
+ 1108 022e 81060000 		.4byte	.LASF44
+ 1109 0232 07       		.byte	0x7
+ 1110 0233 C3       		.byte	0xc3
+ 1111 0234 23010000 		.4byte	0x123
+ 1112 0238 02       		.byte	0x2
+ 1113 0239 23       		.byte	0x23
+ 1114 023a 34       		.uleb128 0x34
+ 1115 023b 09       		.uleb128 0x9
+ 1116 023c 67040000 		.4byte	.LASF45
+ 1117 0240 07       		.byte	0x7
+ 1118 0241 C9       		.byte	0xc9
+ 1119 0242 2E010000 		.4byte	0x12e
+ 1120 0246 02       		.byte	0x2
+ 1121 0247 23       		.byte	0x23
+ 1122 0248 38       		.uleb128 0x38
+ 1123 0249 09       		.uleb128 0x9
+ 1124 024a F0030000 		.4byte	.LASF46
+ 1125 024e 07       		.byte	0x7
+ 1126 024f D0       		.byte	0xd0
+ 1127 0250 E7040000 		.4byte	0x4e7
+ 1128 0254 02       		.byte	0x2
+ 1129 0255 23       		.byte	0x23
+ 1130 0256 3C       		.uleb128 0x3c
+ 1131 0257 09       		.uleb128 0x9
+ 1132 0258 DF040000 		.4byte	.LASF47
+ 1133 025c 07       		.byte	0x7
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 21
+
+
+ 1134 025d D4       		.byte	0xd4
+ 1135 025e 18010000 		.4byte	0x118
+ 1136 0262 02       		.byte	0x2
+ 1137 0263 23       		.byte	0x23
+ 1138 0264 40       		.uleb128 0x40
+ 1139 0265 09       		.uleb128 0x9
+ 1140 0266 CF000000 		.4byte	.LASF48
+ 1141 026a 07       		.byte	0x7
+ 1142 026b DA       		.byte	0xda
+ 1143 026c 81000000 		.4byte	0x81
+ 1144 0270 02       		.byte	0x2
+ 1145 0271 23       		.byte	0x23
+ 1146 0272 44       		.uleb128 0x44
+ 1147 0273 00       		.byte	0
+ 1148 0274 0B       		.uleb128 0xb
+ 1149 0275 08       		.byte	0x8
+ 1150 0276 06       		.byte	0x6
+ 1151 0277 61       		.byte	0x61
+ 1152 0278 99020000 		.4byte	0x299
+ 1153 027c 09       		.uleb128 0x9
+ 1154 027d 33040000 		.4byte	.LASF30
+ 1155 0281 06       		.byte	0x6
+ 1156 0282 62       		.byte	0x62
+ 1157 0283 99020000 		.4byte	0x299
+ 1158 0287 02       		.byte	0x2
+ 1159 0288 23       		.byte	0x23
+ 1160 0289 00       		.uleb128 0
+ 1161 028a 09       		.uleb128 0x9
+ 1162 028b 89030000 		.4byte	.LASF31
+ 1163 028f 06       		.byte	0x6
+ 1164 0290 64       		.byte	0x64
+ 1165 0291 99020000 		.4byte	0x299
+ 1166 0295 02       		.byte	0x2
+ 1167 0296 23       		.byte	0x23
+ 1168 0297 04       		.uleb128 0x4
+ 1169 0298 00       		.byte	0
+ 1170 0299 06       		.uleb128 0x6
+ 1171 029a 04       		.byte	0x4
+ 1172 029b 44010000 		.4byte	0x144
+ 1173 029f 03       		.uleb128 0x3
+ 1174 02a0 6B000000 		.4byte	.LASF49
+ 1175 02a4 06       		.byte	0x6
+ 1176 02a5 66       		.byte	0x66
+ 1177 02a6 74020000 		.4byte	0x274
+ 1178 02aa 0B       		.uleb128 0xb
+ 1179 02ab 04       		.byte	0x4
+ 1180 02ac 06       		.byte	0x6
+ 1181 02ad 6B       		.byte	0x6b
+ 1182 02ae C1020000 		.4byte	0x2c1
+ 1183 02b2 09       		.uleb128 0x9
+ 1184 02b3 33040000 		.4byte	.LASF30
+ 1185 02b7 06       		.byte	0x6
+ 1186 02b8 6D       		.byte	0x6d
+ 1187 02b9 99020000 		.4byte	0x299
+ 1188 02bd 02       		.byte	0x2
+ 1189 02be 23       		.byte	0x23
+ 1190 02bf 00       		.uleb128 0
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 22
+
+
+ 1191 02c0 00       		.byte	0
+ 1192 02c1 03       		.uleb128 0x3
+ 1193 02c2 67020000 		.4byte	.LASF50
+ 1194 02c6 06       		.byte	0x6
+ 1195 02c7 70       		.byte	0x70
+ 1196 02c8 AA020000 		.4byte	0x2aa
+ 1197 02cc 03       		.uleb128 0x3
+ 1198 02cd 71010000 		.4byte	.LASF51
+ 1199 02d1 08       		.byte	0x8
+ 1200 02d2 E5       		.byte	0xe5
+ 1201 02d3 81000000 		.4byte	0x81
+ 1202 02d7 03       		.uleb128 0x3
+ 1203 02d8 D1020000 		.4byte	.LASF52
+ 1204 02dc 08       		.byte	0x8
+ 1205 02dd EB       		.byte	0xeb
+ 1206 02de CF000000 		.4byte	0xcf
+ 1207 02e2 0C       		.uleb128 0xc
+ 1208 02e3 25050000 		.4byte	.LASF53
+ 1209 02e7 24       		.byte	0x24
+ 1210 02e8 08       		.byte	0x8
+ 1211 02e9 0C01     		.2byte	0x10c
+ 1212 02eb 70030000 		.4byte	0x370
+ 1213 02ef 0D       		.uleb128 0xd
+ 1214 02f0 723400   		.ascii	"r4\000"
+ 1215 02f3 08       		.byte	0x8
+ 1216 02f4 1F01     		.2byte	0x11f
+ 1217 02f6 CC020000 		.4byte	0x2cc
+ 1218 02fa 02       		.byte	0x2
+ 1219 02fb 23       		.byte	0x23
+ 1220 02fc 00       		.uleb128 0
+ 1221 02fd 0D       		.uleb128 0xd
+ 1222 02fe 723500   		.ascii	"r5\000"
+ 1223 0301 08       		.byte	0x8
+ 1224 0302 2001     		.2byte	0x120
+ 1225 0304 CC020000 		.4byte	0x2cc
+ 1226 0308 02       		.byte	0x2
+ 1227 0309 23       		.byte	0x23
+ 1228 030a 04       		.uleb128 0x4
+ 1229 030b 0D       		.uleb128 0xd
+ 1230 030c 723600   		.ascii	"r6\000"
+ 1231 030f 08       		.byte	0x8
+ 1232 0310 2101     		.2byte	0x121
+ 1233 0312 CC020000 		.4byte	0x2cc
+ 1234 0316 02       		.byte	0x2
+ 1235 0317 23       		.byte	0x23
+ 1236 0318 08       		.uleb128 0x8
+ 1237 0319 0D       		.uleb128 0xd
+ 1238 031a 723700   		.ascii	"r7\000"
+ 1239 031d 08       		.byte	0x8
+ 1240 031e 2201     		.2byte	0x122
+ 1241 0320 CC020000 		.4byte	0x2cc
+ 1242 0324 02       		.byte	0x2
+ 1243 0325 23       		.byte	0x23
+ 1244 0326 0C       		.uleb128 0xc
+ 1245 0327 0D       		.uleb128 0xd
+ 1246 0328 723800   		.ascii	"r8\000"
+ 1247 032b 08       		.byte	0x8
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 23
+
+
+ 1248 032c 2301     		.2byte	0x123
+ 1249 032e CC020000 		.4byte	0x2cc
+ 1250 0332 02       		.byte	0x2
+ 1251 0333 23       		.byte	0x23
+ 1252 0334 10       		.uleb128 0x10
+ 1253 0335 0D       		.uleb128 0xd
+ 1254 0336 723900   		.ascii	"r9\000"
+ 1255 0339 08       		.byte	0x8
+ 1256 033a 2401     		.2byte	0x124
+ 1257 033c CC020000 		.4byte	0x2cc
+ 1258 0340 02       		.byte	0x2
+ 1259 0341 23       		.byte	0x23
+ 1260 0342 14       		.uleb128 0x14
+ 1261 0343 0D       		.uleb128 0xd
+ 1262 0344 72313000 		.ascii	"r10\000"
+ 1263 0348 08       		.byte	0x8
+ 1264 0349 2501     		.2byte	0x125
+ 1265 034b CC020000 		.4byte	0x2cc
+ 1266 034f 02       		.byte	0x2
+ 1267 0350 23       		.byte	0x23
+ 1268 0351 18       		.uleb128 0x18
+ 1269 0352 0D       		.uleb128 0xd
+ 1270 0353 72313100 		.ascii	"r11\000"
+ 1271 0357 08       		.byte	0x8
+ 1272 0358 2601     		.2byte	0x126
+ 1273 035a CC020000 		.4byte	0x2cc
+ 1274 035e 02       		.byte	0x2
+ 1275 035f 23       		.byte	0x23
+ 1276 0360 1C       		.uleb128 0x1c
+ 1277 0361 0D       		.uleb128 0xd
+ 1278 0362 6C7200   		.ascii	"lr\000"
+ 1279 0365 08       		.byte	0x8
+ 1280 0366 2701     		.2byte	0x127
+ 1281 0368 CC020000 		.4byte	0x2cc
+ 1282 036c 02       		.byte	0x2
+ 1283 036d 23       		.byte	0x23
+ 1284 036e 20       		.uleb128 0x20
+ 1285 036f 00       		.byte	0
+ 1286 0370 0C       		.uleb128 0xc
+ 1287 0371 12020000 		.4byte	.LASF54
+ 1288 0375 04       		.byte	0x4
+ 1289 0376 08       		.byte	0x8
+ 1290 0377 3101     		.2byte	0x131
+ 1291 0379 8D030000 		.4byte	0x38d
+ 1292 037d 0D       		.uleb128 0xd
+ 1293 037e 72313300 		.ascii	"r13\000"
+ 1294 0382 08       		.byte	0x8
+ 1295 0383 3201     		.2byte	0x132
+ 1296 0385 8D030000 		.4byte	0x38d
+ 1297 0389 02       		.byte	0x2
+ 1298 038a 23       		.byte	0x23
+ 1299 038b 00       		.uleb128 0
+ 1300 038c 00       		.byte	0
+ 1301 038d 06       		.uleb128 0x6
+ 1302 038e 04       		.byte	0x4
+ 1303 038f E2020000 		.4byte	0x2e2
+ 1304 0393 0E       		.uleb128 0xe
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 24
+
+
+ 1305 0394 39010000 		.4byte	0x139
+ 1306 0398 08       		.uleb128 0x8
+ 1307 0399 B8020000 		.4byte	.LASF55
+ 1308 039d 10       		.byte	0x10
+ 1309 039e 09       		.byte	0x9
+ 1310 039f 2C       		.byte	0x2c
+ 1311 03a0 CF030000 		.4byte	0x3cf
+ 1312 03a4 09       		.uleb128 0x9
+ 1313 03a5 DE000000 		.4byte	.LASF56
+ 1314 03a9 09       		.byte	0x9
+ 1315 03aa 2D       		.byte	0x2d
+ 1316 03ab 9F020000 		.4byte	0x29f
+ 1317 03af 02       		.byte	0x2
+ 1318 03b0 23       		.byte	0x23
+ 1319 03b1 00       		.uleb128 0
+ 1320 03b2 09       		.uleb128 0x9
+ 1321 03b3 91060000 		.4byte	.LASF57
+ 1322 03b7 09       		.byte	0x9
+ 1323 03b8 2F       		.byte	0x2f
+ 1324 03b9 99020000 		.4byte	0x299
+ 1325 03bd 02       		.byte	0x2
+ 1326 03be 23       		.byte	0x23
+ 1327 03bf 08       		.uleb128 0x8
+ 1328 03c0 09       		.uleb128 0x9
+ 1329 03c1 CE040000 		.4byte	.LASF58
+ 1330 03c5 09       		.byte	0x9
+ 1331 03c6 31       		.byte	0x31
+ 1332 03c7 CF030000 		.4byte	0x3cf
+ 1333 03cb 02       		.byte	0x2
+ 1334 03cc 23       		.byte	0x23
+ 1335 03cd 0C       		.uleb128 0xc
+ 1336 03ce 00       		.byte	0
+ 1337 03cf 06       		.uleb128 0x6
+ 1338 03d0 04       		.byte	0x4
+ 1339 03d1 98030000 		.4byte	0x398
+ 1340 03d5 03       		.uleb128 0x3
+ 1341 03d6 B8020000 		.4byte	.LASF55
+ 1342 03da 09       		.byte	0x9
+ 1343 03db 33       		.byte	0x33
+ 1344 03dc 98030000 		.4byte	0x398
+ 1345 03e0 03       		.uleb128 0x3
+ 1346 03e1 41000000 		.4byte	.LASF59
+ 1347 03e5 0A       		.byte	0xa
+ 1348 03e6 2C       		.byte	0x2c
+ 1349 03e7 EB030000 		.4byte	0x3eb
+ 1350 03eb 06       		.uleb128 0x6
+ 1351 03ec 04       		.byte	0x4
+ 1352 03ed F1030000 		.4byte	0x3f1
+ 1353 03f1 0F       		.uleb128 0xf
+ 1354 03f2 01       		.byte	0x1
+ 1355 03f3 81000000 		.4byte	0x81
+ 1356 03f7 01040000 		.4byte	0x401
+ 1357 03fb 10       		.uleb128 0x10
+ 1358 03fc 3E000000 		.4byte	0x3e
+ 1359 0400 00       		.byte	0
+ 1360 0401 03       		.uleb128 0x3
+ 1361 0402 4B030000 		.4byte	.LASF60
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 25
+
+
+ 1362 0406 0B       		.byte	0xb
+ 1363 0407 34       		.byte	0x34
+ 1364 0408 0C040000 		.4byte	0x40c
+ 1365 040c 08       		.uleb128 0x8
+ 1366 040d 16030000 		.4byte	.LASF61
+ 1367 0411 20       		.byte	0x20
+ 1368 0412 0B       		.byte	0xb
+ 1369 0413 47       		.byte	0x47
+ 1370 0414 43040000 		.4byte	0x443
+ 1371 0418 09       		.uleb128 0x9
+ 1372 0419 E8050000 		.4byte	.LASF62
+ 1373 041d 0B       		.byte	0xb
+ 1374 041e 48       		.byte	0x48
+ 1375 041f E0030000 		.4byte	0x3e0
+ 1376 0423 02       		.byte	0x2
+ 1377 0424 23       		.byte	0x23
+ 1378 0425 00       		.uleb128 0
+ 1379 0426 09       		.uleb128 0x9
+ 1380 0427 81000000 		.4byte	.LASF63
+ 1381 042b 0B       		.byte	0xb
+ 1382 042c 4A       		.byte	0x4a
+ 1383 042d 62040000 		.4byte	0x462
+ 1384 0431 02       		.byte	0x2
+ 1385 0432 23       		.byte	0x23
+ 1386 0433 08       		.uleb128 0x8
+ 1387 0434 09       		.uleb128 0x9
+ 1388 0435 C9000000 		.4byte	.LASF64
+ 1389 0439 0B       		.byte	0xb
+ 1390 043a 4C       		.byte	0x4c
+ 1391 043b D5030000 		.4byte	0x3d5
+ 1392 043f 02       		.byte	0x2
+ 1393 0440 23       		.byte	0x23
+ 1394 0441 10       		.uleb128 0x10
+ 1395 0442 00       		.byte	0
+ 1396 0443 11       		.uleb128 0x11
+ 1397 0444 04       		.byte	0x4
+ 1398 0445 0B       		.byte	0xb
+ 1399 0446 3C       		.byte	0x3c
+ 1400 0447 62040000 		.4byte	0x462
+ 1401 044b 12       		.uleb128 0x12
+ 1402 044c 9B000000 		.4byte	.LASF65
+ 1403 0450 0B       		.byte	0xb
+ 1404 0451 3D       		.byte	0x3d
+ 1405 0452 83040000 		.4byte	0x483
+ 1406 0456 12       		.uleb128 0x12
+ 1407 0457 AC040000 		.4byte	.LASF66
+ 1408 045b 0B       		.byte	0xb
+ 1409 045c 3E       		.byte	0x3e
+ 1410 045d 89040000 		.4byte	0x489
+ 1411 0461 00       		.byte	0
+ 1412 0462 13       		.uleb128 0x13
+ 1413 0463 C0030000 		.4byte	.LASF137
+ 1414 0467 08       		.byte	0x8
+ 1415 0468 0B       		.byte	0xb
+ 1416 0469 39       		.byte	0x39
+ 1417 046a 83040000 		.4byte	0x483
+ 1418 046e 12       		.uleb128 0x12
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 26
+
+
+ 1419 046f A4010000 		.4byte	.LASF67
+ 1420 0473 0B       		.byte	0xb
+ 1421 0474 3A       		.byte	0x3a
+ 1422 0475 D7020000 		.4byte	0x2d7
+ 1423 0479 14       		.uleb128 0x14
+ 1424 047a 6800     		.ascii	"h\000"
+ 1425 047c 0B       		.byte	0xb
+ 1426 047d 41       		.byte	0x41
+ 1427 047e 8F040000 		.4byte	0x48f
+ 1428 0482 00       		.byte	0
+ 1429 0483 06       		.uleb128 0x6
+ 1430 0484 04       		.byte	0x4
+ 1431 0485 62040000 		.4byte	0x462
+ 1432 0489 06       		.uleb128 0x6
+ 1433 048a 04       		.byte	0x4
+ 1434 048b 01040000 		.4byte	0x401
+ 1435 048f 0B       		.uleb128 0xb
+ 1436 0490 08       		.byte	0x8
+ 1437 0491 0B       		.byte	0xb
+ 1438 0492 3B       		.byte	0x3b
+ 1439 0493 B2040000 		.4byte	0x4b2
+ 1440 0497 0A       		.uleb128 0xa
+ 1441 0498 7500     		.ascii	"u\000"
+ 1442 049a 0B       		.byte	0xb
+ 1443 049b 3F       		.byte	0x3f
+ 1444 049c 43040000 		.4byte	0x443
+ 1445 04a0 02       		.byte	0x2
+ 1446 04a1 23       		.byte	0x23
+ 1447 04a2 00       		.uleb128 0
+ 1448 04a3 09       		.uleb128 0x9
+ 1449 04a4 1A020000 		.4byte	.LASF68
+ 1450 04a8 0B       		.byte	0xb
+ 1451 04a9 40       		.byte	0x40
+ 1452 04aa 3E000000 		.4byte	0x3e
+ 1453 04ae 02       		.byte	0x2
+ 1454 04af 23       		.byte	0x23
+ 1455 04b0 04       		.uleb128 0x4
+ 1456 04b1 00       		.byte	0
+ 1457 04b2 11       		.uleb128 0x11
+ 1458 04b3 04       		.byte	0x4
+ 1459 04b4 07       		.byte	0x7
+ 1460 04b5 96       		.byte	0x96
+ 1461 04b6 E7040000 		.4byte	0x4e7
+ 1462 04ba 12       		.uleb128 0x12
+ 1463 04bb 28000000 		.4byte	.LASF69
+ 1464 04bf 07       		.byte	0x7
+ 1465 04c0 9D       		.byte	0x9d
+ 1466 04c1 23010000 		.4byte	0x123
+ 1467 04c5 12       		.uleb128 0x12
+ 1468 04c6 78000000 		.4byte	.LASF70
+ 1469 04ca 07       		.byte	0x7
+ 1470 04cb A4       		.byte	0xa4
+ 1471 04cc 23010000 		.4byte	0x123
+ 1472 04d0 12       		.uleb128 0x12
+ 1473 04d1 F3050000 		.4byte	.LASF71
+ 1474 04d5 07       		.byte	0x7
+ 1475 04d6 AB       		.byte	0xab
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 27
+
+
+ 1476 04d7 81000000 		.4byte	0x81
+ 1477 04db 12       		.uleb128 0x12
+ 1478 04dc 2C040000 		.4byte	.LASF72
+ 1479 04e0 07       		.byte	0x7
+ 1480 04e1 B2       		.byte	0xb2
+ 1481 04e2 2E010000 		.4byte	0x12e
+ 1482 04e6 00       		.byte	0
+ 1483 04e7 06       		.uleb128 0x6
+ 1484 04e8 04       		.byte	0x4
+ 1485 04e9 D5030000 		.4byte	0x3d5
+ 1486 04ed 07       		.uleb128 0x7
+ 1487 04ee AE000000 		.4byte	0xae
+ 1488 04f2 0E       		.uleb128 0xe
+ 1489 04f3 B9000000 		.4byte	0xb9
+ 1490 04f7 15       		.uleb128 0x15
+ 1491 04f8 01       		.byte	0x1
+ 1492 04f9 0C       		.byte	0xc
+ 1493 04fa 3C       		.byte	0x3c
+ 1494 04fb AE050000 		.4byte	0x5ae
+ 1495 04ff 16       		.uleb128 0x16
+ 1496 0500 38020000 		.4byte	.LASF73
+ 1497 0504 7F       		.sleb128 -1
+ 1498 0505 16       		.uleb128 0x16
+ 1499 0506 54020000 		.4byte	.LASF74
+ 1500 050a 00       		.sleb128 0
+ 1501 050b 16       		.uleb128 0x16
+ 1502 050c 4B010000 		.4byte	.LASF75
+ 1503 0510 01       		.sleb128 1
+ 1504 0511 16       		.uleb128 0x16
+ 1505 0512 73020000 		.4byte	.LASF76
+ 1506 0516 02       		.sleb128 2
+ 1507 0517 16       		.uleb128 0x16
+ 1508 0518 5E010000 		.4byte	.LASF77
+ 1509 051c 03       		.sleb128 3
+ 1510 051d 16       		.uleb128 0x16
+ 1511 051e 92020000 		.4byte	.LASF78
+ 1512 0522 04       		.sleb128 4
+ 1513 0523 16       		.uleb128 0x16
+ 1514 0524 A5020000 		.4byte	.LASF79
+ 1515 0528 05       		.sleb128 5
+ 1516 0529 16       		.uleb128 0x16
+ 1517 052a 88000000 		.4byte	.LASF80
+ 1518 052e 06       		.sleb128 6
+ 1519 052f 16       		.uleb128 0x16
+ 1520 0530 BE020000 		.4byte	.LASF81
+ 1521 0534 07       		.sleb128 7
+ 1522 0535 16       		.uleb128 0x16
+ 1523 0536 2C050000 		.4byte	.LASF82
+ 1524 053a 08       		.sleb128 8
+ 1525 053b 16       		.uleb128 0x16
+ 1526 053c 40050000 		.4byte	.LASF83
+ 1527 0540 09       		.sleb128 9
+ 1528 0541 16       		.uleb128 0x16
+ 1529 0542 4E000000 		.4byte	.LASF84
+ 1530 0546 0A       		.sleb128 10
+ 1531 0547 16       		.uleb128 0x16
+ 1532 0548 61050000 		.4byte	.LASF85
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 28
+
+
+ 1533 054c 0B       		.sleb128 11
+ 1534 054d 16       		.uleb128 0x16
+ 1535 054e 75050000 		.4byte	.LASF86
+ 1536 0552 0C       		.sleb128 12
+ 1537 0553 16       		.uleb128 0x16
+ 1538 0554 89050000 		.4byte	.LASF87
+ 1539 0558 0D       		.sleb128 13
+ 1540 0559 16       		.uleb128 0x16
+ 1541 055a 9D050000 		.4byte	.LASF88
+ 1542 055e 0E       		.sleb128 14
+ 1543 055f 16       		.uleb128 0x16
+ 1544 0560 B1050000 		.4byte	.LASF89
+ 1545 0564 0F       		.sleb128 15
+ 1546 0565 16       		.uleb128 0x16
+ 1547 0566 C5050000 		.4byte	.LASF90
+ 1548 056a 10       		.sleb128 16
+ 1549 056b 16       		.uleb128 0x16
+ 1550 056c E8010000 		.4byte	.LASF91
+ 1551 0570 11       		.sleb128 17
+ 1552 0571 16       		.uleb128 0x16
+ 1553 0572 FD010000 		.4byte	.LASF92
+ 1554 0576 12       		.sleb128 18
+ 1555 0577 16       		.uleb128 0x16
+ 1556 0578 36030000 		.4byte	.LASF93
+ 1557 057c 13       		.sleb128 19
+ 1558 057d 16       		.uleb128 0x16
+ 1559 057e 01060000 		.4byte	.LASF94
+ 1560 0582 14       		.sleb128 20
+ 1561 0583 16       		.uleb128 0x16
+ 1562 0584 11060000 		.4byte	.LASF95
+ 1563 0588 15       		.sleb128 21
+ 1564 0589 16       		.uleb128 0x16
+ 1565 058a 21060000 		.4byte	.LASF96
+ 1566 058e 16       		.sleb128 22
+ 1567 058f 16       		.uleb128 0x16
+ 1568 0590 31060000 		.4byte	.LASF97
+ 1569 0594 17       		.sleb128 23
+ 1570 0595 16       		.uleb128 0x16
+ 1571 0596 41060000 		.4byte	.LASF98
+ 1572 059a 18       		.sleb128 24
+ 1573 059b 16       		.uleb128 0x16
+ 1574 059c 51060000 		.4byte	.LASF99
+ 1575 05a0 19       		.sleb128 25
+ 1576 05a1 16       		.uleb128 0x16
+ 1577 05a2 61060000 		.4byte	.LASF100
+ 1578 05a6 1A       		.sleb128 26
+ 1579 05a7 16       		.uleb128 0x16
+ 1580 05a8 71060000 		.4byte	.LASF101
+ 1581 05ac 1B       		.sleb128 27
+ 1582 05ad 00       		.byte	0
+ 1583 05ae 03       		.uleb128 0x3
+ 1584 05af 18010000 		.4byte	.LASF102
+ 1585 05b3 0C       		.byte	0xc
+ 1586 05b4 64       		.byte	0x64
+ 1587 05b5 F7040000 		.4byte	0x4f7
+ 1588 05b9 08       		.uleb128 0x8
+ 1589 05ba 3A040000 		.4byte	.LASF103
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 29
+
+
+ 1590 05be 40       		.byte	0x40
+ 1591 05bf 0D       		.byte	0xd
+ 1592 05c0 44       		.byte	0x44
+ 1593 05c1 CD060000 		.4byte	0x6cd
+ 1594 05c5 09       		.uleb128 0x9
+ 1595 05c6 A4040000 		.4byte	.LASF104
+ 1596 05ca 0D       		.byte	0xd
+ 1597 05cb 46       		.byte	0x46
+ 1598 05cc AE000000 		.4byte	0xae
+ 1599 05d0 02       		.byte	0x2
+ 1600 05d1 23       		.byte	0x23
+ 1601 05d2 00       		.uleb128 0
+ 1602 05d3 09       		.uleb128 0x9
+ 1603 05d4 F9000000 		.4byte	.LASF105
+ 1604 05d8 0D       		.byte	0xd
+ 1605 05d9 47       		.byte	0x47
+ 1606 05da AE000000 		.4byte	0xae
+ 1607 05de 02       		.byte	0x2
+ 1608 05df 23       		.byte	0x23
+ 1609 05e0 02       		.uleb128 0x2
+ 1610 05e1 0A       		.uleb128 0xa
+ 1611 05e2 4B7000   		.ascii	"Kp\000"
+ 1612 05e5 0D       		.byte	0xd
+ 1613 05e6 4A       		.byte	0x4a
+ 1614 05e7 29000000 		.4byte	0x29
+ 1615 05eb 02       		.byte	0x2
+ 1616 05ec 23       		.byte	0x23
+ 1617 05ed 04       		.uleb128 0x4
+ 1618 05ee 0A       		.uleb128 0xa
+ 1619 05ef 4B6900   		.ascii	"Ki\000"
+ 1620 05f2 0D       		.byte	0xd
+ 1621 05f3 4B       		.byte	0x4b
+ 1622 05f4 29000000 		.4byte	0x29
+ 1623 05f8 02       		.byte	0x2
+ 1624 05f9 23       		.byte	0x23
+ 1625 05fa 08       		.uleb128 0x8
+ 1626 05fb 0A       		.uleb128 0xa
+ 1627 05fc 4B6400   		.ascii	"Kd\000"
+ 1628 05ff 0D       		.byte	0xd
+ 1629 0600 4C       		.byte	0x4c
+ 1630 0601 29000000 		.4byte	0x29
+ 1631 0605 02       		.byte	0x2
+ 1632 0606 23       		.byte	0x23
+ 1633 0607 0C       		.uleb128 0xc
+ 1634 0608 09       		.uleb128 0x9
+ 1635 0609 F7040000 		.4byte	.LASF106
+ 1636 060d 0D       		.byte	0xd
+ 1637 060e 4D       		.byte	0x4d
+ 1638 060f 29000000 		.4byte	0x29
+ 1639 0613 02       		.byte	0x2
+ 1640 0614 23       		.byte	0x23
+ 1641 0615 10       		.uleb128 0x10
+ 1642 0616 09       		.uleb128 0x9
+ 1643 0617 66030000 		.4byte	.LASF107
+ 1644 061b 0D       		.byte	0xd
+ 1645 061c 50       		.byte	0x50
+ 1646 061d 29000000 		.4byte	0x29
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 30
+
+
+ 1647 0621 02       		.byte	0x2
+ 1648 0622 23       		.byte	0x23
+ 1649 0623 14       		.uleb128 0x14
+ 1650 0624 09       		.uleb128 0x9
+ 1651 0625 72040000 		.4byte	.LASF108
+ 1652 0629 0D       		.byte	0xd
+ 1653 062a 51       		.byte	0x51
+ 1654 062b 29000000 		.4byte	0x29
+ 1655 062f 02       		.byte	0x2
+ 1656 0630 23       		.byte	0x23
+ 1657 0631 18       		.uleb128 0x18
+ 1658 0632 09       		.uleb128 0x9
+ 1659 0633 FE000000 		.4byte	.LASF109
+ 1660 0637 0D       		.byte	0xd
+ 1661 0638 52       		.byte	0x52
+ 1662 0639 29000000 		.4byte	0x29
+ 1663 063d 02       		.byte	0x2
+ 1664 063e 23       		.byte	0x23
+ 1665 063f 1C       		.uleb128 0x1c
+ 1666 0640 09       		.uleb128 0x9
+ 1667 0641 DC020000 		.4byte	.LASF110
+ 1668 0645 0D       		.byte	0xd
+ 1669 0646 53       		.byte	0x53
+ 1670 0647 29000000 		.4byte	0x29
+ 1671 064b 02       		.byte	0x2
+ 1672 064c 23       		.byte	0x23
+ 1673 064d 20       		.uleb128 0x20
+ 1674 064e 09       		.uleb128 0x9
+ 1675 064f FA030000 		.4byte	.LASF111
+ 1676 0653 0D       		.byte	0xd
+ 1677 0654 54       		.byte	0x54
+ 1678 0655 29000000 		.4byte	0x29
+ 1679 0659 02       		.byte	0x2
+ 1680 065a 23       		.byte	0x23
+ 1681 065b 24       		.uleb128 0x24
+ 1682 065c 09       		.uleb128 0x9
+ 1683 065d 06030000 		.4byte	.LASF112
+ 1684 0661 0D       		.byte	0xd
+ 1685 0662 55       		.byte	0x55
+ 1686 0663 29000000 		.4byte	0x29
+ 1687 0667 02       		.byte	0x2
+ 1688 0668 23       		.byte	0x23
+ 1689 0669 28       		.uleb128 0x28
+ 1690 066a 09       		.uleb128 0x9
+ 1691 066b F7020000 		.4byte	.LASF113
+ 1692 066f 0D       		.byte	0xd
+ 1693 0670 58       		.byte	0x58
+ 1694 0671 29000000 		.4byte	0x29
+ 1695 0675 02       		.byte	0x2
+ 1696 0676 23       		.byte	0x23
+ 1697 0677 2C       		.uleb128 0x2c
+ 1698 0678 09       		.uleb128 0x9
+ 1699 0679 51040000 		.4byte	.LASF114
+ 1700 067d 0D       		.byte	0xd
+ 1701 067e 59       		.byte	0x59
+ 1702 067f AE000000 		.4byte	0xae
+ 1703 0683 02       		.byte	0x2
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 31
+
+
+ 1704 0684 23       		.byte	0x23
+ 1705 0685 30       		.uleb128 0x30
+ 1706 0686 09       		.uleb128 0x9
+ 1707 0687 87060000 		.4byte	.LASF115
+ 1708 068b 0D       		.byte	0xd
+ 1709 068c 5A       		.byte	0x5a
+ 1710 068d AE000000 		.4byte	0xae
+ 1711 0691 02       		.byte	0x2
+ 1712 0692 23       		.byte	0x23
+ 1713 0693 32       		.uleb128 0x32
+ 1714 0694 09       		.uleb128 0x9
+ 1715 0695 EB020000 		.4byte	.LASF116
+ 1716 0699 0D       		.byte	0xd
+ 1717 069a 5C       		.byte	0x5c
+ 1718 069b AE050000 		.4byte	0x5ae
+ 1719 069f 02       		.byte	0x2
+ 1720 06a0 23       		.byte	0x23
+ 1721 06a1 34       		.uleb128 0x34
+ 1722 06a2 09       		.uleb128 0x9
+ 1723 06a3 D9030000 		.4byte	.LASF117
+ 1724 06a7 0D       		.byte	0xd
+ 1725 06a8 5D       		.byte	0x5d
+ 1726 06a9 AE000000 		.4byte	0xae
+ 1727 06ad 02       		.byte	0x2
+ 1728 06ae 23       		.byte	0x23
+ 1729 06af 36       		.uleb128 0x36
+ 1730 06b0 09       		.uleb128 0x9
+ 1731 06b1 54050000 		.4byte	.LASF118
+ 1732 06b5 0D       		.byte	0xd
+ 1733 06b6 5E       		.byte	0x5e
+ 1734 06b7 B9000000 		.4byte	0xb9
+ 1735 06bb 02       		.byte	0x2
+ 1736 06bc 23       		.byte	0x23
+ 1737 06bd 38       		.uleb128 0x38
+ 1738 06be 09       		.uleb128 0x9
+ 1739 06bf EA040000 		.4byte	.LASF119
+ 1740 06c3 0D       		.byte	0xd
+ 1741 06c4 60       		.byte	0x60
+ 1742 06c5 B9000000 		.4byte	0xb9
+ 1743 06c9 02       		.byte	0x2
+ 1744 06ca 23       		.byte	0x23
+ 1745 06cb 3C       		.uleb128 0x3c
+ 1746 06cc 00       		.byte	0
+ 1747 06cd 03       		.uleb128 0x3
+ 1748 06ce 35010000 		.4byte	.LASF120
+ 1749 06d2 0D       		.byte	0xd
+ 1750 06d3 61       		.byte	0x61
+ 1751 06d4 B9050000 		.4byte	0x5b9
+ 1752 06d8 17       		.uleb128 0x17
+ 1753 06d9 62000000 		.4byte	.LASF121
+ 1754 06dd 02       		.byte	0x2
+ 1755 06de 47       		.byte	0x47
+ 1756 06df 01       		.byte	0x1
+ 1757 06e0 29000000 		.4byte	0x29
+ 1758 06e4 03       		.byte	0x3
+ 1759 06e5 46070000 		.4byte	0x746
+ 1760 06e9 18       		.uleb128 0x18
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 32
+
+
+ 1761 06ea 7800     		.ascii	"x\000"
+ 1762 06ec 02       		.byte	0x2
+ 1763 06ed 47       		.byte	0x47
+ 1764 06ee 29000000 		.4byte	0x29
+ 1765 06f2 11       		.uleb128 0x11
+ 1766 06f3 04       		.byte	0x4
+ 1767 06f4 02       		.byte	0x2
+ 1768 06f5 49       		.byte	0x49
+ 1769 06f6 0D070000 		.4byte	0x70d
+ 1770 06fa 14       		.uleb128 0x14
+ 1771 06fb 6600     		.ascii	"f\000"
+ 1772 06fd 02       		.byte	0x2
+ 1773 06fe 49       		.byte	0x49
+ 1774 06ff 29000000 		.4byte	0x29
+ 1775 0703 14       		.uleb128 0x14
+ 1776 0704 6900     		.ascii	"i\000"
+ 1777 0706 02       		.byte	0x2
+ 1778 0707 49       		.byte	0x49
+ 1779 0708 C4000000 		.4byte	0xc4
+ 1780 070c 00       		.byte	0
+ 1781 070d 19       		.uleb128 0x19
+ 1782 070e 767800   		.ascii	"vx\000"
+ 1783 0711 02       		.byte	0x2
+ 1784 0712 49       		.byte	0x49
+ 1785 0713 F2060000 		.4byte	0x6f2
+ 1786 0717 11       		.uleb128 0x11
+ 1787 0718 04       		.byte	0x4
+ 1788 0719 02       		.byte	0x2
+ 1789 071a 4A       		.byte	0x4a
+ 1790 071b 32070000 		.4byte	0x732
+ 1791 071f 14       		.uleb128 0x14
+ 1792 0720 6900     		.ascii	"i\000"
+ 1793 0722 02       		.byte	0x2
+ 1794 0723 4A       		.byte	0x4a
+ 1795 0724 C4000000 		.4byte	0xc4
+ 1796 0728 14       		.uleb128 0x14
+ 1797 0729 6600     		.ascii	"f\000"
+ 1798 072b 02       		.byte	0x2
+ 1799 072c 4A       		.byte	0x4a
+ 1800 072d 29000000 		.4byte	0x29
+ 1801 0731 00       		.byte	0
+ 1802 0732 19       		.uleb128 0x19
+ 1803 0733 6D7800   		.ascii	"mx\000"
+ 1804 0736 02       		.byte	0x2
+ 1805 0737 4A       		.byte	0x4a
+ 1806 0738 17070000 		.4byte	0x717
+ 1807 073c 19       		.uleb128 0x19
+ 1808 073d 7900     		.ascii	"y\000"
+ 1809 073f 02       		.byte	0x2
+ 1810 0740 4B       		.byte	0x4b
+ 1811 0741 29000000 		.4byte	0x29
+ 1812 0745 00       		.byte	0
+ 1813 0746 1A       		.uleb128 0x1a
+ 1814 0747 73676E00 		.ascii	"sgn\000"
+ 1815 074b 01       		.byte	0x1
+ 1816 074c 48       		.byte	0x48
+ 1817 074d 01       		.byte	0x1
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 33
+
+
+ 1818 074e 29000000 		.4byte	0x29
+ 1819 0752 03       		.byte	0x3
+ 1820 0753 61070000 		.4byte	0x761
+ 1821 0757 18       		.uleb128 0x18
+ 1822 0758 7800     		.ascii	"x\000"
+ 1823 075a 01       		.byte	0x1
+ 1824 075b 48       		.byte	0x48
+ 1825 075c 29000000 		.4byte	0x29
+ 1826 0760 00       		.byte	0
+ 1827 0761 17       		.uleb128 0x17
+ 1828 0762 4C020000 		.4byte	.LASF122
+ 1829 0766 02       		.byte	0x2
+ 1830 0767 5A       		.byte	0x5a
+ 1831 0768 01       		.byte	0x1
+ 1832 0769 29000000 		.4byte	0x29
+ 1833 076d 03       		.byte	0x3
+ 1834 076e 85070000 		.4byte	0x785
+ 1835 0772 18       		.uleb128 0x18
+ 1836 0773 7800     		.ascii	"x\000"
+ 1837 0775 02       		.byte	0x2
+ 1838 0776 5A       		.byte	0x5a
+ 1839 0777 29000000 		.4byte	0x29
+ 1840 077b 18       		.uleb128 0x18
+ 1841 077c 7000     		.ascii	"p\000"
+ 1842 077e 02       		.byte	0x2
+ 1843 077f 5B       		.byte	0x5b
+ 1844 0780 29000000 		.4byte	0x29
+ 1845 0784 00       		.byte	0
+ 1846 0785 1B       		.uleb128 0x1b
+ 1847 0786 01       		.byte	0x1
+ 1848 0787 C2010000 		.4byte	.LASF126
+ 1849 078b 01       		.byte	0x1
+ 1850 078c 9F       		.byte	0x9f
+ 1851 078d 01       		.byte	0x1
+ 1852 078e AE000000 		.4byte	0xae
+ 1853 0792 00000000 		.4byte	.LFB71
+ 1854 0796 14020000 		.4byte	.LFE71
+ 1855 079a 00000000 		.4byte	.LLST0
+ 1856 079e 01       		.byte	0x1
+ 1857 079f 1A080000 		.4byte	0x81a
+ 1858 07a3 1C       		.uleb128 0x1c
+ 1859 07a4 7000     		.ascii	"p\000"
+ 1860 07a6 01       		.byte	0x1
+ 1861 07a7 9F       		.byte	0x9f
+ 1862 07a8 1A080000 		.4byte	0x81a
+ 1863 07ac 20000000 		.4byte	.LLST1
+ 1864 07b0 1D       		.uleb128 0x1d
+ 1865 07b1 46070000 		.4byte	0x746
+ 1866 07b5 64000000 		.4byte	.LBB12
+ 1867 07b9 00000000 		.4byte	.Ldebug_ranges0+0
+ 1868 07bd 01       		.byte	0x1
+ 1869 07be C6       		.byte	0xc6
+ 1870 07bf CD070000 		.4byte	0x7cd
+ 1871 07c3 1E       		.uleb128 0x1e
+ 1872 07c4 57070000 		.4byte	0x757
+ 1873 07c8 6A000000 		.4byte	.LLST2
+ 1874 07cc 00       		.byte	0
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 34
+
+
+ 1875 07cd 1D       		.uleb128 0x1d
+ 1876 07ce 46070000 		.4byte	0x746
+ 1877 07d2 DE000000 		.4byte	.LBB15
+ 1878 07d6 18000000 		.4byte	.Ldebug_ranges0+0x18
+ 1879 07da 01       		.byte	0x1
+ 1880 07db D4       		.byte	0xd4
+ 1881 07dc EA070000 		.4byte	0x7ea
+ 1882 07e0 1E       		.uleb128 0x1e
+ 1883 07e1 57070000 		.4byte	0x757
+ 1884 07e5 93000000 		.4byte	.LLST3
+ 1885 07e9 00       		.byte	0
+ 1886 07ea 1D       		.uleb128 0x1d
+ 1887 07eb 46070000 		.4byte	0x746
+ 1888 07ef 12010000 		.4byte	.LBB19
+ 1889 07f3 38000000 		.4byte	.Ldebug_ranges0+0x38
+ 1890 07f7 01       		.byte	0x1
+ 1891 07f8 E6       		.byte	0xe6
+ 1892 07f9 07080000 		.4byte	0x807
+ 1893 07fd 1E       		.uleb128 0x1e
+ 1894 07fe 57070000 		.4byte	0x757
+ 1895 0802 BC000000 		.4byte	.LLST4
+ 1896 0806 00       		.byte	0
+ 1897 0807 1F       		.uleb128 0x1f
+ 1898 0808 6A010000 		.4byte	.LVL34
+ 1899 080c AA0A0000 		.4byte	0xaaa
+ 1900 0810 1F       		.uleb128 0x1f
+ 1901 0811 98010000 		.4byte	.LVL38
+ 1902 0815 C20A0000 		.4byte	0xac2
+ 1903 0819 00       		.byte	0
+ 1904 081a 06       		.uleb128 0x6
+ 1905 081b 04       		.byte	0x4
+ 1906 081c CD060000 		.4byte	0x6cd
+ 1907 0820 17       		.uleb128 0x17
+ 1908 0821 38000000 		.4byte	.LASF123
+ 1909 0825 02       		.byte	0x2
+ 1910 0826 3B       		.byte	0x3b
+ 1911 0827 01       		.byte	0x1
+ 1912 0828 29000000 		.4byte	0x29
+ 1913 082c 03       		.byte	0x3
+ 1914 082d 87080000 		.4byte	0x887
+ 1915 0831 18       		.uleb128 0x18
+ 1916 0832 7000     		.ascii	"p\000"
+ 1917 0834 02       		.byte	0x2
+ 1918 0835 3B       		.byte	0x3b
+ 1919 0836 29000000 		.4byte	0x29
+ 1920 083a 20       		.uleb128 0x20
+ 1921 083b 17050000 		.4byte	.LASF124
+ 1922 083f 02       		.byte	0x2
+ 1923 0840 3D       		.byte	0x3d
+ 1924 0841 29000000 		.4byte	0x29
+ 1925 0845 20       		.uleb128 0x20
+ 1926 0846 C3040000 		.4byte	.LASF125
+ 1927 084a 02       		.byte	0x2
+ 1928 084b 3E       		.byte	0x3e
+ 1929 084c 29000000 		.4byte	0x29
+ 1930 0850 19       		.uleb128 0x19
+ 1931 0851 7700     		.ascii	"w\000"
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 35
+
+
+ 1932 0853 02       		.byte	0x2
+ 1933 0854 3F       		.byte	0x3f
+ 1934 0855 5E000000 		.4byte	0x5e
+ 1935 0859 19       		.uleb128 0x19
+ 1936 085a 7A00     		.ascii	"z\000"
+ 1937 085c 02       		.byte	0x2
+ 1938 085d 40       		.byte	0x40
+ 1939 085e 29000000 		.4byte	0x29
+ 1940 0862 11       		.uleb128 0x11
+ 1941 0863 04       		.byte	0x4
+ 1942 0864 02       		.byte	0x2
+ 1943 0865 41       		.byte	0x41
+ 1944 0866 7D080000 		.4byte	0x87d
+ 1945 086a 14       		.uleb128 0x14
+ 1946 086b 6900     		.ascii	"i\000"
+ 1947 086d 02       		.byte	0x2
+ 1948 086e 41       		.byte	0x41
+ 1949 086f C4000000 		.4byte	0xc4
+ 1950 0873 14       		.uleb128 0x14
+ 1951 0874 6600     		.ascii	"f\000"
+ 1952 0876 02       		.byte	0x2
+ 1953 0877 41       		.byte	0x41
+ 1954 0878 29000000 		.4byte	0x29
+ 1955 087c 00       		.byte	0
+ 1956 087d 19       		.uleb128 0x19
+ 1957 087e 7600     		.ascii	"v\000"
+ 1958 0880 02       		.byte	0x2
+ 1959 0881 41       		.byte	0x41
+ 1960 0882 62080000 		.4byte	0x862
+ 1961 0886 00       		.byte	0
+ 1962 0887 21       		.uleb128 0x21
+ 1963 0888 01       		.byte	0x1
+ 1964 0889 17040000 		.4byte	.LASF138
+ 1965 088d 01       		.byte	0x1
+ 1966 088e F2       		.byte	0xf2
+ 1967 088f 01       		.byte	0x1
+ 1968 0890 00000000 		.4byte	.LFB72
+ 1969 0894 30010000 		.4byte	.LFE72
+ 1970 0898 DA000000 		.4byte	.LLST5
+ 1971 089c 01       		.byte	0x1
+ 1972 089d 27090000 		.4byte	0x927
+ 1973 08a1 22       		.uleb128 0x22
+ 1974 08a2 6900     		.ascii	"i\000"
+ 1975 08a4 01       		.byte	0x1
+ 1976 08a5 F4       		.byte	0xf4
+ 1977 08a6 AE000000 		.4byte	0xae
+ 1978 08aa FA000000 		.4byte	.LLST6
+ 1979 08ae 19       		.uleb128 0x19
+ 1980 08af 7800     		.ascii	"x\000"
+ 1981 08b1 01       		.byte	0x1
+ 1982 08b2 F5       		.byte	0xf5
+ 1983 08b3 29000000 		.4byte	0x29
+ 1984 08b7 23       		.uleb128 0x23
+ 1985 08b8 61070000 		.4byte	0x761
+ 1986 08bc 34000000 		.4byte	.LBB34
+ 1987 08c0 58000000 		.4byte	.Ldebug_ranges0+0x58
+ 1988 08c4 01       		.byte	0x1
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 36
+
+
+ 1989 08c5 FC       		.byte	0xfc
+ 1990 08c6 1E       		.uleb128 0x1e
+ 1991 08c7 7B070000 		.4byte	0x77b
+ 1992 08cb 24010000 		.4byte	.LLST7
+ 1993 08cf 24       		.uleb128 0x24
+ 1994 08d0 78000000 		.4byte	.Ldebug_ranges0+0x78
+ 1995 08d4 25       		.uleb128 0x25
+ 1996 08d5 72070000 		.4byte	0x772
+ 1997 08d9 04       		.byte	0x4
+ 1998 08da 0000A041 		.4byte	0x41a00000
+ 1999 08de 23       		.uleb128 0x23
+ 2000 08df 20080000 		.4byte	0x820
+ 2001 08e3 34000000 		.4byte	.LBB36
+ 2002 08e7 98000000 		.4byte	.Ldebug_ranges0+0x98
+ 2003 08eb 02       		.byte	0x2
+ 2004 08ec 5D       		.byte	0x5d
+ 2005 08ed 1E       		.uleb128 0x1e
+ 2006 08ee 31080000 		.4byte	0x831
+ 2007 08f2 77010000 		.4byte	.LLST8
+ 2008 08f6 24       		.uleb128 0x24
+ 2009 08f7 C0000000 		.4byte	.Ldebug_ranges0+0xc0
+ 2010 08fb 26       		.uleb128 0x26
+ 2011 08fc 3A080000 		.4byte	0x83a
+ 2012 0900 A0010000 		.4byte	.LLST9
+ 2013 0904 27       		.uleb128 0x27
+ 2014 0905 45080000 		.4byte	0x845
+ 2015 0909 01       		.byte	0x1
+ 2016 090a 55       		.byte	0x55
+ 2017 090b 28       		.uleb128 0x28
+ 2018 090c 50080000 		.4byte	0x850
+ 2019 0910 26       		.uleb128 0x26
+ 2020 0911 59080000 		.4byte	0x859
+ 2021 0915 DF010000 		.4byte	.LLST10
+ 2022 0919 26       		.uleb128 0x26
+ 2023 091a 7D080000 		.4byte	0x87d
+ 2024 091e 2F020000 		.4byte	.LLST11
+ 2025 0922 00       		.byte	0
+ 2026 0923 00       		.byte	0
+ 2027 0924 00       		.byte	0
+ 2028 0925 00       		.byte	0
+ 2029 0926 00       		.byte	0
+ 2030 0927 1B       		.uleb128 0x1b
+ 2031 0928 01       		.byte	0x1
+ 2032 0929 05040000 		.4byte	.LASF127
+ 2033 092d 01       		.byte	0x1
+ 2034 092e 57       		.byte	0x57
+ 2035 092f 01       		.byte	0x1
+ 2036 0930 1A080000 		.4byte	0x81a
+ 2037 0934 00000000 		.4byte	.LFB69
+ 2038 0938 70000000 		.4byte	.LFE69
+ 2039 093c 47030000 		.4byte	.LLST12
+ 2040 0940 01       		.byte	0x1
+ 2041 0941 BC090000 		.4byte	0x9bc
+ 2042 0945 1C       		.uleb128 0x1c
+ 2043 0946 4B7000   		.ascii	"Kp\000"
+ 2044 0949 01       		.byte	0x1
+ 2045 094a 57       		.byte	0x57
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 37
+
+
+ 2046 094b 29000000 		.4byte	0x29
+ 2047 094f 67030000 		.4byte	.LLST13
+ 2048 0953 1C       		.uleb128 0x1c
+ 2049 0954 4B6900   		.ascii	"Ki\000"
+ 2050 0957 01       		.byte	0x1
+ 2051 0958 57       		.byte	0x57
+ 2052 0959 29000000 		.4byte	0x29
+ 2053 095d 85030000 		.4byte	.LLST14
+ 2054 0961 1C       		.uleb128 0x1c
+ 2055 0962 4B6400   		.ascii	"Kd\000"
+ 2056 0965 01       		.byte	0x1
+ 2057 0966 57       		.byte	0x57
+ 2058 0967 29000000 		.4byte	0x29
+ 2059 096b A3030000 		.4byte	.LLST15
+ 2060 096f 29       		.uleb128 0x29
+ 2061 0970 88010000 		.4byte	.LASF128
+ 2062 0974 01       		.byte	0x1
+ 2063 0975 57       		.byte	0x57
+ 2064 0976 AE050000 		.4byte	0x5ae
+ 2065 097a C1030000 		.4byte	.LLST16
+ 2066 097e 2A       		.uleb128 0x2a
+ 2067 097f D9030000 		.4byte	.LASF117
+ 2068 0983 01       		.byte	0x1
+ 2069 0984 57       		.byte	0x57
+ 2070 0985 AE000000 		.4byte	0xae
+ 2071 0989 02       		.byte	0x2
+ 2072 098a 91       		.byte	0x91
+ 2073 098b 00       		.sleb128 0
+ 2074 098c 22       		.uleb128 0x22
+ 2075 098d 7000     		.ascii	"p\000"
+ 2076 098f 01       		.byte	0x1
+ 2077 0990 59       		.byte	0x59
+ 2078 0991 1A080000 		.4byte	0x81a
+ 2079 0995 E2030000 		.4byte	.LLST17
+ 2080 0999 2B       		.uleb128 0x2b
+ 2081 099a 14000000 		.4byte	.LVL87
+ 2082 099e DA0A0000 		.4byte	0xada
+ 2083 09a2 B2090000 		.4byte	0x9b2
+ 2084 09a6 2C       		.uleb128 0x2c
+ 2085 09a7 01       		.byte	0x1
+ 2086 09a8 51       		.byte	0x51
+ 2087 09a9 02       		.byte	0x2
+ 2088 09aa 08       		.byte	0x8
+ 2089 09ab 40       		.byte	0x40
+ 2090 09ac 2C       		.uleb128 0x2c
+ 2091 09ad 01       		.byte	0x1
+ 2092 09ae 50       		.byte	0x50
+ 2093 09af 01       		.byte	0x1
+ 2094 09b0 30       		.byte	0x30
+ 2095 09b1 00       		.byte	0
+ 2096 09b2 1F       		.uleb128 0x1f
+ 2097 09b3 66000000 		.4byte	.LVL92
+ 2098 09b7 87080000 		.4byte	0x887
+ 2099 09bb 00       		.byte	0
+ 2100 09bc 2D       		.uleb128 0x2d
+ 2101 09bd 01       		.byte	0x1
+ 2102 09be FD040000 		.4byte	.LASF129
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 38
+
+
+ 2103 09c2 01       		.byte	0x1
+ 2104 09c3 90       		.byte	0x90
+ 2105 09c4 01       		.byte	0x1
+ 2106 09c5 1A080000 		.4byte	0x81a
+ 2107 09c9 00000000 		.4byte	.LFB70
+ 2108 09cd 1C000000 		.4byte	.LFE70
+ 2109 09d1 00040000 		.4byte	.LLST18
+ 2110 09d5 01       		.byte	0x1
+ 2111 09d6 6F0A0000 		.4byte	0xa6f
+ 2112 09da 1C       		.uleb128 0x1c
+ 2113 09db 4B7000   		.ascii	"Kp\000"
+ 2114 09de 01       		.byte	0x1
+ 2115 09df 90       		.byte	0x90
+ 2116 09e0 29000000 		.4byte	0x29
+ 2117 09e4 2C040000 		.4byte	.LLST19
+ 2118 09e8 1C       		.uleb128 0x1c
+ 2119 09e9 4B6900   		.ascii	"Ki\000"
+ 2120 09ec 01       		.byte	0x1
+ 2121 09ed 90       		.byte	0x90
+ 2122 09ee 29000000 		.4byte	0x29
+ 2123 09f2 4F040000 		.4byte	.LLST20
+ 2124 09f6 1C       		.uleb128 0x1c
+ 2125 09f7 4B6400   		.ascii	"Kd\000"
+ 2126 09fa 01       		.byte	0x1
+ 2127 09fb 90       		.byte	0x90
+ 2128 09fc 29000000 		.4byte	0x29
+ 2129 0a00 72040000 		.4byte	.LLST21
+ 2130 0a04 29       		.uleb128 0x29
+ 2131 0a05 F7040000 		.4byte	.LASF106
+ 2132 0a09 01       		.byte	0x1
+ 2133 0a0a 90       		.byte	0x90
+ 2134 0a0b 29000000 		.4byte	0x29
+ 2135 0a0f 95040000 		.4byte	.LLST22
+ 2136 0a13 2A       		.uleb128 0x2a
+ 2137 0a14 88010000 		.4byte	.LASF128
+ 2138 0a18 01       		.byte	0x1
+ 2139 0a19 90       		.byte	0x90
+ 2140 0a1a AE050000 		.4byte	0x5ae
+ 2141 0a1e 02       		.byte	0x2
+ 2142 0a1f 91       		.byte	0x91
+ 2143 0a20 00       		.sleb128 0
+ 2144 0a21 2A       		.uleb128 0x2a
+ 2145 0a22 D9030000 		.4byte	.LASF117
+ 2146 0a26 01       		.byte	0x1
+ 2147 0a27 90       		.byte	0x90
+ 2148 0a28 AE000000 		.4byte	0xae
+ 2149 0a2c 02       		.byte	0x2
+ 2150 0a2d 91       		.byte	0x91
+ 2151 0a2e 04       		.sleb128 4
+ 2152 0a2f 2E       		.uleb128 0x2e
+ 2153 0a30 7000     		.ascii	"p\000"
+ 2154 0a32 01       		.byte	0x1
+ 2155 0a33 92       		.byte	0x92
+ 2156 0a34 1A080000 		.4byte	0x81a
+ 2157 0a38 01       		.byte	0x1
+ 2158 0a39 50       		.byte	0x50
+ 2159 0a3a 2F       		.uleb128 0x2f
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 39
+
+
+ 2160 0a3b 14000000 		.4byte	.LVL95
+ 2161 0a3f 27090000 		.4byte	0x927
+ 2162 0a43 2C       		.uleb128 0x2c
+ 2163 0a44 01       		.byte	0x1
+ 2164 0a45 53       		.byte	0x53
+ 2165 0a46 04       		.byte	0x4
+ 2166 0a47 91       		.byte	0x91
+ 2167 0a48 00       		.sleb128 0
+ 2168 0a49 94       		.byte	0x94
+ 2169 0a4a 01       		.byte	0x1
+ 2170 0a4b 2C       		.uleb128 0x2c
+ 2171 0a4c 01       		.byte	0x1
+ 2172 0a4d 52       		.byte	0x52
+ 2173 0a4e 05       		.byte	0x5
+ 2174 0a4f F3       		.byte	0xf3
+ 2175 0a50 03       		.uleb128 0x3
+ 2176 0a51 F5       		.byte	0xf5
+ 2177 0a52 02       		.uleb128 0x2
+ 2178 0a53 29       		.uleb128 0x29
+ 2179 0a54 2C       		.uleb128 0x2c
+ 2180 0a55 01       		.byte	0x1
+ 2181 0a56 51       		.byte	0x51
+ 2182 0a57 05       		.byte	0x5
+ 2183 0a58 F3       		.byte	0xf3
+ 2184 0a59 03       		.uleb128 0x3
+ 2185 0a5a F5       		.byte	0xf5
+ 2186 0a5b 01       		.uleb128 0x1
+ 2187 0a5c 29       		.uleb128 0x29
+ 2188 0a5d 2C       		.uleb128 0x2c
+ 2189 0a5e 01       		.byte	0x1
+ 2190 0a5f 50       		.byte	0x50
+ 2191 0a60 05       		.byte	0x5
+ 2192 0a61 F3       		.byte	0xf3
+ 2193 0a62 03       		.uleb128 0x3
+ 2194 0a63 F5       		.byte	0xf5
+ 2195 0a64 00       		.uleb128 0
+ 2196 0a65 29       		.uleb128 0x29
+ 2197 0a66 2C       		.uleb128 0x2c
+ 2198 0a67 02       		.byte	0x2
+ 2199 0a68 7D       		.byte	0x7d
+ 2200 0a69 00       		.sleb128 0
+ 2201 0a6a 02       		.byte	0x2
+ 2202 0a6b 74       		.byte	0x74
+ 2203 0a6c 00       		.sleb128 0
+ 2204 0a6d 00       		.byte	0
+ 2205 0a6e 00       		.byte	0
+ 2206 0a6f 30       		.uleb128 0x30
+ 2207 0a70 6C030000 		.4byte	.LASF133
+ 2208 0a74 01       		.byte	0x1
+ 2209 0a75 42       		.byte	0x42
+ 2210 0a76 ED040000 		.4byte	0x4ed
+ 2211 0a7a 00       		.byte	0
+ 2212 0a7b 31       		.uleb128 0x31
+ 2213 0a7c AE000000 		.4byte	0xae
+ 2214 0a80 8B0A0000 		.4byte	0xa8b
+ 2215 0a84 32       		.uleb128 0x32
+ 2216 0a85 7A000000 		.4byte	0x7a
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 40
+
+
+ 2217 0a89 7F       		.byte	0x7f
+ 2218 0a8a 00       		.byte	0
+ 2219 0a8b 33       		.uleb128 0x33
+ 2220 0a8c 98030000 		.4byte	.LASF134
+ 2221 0a90 01       		.byte	0x1
+ 2222 0a91 44       		.byte	0x44
+ 2223 0a92 7B0A0000 		.4byte	0xa7b
+ 2224 0a96 05       		.byte	0x5
+ 2225 0a97 03       		.byte	0x3
+ 2226 0a98 00000000 		.4byte	PidDriveLut
+ 2227 0a9c 34       		.uleb128 0x34
+ 2228 0a9d CC030000 		.4byte	.LASF139
+ 2229 0aa1 0E       		.byte	0xe
+ 2230 0aa2 0706     		.2byte	0x607
+ 2231 0aa4 F2040000 		.4byte	0x4f2
+ 2232 0aa8 01       		.byte	0x1
+ 2233 0aa9 01       		.byte	0x1
+ 2234 0aaa 35       		.uleb128 0x35
+ 2235 0aab 01       		.byte	0x1
+ 2236 0aac A9060000 		.4byte	.LASF135
+ 2237 0ab0 0C       		.byte	0xc
+ 2238 0ab1 6B       		.byte	0x6b
+ 2239 0ab2 01       		.byte	0x1
+ 2240 0ab3 B9000000 		.4byte	0xb9
+ 2241 0ab7 01       		.byte	0x1
+ 2242 0ab8 C20A0000 		.4byte	0xac2
+ 2243 0abc 10       		.uleb128 0x10
+ 2244 0abd AE050000 		.4byte	0x5ae
+ 2245 0ac1 00       		.byte	0
+ 2246 0ac2 35       		.uleb128 0x35
+ 2247 0ac3 01       		.byte	0x1
+ 2248 0ac4 D6010000 		.4byte	.LASF136
+ 2249 0ac8 0C       		.byte	0xc
+ 2250 0ac9 6A       		.byte	0x6a
+ 2251 0aca 01       		.byte	0x1
+ 2252 0acb DA000000 		.4byte	0xda
+ 2253 0acf 01       		.byte	0x1
+ 2254 0ad0 DA0A0000 		.4byte	0xada
+ 2255 0ad4 10       		.uleb128 0x10
+ 2256 0ad5 AE050000 		.4byte	0x5ae
+ 2257 0ad9 00       		.byte	0
+ 2258 0ada 36       		.uleb128 0x36
+ 2259 0adb 01       		.byte	0x1
+ 2260 0adc 5B040000 		.4byte	.LASF140
+ 2261 0ae0 0B       		.byte	0xb
+ 2262 0ae1 59       		.byte	0x59
+ 2263 0ae2 01       		.byte	0x1
+ 2264 0ae3 81000000 		.4byte	0x81
+ 2265 0ae7 01       		.byte	0x1
+ 2266 0ae8 10       		.uleb128 0x10
+ 2267 0ae9 89040000 		.4byte	0x489
+ 2268 0aed 10       		.uleb128 0x10
+ 2269 0aee 3E000000 		.4byte	0x3e
+ 2270 0af2 00       		.byte	0
+ 2271 0af3 00       		.byte	0
+ 2272              		.section	.debug_abbrev,"",%progbits
+ 2273              	.Ldebug_abbrev0:
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 41
+
+
+ 2274 0000 01       		.uleb128 0x1
+ 2275 0001 11       		.uleb128 0x11
+ 2276 0002 01       		.byte	0x1
+ 2277 0003 25       		.uleb128 0x25
+ 2278 0004 0E       		.uleb128 0xe
+ 2279 0005 13       		.uleb128 0x13
+ 2280 0006 0B       		.uleb128 0xb
+ 2281 0007 03       		.uleb128 0x3
+ 2282 0008 0E       		.uleb128 0xe
+ 2283 0009 1B       		.uleb128 0x1b
+ 2284 000a 0E       		.uleb128 0xe
+ 2285 000b 55       		.uleb128 0x55
+ 2286 000c 06       		.uleb128 0x6
+ 2287 000d 11       		.uleb128 0x11
+ 2288 000e 01       		.uleb128 0x1
+ 2289 000f 52       		.uleb128 0x52
+ 2290 0010 01       		.uleb128 0x1
+ 2291 0011 10       		.uleb128 0x10
+ 2292 0012 06       		.uleb128 0x6
+ 2293 0013 00       		.byte	0
+ 2294 0014 00       		.byte	0
+ 2295 0015 02       		.uleb128 0x2
+ 2296 0016 24       		.uleb128 0x24
+ 2297 0017 00       		.byte	0
+ 2298 0018 0B       		.uleb128 0xb
+ 2299 0019 0B       		.uleb128 0xb
+ 2300 001a 3E       		.uleb128 0x3e
+ 2301 001b 0B       		.uleb128 0xb
+ 2302 001c 03       		.uleb128 0x3
+ 2303 001d 0E       		.uleb128 0xe
+ 2304 001e 00       		.byte	0
+ 2305 001f 00       		.byte	0
+ 2306 0020 03       		.uleb128 0x3
+ 2307 0021 16       		.uleb128 0x16
+ 2308 0022 00       		.byte	0
+ 2309 0023 03       		.uleb128 0x3
+ 2310 0024 0E       		.uleb128 0xe
+ 2311 0025 3A       		.uleb128 0x3a
+ 2312 0026 0B       		.uleb128 0xb
+ 2313 0027 3B       		.uleb128 0x3b
+ 2314 0028 0B       		.uleb128 0xb
+ 2315 0029 49       		.uleb128 0x49
+ 2316 002a 13       		.uleb128 0x13
+ 2317 002b 00       		.byte	0
+ 2318 002c 00       		.byte	0
+ 2319 002d 04       		.uleb128 0x4
+ 2320 002e 24       		.uleb128 0x24
+ 2321 002f 00       		.byte	0
+ 2322 0030 0B       		.uleb128 0xb
+ 2323 0031 0B       		.uleb128 0xb
+ 2324 0032 3E       		.uleb128 0x3e
+ 2325 0033 0B       		.uleb128 0xb
+ 2326 0034 03       		.uleb128 0x3
+ 2327 0035 08       		.uleb128 0x8
+ 2328 0036 00       		.byte	0
+ 2329 0037 00       		.byte	0
+ 2330 0038 05       		.uleb128 0x5
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 42
+
+
+ 2331 0039 0F       		.uleb128 0xf
+ 2332 003a 00       		.byte	0
+ 2333 003b 0B       		.uleb128 0xb
+ 2334 003c 0B       		.uleb128 0xb
+ 2335 003d 00       		.byte	0
+ 2336 003e 00       		.byte	0
+ 2337 003f 06       		.uleb128 0x6
+ 2338 0040 0F       		.uleb128 0xf
+ 2339 0041 00       		.byte	0
+ 2340 0042 0B       		.uleb128 0xb
+ 2341 0043 0B       		.uleb128 0xb
+ 2342 0044 49       		.uleb128 0x49
+ 2343 0045 13       		.uleb128 0x13
+ 2344 0046 00       		.byte	0
+ 2345 0047 00       		.byte	0
+ 2346 0048 07       		.uleb128 0x7
+ 2347 0049 26       		.uleb128 0x26
+ 2348 004a 00       		.byte	0
+ 2349 004b 49       		.uleb128 0x49
+ 2350 004c 13       		.uleb128 0x13
+ 2351 004d 00       		.byte	0
+ 2352 004e 00       		.byte	0
+ 2353 004f 08       		.uleb128 0x8
+ 2354 0050 13       		.uleb128 0x13
+ 2355 0051 01       		.byte	0x1
+ 2356 0052 03       		.uleb128 0x3
+ 2357 0053 0E       		.uleb128 0xe
+ 2358 0054 0B       		.uleb128 0xb
+ 2359 0055 0B       		.uleb128 0xb
+ 2360 0056 3A       		.uleb128 0x3a
+ 2361 0057 0B       		.uleb128 0xb
+ 2362 0058 3B       		.uleb128 0x3b
+ 2363 0059 0B       		.uleb128 0xb
+ 2364 005a 01       		.uleb128 0x1
+ 2365 005b 13       		.uleb128 0x13
+ 2366 005c 00       		.byte	0
+ 2367 005d 00       		.byte	0
+ 2368 005e 09       		.uleb128 0x9
+ 2369 005f 0D       		.uleb128 0xd
+ 2370 0060 00       		.byte	0
+ 2371 0061 03       		.uleb128 0x3
+ 2372 0062 0E       		.uleb128 0xe
+ 2373 0063 3A       		.uleb128 0x3a
+ 2374 0064 0B       		.uleb128 0xb
+ 2375 0065 3B       		.uleb128 0x3b
+ 2376 0066 0B       		.uleb128 0xb
+ 2377 0067 49       		.uleb128 0x49
+ 2378 0068 13       		.uleb128 0x13
+ 2379 0069 38       		.uleb128 0x38
+ 2380 006a 0A       		.uleb128 0xa
+ 2381 006b 00       		.byte	0
+ 2382 006c 00       		.byte	0
+ 2383 006d 0A       		.uleb128 0xa
+ 2384 006e 0D       		.uleb128 0xd
+ 2385 006f 00       		.byte	0
+ 2386 0070 03       		.uleb128 0x3
+ 2387 0071 08       		.uleb128 0x8
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 43
+
+
+ 2388 0072 3A       		.uleb128 0x3a
+ 2389 0073 0B       		.uleb128 0xb
+ 2390 0074 3B       		.uleb128 0x3b
+ 2391 0075 0B       		.uleb128 0xb
+ 2392 0076 49       		.uleb128 0x49
+ 2393 0077 13       		.uleb128 0x13
+ 2394 0078 38       		.uleb128 0x38
+ 2395 0079 0A       		.uleb128 0xa
+ 2396 007a 00       		.byte	0
+ 2397 007b 00       		.byte	0
+ 2398 007c 0B       		.uleb128 0xb
+ 2399 007d 13       		.uleb128 0x13
+ 2400 007e 01       		.byte	0x1
+ 2401 007f 0B       		.uleb128 0xb
+ 2402 0080 0B       		.uleb128 0xb
+ 2403 0081 3A       		.uleb128 0x3a
+ 2404 0082 0B       		.uleb128 0xb
+ 2405 0083 3B       		.uleb128 0x3b
+ 2406 0084 0B       		.uleb128 0xb
+ 2407 0085 01       		.uleb128 0x1
+ 2408 0086 13       		.uleb128 0x13
+ 2409 0087 00       		.byte	0
+ 2410 0088 00       		.byte	0
+ 2411 0089 0C       		.uleb128 0xc
+ 2412 008a 13       		.uleb128 0x13
+ 2413 008b 01       		.byte	0x1
+ 2414 008c 03       		.uleb128 0x3
+ 2415 008d 0E       		.uleb128 0xe
+ 2416 008e 0B       		.uleb128 0xb
+ 2417 008f 0B       		.uleb128 0xb
+ 2418 0090 3A       		.uleb128 0x3a
+ 2419 0091 0B       		.uleb128 0xb
+ 2420 0092 3B       		.uleb128 0x3b
+ 2421 0093 05       		.uleb128 0x5
+ 2422 0094 01       		.uleb128 0x1
+ 2423 0095 13       		.uleb128 0x13
+ 2424 0096 00       		.byte	0
+ 2425 0097 00       		.byte	0
+ 2426 0098 0D       		.uleb128 0xd
+ 2427 0099 0D       		.uleb128 0xd
+ 2428 009a 00       		.byte	0
+ 2429 009b 03       		.uleb128 0x3
+ 2430 009c 08       		.uleb128 0x8
+ 2431 009d 3A       		.uleb128 0x3a
+ 2432 009e 0B       		.uleb128 0xb
+ 2433 009f 3B       		.uleb128 0x3b
+ 2434 00a0 05       		.uleb128 0x5
+ 2435 00a1 49       		.uleb128 0x49
+ 2436 00a2 13       		.uleb128 0x13
+ 2437 00a3 38       		.uleb128 0x38
+ 2438 00a4 0A       		.uleb128 0xa
+ 2439 00a5 00       		.byte	0
+ 2440 00a6 00       		.byte	0
+ 2441 00a7 0E       		.uleb128 0xe
+ 2442 00a8 35       		.uleb128 0x35
+ 2443 00a9 00       		.byte	0
+ 2444 00aa 49       		.uleb128 0x49
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 44
+
+
+ 2445 00ab 13       		.uleb128 0x13
+ 2446 00ac 00       		.byte	0
+ 2447 00ad 00       		.byte	0
+ 2448 00ae 0F       		.uleb128 0xf
+ 2449 00af 15       		.uleb128 0x15
+ 2450 00b0 01       		.byte	0x1
+ 2451 00b1 27       		.uleb128 0x27
+ 2452 00b2 0C       		.uleb128 0xc
+ 2453 00b3 49       		.uleb128 0x49
+ 2454 00b4 13       		.uleb128 0x13
+ 2455 00b5 01       		.uleb128 0x1
+ 2456 00b6 13       		.uleb128 0x13
+ 2457 00b7 00       		.byte	0
+ 2458 00b8 00       		.byte	0
+ 2459 00b9 10       		.uleb128 0x10
+ 2460 00ba 05       		.uleb128 0x5
+ 2461 00bb 00       		.byte	0
+ 2462 00bc 49       		.uleb128 0x49
+ 2463 00bd 13       		.uleb128 0x13
+ 2464 00be 00       		.byte	0
+ 2465 00bf 00       		.byte	0
+ 2466 00c0 11       		.uleb128 0x11
+ 2467 00c1 17       		.uleb128 0x17
+ 2468 00c2 01       		.byte	0x1
+ 2469 00c3 0B       		.uleb128 0xb
+ 2470 00c4 0B       		.uleb128 0xb
+ 2471 00c5 3A       		.uleb128 0x3a
+ 2472 00c6 0B       		.uleb128 0xb
+ 2473 00c7 3B       		.uleb128 0x3b
+ 2474 00c8 0B       		.uleb128 0xb
+ 2475 00c9 01       		.uleb128 0x1
+ 2476 00ca 13       		.uleb128 0x13
+ 2477 00cb 00       		.byte	0
+ 2478 00cc 00       		.byte	0
+ 2479 00cd 12       		.uleb128 0x12
+ 2480 00ce 0D       		.uleb128 0xd
+ 2481 00cf 00       		.byte	0
+ 2482 00d0 03       		.uleb128 0x3
+ 2483 00d1 0E       		.uleb128 0xe
+ 2484 00d2 3A       		.uleb128 0x3a
+ 2485 00d3 0B       		.uleb128 0xb
+ 2486 00d4 3B       		.uleb128 0x3b
+ 2487 00d5 0B       		.uleb128 0xb
+ 2488 00d6 49       		.uleb128 0x49
+ 2489 00d7 13       		.uleb128 0x13
+ 2490 00d8 00       		.byte	0
+ 2491 00d9 00       		.byte	0
+ 2492 00da 13       		.uleb128 0x13
+ 2493 00db 17       		.uleb128 0x17
+ 2494 00dc 01       		.byte	0x1
+ 2495 00dd 03       		.uleb128 0x3
+ 2496 00de 0E       		.uleb128 0xe
+ 2497 00df 0B       		.uleb128 0xb
+ 2498 00e0 0B       		.uleb128 0xb
+ 2499 00e1 3A       		.uleb128 0x3a
+ 2500 00e2 0B       		.uleb128 0xb
+ 2501 00e3 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 45
+
+
+ 2502 00e4 0B       		.uleb128 0xb
+ 2503 00e5 01       		.uleb128 0x1
+ 2504 00e6 13       		.uleb128 0x13
+ 2505 00e7 00       		.byte	0
+ 2506 00e8 00       		.byte	0
+ 2507 00e9 14       		.uleb128 0x14
+ 2508 00ea 0D       		.uleb128 0xd
+ 2509 00eb 00       		.byte	0
+ 2510 00ec 03       		.uleb128 0x3
+ 2511 00ed 08       		.uleb128 0x8
+ 2512 00ee 3A       		.uleb128 0x3a
+ 2513 00ef 0B       		.uleb128 0xb
+ 2514 00f0 3B       		.uleb128 0x3b
+ 2515 00f1 0B       		.uleb128 0xb
+ 2516 00f2 49       		.uleb128 0x49
+ 2517 00f3 13       		.uleb128 0x13
+ 2518 00f4 00       		.byte	0
+ 2519 00f5 00       		.byte	0
+ 2520 00f6 15       		.uleb128 0x15
+ 2521 00f7 04       		.uleb128 0x4
+ 2522 00f8 01       		.byte	0x1
+ 2523 00f9 0B       		.uleb128 0xb
+ 2524 00fa 0B       		.uleb128 0xb
+ 2525 00fb 3A       		.uleb128 0x3a
+ 2526 00fc 0B       		.uleb128 0xb
+ 2527 00fd 3B       		.uleb128 0x3b
+ 2528 00fe 0B       		.uleb128 0xb
+ 2529 00ff 01       		.uleb128 0x1
+ 2530 0100 13       		.uleb128 0x13
+ 2531 0101 00       		.byte	0
+ 2532 0102 00       		.byte	0
+ 2533 0103 16       		.uleb128 0x16
+ 2534 0104 28       		.uleb128 0x28
+ 2535 0105 00       		.byte	0
+ 2536 0106 03       		.uleb128 0x3
+ 2537 0107 0E       		.uleb128 0xe
+ 2538 0108 1C       		.uleb128 0x1c
+ 2539 0109 0D       		.uleb128 0xd
+ 2540 010a 00       		.byte	0
+ 2541 010b 00       		.byte	0
+ 2542 010c 17       		.uleb128 0x17
+ 2543 010d 2E       		.uleb128 0x2e
+ 2544 010e 01       		.byte	0x1
+ 2545 010f 03       		.uleb128 0x3
+ 2546 0110 0E       		.uleb128 0xe
+ 2547 0111 3A       		.uleb128 0x3a
+ 2548 0112 0B       		.uleb128 0xb
+ 2549 0113 3B       		.uleb128 0x3b
+ 2550 0114 0B       		.uleb128 0xb
+ 2551 0115 27       		.uleb128 0x27
+ 2552 0116 0C       		.uleb128 0xc
+ 2553 0117 49       		.uleb128 0x49
+ 2554 0118 13       		.uleb128 0x13
+ 2555 0119 20       		.uleb128 0x20
+ 2556 011a 0B       		.uleb128 0xb
+ 2557 011b 01       		.uleb128 0x1
+ 2558 011c 13       		.uleb128 0x13
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 46
+
+
+ 2559 011d 00       		.byte	0
+ 2560 011e 00       		.byte	0
+ 2561 011f 18       		.uleb128 0x18
+ 2562 0120 05       		.uleb128 0x5
+ 2563 0121 00       		.byte	0
+ 2564 0122 03       		.uleb128 0x3
+ 2565 0123 08       		.uleb128 0x8
+ 2566 0124 3A       		.uleb128 0x3a
+ 2567 0125 0B       		.uleb128 0xb
+ 2568 0126 3B       		.uleb128 0x3b
+ 2569 0127 0B       		.uleb128 0xb
+ 2570 0128 49       		.uleb128 0x49
+ 2571 0129 13       		.uleb128 0x13
+ 2572 012a 00       		.byte	0
+ 2573 012b 00       		.byte	0
+ 2574 012c 19       		.uleb128 0x19
+ 2575 012d 34       		.uleb128 0x34
+ 2576 012e 00       		.byte	0
+ 2577 012f 03       		.uleb128 0x3
+ 2578 0130 08       		.uleb128 0x8
+ 2579 0131 3A       		.uleb128 0x3a
+ 2580 0132 0B       		.uleb128 0xb
+ 2581 0133 3B       		.uleb128 0x3b
+ 2582 0134 0B       		.uleb128 0xb
+ 2583 0135 49       		.uleb128 0x49
+ 2584 0136 13       		.uleb128 0x13
+ 2585 0137 00       		.byte	0
+ 2586 0138 00       		.byte	0
+ 2587 0139 1A       		.uleb128 0x1a
+ 2588 013a 2E       		.uleb128 0x2e
+ 2589 013b 01       		.byte	0x1
+ 2590 013c 03       		.uleb128 0x3
+ 2591 013d 08       		.uleb128 0x8
+ 2592 013e 3A       		.uleb128 0x3a
+ 2593 013f 0B       		.uleb128 0xb
+ 2594 0140 3B       		.uleb128 0x3b
+ 2595 0141 0B       		.uleb128 0xb
+ 2596 0142 27       		.uleb128 0x27
+ 2597 0143 0C       		.uleb128 0xc
+ 2598 0144 49       		.uleb128 0x49
+ 2599 0145 13       		.uleb128 0x13
+ 2600 0146 20       		.uleb128 0x20
+ 2601 0147 0B       		.uleb128 0xb
+ 2602 0148 01       		.uleb128 0x1
+ 2603 0149 13       		.uleb128 0x13
+ 2604 014a 00       		.byte	0
+ 2605 014b 00       		.byte	0
+ 2606 014c 1B       		.uleb128 0x1b
+ 2607 014d 2E       		.uleb128 0x2e
+ 2608 014e 01       		.byte	0x1
+ 2609 014f 3F       		.uleb128 0x3f
+ 2610 0150 0C       		.uleb128 0xc
+ 2611 0151 03       		.uleb128 0x3
+ 2612 0152 0E       		.uleb128 0xe
+ 2613 0153 3A       		.uleb128 0x3a
+ 2614 0154 0B       		.uleb128 0xb
+ 2615 0155 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 47
+
+
+ 2616 0156 0B       		.uleb128 0xb
+ 2617 0157 27       		.uleb128 0x27
+ 2618 0158 0C       		.uleb128 0xc
+ 2619 0159 49       		.uleb128 0x49
+ 2620 015a 13       		.uleb128 0x13
+ 2621 015b 11       		.uleb128 0x11
+ 2622 015c 01       		.uleb128 0x1
+ 2623 015d 12       		.uleb128 0x12
+ 2624 015e 01       		.uleb128 0x1
+ 2625 015f 40       		.uleb128 0x40
+ 2626 0160 06       		.uleb128 0x6
+ 2627 0161 9642     		.uleb128 0x2116
+ 2628 0163 0C       		.uleb128 0xc
+ 2629 0164 01       		.uleb128 0x1
+ 2630 0165 13       		.uleb128 0x13
+ 2631 0166 00       		.byte	0
+ 2632 0167 00       		.byte	0
+ 2633 0168 1C       		.uleb128 0x1c
+ 2634 0169 05       		.uleb128 0x5
+ 2635 016a 00       		.byte	0
+ 2636 016b 03       		.uleb128 0x3
+ 2637 016c 08       		.uleb128 0x8
+ 2638 016d 3A       		.uleb128 0x3a
+ 2639 016e 0B       		.uleb128 0xb
+ 2640 016f 3B       		.uleb128 0x3b
+ 2641 0170 0B       		.uleb128 0xb
+ 2642 0171 49       		.uleb128 0x49
+ 2643 0172 13       		.uleb128 0x13
+ 2644 0173 02       		.uleb128 0x2
+ 2645 0174 06       		.uleb128 0x6
+ 2646 0175 00       		.byte	0
+ 2647 0176 00       		.byte	0
+ 2648 0177 1D       		.uleb128 0x1d
+ 2649 0178 1D       		.uleb128 0x1d
+ 2650 0179 01       		.byte	0x1
+ 2651 017a 31       		.uleb128 0x31
+ 2652 017b 13       		.uleb128 0x13
+ 2653 017c 52       		.uleb128 0x52
+ 2654 017d 01       		.uleb128 0x1
+ 2655 017e 55       		.uleb128 0x55
+ 2656 017f 06       		.uleb128 0x6
+ 2657 0180 58       		.uleb128 0x58
+ 2658 0181 0B       		.uleb128 0xb
+ 2659 0182 59       		.uleb128 0x59
+ 2660 0183 0B       		.uleb128 0xb
+ 2661 0184 01       		.uleb128 0x1
+ 2662 0185 13       		.uleb128 0x13
+ 2663 0186 00       		.byte	0
+ 2664 0187 00       		.byte	0
+ 2665 0188 1E       		.uleb128 0x1e
+ 2666 0189 05       		.uleb128 0x5
+ 2667 018a 00       		.byte	0
+ 2668 018b 31       		.uleb128 0x31
+ 2669 018c 13       		.uleb128 0x13
+ 2670 018d 02       		.uleb128 0x2
+ 2671 018e 06       		.uleb128 0x6
+ 2672 018f 00       		.byte	0
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 48
+
+
+ 2673 0190 00       		.byte	0
+ 2674 0191 1F       		.uleb128 0x1f
+ 2675 0192 898201   		.uleb128 0x4109
+ 2676 0195 00       		.byte	0
+ 2677 0196 11       		.uleb128 0x11
+ 2678 0197 01       		.uleb128 0x1
+ 2679 0198 31       		.uleb128 0x31
+ 2680 0199 13       		.uleb128 0x13
+ 2681 019a 00       		.byte	0
+ 2682 019b 00       		.byte	0
+ 2683 019c 20       		.uleb128 0x20
+ 2684 019d 34       		.uleb128 0x34
+ 2685 019e 00       		.byte	0
+ 2686 019f 03       		.uleb128 0x3
+ 2687 01a0 0E       		.uleb128 0xe
+ 2688 01a1 3A       		.uleb128 0x3a
+ 2689 01a2 0B       		.uleb128 0xb
+ 2690 01a3 3B       		.uleb128 0x3b
+ 2691 01a4 0B       		.uleb128 0xb
+ 2692 01a5 49       		.uleb128 0x49
+ 2693 01a6 13       		.uleb128 0x13
+ 2694 01a7 00       		.byte	0
+ 2695 01a8 00       		.byte	0
+ 2696 01a9 21       		.uleb128 0x21
+ 2697 01aa 2E       		.uleb128 0x2e
+ 2698 01ab 01       		.byte	0x1
+ 2699 01ac 3F       		.uleb128 0x3f
+ 2700 01ad 0C       		.uleb128 0xc
+ 2701 01ae 03       		.uleb128 0x3
+ 2702 01af 0E       		.uleb128 0xe
+ 2703 01b0 3A       		.uleb128 0x3a
+ 2704 01b1 0B       		.uleb128 0xb
+ 2705 01b2 3B       		.uleb128 0x3b
+ 2706 01b3 0B       		.uleb128 0xb
+ 2707 01b4 27       		.uleb128 0x27
+ 2708 01b5 0C       		.uleb128 0xc
+ 2709 01b6 11       		.uleb128 0x11
+ 2710 01b7 01       		.uleb128 0x1
+ 2711 01b8 12       		.uleb128 0x12
+ 2712 01b9 01       		.uleb128 0x1
+ 2713 01ba 40       		.uleb128 0x40
+ 2714 01bb 06       		.uleb128 0x6
+ 2715 01bc 9642     		.uleb128 0x2116
+ 2716 01be 0C       		.uleb128 0xc
+ 2717 01bf 01       		.uleb128 0x1
+ 2718 01c0 13       		.uleb128 0x13
+ 2719 01c1 00       		.byte	0
+ 2720 01c2 00       		.byte	0
+ 2721 01c3 22       		.uleb128 0x22
+ 2722 01c4 34       		.uleb128 0x34
+ 2723 01c5 00       		.byte	0
+ 2724 01c6 03       		.uleb128 0x3
+ 2725 01c7 08       		.uleb128 0x8
+ 2726 01c8 3A       		.uleb128 0x3a
+ 2727 01c9 0B       		.uleb128 0xb
+ 2728 01ca 3B       		.uleb128 0x3b
+ 2729 01cb 0B       		.uleb128 0xb
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 49
+
+
+ 2730 01cc 49       		.uleb128 0x49
+ 2731 01cd 13       		.uleb128 0x13
+ 2732 01ce 02       		.uleb128 0x2
+ 2733 01cf 06       		.uleb128 0x6
+ 2734 01d0 00       		.byte	0
+ 2735 01d1 00       		.byte	0
+ 2736 01d2 23       		.uleb128 0x23
+ 2737 01d3 1D       		.uleb128 0x1d
+ 2738 01d4 01       		.byte	0x1
+ 2739 01d5 31       		.uleb128 0x31
+ 2740 01d6 13       		.uleb128 0x13
+ 2741 01d7 52       		.uleb128 0x52
+ 2742 01d8 01       		.uleb128 0x1
+ 2743 01d9 55       		.uleb128 0x55
+ 2744 01da 06       		.uleb128 0x6
+ 2745 01db 58       		.uleb128 0x58
+ 2746 01dc 0B       		.uleb128 0xb
+ 2747 01dd 59       		.uleb128 0x59
+ 2748 01de 0B       		.uleb128 0xb
+ 2749 01df 00       		.byte	0
+ 2750 01e0 00       		.byte	0
+ 2751 01e1 24       		.uleb128 0x24
+ 2752 01e2 0B       		.uleb128 0xb
+ 2753 01e3 01       		.byte	0x1
+ 2754 01e4 55       		.uleb128 0x55
+ 2755 01e5 06       		.uleb128 0x6
+ 2756 01e6 00       		.byte	0
+ 2757 01e7 00       		.byte	0
+ 2758 01e8 25       		.uleb128 0x25
+ 2759 01e9 05       		.uleb128 0x5
+ 2760 01ea 00       		.byte	0
+ 2761 01eb 31       		.uleb128 0x31
+ 2762 01ec 13       		.uleb128 0x13
+ 2763 01ed 1C       		.uleb128 0x1c
+ 2764 01ee 0A       		.uleb128 0xa
+ 2765 01ef 00       		.byte	0
+ 2766 01f0 00       		.byte	0
+ 2767 01f1 26       		.uleb128 0x26
+ 2768 01f2 34       		.uleb128 0x34
+ 2769 01f3 00       		.byte	0
+ 2770 01f4 31       		.uleb128 0x31
+ 2771 01f5 13       		.uleb128 0x13
+ 2772 01f6 02       		.uleb128 0x2
+ 2773 01f7 06       		.uleb128 0x6
+ 2774 01f8 00       		.byte	0
+ 2775 01f9 00       		.byte	0
+ 2776 01fa 27       		.uleb128 0x27
+ 2777 01fb 34       		.uleb128 0x34
+ 2778 01fc 00       		.byte	0
+ 2779 01fd 31       		.uleb128 0x31
+ 2780 01fe 13       		.uleb128 0x13
+ 2781 01ff 02       		.uleb128 0x2
+ 2782 0200 0A       		.uleb128 0xa
+ 2783 0201 00       		.byte	0
+ 2784 0202 00       		.byte	0
+ 2785 0203 28       		.uleb128 0x28
+ 2786 0204 34       		.uleb128 0x34
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 50
+
+
+ 2787 0205 00       		.byte	0
+ 2788 0206 31       		.uleb128 0x31
+ 2789 0207 13       		.uleb128 0x13
+ 2790 0208 00       		.byte	0
+ 2791 0209 00       		.byte	0
+ 2792 020a 29       		.uleb128 0x29
+ 2793 020b 05       		.uleb128 0x5
+ 2794 020c 00       		.byte	0
+ 2795 020d 03       		.uleb128 0x3
+ 2796 020e 0E       		.uleb128 0xe
+ 2797 020f 3A       		.uleb128 0x3a
+ 2798 0210 0B       		.uleb128 0xb
+ 2799 0211 3B       		.uleb128 0x3b
+ 2800 0212 0B       		.uleb128 0xb
+ 2801 0213 49       		.uleb128 0x49
+ 2802 0214 13       		.uleb128 0x13
+ 2803 0215 02       		.uleb128 0x2
+ 2804 0216 06       		.uleb128 0x6
+ 2805 0217 00       		.byte	0
+ 2806 0218 00       		.byte	0
+ 2807 0219 2A       		.uleb128 0x2a
+ 2808 021a 05       		.uleb128 0x5
+ 2809 021b 00       		.byte	0
+ 2810 021c 03       		.uleb128 0x3
+ 2811 021d 0E       		.uleb128 0xe
+ 2812 021e 3A       		.uleb128 0x3a
+ 2813 021f 0B       		.uleb128 0xb
+ 2814 0220 3B       		.uleb128 0x3b
+ 2815 0221 0B       		.uleb128 0xb
+ 2816 0222 49       		.uleb128 0x49
+ 2817 0223 13       		.uleb128 0x13
+ 2818 0224 02       		.uleb128 0x2
+ 2819 0225 0A       		.uleb128 0xa
+ 2820 0226 00       		.byte	0
+ 2821 0227 00       		.byte	0
+ 2822 0228 2B       		.uleb128 0x2b
+ 2823 0229 898201   		.uleb128 0x4109
+ 2824 022c 01       		.byte	0x1
+ 2825 022d 11       		.uleb128 0x11
+ 2826 022e 01       		.uleb128 0x1
+ 2827 022f 31       		.uleb128 0x31
+ 2828 0230 13       		.uleb128 0x13
+ 2829 0231 01       		.uleb128 0x1
+ 2830 0232 13       		.uleb128 0x13
+ 2831 0233 00       		.byte	0
+ 2832 0234 00       		.byte	0
+ 2833 0235 2C       		.uleb128 0x2c
+ 2834 0236 8A8201   		.uleb128 0x410a
+ 2835 0239 00       		.byte	0
+ 2836 023a 02       		.uleb128 0x2
+ 2837 023b 0A       		.uleb128 0xa
+ 2838 023c 9142     		.uleb128 0x2111
+ 2839 023e 0A       		.uleb128 0xa
+ 2840 023f 00       		.byte	0
+ 2841 0240 00       		.byte	0
+ 2842 0241 2D       		.uleb128 0x2d
+ 2843 0242 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 51
+
+
+ 2844 0243 01       		.byte	0x1
+ 2845 0244 3F       		.uleb128 0x3f
+ 2846 0245 0C       		.uleb128 0xc
+ 2847 0246 03       		.uleb128 0x3
+ 2848 0247 0E       		.uleb128 0xe
+ 2849 0248 3A       		.uleb128 0x3a
+ 2850 0249 0B       		.uleb128 0xb
+ 2851 024a 3B       		.uleb128 0x3b
+ 2852 024b 0B       		.uleb128 0xb
+ 2853 024c 27       		.uleb128 0x27
+ 2854 024d 0C       		.uleb128 0xc
+ 2855 024e 49       		.uleb128 0x49
+ 2856 024f 13       		.uleb128 0x13
+ 2857 0250 11       		.uleb128 0x11
+ 2858 0251 01       		.uleb128 0x1
+ 2859 0252 12       		.uleb128 0x12
+ 2860 0253 01       		.uleb128 0x1
+ 2861 0254 40       		.uleb128 0x40
+ 2862 0255 06       		.uleb128 0x6
+ 2863 0256 9742     		.uleb128 0x2117
+ 2864 0258 0C       		.uleb128 0xc
+ 2865 0259 01       		.uleb128 0x1
+ 2866 025a 13       		.uleb128 0x13
+ 2867 025b 00       		.byte	0
+ 2868 025c 00       		.byte	0
+ 2869 025d 2E       		.uleb128 0x2e
+ 2870 025e 34       		.uleb128 0x34
+ 2871 025f 00       		.byte	0
+ 2872 0260 03       		.uleb128 0x3
+ 2873 0261 08       		.uleb128 0x8
+ 2874 0262 3A       		.uleb128 0x3a
+ 2875 0263 0B       		.uleb128 0xb
+ 2876 0264 3B       		.uleb128 0x3b
+ 2877 0265 0B       		.uleb128 0xb
+ 2878 0266 49       		.uleb128 0x49
+ 2879 0267 13       		.uleb128 0x13
+ 2880 0268 02       		.uleb128 0x2
+ 2881 0269 0A       		.uleb128 0xa
+ 2882 026a 00       		.byte	0
+ 2883 026b 00       		.byte	0
+ 2884 026c 2F       		.uleb128 0x2f
+ 2885 026d 898201   		.uleb128 0x4109
+ 2886 0270 01       		.byte	0x1
+ 2887 0271 11       		.uleb128 0x11
+ 2888 0272 01       		.uleb128 0x1
+ 2889 0273 31       		.uleb128 0x31
+ 2890 0274 13       		.uleb128 0x13
+ 2891 0275 00       		.byte	0
+ 2892 0276 00       		.byte	0
+ 2893 0277 30       		.uleb128 0x30
+ 2894 0278 34       		.uleb128 0x34
+ 2895 0279 00       		.byte	0
+ 2896 027a 03       		.uleb128 0x3
+ 2897 027b 0E       		.uleb128 0xe
+ 2898 027c 3A       		.uleb128 0x3a
+ 2899 027d 0B       		.uleb128 0xb
+ 2900 027e 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 52
+
+
+ 2901 027f 0B       		.uleb128 0xb
+ 2902 0280 49       		.uleb128 0x49
+ 2903 0281 13       		.uleb128 0x13
+ 2904 0282 1C       		.uleb128 0x1c
+ 2905 0283 0B       		.uleb128 0xb
+ 2906 0284 00       		.byte	0
+ 2907 0285 00       		.byte	0
+ 2908 0286 31       		.uleb128 0x31
+ 2909 0287 01       		.uleb128 0x1
+ 2910 0288 01       		.byte	0x1
+ 2911 0289 49       		.uleb128 0x49
+ 2912 028a 13       		.uleb128 0x13
+ 2913 028b 01       		.uleb128 0x1
+ 2914 028c 13       		.uleb128 0x13
+ 2915 028d 00       		.byte	0
+ 2916 028e 00       		.byte	0
+ 2917 028f 32       		.uleb128 0x32
+ 2918 0290 21       		.uleb128 0x21
+ 2919 0291 00       		.byte	0
+ 2920 0292 49       		.uleb128 0x49
+ 2921 0293 13       		.uleb128 0x13
+ 2922 0294 2F       		.uleb128 0x2f
+ 2923 0295 0B       		.uleb128 0xb
+ 2924 0296 00       		.byte	0
+ 2925 0297 00       		.byte	0
+ 2926 0298 33       		.uleb128 0x33
+ 2927 0299 34       		.uleb128 0x34
+ 2928 029a 00       		.byte	0
+ 2929 029b 03       		.uleb128 0x3
+ 2930 029c 0E       		.uleb128 0xe
+ 2931 029d 3A       		.uleb128 0x3a
+ 2932 029e 0B       		.uleb128 0xb
+ 2933 029f 3B       		.uleb128 0x3b
+ 2934 02a0 0B       		.uleb128 0xb
+ 2935 02a1 49       		.uleb128 0x49
+ 2936 02a2 13       		.uleb128 0x13
+ 2937 02a3 02       		.uleb128 0x2
+ 2938 02a4 0A       		.uleb128 0xa
+ 2939 02a5 00       		.byte	0
+ 2940 02a6 00       		.byte	0
+ 2941 02a7 34       		.uleb128 0x34
+ 2942 02a8 34       		.uleb128 0x34
+ 2943 02a9 00       		.byte	0
+ 2944 02aa 03       		.uleb128 0x3
+ 2945 02ab 0E       		.uleb128 0xe
+ 2946 02ac 3A       		.uleb128 0x3a
+ 2947 02ad 0B       		.uleb128 0xb
+ 2948 02ae 3B       		.uleb128 0x3b
+ 2949 02af 05       		.uleb128 0x5
+ 2950 02b0 49       		.uleb128 0x49
+ 2951 02b1 13       		.uleb128 0x13
+ 2952 02b2 3F       		.uleb128 0x3f
+ 2953 02b3 0C       		.uleb128 0xc
+ 2954 02b4 3C       		.uleb128 0x3c
+ 2955 02b5 0C       		.uleb128 0xc
+ 2956 02b6 00       		.byte	0
+ 2957 02b7 00       		.byte	0
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 53
+
+
+ 2958 02b8 35       		.uleb128 0x35
+ 2959 02b9 2E       		.uleb128 0x2e
+ 2960 02ba 01       		.byte	0x1
+ 2961 02bb 3F       		.uleb128 0x3f
+ 2962 02bc 0C       		.uleb128 0xc
+ 2963 02bd 03       		.uleb128 0x3
+ 2964 02be 0E       		.uleb128 0xe
+ 2965 02bf 3A       		.uleb128 0x3a
+ 2966 02c0 0B       		.uleb128 0xb
+ 2967 02c1 3B       		.uleb128 0x3b
+ 2968 02c2 0B       		.uleb128 0xb
+ 2969 02c3 27       		.uleb128 0x27
+ 2970 02c4 0C       		.uleb128 0xc
+ 2971 02c5 49       		.uleb128 0x49
+ 2972 02c6 13       		.uleb128 0x13
+ 2973 02c7 3C       		.uleb128 0x3c
+ 2974 02c8 0C       		.uleb128 0xc
+ 2975 02c9 01       		.uleb128 0x1
+ 2976 02ca 13       		.uleb128 0x13
+ 2977 02cb 00       		.byte	0
+ 2978 02cc 00       		.byte	0
+ 2979 02cd 36       		.uleb128 0x36
+ 2980 02ce 2E       		.uleb128 0x2e
+ 2981 02cf 01       		.byte	0x1
+ 2982 02d0 3F       		.uleb128 0x3f
+ 2983 02d1 0C       		.uleb128 0xc
+ 2984 02d2 03       		.uleb128 0x3
+ 2985 02d3 0E       		.uleb128 0xe
+ 2986 02d4 3A       		.uleb128 0x3a
+ 2987 02d5 0B       		.uleb128 0xb
+ 2988 02d6 3B       		.uleb128 0x3b
+ 2989 02d7 0B       		.uleb128 0xb
+ 2990 02d8 27       		.uleb128 0x27
+ 2991 02d9 0C       		.uleb128 0xc
+ 2992 02da 49       		.uleb128 0x49
+ 2993 02db 13       		.uleb128 0x13
+ 2994 02dc 3C       		.uleb128 0x3c
+ 2995 02dd 0C       		.uleb128 0xc
+ 2996 02de 00       		.byte	0
+ 2997 02df 00       		.byte	0
+ 2998 02e0 00       		.byte	0
+ 2999              		.section	.debug_loc,"",%progbits
+ 3000              	.Ldebug_loc0:
+ 3001              	.LLST0:
+ 3002 0000 00000000 		.4byte	.LFB71
+ 3003 0004 04000000 		.4byte	.LCFI0
+ 3004 0008 0200     		.2byte	0x2
+ 3005 000a 7D       		.byte	0x7d
+ 3006 000b 00       		.sleb128 0
+ 3007 000c 04000000 		.4byte	.LCFI0
+ 3008 0010 14020000 		.4byte	.LFE71
+ 3009 0014 0200     		.2byte	0x2
+ 3010 0016 7D       		.byte	0x7d
+ 3011 0017 20       		.sleb128 32
+ 3012 0018 00000000 		.4byte	0
+ 3013 001c 00000000 		.4byte	0
+ 3014              	.LLST1:
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 54
+
+
+ 3015 0020 00000000 		.4byte	.LVL0
+ 3016 0024 1A000000 		.4byte	.LVL1
+ 3017 0028 0100     		.2byte	0x1
+ 3018 002a 50       		.byte	0x50
+ 3019 002b 1A000000 		.4byte	.LVL1
+ 3020 002f 36010000 		.4byte	.LVL28
+ 3021 0033 0100     		.2byte	0x1
+ 3022 0035 54       		.byte	0x54
+ 3023 0036 36010000 		.4byte	.LVL28
+ 3024 003a 4A010000 		.4byte	.LVL29
+ 3025 003e 0100     		.2byte	0x1
+ 3026 0040 50       		.byte	0x50
+ 3027 0041 4A010000 		.4byte	.LVL29
+ 3028 0045 D2010000 		.4byte	.LVL43
+ 3029 0049 0100     		.2byte	0x1
+ 3030 004b 54       		.byte	0x54
+ 3031 004c D2010000 		.4byte	.LVL43
+ 3032 0050 D6010000 		.4byte	.LVL44
+ 3033 0054 0100     		.2byte	0x1
+ 3034 0056 50       		.byte	0x50
+ 3035 0057 D6010000 		.4byte	.LVL44
+ 3036 005b 14020000 		.4byte	.LFE71
+ 3037 005f 0100     		.2byte	0x1
+ 3038 0061 54       		.byte	0x54
+ 3039 0062 00000000 		.4byte	0
+ 3040 0066 00000000 		.4byte	0
+ 3041              	.LLST2:
+ 3042 006a 64000000 		.4byte	.LVL6
+ 3043 006e 8A000000 		.4byte	.LVL10
+ 3044 0072 0100     		.2byte	0x1
+ 3045 0074 58       		.byte	0x58
+ 3046 0075 8A000000 		.4byte	.LVL10
+ 3047 0079 8C000000 		.4byte	.LVL11
+ 3048 007d 0100     		.2byte	0x1
+ 3049 007f 59       		.byte	0x59
+ 3050 0080 E2010000 		.4byte	.LVL45
+ 3051 0084 EA010000 		.4byte	.LVL46
+ 3052 0088 0100     		.2byte	0x1
+ 3053 008a 58       		.byte	0x58
+ 3054 008b 00000000 		.4byte	0
+ 3055 008f 00000000 		.4byte	0
+ 3056              	.LLST3:
+ 3057 0093 DE000000 		.4byte	.LVL20
+ 3058 0097 FA000000 		.4byte	.LVL23
+ 3059 009b 0100     		.2byte	0x1
+ 3060 009d 55       		.byte	0x55
+ 3061 009e 86010000 		.4byte	.LVL36
+ 3062 00a2 88010000 		.4byte	.LVL37
+ 3063 00a6 0100     		.2byte	0x1
+ 3064 00a8 55       		.byte	0x55
+ 3065 00a9 EA010000 		.4byte	.LVL46
+ 3066 00ad EC010000 		.4byte	.LVL47
+ 3067 00b1 0100     		.2byte	0x1
+ 3068 00b3 55       		.byte	0x55
+ 3069 00b4 00000000 		.4byte	0
+ 3070 00b8 00000000 		.4byte	0
+ 3071              	.LLST4:
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 55
+
+
+ 3072 00bc 16010000 		.4byte	.LVL25
+ 3073 00c0 36010000 		.4byte	.LVL28
+ 3074 00c4 0100     		.2byte	0x1
+ 3075 00c6 55       		.byte	0x55
+ 3076 00c7 FE010000 		.4byte	.LVL48
+ 3077 00cb 14020000 		.4byte	.LFE71
+ 3078 00cf 0100     		.2byte	0x1
+ 3079 00d1 55       		.byte	0x55
+ 3080 00d2 00000000 		.4byte	0
+ 3081 00d6 00000000 		.4byte	0
+ 3082              	.LLST5:
+ 3083 00da 00000000 		.4byte	.LFB72
+ 3084 00de 04000000 		.4byte	.LCFI1
+ 3085 00e2 0200     		.2byte	0x2
+ 3086 00e4 7D       		.byte	0x7d
+ 3087 00e5 00       		.sleb128 0
+ 3088 00e6 04000000 		.4byte	.LCFI1
+ 3089 00ea 30010000 		.4byte	.LFE72
+ 3090 00ee 0200     		.2byte	0x2
+ 3091 00f0 7D       		.byte	0x7d
+ 3092 00f1 28       		.sleb128 40
+ 3093 00f2 00000000 		.4byte	0
+ 3094 00f6 00000000 		.4byte	0
+ 3095              	.LLST6:
+ 3096 00fa 00000000 		.4byte	.LVL49
+ 3097 00fe 0E000000 		.4byte	.LVL50
+ 3098 0102 0200     		.2byte	0x2
+ 3099 0104 30       		.byte	0x30
+ 3100 0105 9F       		.byte	0x9f
+ 3101 0106 D4000000 		.4byte	.LVL73
+ 3102 010a D6000000 		.4byte	.LVL74
+ 3103 010e 0100     		.2byte	0x1
+ 3104 0110 56       		.byte	0x56
+ 3105 0111 28010000 		.4byte	.LVL83
+ 3106 0115 30010000 		.4byte	.LFE72
+ 3107 0119 0100     		.2byte	0x1
+ 3108 011b 56       		.byte	0x56
+ 3109 011c 00000000 		.4byte	0
+ 3110 0120 00000000 		.4byte	0
+ 3111              	.LLST7:
+ 3112 0124 0E000000 		.4byte	.LVL50
+ 3113 0128 CE000000 		.4byte	.LVL72
+ 3114 012c 0F00     		.2byte	0xf
+ 3115 012e 76       		.byte	0x76
+ 3116 012f 00       		.sleb128 0
+ 3117 0130 F7       		.byte	0xf7
+ 3118 0131 37       		.uleb128 0x37
+ 3119 0132 F7       		.byte	0xf7
+ 3120 0133 29       		.uleb128 0x29
+ 3121 0134 F4       		.byte	0xf4
+ 3122 0135 29       		.uleb128 0x29
+ 3123 0136 04       		.byte	0x4
+ 3124 0137 0000FE42 		.4byte	0x42fe0000
+ 3125 013b 1B       		.byte	0x1b
+ 3126 013c 9F       		.byte	0x9f
+ 3127 013d CE000000 		.4byte	.LVL72
+ 3128 0141 D4000000 		.4byte	.LVL73
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 56
+
+
+ 3129 0145 0F00     		.2byte	0xf
+ 3130 0147 76       		.byte	0x76
+ 3131 0148 7F       		.sleb128 -1
+ 3132 0149 F7       		.byte	0xf7
+ 3133 014a 37       		.uleb128 0x37
+ 3134 014b F7       		.byte	0xf7
+ 3135 014c 29       		.uleb128 0x29
+ 3136 014d F4       		.byte	0xf4
+ 3137 014e 29       		.uleb128 0x29
+ 3138 014f 04       		.byte	0x4
+ 3139 0150 0000FE42 		.4byte	0x42fe0000
+ 3140 0154 1B       		.byte	0x1b
+ 3141 0155 9F       		.byte	0x9f
+ 3142 0156 D6000000 		.4byte	.LVL74
+ 3143 015a 28010000 		.4byte	.LVL83
+ 3144 015e 0F00     		.2byte	0xf
+ 3145 0160 76       		.byte	0x76
+ 3146 0161 00       		.sleb128 0
+ 3147 0162 F7       		.byte	0xf7
+ 3148 0163 37       		.uleb128 0x37
+ 3149 0164 F7       		.byte	0xf7
+ 3150 0165 29       		.uleb128 0x29
+ 3151 0166 F4       		.byte	0xf4
+ 3152 0167 29       		.uleb128 0x29
+ 3153 0168 04       		.byte	0x4
+ 3154 0169 0000FE42 		.4byte	0x42fe0000
+ 3155 016d 1B       		.byte	0x1b
+ 3156 016e 9F       		.byte	0x9f
+ 3157 016f 00000000 		.4byte	0
+ 3158 0173 00000000 		.4byte	0
+ 3159              	.LLST8:
+ 3160 0177 0E000000 		.4byte	.LVL50
+ 3161 017b 48000000 		.4byte	.LVL58
+ 3162 017f 0100     		.2byte	0x1
+ 3163 0181 55       		.byte	0x55
+ 3164 0182 F8000000 		.4byte	.LVL78
+ 3165 0186 FB000000 		.4byte	.LVL79-1
+ 3166 018a 0100     		.2byte	0x1
+ 3167 018c 50       		.byte	0x50
+ 3168 018d FB000000 		.4byte	.LVL79-1
+ 3169 0191 28010000 		.4byte	.LVL83
+ 3170 0195 0100     		.2byte	0x1
+ 3171 0197 55       		.byte	0x55
+ 3172 0198 00000000 		.4byte	0
+ 3173 019c 00000000 		.4byte	0
+ 3174              	.LLST9:
+ 3175 01a0 0E000000 		.4byte	.LVL50
+ 3176 01a4 40000000 		.4byte	.LVL56
+ 3177 01a8 0100     		.2byte	0x1
+ 3178 01aa 58       		.byte	0x58
+ 3179 01ab 40000000 		.4byte	.LVL56
+ 3180 01af 43000000 		.4byte	.LVL57-1
+ 3181 01b3 0100     		.2byte	0x1
+ 3182 01b5 50       		.byte	0x50
+ 3183 01b6 43000000 		.4byte	.LVL57-1
+ 3184 01ba D6000000 		.4byte	.LVL74
+ 3185 01be 0100     		.2byte	0x1
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 57
+
+
+ 3186 01c0 58       		.byte	0x58
+ 3187 01c1 02010000 		.4byte	.LVL80
+ 3188 01c5 22010000 		.4byte	.LVL82
+ 3189 01c9 0100     		.2byte	0x1
+ 3190 01cb 58       		.byte	0x58
+ 3191 01cc 28010000 		.4byte	.LVL83
+ 3192 01d0 30010000 		.4byte	.LFE72
+ 3193 01d4 0100     		.2byte	0x1
+ 3194 01d6 58       		.byte	0x58
+ 3195 01d7 00000000 		.4byte	0
+ 3196 01db 00000000 		.4byte	0
+ 3197              	.LLST10:
+ 3198 01df 32000000 		.4byte	.LVL55
+ 3199 01e3 40000000 		.4byte	.LVL56
+ 3200 01e7 0800     		.2byte	0x8
+ 3201 01e9 F5       		.byte	0xf5
+ 3202 01ea 09       		.uleb128 0x9
+ 3203 01eb 29       		.uleb128 0x29
+ 3204 01ec F5       		.byte	0xf5
+ 3205 01ed 08       		.uleb128 0x8
+ 3206 01ee 29       		.uleb128 0x29
+ 3207 01ef 22       		.byte	0x22
+ 3208 01f0 9F       		.byte	0x9f
+ 3209 01f1 40000000 		.4byte	.LVL56
+ 3210 01f5 43000000 		.4byte	.LVL57-1
+ 3211 01f9 0800     		.2byte	0x8
+ 3212 01fb F5       		.byte	0xf5
+ 3213 01fc 09       		.uleb128 0x9
+ 3214 01fd 29       		.uleb128 0x29
+ 3215 01fe F5       		.byte	0xf5
+ 3216 01ff 00       		.uleb128 0
+ 3217 0200 29       		.uleb128 0x29
+ 3218 0201 22       		.byte	0x22
+ 3219 0202 9F       		.byte	0x9f
+ 3220 0203 43000000 		.4byte	.LVL57-1
+ 3221 0207 D6000000 		.4byte	.LVL74
+ 3222 020b 0800     		.2byte	0x8
+ 3223 020d F5       		.byte	0xf5
+ 3224 020e 09       		.uleb128 0x9
+ 3225 020f 29       		.uleb128 0x29
+ 3226 0210 F5       		.byte	0xf5
+ 3227 0211 08       		.uleb128 0x8
+ 3228 0212 29       		.uleb128 0x29
+ 3229 0213 22       		.byte	0x22
+ 3230 0214 9F       		.byte	0x9f
+ 3231 0215 28010000 		.4byte	.LVL83
+ 3232 0219 30010000 		.4byte	.LFE72
+ 3233 021d 0800     		.2byte	0x8
+ 3234 021f F5       		.byte	0xf5
+ 3235 0220 09       		.uleb128 0x9
+ 3236 0221 29       		.uleb128 0x29
+ 3237 0222 F5       		.byte	0xf5
+ 3238 0223 08       		.uleb128 0x8
+ 3239 0224 29       		.uleb128 0x29
+ 3240 0225 22       		.byte	0x22
+ 3241 0226 9F       		.byte	0x9f
+ 3242 0227 00000000 		.4byte	0
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 58
+
+
+ 3243 022b 00000000 		.4byte	0
+ 3244              	.LLST11:
+ 3245 022f 32000000 		.4byte	.LVL55
+ 3246 0233 40000000 		.4byte	.LVL56
+ 3247 0237 3A00     		.2byte	0x3a
+ 3248 0239 F4       		.byte	0xf4
+ 3249 023a 29       		.uleb128 0x29
+ 3250 023b 04       		.byte	0x4
+ 3251 023c FED2DD41 		.4byte	0x41ddd2fe
+ 3252 0240 F4       		.byte	0xf4
+ 3253 0241 29       		.uleb128 0x29
+ 3254 0242 04       		.byte	0x4
+ 3255 0243 F8F59A40 		.4byte	0x409af5f8
+ 3256 0247 F5       		.byte	0xf5
+ 3257 0248 09       		.uleb128 0x9
+ 3258 0249 29       		.uleb128 0x29
+ 3259 024a F5       		.byte	0xf5
+ 3260 024b 08       		.uleb128 0x8
+ 3261 024c 29       		.uleb128 0x29
+ 3262 024d 22       		.byte	0x22
+ 3263 024e 1C       		.byte	0x1c
+ 3264 024f 1B       		.byte	0x1b
+ 3265 0250 F5       		.byte	0xf5
+ 3266 0251 0B       		.uleb128 0xb
+ 3267 0252 29       		.uleb128 0x29
+ 3268 0253 22       		.byte	0x22
+ 3269 0254 F5       		.byte	0xf5
+ 3270 0255 09       		.uleb128 0x9
+ 3271 0256 29       		.uleb128 0x29
+ 3272 0257 F5       		.byte	0xf5
+ 3273 0258 08       		.uleb128 0x8
+ 3274 0259 29       		.uleb128 0x29
+ 3275 025a 22       		.byte	0x22
+ 3276 025b F4       		.byte	0xf4
+ 3277 025c 29       		.uleb128 0x29
+ 3278 025d 04       		.byte	0x4
+ 3279 025e 8DBCBE3F 		.4byte	0x3fbebc8d
+ 3280 0262 1E       		.byte	0x1e
+ 3281 0263 1C       		.byte	0x1c
+ 3282 0264 F4       		.byte	0xf4
+ 3283 0265 29       		.uleb128 0x29
+ 3284 0266 04       		.byte	0x4
+ 3285 0267 0000004B 		.4byte	0x4b000000
+ 3286 026b 1E       		.byte	0x1e
+ 3287 026c F7       		.byte	0xf7
+ 3288 026d 30       		.uleb128 0x30
+ 3289 026e F9       		.byte	0xf9
+ 3290 026f 29       		.uleb128 0x29
+ 3291 0270 9F       		.byte	0x9f
+ 3292 0271 93       		.byte	0x93
+ 3293 0272 04       		.uleb128 0x4
+ 3294 0273 40000000 		.4byte	.LVL56
+ 3295 0277 43000000 		.4byte	.LVL57-1
+ 3296 027b 3A00     		.2byte	0x3a
+ 3297 027d F4       		.byte	0xf4
+ 3298 027e 29       		.uleb128 0x29
+ 3299 027f 04       		.byte	0x4
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 59
+
+
+ 3300 0280 FED2DD41 		.4byte	0x41ddd2fe
+ 3301 0284 F4       		.byte	0xf4
+ 3302 0285 29       		.uleb128 0x29
+ 3303 0286 04       		.byte	0x4
+ 3304 0287 F8F59A40 		.4byte	0x409af5f8
+ 3305 028b F5       		.byte	0xf5
+ 3306 028c 09       		.uleb128 0x9
+ 3307 028d 29       		.uleb128 0x29
+ 3308 028e F5       		.byte	0xf5
+ 3309 028f 00       		.uleb128 0
+ 3310 0290 29       		.uleb128 0x29
+ 3311 0291 22       		.byte	0x22
+ 3312 0292 1C       		.byte	0x1c
+ 3313 0293 1B       		.byte	0x1b
+ 3314 0294 F5       		.byte	0xf5
+ 3315 0295 0B       		.uleb128 0xb
+ 3316 0296 29       		.uleb128 0x29
+ 3317 0297 22       		.byte	0x22
+ 3318 0298 F5       		.byte	0xf5
+ 3319 0299 09       		.uleb128 0x9
+ 3320 029a 29       		.uleb128 0x29
+ 3321 029b F5       		.byte	0xf5
+ 3322 029c 00       		.uleb128 0
+ 3323 029d 29       		.uleb128 0x29
+ 3324 029e 22       		.byte	0x22
+ 3325 029f F4       		.byte	0xf4
+ 3326 02a0 29       		.uleb128 0x29
+ 3327 02a1 04       		.byte	0x4
+ 3328 02a2 8DBCBE3F 		.4byte	0x3fbebc8d
+ 3329 02a6 1E       		.byte	0x1e
+ 3330 02a7 1C       		.byte	0x1c
+ 3331 02a8 F4       		.byte	0xf4
+ 3332 02a9 29       		.uleb128 0x29
+ 3333 02aa 04       		.byte	0x4
+ 3334 02ab 0000004B 		.4byte	0x4b000000
+ 3335 02af 1E       		.byte	0x1e
+ 3336 02b0 F7       		.byte	0xf7
+ 3337 02b1 30       		.uleb128 0x30
+ 3338 02b2 F9       		.byte	0xf9
+ 3339 02b3 29       		.uleb128 0x29
+ 3340 02b4 9F       		.byte	0x9f
+ 3341 02b5 93       		.byte	0x93
+ 3342 02b6 04       		.uleb128 0x4
+ 3343 02b7 43000000 		.4byte	.LVL57-1
+ 3344 02bb D6000000 		.4byte	.LVL74
+ 3345 02bf 3A00     		.2byte	0x3a
+ 3346 02c1 F4       		.byte	0xf4
+ 3347 02c2 29       		.uleb128 0x29
+ 3348 02c3 04       		.byte	0x4
+ 3349 02c4 FED2DD41 		.4byte	0x41ddd2fe
+ 3350 02c8 F4       		.byte	0xf4
+ 3351 02c9 29       		.uleb128 0x29
+ 3352 02ca 04       		.byte	0x4
+ 3353 02cb F8F59A40 		.4byte	0x409af5f8
+ 3354 02cf F5       		.byte	0xf5
+ 3355 02d0 09       		.uleb128 0x9
+ 3356 02d1 29       		.uleb128 0x29
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 60
+
+
+ 3357 02d2 F5       		.byte	0xf5
+ 3358 02d3 08       		.uleb128 0x8
+ 3359 02d4 29       		.uleb128 0x29
+ 3360 02d5 22       		.byte	0x22
+ 3361 02d6 1C       		.byte	0x1c
+ 3362 02d7 1B       		.byte	0x1b
+ 3363 02d8 F5       		.byte	0xf5
+ 3364 02d9 0B       		.uleb128 0xb
+ 3365 02da 29       		.uleb128 0x29
+ 3366 02db 22       		.byte	0x22
+ 3367 02dc F5       		.byte	0xf5
+ 3368 02dd 09       		.uleb128 0x9
+ 3369 02de 29       		.uleb128 0x29
+ 3370 02df F5       		.byte	0xf5
+ 3371 02e0 08       		.uleb128 0x8
+ 3372 02e1 29       		.uleb128 0x29
+ 3373 02e2 22       		.byte	0x22
+ 3374 02e3 F4       		.byte	0xf4
+ 3375 02e4 29       		.uleb128 0x29
+ 3376 02e5 04       		.byte	0x4
+ 3377 02e6 8DBCBE3F 		.4byte	0x3fbebc8d
+ 3378 02ea 1E       		.byte	0x1e
+ 3379 02eb 1C       		.byte	0x1c
+ 3380 02ec F4       		.byte	0xf4
+ 3381 02ed 29       		.uleb128 0x29
+ 3382 02ee 04       		.byte	0x4
+ 3383 02ef 0000004B 		.4byte	0x4b000000
+ 3384 02f3 1E       		.byte	0x1e
+ 3385 02f4 F7       		.byte	0xf7
+ 3386 02f5 30       		.uleb128 0x30
+ 3387 02f6 F9       		.byte	0xf9
+ 3388 02f7 29       		.uleb128 0x29
+ 3389 02f8 9F       		.byte	0x9f
+ 3390 02f9 93       		.byte	0x93
+ 3391 02fa 04       		.uleb128 0x4
+ 3392 02fb 28010000 		.4byte	.LVL83
+ 3393 02ff 30010000 		.4byte	.LFE72
+ 3394 0303 3A00     		.2byte	0x3a
+ 3395 0305 F4       		.byte	0xf4
+ 3396 0306 29       		.uleb128 0x29
+ 3397 0307 04       		.byte	0x4
+ 3398 0308 FED2DD41 		.4byte	0x41ddd2fe
+ 3399 030c F4       		.byte	0xf4
+ 3400 030d 29       		.uleb128 0x29
+ 3401 030e 04       		.byte	0x4
+ 3402 030f F8F59A40 		.4byte	0x409af5f8
+ 3403 0313 F5       		.byte	0xf5
+ 3404 0314 09       		.uleb128 0x9
+ 3405 0315 29       		.uleb128 0x29
+ 3406 0316 F5       		.byte	0xf5
+ 3407 0317 08       		.uleb128 0x8
+ 3408 0318 29       		.uleb128 0x29
+ 3409 0319 22       		.byte	0x22
+ 3410 031a 1C       		.byte	0x1c
+ 3411 031b 1B       		.byte	0x1b
+ 3412 031c F5       		.byte	0xf5
+ 3413 031d 0B       		.uleb128 0xb
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 61
+
+
+ 3414 031e 29       		.uleb128 0x29
+ 3415 031f 22       		.byte	0x22
+ 3416 0320 F5       		.byte	0xf5
+ 3417 0321 09       		.uleb128 0x9
+ 3418 0322 29       		.uleb128 0x29
+ 3419 0323 F5       		.byte	0xf5
+ 3420 0324 08       		.uleb128 0x8
+ 3421 0325 29       		.uleb128 0x29
+ 3422 0326 22       		.byte	0x22
+ 3423 0327 F4       		.byte	0xf4
+ 3424 0328 29       		.uleb128 0x29
+ 3425 0329 04       		.byte	0x4
+ 3426 032a 8DBCBE3F 		.4byte	0x3fbebc8d
+ 3427 032e 1E       		.byte	0x1e
+ 3428 032f 1C       		.byte	0x1c
+ 3429 0330 F4       		.byte	0xf4
+ 3430 0331 29       		.uleb128 0x29
+ 3431 0332 04       		.byte	0x4
+ 3432 0333 0000004B 		.4byte	0x4b000000
+ 3433 0337 1E       		.byte	0x1e
+ 3434 0338 F7       		.byte	0xf7
+ 3435 0339 30       		.uleb128 0x30
+ 3436 033a F9       		.byte	0xf9
+ 3437 033b 29       		.uleb128 0x29
+ 3438 033c 9F       		.byte	0x9f
+ 3439 033d 93       		.byte	0x93
+ 3440 033e 04       		.uleb128 0x4
+ 3441 033f 00000000 		.4byte	0
+ 3442 0343 00000000 		.4byte	0
+ 3443              	.LLST12:
+ 3444 0347 00000000 		.4byte	.LFB69
+ 3445 034b 04000000 		.4byte	.LCFI2
+ 3446 034f 0200     		.2byte	0x2
+ 3447 0351 7D       		.byte	0x7d
+ 3448 0352 00       		.sleb128 0
+ 3449 0353 04000000 		.4byte	.LCFI2
+ 3450 0357 70000000 		.4byte	.LFE69
+ 3451 035b 0200     		.2byte	0x2
+ 3452 035d 7D       		.byte	0x7d
+ 3453 035e 20       		.sleb128 32
+ 3454 035f 00000000 		.4byte	0
+ 3455 0363 00000000 		.4byte	0
+ 3456              	.LLST13:
+ 3457 0367 00000000 		.4byte	.LVL84
+ 3458 036b 0C000000 		.4byte	.LVL86
+ 3459 036f 0100     		.2byte	0x1
+ 3460 0371 50       		.byte	0x50
+ 3461 0372 0C000000 		.4byte	.LVL86
+ 3462 0376 70000000 		.4byte	.LFE69
+ 3463 037a 0100     		.2byte	0x1
+ 3464 037c 57       		.byte	0x57
+ 3465 037d 00000000 		.4byte	0
+ 3466 0381 00000000 		.4byte	0
+ 3467              	.LLST14:
+ 3468 0385 00000000 		.4byte	.LVL84
+ 3469 0389 0A000000 		.4byte	.LVL85
+ 3470 038d 0100     		.2byte	0x1
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 62
+
+
+ 3471 038f 51       		.byte	0x51
+ 3472 0390 0A000000 		.4byte	.LVL85
+ 3473 0394 70000000 		.4byte	.LFE69
+ 3474 0398 0100     		.2byte	0x1
+ 3475 039a 56       		.byte	0x56
+ 3476 039b 00000000 		.4byte	0
+ 3477 039f 00000000 		.4byte	0
+ 3478              	.LLST15:
+ 3479 03a3 00000000 		.4byte	.LVL84
+ 3480 03a7 13000000 		.4byte	.LVL87-1
+ 3481 03ab 0100     		.2byte	0x1
+ 3482 03ad 52       		.byte	0x52
+ 3483 03ae 13000000 		.4byte	.LVL87-1
+ 3484 03b2 70000000 		.4byte	.LFE69
+ 3485 03b6 0100     		.2byte	0x1
+ 3486 03b8 58       		.byte	0x58
+ 3487 03b9 00000000 		.4byte	0
+ 3488 03bd 00000000 		.4byte	0
+ 3489              	.LLST16:
+ 3490 03c1 00000000 		.4byte	.LVL84
+ 3491 03c5 13000000 		.4byte	.LVL87-1
+ 3492 03c9 0100     		.2byte	0x1
+ 3493 03cb 53       		.byte	0x53
+ 3494 03cc 13000000 		.4byte	.LVL87-1
+ 3495 03d0 70000000 		.4byte	.LFE69
+ 3496 03d4 0400     		.2byte	0x4
+ 3497 03d6 F3       		.byte	0xf3
+ 3498 03d7 01       		.uleb128 0x1
+ 3499 03d8 53       		.byte	0x53
+ 3500 03d9 9F       		.byte	0x9f
+ 3501 03da 00000000 		.4byte	0
+ 3502 03de 00000000 		.4byte	0
+ 3503              	.LLST17:
+ 3504 03e2 1A000000 		.4byte	.LVL88
+ 3505 03e6 34000000 		.4byte	.LVL89
+ 3506 03ea 0100     		.2byte	0x1
+ 3507 03ec 50       		.byte	0x50
+ 3508 03ed 34000000 		.4byte	.LVL89
+ 3509 03f1 70000000 		.4byte	.LFE69
+ 3510 03f5 0100     		.2byte	0x1
+ 3511 03f7 54       		.byte	0x54
+ 3512 03f8 00000000 		.4byte	0
+ 3513 03fc 00000000 		.4byte	0
+ 3514              	.LLST18:
+ 3515 0400 00000000 		.4byte	.LFB70
+ 3516 0404 02000000 		.4byte	.LCFI3
+ 3517 0408 0200     		.2byte	0x2
+ 3518 040a 7D       		.byte	0x7d
+ 3519 040b 00       		.sleb128 0
+ 3520 040c 02000000 		.4byte	.LCFI3
+ 3521 0410 04000000 		.4byte	.LCFI4
+ 3522 0414 0200     		.2byte	0x2
+ 3523 0416 7D       		.byte	0x7d
+ 3524 0417 0C       		.sleb128 12
+ 3525 0418 04000000 		.4byte	.LCFI4
+ 3526 041c 1C000000 		.4byte	.LFE70
+ 3527 0420 0200     		.2byte	0x2
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 63
+
+
+ 3528 0422 7D       		.byte	0x7d
+ 3529 0423 18       		.sleb128 24
+ 3530 0424 00000000 		.4byte	0
+ 3531 0428 00000000 		.4byte	0
+ 3532              	.LLST19:
+ 3533 042c 00000000 		.4byte	.LVL93
+ 3534 0430 13000000 		.4byte	.LVL95-1
+ 3535 0434 0100     		.2byte	0x1
+ 3536 0436 50       		.byte	0x50
+ 3537 0437 13000000 		.4byte	.LVL95-1
+ 3538 043b 1C000000 		.4byte	.LFE70
+ 3539 043f 0600     		.2byte	0x6
+ 3540 0441 F3       		.byte	0xf3
+ 3541 0442 03       		.uleb128 0x3
+ 3542 0443 F5       		.byte	0xf5
+ 3543 0444 00       		.uleb128 0
+ 3544 0445 29       		.uleb128 0x29
+ 3545 0446 9F       		.byte	0x9f
+ 3546 0447 00000000 		.4byte	0
+ 3547 044b 00000000 		.4byte	0
+ 3548              	.LLST20:
+ 3549 044f 00000000 		.4byte	.LVL93
+ 3550 0453 13000000 		.4byte	.LVL95-1
+ 3551 0457 0100     		.2byte	0x1
+ 3552 0459 51       		.byte	0x51
+ 3553 045a 13000000 		.4byte	.LVL95-1
+ 3554 045e 1C000000 		.4byte	.LFE70
+ 3555 0462 0600     		.2byte	0x6
+ 3556 0464 F3       		.byte	0xf3
+ 3557 0465 03       		.uleb128 0x3
+ 3558 0466 F5       		.byte	0xf5
+ 3559 0467 01       		.uleb128 0x1
+ 3560 0468 29       		.uleb128 0x29
+ 3561 0469 9F       		.byte	0x9f
+ 3562 046a 00000000 		.4byte	0
+ 3563 046e 00000000 		.4byte	0
+ 3564              	.LLST21:
+ 3565 0472 00000000 		.4byte	.LVL93
+ 3566 0476 13000000 		.4byte	.LVL95-1
+ 3567 047a 0100     		.2byte	0x1
+ 3568 047c 52       		.byte	0x52
+ 3569 047d 13000000 		.4byte	.LVL95-1
+ 3570 0481 1C000000 		.4byte	.LFE70
+ 3571 0485 0600     		.2byte	0x6
+ 3572 0487 F3       		.byte	0xf3
+ 3573 0488 03       		.uleb128 0x3
+ 3574 0489 F5       		.byte	0xf5
+ 3575 048a 02       		.uleb128 0x2
+ 3576 048b 29       		.uleb128 0x29
+ 3577 048c 9F       		.byte	0x9f
+ 3578 048d 00000000 		.4byte	0
+ 3579 0491 00000000 		.4byte	0
+ 3580              	.LLST22:
+ 3581 0495 00000000 		.4byte	.LVL93
+ 3582 0499 10000000 		.4byte	.LVL94
+ 3583 049d 0100     		.2byte	0x1
+ 3584 049f 53       		.byte	0x53
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 64
+
+
+ 3585 04a0 10000000 		.4byte	.LVL94
+ 3586 04a4 1C000000 		.4byte	.LFE70
+ 3587 04a8 0100     		.2byte	0x1
+ 3588 04aa 55       		.byte	0x55
+ 3589 04ab 00000000 		.4byte	0
+ 3590 04af 00000000 		.4byte	0
+ 3591              		.section	.debug_aranges,"",%progbits
+ 3592 0000 34000000 		.4byte	0x34
+ 3593 0004 0200     		.2byte	0x2
+ 3594 0006 00000000 		.4byte	.Ldebug_info0
+ 3595 000a 04       		.byte	0x4
+ 3596 000b 00       		.byte	0
+ 3597 000c 0000     		.2byte	0
+ 3598 000e 0000     		.2byte	0
+ 3599 0010 00000000 		.4byte	.LFB71
+ 3600 0014 14020000 		.4byte	.LFE71-.LFB71
+ 3601 0018 00000000 		.4byte	.LFB72
+ 3602 001c 30010000 		.4byte	.LFE72-.LFB72
+ 3603 0020 00000000 		.4byte	.LFB69
+ 3604 0024 70000000 		.4byte	.LFE69-.LFB69
+ 3605 0028 00000000 		.4byte	.LFB70
+ 3606 002c 1C000000 		.4byte	.LFE70-.LFB70
+ 3607 0030 00000000 		.4byte	0
+ 3608 0034 00000000 		.4byte	0
+ 3609              		.section	.debug_ranges,"",%progbits
+ 3610              	.Ldebug_ranges0:
+ 3611 0000 64000000 		.4byte	.LBB12
+ 3612 0004 82000000 		.4byte	.LBE12
+ 3613 0008 E2010000 		.4byte	.LBB25
+ 3614 000c EA010000 		.4byte	.LBE25
+ 3615 0010 00000000 		.4byte	0
+ 3616 0014 00000000 		.4byte	0
+ 3617 0018 DE000000 		.4byte	.LBB15
+ 3618 001c 04010000 		.4byte	.LBE15
+ 3619 0020 86010000 		.4byte	.LBB24
+ 3620 0024 90010000 		.4byte	.LBE24
+ 3621 0028 EA010000 		.4byte	.LBB26
+ 3622 002c FE010000 		.4byte	.LBE26
+ 3623 0030 00000000 		.4byte	0
+ 3624 0034 00000000 		.4byte	0
+ 3625 0038 12010000 		.4byte	.LBB19
+ 3626 003c 14010000 		.4byte	.LBE19
+ 3627 0040 16010000 		.4byte	.LBB23
+ 3628 0044 36010000 		.4byte	.LBE23
+ 3629 0048 FE010000 		.4byte	.LBB27
+ 3630 004c 14020000 		.4byte	.LBE27
+ 3631 0050 00000000 		.4byte	0
+ 3632 0054 00000000 		.4byte	0
+ 3633 0058 34000000 		.4byte	.LBB34
+ 3634 005c 38000000 		.4byte	.LBE34
+ 3635 0060 40000000 		.4byte	.LBB46
+ 3636 0064 8C000000 		.4byte	.LBE46
+ 3637 0068 E8000000 		.4byte	.LBB47
+ 3638 006c 28010000 		.4byte	.LBE47
+ 3639 0070 00000000 		.4byte	0
+ 3640 0074 00000000 		.4byte	0
+ 3641 0078 34000000 		.4byte	.LBB35
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 65
+
+
+ 3642 007c 38000000 		.4byte	.LBE35
+ 3643 0080 40000000 		.4byte	.LBB44
+ 3644 0084 8C000000 		.4byte	.LBE44
+ 3645 0088 E8000000 		.4byte	.LBB45
+ 3646 008c 28010000 		.4byte	.LBE45
+ 3647 0090 00000000 		.4byte	0
+ 3648 0094 00000000 		.4byte	0
+ 3649 0098 34000000 		.4byte	.LBB36
+ 3650 009c 38000000 		.4byte	.LBE36
+ 3651 00a0 40000000 		.4byte	.LBB41
+ 3652 00a4 8C000000 		.4byte	.LBE41
+ 3653 00a8 F4000000 		.4byte	.LBB42
+ 3654 00ac F6000000 		.4byte	.LBE42
+ 3655 00b0 F8000000 		.4byte	.LBB43
+ 3656 00b4 28010000 		.4byte	.LBE43
+ 3657 00b8 00000000 		.4byte	0
+ 3658 00bc 00000000 		.4byte	0
+ 3659 00c0 34000000 		.4byte	.LBB37
+ 3660 00c4 38000000 		.4byte	.LBE37
+ 3661 00c8 40000000 		.4byte	.LBB38
+ 3662 00cc 8C000000 		.4byte	.LBE38
+ 3663 00d0 F4000000 		.4byte	.LBB39
+ 3664 00d4 F6000000 		.4byte	.LBE39
+ 3665 00d8 F8000000 		.4byte	.LBB40
+ 3666 00dc 28010000 		.4byte	.LBE40
+ 3667 00e0 00000000 		.4byte	0
+ 3668 00e4 00000000 		.4byte	0
+ 3669 00e8 00000000 		.4byte	.LFB71
+ 3670 00ec 14020000 		.4byte	.LFE71
+ 3671 00f0 00000000 		.4byte	.LFB72
+ 3672 00f4 30010000 		.4byte	.LFE72
+ 3673 00f8 00000000 		.4byte	.LFB69
+ 3674 00fc 70000000 		.4byte	.LFE69
+ 3675 0100 00000000 		.4byte	.LFB70
+ 3676 0104 1C000000 		.4byte	.LFE70
+ 3677 0108 00000000 		.4byte	0
+ 3678 010c 00000000 		.4byte	0
+ 3679              		.section	.debug_line,"",%progbits
+ 3680              	.Ldebug_line0:
+ 3681 0000 34030000 		.section	.debug_str,"MS",%progbits,1
+ 3681      02000302 
+ 3681      00000201 
+ 3681      FB0E0D00 
+ 3681      01010101 
+ 3682              	.LASF132:
+ 3683 0000 433A5C55 		.ascii	"C:\\Users\\Grace Knaup\\pros\\ 127X 2-24-14\000"
+ 3683      73657273 
+ 3683      5C477261 
+ 3683      6365204B 
+ 3683      6E617570 
+ 3684              	.LASF69:
+ 3685 0028 7264796D 		.ascii	"rdymsg\000"
+ 3685      736700
+ 3686              	.LASF18:
+ 3687 002f 75696E74 		.ascii	"uint64_t\000"
+ 3687      36345F74 
+ 3687      00
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 66
+
+
+ 3688              	.LASF123:
+ 3689 0038 66617374 		.ascii	"fastpow2\000"
+ 3689      706F7732 
+ 3689      00
+ 3690              	.LASF59:
+ 3691 0041 6D656D67 		.ascii	"memgetfunc_t\000"
+ 3691      65746675 
+ 3691      6E635F74 
+ 3691      00
+ 3692              	.LASF84:
+ 3693 004e 6B566578 		.ascii	"kVexSensorDigital_3\000"
+ 3693      53656E73 
+ 3693      6F724469 
+ 3693      67697461 
+ 3693      6C5F3300 
+ 3694              	.LASF121:
+ 3695 0062 66617374 		.ascii	"fastlog2\000"
+ 3695      6C6F6732 
+ 3695      00
+ 3696              	.LASF49:
+ 3697 006b 54687265 		.ascii	"ThreadsQueue\000"
+ 3697      61647351 
+ 3697      75657565 
+ 3697      00
+ 3698              	.LASF70:
+ 3699 0078 65786974 		.ascii	"exitcode\000"
+ 3699      636F6465 
+ 3699      00
+ 3700              	.LASF63:
+ 3701 0081 685F6672 		.ascii	"h_free\000"
+ 3701      656500
+ 3702              	.LASF80:
+ 3703 0088 6B566578 		.ascii	"kVexSensorAnalog_7\000"
+ 3703      53656E73 
+ 3703      6F72416E 
+ 3703      616C6F67 
+ 3703      5F3700
+ 3704              	.LASF65:
+ 3705 009b 6E657874 		.ascii	"next\000"
+ 3705      00
+ 3706              	.LASF32:
+ 3707 00a0 705F7072 		.ascii	"p_prio\000"
+ 3707      696F00
+ 3708              	.LASF15:
+ 3709 00a7 696E7431 		.ascii	"int16_t\000"
+ 3709      365F7400 
+ 3710              	.LASF6:
+ 3711 00af 6C6F6E67 		.ascii	"long long int\000"
+ 3711      206C6F6E 
+ 3711      6720696E 
+ 3711      7400
+ 3712              	.LASF3:
+ 3713 00bd 7369676E 		.ascii	"signed char\000"
+ 3713      65642063 
+ 3713      68617200 
+ 3714              	.LASF64:
+ 3715 00c9 685F6D74 		.ascii	"h_mtx\000"
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 67
+
+
+ 3715      7800
+ 3716              	.LASF48:
+ 3717 00cf 705F6D70 		.ascii	"p_mpool\000"
+ 3717      6F6F6C00 
+ 3718              	.LASF19:
+ 3719 00d7 626F6F6C 		.ascii	"bool_t\000"
+ 3719      5F7400
+ 3720              	.LASF56:
+ 3721 00de 6D5F7175 		.ascii	"m_queue\000"
+ 3721      65756500 
+ 3722              	.LASF24:
+ 3723 00e6 74736C69 		.ascii	"tslices_t\000"
+ 3723      6365735F 
+ 3723      7400
+ 3724              	.LASF8:
+ 3725 00f0 6C6F6E67 		.ascii	"long int\000"
+ 3725      20696E74 
+ 3725      00
+ 3726              	.LASF105:
+ 3727 00f9 72657331 		.ascii	"res1\000"
+ 3727      00
+ 3728              	.LASF109:
+ 3729 00fe 696E7465 		.ascii	"integral\000"
+ 3729      6772616C 
+ 3729      00
+ 3730              	.LASF21:
+ 3731 0107 746D6F64 		.ascii	"tmode_t\000"
+ 3731      655F7400 
+ 3732              	.LASF22:
+ 3733 010f 74737461 		.ascii	"tstate_t\000"
+ 3733      74655F74 
+ 3733      00
+ 3734              	.LASF102:
+ 3735 0118 74566578 		.ascii	"tVexSensors\000"
+ 3735      53656E73 
+ 3735      6F727300 
+ 3736              	.LASF2:
+ 3737 0124 73686F72 		.ascii	"short int\000"
+ 3737      7420696E 
+ 3737      7400
+ 3738              	.LASF12:
+ 3739 012e 646F7562 		.ascii	"double\000"
+ 3739      6C6500
+ 3740              	.LASF120:
+ 3741 0135 70696443 		.ascii	"pidController\000"
+ 3741      6F6E7472 
+ 3741      6F6C6C65 
+ 3741      7200
+ 3742              	.LASF34:
+ 3743 0143 705F6E65 		.ascii	"p_newer\000"
+ 3743      77657200 
+ 3744              	.LASF75:
+ 3745 014b 6B566578 		.ascii	"kVexSensorAnalog_2\000"
+ 3745      53656E73 
+ 3745      6F72416E 
+ 3745      616C6F67 
+ 3745      5F3200
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 68
+
+
+ 3746              	.LASF77:
+ 3747 015e 6B566578 		.ascii	"kVexSensorAnalog_4\000"
+ 3747      53656E73 
+ 3747      6F72416E 
+ 3747      616C6F67 
+ 3747      5F3400
+ 3748              	.LASF51:
+ 3749 0171 72656761 		.ascii	"regarm_t\000"
+ 3749      726D5F74 
+ 3749      00
+ 3750              	.LASF13:
+ 3751 017a 73697A65 		.ascii	"size_t\000"
+ 3751      5F7400
+ 3752              	.LASF29:
+ 3753 0181 54687265 		.ascii	"Thread\000"
+ 3753      616400
+ 3754              	.LASF128:
+ 3755 0188 706F7274 		.ascii	"port\000"
+ 3755      00
+ 3756              	.LASF7:
+ 3757 018d 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 3757      206C6F6E 
+ 3757      6720756E 
+ 3757      7369676E 
+ 3757      65642069 
+ 3758              	.LASF67:
+ 3759 01a4 616C6967 		.ascii	"align\000"
+ 3759      6E00
+ 3760              	.LASF1:
+ 3761 01aa 756E7369 		.ascii	"unsigned int\000"
+ 3761      676E6564 
+ 3761      20696E74 
+ 3761      00
+ 3762              	.LASF43:
+ 3763 01b7 705F6D73 		.ascii	"p_msgqueue\000"
+ 3763      67717565 
+ 3763      756500
+ 3764              	.LASF126:
+ 3765 01c2 50696443 		.ascii	"PidControllerUpdate\000"
+ 3765      6F6E7472 
+ 3765      6F6C6C65 
+ 3765      72557064 
+ 3765      61746500 
+ 3766              	.LASF136:
+ 3767 01d6 76657853 		.ascii	"vexSensorIsAnalog\000"
+ 3767      656E736F 
+ 3767      72497341 
+ 3767      6E616C6F 
+ 3767      6700
+ 3768              	.LASF91:
+ 3769 01e8 6B566578 		.ascii	"kVexSensorDigital_10\000"
+ 3769      53656E73 
+ 3769      6F724469 
+ 3769      67697461 
+ 3769      6C5F3130 
+ 3770              	.LASF92:
+ 3771 01fd 6B566578 		.ascii	"kVexSensorDigital_11\000"
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 69
+
+
+ 3771      53656E73 
+ 3771      6F724469 
+ 3771      67697461 
+ 3771      6C5F3131 
+ 3772              	.LASF54:
+ 3773 0212 636F6E74 		.ascii	"context\000"
+ 3773      65787400 
+ 3774              	.LASF68:
+ 3775 021a 73697A65 		.ascii	"size\000"
+ 3775      00
+ 3776              	.LASF5:
+ 3777 021f 73686F72 		.ascii	"short unsigned int\000"
+ 3777      7420756E 
+ 3777      7369676E 
+ 3777      65642069 
+ 3777      6E7400
+ 3778              	.LASF26:
+ 3779 0232 6D73675F 		.ascii	"msg_t\000"
+ 3779      7400
+ 3780              	.LASF73:
+ 3781 0238 6B566578 		.ascii	"kVexSensorUndefined\000"
+ 3781      53656E73 
+ 3781      6F72556E 
+ 3781      64656669 
+ 3781      6E656400 
+ 3782              	.LASF122:
+ 3783 024c 66617374 		.ascii	"fastpow\000"
+ 3783      706F7700 
+ 3784              	.LASF74:
+ 3785 0254 6B566578 		.ascii	"kVexSensorAnalog_1\000"
+ 3785      53656E73 
+ 3785      6F72416E 
+ 3785      616C6F67 
+ 3785      5F3100
+ 3786              	.LASF50:
+ 3787 0267 54687265 		.ascii	"ThreadsList\000"
+ 3787      6164734C 
+ 3787      69737400 
+ 3788              	.LASF76:
+ 3789 0273 6B566578 		.ascii	"kVexSensorAnalog_3\000"
+ 3789      53656E73 
+ 3789      6F72416E 
+ 3789      616C6F67 
+ 3789      5F3300
+ 3790              	.LASF27:
+ 3791 0286 6576656E 		.ascii	"eventmask_t\000"
+ 3791      746D6173 
+ 3791      6B5F7400 
+ 3792              	.LASF78:
+ 3793 0292 6B566578 		.ascii	"kVexSensorAnalog_5\000"
+ 3793      53656E73 
+ 3793      6F72416E 
+ 3793      616C6F67 
+ 3793      5F3500
+ 3794              	.LASF79:
+ 3795 02a5 6B566578 		.ascii	"kVexSensorAnalog_6\000"
+ 3795      53656E73 
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 70
+
+
+ 3795      6F72416E 
+ 3795      616C6F67 
+ 3795      5F3600
+ 3796              	.LASF55:
+ 3797 02b8 4D757465 		.ascii	"Mutex\000"
+ 3797      7800
+ 3798              	.LASF81:
+ 3799 02be 6B566578 		.ascii	"kVexSensorAnalog_8\000"
+ 3799      53656E73 
+ 3799      6F72416E 
+ 3799      616C6F67 
+ 3799      5F3800
+ 3800              	.LASF52:
+ 3801 02d1 73746B61 		.ascii	"stkalign_t\000"
+ 3801      6C69676E 
+ 3801      5F7400
+ 3802              	.LASF110:
+ 3803 02dc 696E7465 		.ascii	"integral_limit\000"
+ 3803      6772616C 
+ 3803      5F6C696D 
+ 3803      697400
+ 3804              	.LASF116:
+ 3805 02eb 73656E73 		.ascii	"sensor_port\000"
+ 3805      6F725F70 
+ 3805      6F727400 
+ 3806              	.LASF113:
+ 3807 02f7 64726976 		.ascii	"drive\000"
+ 3807      6500
+ 3808              	.LASF9:
+ 3809 02fd 73697A65 		.ascii	"sizetype\000"
+ 3809      74797065 
+ 3809      00
+ 3810              	.LASF112:
+ 3811 0306 6572726F 		.ascii	"error_threshold\000"
+ 3811      725F7468 
+ 3811      72657368 
+ 3811      6F6C6400 
+ 3812              	.LASF61:
+ 3813 0316 6D656D6F 		.ascii	"memory_heap\000"
+ 3813      72795F68 
+ 3813      65617000 
+ 3814              	.LASF35:
+ 3815 0322 705F6F6C 		.ascii	"p_older\000"
+ 3815      64657200 
+ 3816              	.LASF130:
+ 3817 032a 474E5520 		.ascii	"GNU C 4.7.1\000"
+ 3817      4320342E 
+ 3817      372E3100 
+ 3818              	.LASF93:
+ 3819 0336 6B566578 		.ascii	"kVexSensorDigital_12\000"
+ 3819      53656E73 
+ 3819      6F724469 
+ 3819      67697461 
+ 3819      6C5F3132 
+ 3820              	.LASF60:
+ 3821 034b 4D656D6F 		.ascii	"MemoryHeap\000"
+ 3821      72794865 
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 71
+
+
+ 3821      617000
+ 3822              	.LASF40:
+ 3823 0356 705F7072 		.ascii	"p_preempt\000"
+ 3823      65656D70 
+ 3823      7400
+ 3824              	.LASF0:
+ 3825 0360 666C6F61 		.ascii	"float\000"
+ 3825      7400
+ 3826              	.LASF107:
+ 3827 0366 6572726F 		.ascii	"error\000"
+ 3827      7200
+ 3828              	.LASF133:
+ 3829 036c 6E657874 		.ascii	"nextPidControllerPtr\000"
+ 3829      50696443 
+ 3829      6F6E7472 
+ 3829      6F6C6C65 
+ 3829      72507472 
+ 3830              	.LASF23:
+ 3831 0381 74726566 		.ascii	"trefs_t\000"
+ 3831      735F7400 
+ 3832              	.LASF31:
+ 3833 0389 705F7072 		.ascii	"p_prev\000"
+ 3833      657600
+ 3834              	.LASF25:
+ 3835 0390 74707269 		.ascii	"tprio_t\000"
+ 3835      6F5F7400 
+ 3836              	.LASF134:
+ 3837 0398 50696444 		.ascii	"PidDriveLut\000"
+ 3837      72697665 
+ 3837      4C757400 
+ 3838              	.LASF20:
+ 3839 03a4 5F426F6F 		.ascii	"_Bool\000"
+ 3839      6C00
+ 3840              	.LASF16:
+ 3841 03aa 696E7433 		.ascii	"int32_t\000"
+ 3841      325F7400 
+ 3842              	.LASF4:
+ 3843 03b2 756E7369 		.ascii	"unsigned char\000"
+ 3843      676E6564 
+ 3843      20636861 
+ 3843      7200
+ 3844              	.LASF137:
+ 3845 03c0 68656170 		.ascii	"heap_header\000"
+ 3845      5F686561 
+ 3845      64657200 
+ 3846              	.LASF139:
+ 3847 03cc 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 3847      52784275 
+ 3847      66666572 
+ 3847      00
+ 3848              	.LASF117:
+ 3849 03d9 73656E73 		.ascii	"sensor_reverse\000"
+ 3849      6F725F72 
+ 3849      65766572 
+ 3849      736500
+ 3850              	.LASF37:
+ 3851 03e8 705F7374 		.ascii	"p_state\000"
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 72
+
+
+ 3851      61746500 
+ 3852              	.LASF46:
+ 3853 03f0 705F6D74 		.ascii	"p_mtxlist\000"
+ 3853      786C6973 
+ 3853      7400
+ 3854              	.LASF111:
+ 3855 03fa 64657269 		.ascii	"derivative\000"
+ 3855      76617469 
+ 3855      766500
+ 3856              	.LASF127:
+ 3857 0405 50696443 		.ascii	"PidControllerInit\000"
+ 3857      6F6E7472 
+ 3857      6F6C6C65 
+ 3857      72496E69 
+ 3857      7400
+ 3858              	.LASF138:
+ 3859 0417 50696443 		.ascii	"PidControllerMakeLut\000"
+ 3859      6F6E7472 
+ 3859      6F6C6C65 
+ 3859      724D616B 
+ 3859      654C7574 
+ 3860              	.LASF72:
+ 3861 042c 65776D61 		.ascii	"ewmask\000"
+ 3861      736B00
+ 3862              	.LASF30:
+ 3863 0433 705F6E65 		.ascii	"p_next\000"
+ 3863      787400
+ 3864              	.LASF103:
+ 3865 043a 5F706964 		.ascii	"_pidController\000"
+ 3865      436F6E74 
+ 3865      726F6C6C 
+ 3865      657200
+ 3866              	.LASF38:
+ 3867 0449 705F666C 		.ascii	"p_flags\000"
+ 3867      61677300 
+ 3868              	.LASF114:
+ 3869 0451 64726976 		.ascii	"drive_raw\000"
+ 3869      655F7261 
+ 3869      7700
+ 3870              	.LASF140:
+ 3871 045b 63684865 		.ascii	"chHeapAlloc\000"
+ 3871      6170416C 
+ 3871      6C6F6300 
+ 3872              	.LASF45:
+ 3873 0467 705F6570 		.ascii	"p_epending\000"
+ 3873      656E6469 
+ 3873      6E6700
+ 3874              	.LASF108:
+ 3875 0472 6C617374 		.ascii	"last_error\000"
+ 3875      5F657272 
+ 3875      6F7200
+ 3876              	.LASF131:
+ 3877 047d 2E2E2F63 		.ascii	"../convex/cortex/opt/pidlib.c\000"
+ 3877      6F6E7665 
+ 3877      782F636F 
+ 3877      72746578 
+ 3877      2F6F7074 
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 73
+
+
+ 3878              	.LASF17:
+ 3879 049b 75696E74 		.ascii	"uint32_t\000"
+ 3879      33325F74 
+ 3879      00
+ 3880              	.LASF104:
+ 3881 04a4 656E6162 		.ascii	"enabled\000"
+ 3881      6C656400 
+ 3882              	.LASF66:
+ 3883 04ac 68656170 		.ascii	"heap\000"
+ 3883      00
+ 3884              	.LASF10:
+ 3885 04b1 6C6F6E67 		.ascii	"long unsigned int\000"
+ 3885      20756E73 
+ 3885      69676E65 
+ 3885      6420696E 
+ 3885      7400
+ 3886              	.LASF125:
+ 3887 04c3 636C6970 		.ascii	"clipp\000"
+ 3887      7000
+ 3888              	.LASF11:
+ 3889 04c9 63686172 		.ascii	"char\000"
+ 3889      00
+ 3890              	.LASF58:
+ 3891 04ce 6D5F6E65 		.ascii	"m_next\000"
+ 3891      787400
+ 3892              	.LASF28:
+ 3893 04d5 73797374 		.ascii	"systime_t\000"
+ 3893      696D655F 
+ 3893      7400
+ 3894              	.LASF47:
+ 3895 04df 705F7265 		.ascii	"p_realprio\000"
+ 3895      616C7072 
+ 3895      696F00
+ 3896              	.LASF119:
+ 3897 04ea 74617267 		.ascii	"target_value\000"
+ 3897      65745F76 
+ 3897      616C7565 
+ 3897      00
+ 3898              	.LASF106:
+ 3899 04f7 4B626961 		.ascii	"Kbias\000"
+ 3899      7300
+ 3900              	.LASF129:
+ 3901 04fd 50696443 		.ascii	"PidControllerInitWithBias\000"
+ 3901      6F6E7472 
+ 3901      6F6C6C65 
+ 3901      72496E69 
+ 3901      74576974 
+ 3902              	.LASF124:
+ 3903 0517 6F666673 		.ascii	"offset\000"
+ 3903      657400
+ 3904              	.LASF41:
+ 3905 051e 705F7469 		.ascii	"p_time\000"
+ 3905      6D6500
+ 3906              	.LASF53:
+ 3907 0525 696E7463 		.ascii	"intctx\000"
+ 3907      747800
+ 3908              	.LASF82:
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 74
+
+
+ 3909 052c 6B566578 		.ascii	"kVexSensorDigital_1\000"
+ 3909      53656E73 
+ 3909      6F724469 
+ 3909      67697461 
+ 3909      6C5F3100 
+ 3910              	.LASF83:
+ 3911 0540 6B566578 		.ascii	"kVexSensorDigital_2\000"
+ 3911      53656E73 
+ 3911      6F724469 
+ 3911      67697461 
+ 3911      6C5F3200 
+ 3912              	.LASF118:
+ 3913 0554 73656E73 		.ascii	"sensor_value\000"
+ 3913      6F725F76 
+ 3913      616C7565 
+ 3913      00
+ 3914              	.LASF85:
+ 3915 0561 6B566578 		.ascii	"kVexSensorDigital_4\000"
+ 3915      53656E73 
+ 3915      6F724469 
+ 3915      67697461 
+ 3915      6C5F3400 
+ 3916              	.LASF86:
+ 3917 0575 6B566578 		.ascii	"kVexSensorDigital_5\000"
+ 3917      53656E73 
+ 3917      6F724469 
+ 3917      67697461 
+ 3917      6C5F3500 
+ 3918              	.LASF87:
+ 3919 0589 6B566578 		.ascii	"kVexSensorDigital_6\000"
+ 3919      53656E73 
+ 3919      6F724469 
+ 3919      67697461 
+ 3919      6C5F3600 
+ 3920              	.LASF88:
+ 3921 059d 6B566578 		.ascii	"kVexSensorDigital_7\000"
+ 3921      53656E73 
+ 3921      6F724469 
+ 3921      67697461 
+ 3921      6C5F3700 
+ 3922              	.LASF89:
+ 3923 05b1 6B566578 		.ascii	"kVexSensorDigital_8\000"
+ 3923      53656E73 
+ 3923      6F724469 
+ 3923      67697461 
+ 3923      6C5F3800 
+ 3924              	.LASF90:
+ 3925 05c5 6B566578 		.ascii	"kVexSensorDigital_9\000"
+ 3925      53656E73 
+ 3925      6F724469 
+ 3925      67697461 
+ 3925      6C5F3900 
+ 3926              	.LASF39:
+ 3927 05d9 705F7265 		.ascii	"p_refs\000"
+ 3927      667300
+ 3928              	.LASF14:
+ 3929 05e0 75696E74 		.ascii	"uint8_t\000"
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 75
+
+
+ 3929      385F7400 
+ 3930              	.LASF62:
+ 3931 05e8 685F7072 		.ascii	"h_provider\000"
+ 3931      6F766964 
+ 3931      657200
+ 3932              	.LASF71:
+ 3933 05f3 77746F62 		.ascii	"wtobjp\000"
+ 3933      6A7000
+ 3934              	.LASF36:
+ 3935 05fa 705F6E61 		.ascii	"p_name\000"
+ 3935      6D6500
+ 3936              	.LASF94:
+ 3937 0601 6B566578 		.ascii	"kVexSensorIme_1\000"
+ 3937      53656E73 
+ 3937      6F72496D 
+ 3937      655F3100 
+ 3938              	.LASF95:
+ 3939 0611 6B566578 		.ascii	"kVexSensorIme_2\000"
+ 3939      53656E73 
+ 3939      6F72496D 
+ 3939      655F3200 
+ 3940              	.LASF96:
+ 3941 0621 6B566578 		.ascii	"kVexSensorIme_3\000"
+ 3941      53656E73 
+ 3941      6F72496D 
+ 3941      655F3300 
+ 3942              	.LASF97:
+ 3943 0631 6B566578 		.ascii	"kVexSensorIme_4\000"
+ 3943      53656E73 
+ 3943      6F72496D 
+ 3943      655F3400 
+ 3944              	.LASF98:
+ 3945 0641 6B566578 		.ascii	"kVexSensorIme_5\000"
+ 3945      53656E73 
+ 3945      6F72496D 
+ 3945      655F3500 
+ 3946              	.LASF99:
+ 3947 0651 6B566578 		.ascii	"kVexSensorIme_6\000"
+ 3947      53656E73 
+ 3947      6F72496D 
+ 3947      655F3600 
+ 3948              	.LASF100:
+ 3949 0661 6B566578 		.ascii	"kVexSensorIme_7\000"
+ 3949      53656E73 
+ 3949      6F72496D 
+ 3949      655F3700 
+ 3950              	.LASF101:
+ 3951 0671 6B566578 		.ascii	"kVexSensorIme_8\000"
+ 3951      53656E73 
+ 3951      6F72496D 
+ 3951      655F3800 
+ 3952              	.LASF44:
+ 3953 0681 705F6D73 		.ascii	"p_msg\000"
+ 3953      6700
+ 3954              	.LASF115:
+ 3955 0687 64726976 		.ascii	"drive_cmd\000"
+ 3955      655F636D 
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 76
+
+
+ 3955      6400
+ 3956              	.LASF57:
+ 3957 0691 6D5F6F77 		.ascii	"m_owner\000"
+ 3957      6E657200 
+ 3958              	.LASF33:
+ 3959 0699 705F6374 		.ascii	"p_ctx\000"
+ 3959      7800
+ 3960              	.LASF42:
+ 3961 069f 705F7761 		.ascii	"p_waiting\000"
+ 3961      6974696E 
+ 3961      6700
+ 3962              	.LASF135:
+ 3963 06a9 76657853 		.ascii	"vexSensorValueGet\000"
+ 3963      656E736F 
+ 3963      7256616C 
+ 3963      75654765 
+ 3963      7400
+ 3964              		.ident	"GCC: (GNU) 4.7.1"
+ARM GAS  C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s 			page 77
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 pidlib.c
+C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s:30     .text.PidControllerUpdate:00000000 $t
+C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s:36     .text.PidControllerUpdate:00000000 PidControllerUpdate
+C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s:408    .text.PidControllerUpdate:00000208 $d
+C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s:422    .text.PidControllerMakeLut:00000000 $t
+C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s:428    .text.PidControllerMakeLut:00000000 PidControllerMakeLut
+C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s:637    .text.PidControllerMakeLut:0000012c $d
+C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s:642    .text.PidControllerInit:00000000 $t
+C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s:648    .text.PidControllerInit:00000000 PidControllerInit
+C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s:755    .text.PidControllerInitWithBias:00000000 $t
+C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s:761    .text.PidControllerInitWithBias:00000000 PidControllerInitWithBias
+C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s:799    .bss.PidDriveLut:00000000 $d
+C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s:803    .bss.PidDriveLut:00000000 PidDriveLut
+                     .debug_frame:00000010 $d
+C:\Users\GRACEK~1\AppData\Local\Temp\cc03IwRN.s:421    .text.PidControllerUpdate:00000214 $t
+
+UNDEFINED SYMBOLS
+__aeabi_i2f
+__aeabi_fcmplt
+__aeabi_fcmpeq
+__aeabi_fadd
+__aeabi_fcmpgt
+__aeabi_fmul
+__aeabi_fsub
+__aeabi_f2d
+__aeabi_dmul
+__aeabi_d2iz
+__aeabi_f2iz
+vexSensorValueGet
+vexSensorIsAnalog
+__aeabi_fdiv
+__aeabi_f2uiz
+__aeabi_dsub
+__aeabi_ddiv
+__aeabi_dadd
+chHeapAlloc
